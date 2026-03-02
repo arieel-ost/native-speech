@@ -1,0 +1,59 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-width: 600px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 200;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.selectWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.label {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.select {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font: inherit;
+}
+
+.select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.planStatus {
+  color: var(--color-text-muted);
+}
