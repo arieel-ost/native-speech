@@ -1,0 +1,64 @@
+.heading {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  padding: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table td {
+  padding: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.875rem;
+}
+
+.phoneme {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  color: var(--color-primary-light);
+}
+
+.bar {
+  position: relative;
+  width: 100px;
+  height: 6px;
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+}
+
+.barLabel {
+  position: absolute;
+  right: -36px;
+  top: -5px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.count {
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+}

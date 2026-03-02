@@ -1,0 +1,14 @@
+.heading {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chart {
+  width: 100%;
+  max-width: 600px;
+}
