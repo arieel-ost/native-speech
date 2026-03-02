@@ -1,0 +1,65 @@
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--space-xxl) var(--space-xl);
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 200;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  text-align: center;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.planName {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.price {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 200;
+}
+
+.period {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+.features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
