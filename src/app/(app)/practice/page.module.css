@@ -1,0 +1,15 @@
+.page {
+  max-width: 960px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 200;
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-xl);
+}
