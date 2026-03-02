@@ -1,0 +1,18 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  max-width: 960px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
