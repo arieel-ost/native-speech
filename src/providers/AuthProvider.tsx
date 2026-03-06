@@ -1,28 +1,27 @@
 "use client";
 
 import { createContext, useContext, useState, useCallback } from "react";
-import { SessionProvider } from "next-auth/react";
 import type { ReactNode } from "react";
-import type { Session } from "next-auth";
 
-const demoSession: Session = {
-  user: { name: "Demo User", email: "demo@nativespeech.ai" },
-  expires: "2099-01-01T00:00:00.000Z",
+type User = { name: string; email: string };
+
+type AuthState = {
+  user: User | null;
+  toggle: () => void;
 };
 
-type AuthToggle = { loggedIn: boolean; toggle: () => void };
-const AuthToggleCtx = createContext<AuthToggle>({ loggedIn: true, toggle: () => {} });
-export const useAuthToggle = () => useContext(AuthToggleCtx);
+const demoUser: User = { name: "Demo User", email: "demo@nativespeech.ai" };
+
+const AuthCtx = createContext<AuthState>({ user: demoUser, toggle: () => {} });
+export const useAuth = () => useContext(AuthCtx);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [loggedIn, setLoggedIn] = useState(true);
-  const toggle = useCallback(() => setLoggedIn((v) => !v), []);
+  const [user, setUser] = useState<User | null>(demoUser);
+  const toggle = useCallback(() => setUser((u) => (u ? null : demoUser)), []);
 
   return (
-    <AuthToggleCtx.Provider value={{ loggedIn, toggle }}>
-      <SessionProvider session={loggedIn ? demoSession : undefined}>
-        {children}
-      </SessionProvider>
-    </AuthToggleCtx.Provider>
+    <AuthCtx.Provider value={{ user, toggle }}>
+      {children}
+    </AuthCtx.Provider>
   );
 }

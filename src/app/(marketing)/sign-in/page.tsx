@@ -1,10 +1,12 @@
 "use client";
 
-import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { Card, Button } from "@/components/ui";
 import styles from "./page.module.css";
 
 export default function SignInPage() {
+  const router = useRouter();
+
   return (
     <div className={styles.container}>
       <Card variant="outlined">
@@ -12,13 +14,7 @@ export default function SignInPage() {
           <h1 className={styles.title}>Welcome back</h1>
           <Button
             className={styles.submitBtn}
-            onClick={() =>
-              signIn("credentials", {
-                email: "demo@nativespeech.ai",
-                password: "stub",
-                callbackUrl: "/dashboard",
-              })
-            }
+            onClick={() => router.push("/dashboard")}
           >
             Continue as Demo User
           </Button>
