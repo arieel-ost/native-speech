@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { Button, Card } from "@/components/ui";
 import type { DrillSession as DrillSessionType } from "@/lib/mock-data";
 import styles from "./DrillSession.module.css";
@@ -10,10 +10,97 @@ interface DrillSessionProps {
   categoryName: string;
 }
 
+type RecordingState = "idle" | "recording" | "processing" | "done";
+
 export function DrillSession({ drills, categoryName }: DrillSessionProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isRecording, setIsRecording] = useState(false);
+  const [recordingState, setRecordingState] = useState<RecordingState>("idle");
+  const [audioUrl, setAudioUrl] = useState<string | null>(null);
+  const [feedback, setFeedback] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const chunksRef = useRef<Blob[]>([]);
   const drill = drills[currentIndex];
+
+  const startRecording = useCallback(async () => {
+    try {
+      setError(null);
+      setFeedback(null);
+      setAudioUrl(null);
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mediaRecorder = new MediaRecorder(stream);
+      mediaRecorderRef.current = mediaRecorder;
+      chunksRef.current = [];
+
+      mediaRecorder.ondataavailable = (e) => {
+        if (e.data.size > 0) chunksRef.current.push(e.data);
+      };
+
+      mediaRecorder.onstop = async () => {
+        stream.getTracks().forEach((t) => t.stop());
+        const blob = new Blob(chunksRef.current, { type: mediaRecorder.mimeType });
+        const url = URL.createObjectURL(blob);
+        setAudioUrl(url);
+        await analyze(blob);
+      };
+
+      mediaRecorder.start();
+      setRecordingState("recording");
+    } catch {
+      setError("Microphone access denied. Please allow microphone access and try again.");
+    }
+  }, []);
+
+  const stopRecording = useCallback(() => {
+    if (mediaRecorderRef.current?.state === "recording") {
+      mediaRecorderRef.current.stop();
+    }
+  }, []);
+
+  const analyze = async (blob: Blob) => {
+    if (!drill) return;
+    setRecordingState("processing");
+    try {
+      const formData = new FormData();
+      formData.append("audio", blob, "recording.webm");
+      formData.append("prompt", drill.prompt);
+      formData.append("phonemes", JSON.stringify(drill.targetPhonemes));
+
+      const res = await fetch("/api/analyze", { method: "POST", body: formData });
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Analysis failed");
+        setRecordingState("done");
+        return;
+      }
+
+      setFeedback(data.feedback);
+      setRecordingState("done");
+    } catch {
+      setError("Failed to connect to analysis service.");
+      setRecordingState("done");
+    }
+  };
+
+  const handleRecordClick = () => {
+    if (recordingState === "recording") {
+      stopRecording();
+    } else {
+      startRecording();
+    }
+  };
+
+  const handleNav = (direction: "prev" | "next") => {
+    const newIndex = direction === "prev"
+      ? Math.max(0, currentIndex - 1)
+      : Math.min(drills.length - 1, currentIndex + 1);
+    setCurrentIndex(newIndex);
+    setRecordingState("idle");
+    setAudioUrl(null);
+    setFeedback(null);
+    setError(null);
+  };
 
   if (!drill) return <p>No drills available for this category.</p>;
 
@@ -39,35 +126,56 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       </Card>
 
       <button
-        className={`${styles.recordBtn} ${isRecording ? styles.recording : ""}`}
-        onClick={() => setIsRecording(!isRecording)}
-        aria-label={isRecording ? "Stop recording" : "Start recording"}
+        className={`${styles.recordBtn} ${recordingState === "recording" ? styles.recording : ""}`}
+        onClick={handleRecordClick}
+        disabled={recordingState === "processing"}
+        aria-label={recordingState === "recording" ? "Stop recording" : "Start recording"}
       >
-        <span className={styles.recordIcon}>{isRecording ? "■" : "●"}</span>
-        <span>{isRecording ? "Stop" : "Record"}</span>
+        <span className={styles.recordIcon}>
+          {recordingState === "recording" ? "\u25A0" : "\u25CF"}
+        </span>
+        <span>
+          {recordingState === "recording"
+            ? "Stop"
+            : recordingState === "processing"
+              ? "..."
+              : "Record"}
+        </span>
       </button>
+
+      {audioUrl && (
+        <audio controls src={audioUrl} className={styles.audioPlayer} />
+      )}
 
       <Card variant="outlined">
         <div className={styles.feedback}>
-          <p className={styles.feedbackText}>
-            {isRecording
-              ? "Listening..."
-              : "Your pronunciation feedback will appear here after recording."}
-          </p>
+          {error ? (
+            <p className={styles.errorText}>{error}</p>
+          ) : recordingState === "processing" ? (
+            <p className={styles.feedbackText}>Analyzing your pronunciation...</p>
+          ) : feedback ? (
+            <div className={styles.feedbackContent}>{feedback}</div>
+          ) : (
+            <p className={styles.feedbackText}>
+              {recordingState === "recording"
+                ? "Listening..."
+                : "Your pronunciation feedback will appear here after recording."}
+            </p>
+          )}
         </div>
       </Card>
 
       <div className={styles.nav}>
         <Button
           variant="secondary"
-          onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))}
+          onClick={() => handleNav("prev")}
           disabled={currentIndex === 0}
         >
           Previous
         </Button>
         <Button
           variant="secondary"
-          onClick={() => setCurrentIndex(Math.min(drills.length - 1, currentIndex + 1))}
+          onClick={() => handleNav("next")}
           disabled={currentIndex === drills.length - 1}
         >
           Next
