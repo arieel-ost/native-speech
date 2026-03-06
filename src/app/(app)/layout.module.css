@@ -18,6 +18,9 @@
 @media (max-width: 768px) {
   .main {
     margin-left: 0;
-    padding-bottom: 72px; /* space for tab bar */
+    padding-bottom: calc(72px + env(safe-area-inset-bottom));
+  }
+  .content {
+    padding: var(--space-md);
   }
 }

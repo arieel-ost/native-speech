@@ -32,6 +32,16 @@ export default function SignInPage() {
               Continue with Google
             </Button>
           </form>
+          <form
+            action={async () => {
+              "use server";
+              await signIn("credentials", { email: "demo@nativespeech.ai", password: "" });
+            }}
+          >
+            <Button type="submit" variant="secondary" className={styles.submitBtn}>
+              Continue as Demo User
+            </Button>
+          </form>
           <p className={styles.footer}>
             Don&apos;t have an account? <Link href="/sign-up" className={styles.link}>Sign up</Link>
           </p>

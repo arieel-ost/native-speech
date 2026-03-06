@@ -33,4 +33,9 @@
   .overview {
     flex-direction: column;
   }
+  .stats {
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

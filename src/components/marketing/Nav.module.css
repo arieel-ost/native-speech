@@ -5,6 +5,7 @@
   padding: var(--space-md) var(--space-xl);
   max-width: 1200px;
   margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -49,8 +50,57 @@
   gap: var(--space-sm);
 }
 
+.menuBtn {
+  display: none;
+  font-size: 1.25rem;
+  color: var(--color-text);
+  padding: var(--space-xs);
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileMenu {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .nav {
+    padding: var(--space-md);
+  }
+
   .links {
     display: none;
+  }
+
+  .ctaDesktop {
+    display: none;
+  }
+
+  .menuBtn {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: var(--space-md) 0;
+    gap: var(--space-xs);
+  }
+
+  .mobileLink {
+    display: block;
+    padding: var(--space-sm) var(--space-sm);
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+  }
+
+  .mobileLink:hover {
+    color: var(--color-text);
+    background: var(--color-surface-alt);
   }
 }

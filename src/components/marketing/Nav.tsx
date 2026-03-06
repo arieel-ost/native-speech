@@ -1,8 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui";
 import styles from "./Nav.module.css";
 
 export function Nav() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <nav className={styles.nav}>
       <Link href="/" className={styles.logo}>
@@ -18,10 +23,26 @@ export function Nav() {
         <Link href="/sign-in">
           <Button variant="ghost" size="sm">Sign In</Button>
         </Link>
-        <Link href="/sign-up">
+        <Link href="/sign-up" className={styles.ctaDesktop}>
           <Button variant="primary" size="sm">Get Started</Button>
         </Link>
+        <button
+          className={styles.menuBtn}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+        >
+          {menuOpen ? "✕" : "☰"}
+        </button>
       </div>
+      {menuOpen && (
+        <div className={styles.mobileMenu}>
+          <Link href="/#features" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Features</Link>
+          <Link href="/pricing" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Pricing</Link>
+          <Link href="/about" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>About</Link>
+          <Link href="/sign-up" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Get Started</Link>
+        </div>
+      )}
     </nav>
   );
 }

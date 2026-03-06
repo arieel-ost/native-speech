@@ -9,6 +9,7 @@ export function PhonemeTable() {
   return (
     <div>
       <h3 className={styles.heading}>Per-Phoneme Breakdown</h3>
+      <div className={styles.tableWrapper}>
       <table className={styles.table}>
         <thead>
           <tr>
@@ -36,6 +37,7 @@ export function PhonemeTable() {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
