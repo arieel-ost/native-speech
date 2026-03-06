@@ -11,7 +11,7 @@ export default function SignInPage() {
           <form
             action={async () => {
               "use server";
-              await signIn("credentials", { email: "demo@nativespeech.ai", password: "stub" });
+              await signIn("credentials", { email: "demo@nativespeech.ai", password: "stub", redirectTo: "/dashboard" });
             }}
           >
             <Button type="submit" className={styles.submitBtn}>Continue as Demo User</Button>
