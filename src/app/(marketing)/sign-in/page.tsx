@@ -1,4 +1,6 @@
-import { signIn } from "@/auth";
+"use client";
+
+import { signIn } from "next-auth/react";
 import { Card, Button } from "@/components/ui";
 import styles from "./page.module.css";
 
@@ -8,14 +10,18 @@ export default function SignInPage() {
       <Card variant="outlined">
         <div className={styles.form}>
           <h1 className={styles.title}>Welcome back</h1>
-          <form
-            action={async () => {
-              "use server";
-              await signIn("credentials", { email: "demo@nativespeech.ai", password: "stub", redirectTo: "/dashboard" });
-            }}
+          <Button
+            className={styles.submitBtn}
+            onClick={() =>
+              signIn("credentials", {
+                email: "demo@nativespeech.ai",
+                password: "stub",
+                callbackUrl: "/dashboard",
+              })
+            }
           >
-            <Button type="submit" className={styles.submitBtn}>Continue as Demo User</Button>
-          </form>
+            Continue as Demo User
+          </Button>
         </div>
       </Card>
     </div>
