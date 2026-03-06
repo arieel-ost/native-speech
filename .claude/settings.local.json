@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(do touch:*)"
+      "Bash(do touch:*)",
+      "Bash(vercel:*)",
+      "Bash(bun:*)"
     ]
   }
 }
