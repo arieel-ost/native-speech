@@ -9,6 +9,8 @@
 
 html {
   color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -34,6 +36,7 @@ button {
 
 input, select, textarea {
   font: inherit;
+  font-size: 16px; /* prevents iOS zoom on focus */
 }
 
 img, svg {

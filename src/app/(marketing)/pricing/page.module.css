@@ -59,6 +59,12 @@
 }
 
 @media (max-width: 768px) {
+  .page {
+    padding: var(--space-xl) var(--space-md);
+  }
+  .title {
+    font-size: 1.75rem;
+  }
   .grid {
     grid-template-columns: 1fr;
   }

@@ -65,8 +65,15 @@
 @media (max-width: 768px) {
   .inner {
     flex-direction: column;
+    padding: var(--space-lg) var(--space-md);
   }
   .columns {
     gap: var(--space-xl);
+  }
+  .bottom {
+    padding: var(--space-md);
+  }
+  .link {
+    padding: var(--space-xs) 0;
   }
 }

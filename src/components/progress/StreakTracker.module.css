@@ -47,3 +47,11 @@
   font-size: 0.625rem;
   color: var(--color-text-muted);
 }
+
+@media (max-width: 480px) {
+  .days {
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

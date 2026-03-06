@@ -50,3 +50,12 @@
   font-size: 0.875rem;
   line-height: 1.6;
 }
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 0 var(--space-md);
+  }
+  .heading {
+    font-size: 1.75rem;
+  }
+}

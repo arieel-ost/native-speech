@@ -78,3 +78,24 @@
     height: 280px;
   }
 }
+
+@media (max-width: 480px) {
+  .hero {
+    padding: var(--space-xl) var(--space-md);
+    min-height: auto;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .rings {
+    width: 200px;
+    height: 200px;
+  }
+}
