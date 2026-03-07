@@ -20,21 +20,29 @@ export async function POST(request: NextRequest) {
     const arrayBuffer = await audio.arrayBuffer();
     const base64Audio = Buffer.from(arrayBuffer).toString("base64");
 
-    const geminiPrompt = `You are a pronunciation coach. The user is practicing English pronunciation.
+    console.log("Audio size:", arrayBuffer.byteLength, "bytes");
+    console.log("Audio mimeType:", audio.type);
 
-They were asked to read aloud: "${prompt}"
+    const geminiPrompt = `You are a strict pronunciation evaluator. The user is practicing English pronunciation.
+
+They were asked to read this EXACT text aloud: "${prompt}"
 Target phonemes to evaluate: ${phonemes ?? "general"}
 
-Listen to their recording and provide detailed feedback on:
-- Overall intelligibility
-- Specific phoneme accuracy for the target sounds
-- Any other pronunciation issues you notice
-- Concrete tips for improvement
+IMPORTANT INSTRUCTIONS:
+1. First, transcribe EXACTLY what the user actually said in the recording. Write it word for word.
+2. Compare the transcription to the expected text above. Note any differences — wrong words, missing words, added words.
+3. If the user said something completely different from the expected text, say so clearly. Do NOT pretend they read the correct text.
+4. Only if the text roughly matches, evaluate pronunciation of the target phonemes.
+5. Be honest and direct. Do not give praise unless it is genuinely earned.
 
-Be encouraging but honest.`;
+Format your response as:
+**What you said:** [exact transcription]
+**Expected text:** [the prompt above]
+**Match:** [yes/partial/no]
+**Pronunciation feedback:** [detailed feedback if text matches, or correction if it doesn't]`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-2.5-flash",
       contents: [
         {
           inlineData: {

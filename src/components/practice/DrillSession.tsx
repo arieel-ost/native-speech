@@ -61,6 +61,10 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
     if (!drill) return;
     setRecordingState("processing");
     try {
+      console.log("[Recording] Blob size:", blob.size, "bytes");
+      console.log("[Recording] Blob type:", blob.type);
+      console.log("[Recording] Sending to /api/analyze...");
+
       const formData = new FormData();
       formData.append("audio", blob, "recording.webm");
       formData.append("prompt", drill.prompt);
@@ -68,6 +72,9 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
 
       const res = await fetch("/api/analyze", { method: "POST", body: formData });
       const data = await res.json();
+
+      console.log("[Recording] Response status:", res.status);
+      console.log("[Recording] Feedback:", data.feedback?.slice(0, 200) ?? data.error);
 
       if (!res.ok) {
         setError(data.error || "Analysis failed");
