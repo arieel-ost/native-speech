@@ -74,18 +74,25 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       const data = await res.json();
 
       console.log("[Recording] Response status:", res.status);
-      console.log("[Recording] Feedback:", data.feedback?.slice(0, 200) ?? data.error);
+      console.log("[Recording] Feedback:", data.error ?? JSON.stringify(data.feedback)?.slice(0, 300));
 
       if (!res.ok) {
-        setError(data.error || "Analysis failed");
+        const errMsg = data.details
+          ? `${data.error}: ${data.details}`
+          : data.error || "Analysis failed";
+        console.error("[Recording] Server error:", errMsg);
+        setError(errMsg);
         setRecordingState("done");
         return;
       }
 
+      console.log("[Recording] Analysis result:", JSON.stringify(data.feedback, null, 2));
       setFeedback(data.feedback);
       setRecordingState("done");
-    } catch {
-      setError("Failed to connect to analysis service.");
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      console.error("[Recording] Fetch error:", message);
+      setError(`Failed to connect to analysis service: ${message}`);
       setRecordingState("done");
     }
   };
@@ -161,7 +168,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
           ) : recordingState === "processing" ? (
             <p className={styles.feedbackText}>Analyzing your pronunciation...</p>
           ) : feedback ? (
-            <div className={styles.feedbackContent}>{feedback}</div>
+            <pre className={styles.feedbackContent}>{JSON.stringify(feedback, null, 2)}</pre>
           ) : (
             <p className={styles.feedbackText}>
               {recordingState === "recording"
