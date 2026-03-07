@@ -1,7 +1,56 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { NextRequest, NextResponse } from "next/server";
 
+export type AnalysisMode = "advanced" | "simplified" | "json";
+
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+
+const simplifiedSchema = {
+  type: Type.OBJECT,
+  properties: {
+    score: {
+      type: Type.NUMBER,
+      description:
+        "Overall pronunciation score from 1 (very hard to understand) to 10 (sounds like a native speaker)",
+    },
+    summary: {
+      type: Type.STRING,
+      description:
+        "A short, friendly paragraph summarizing how the speaker did. Use plain everyday language — no technical terms, no IPA symbols, no phonetics jargon. Talk about specific sounds or words that were tricky.",
+    },
+    strengths: {
+      type: Type.ARRAY,
+      items: { type: Type.STRING },
+      description:
+        "1-3 things the speaker did well, in simple everyday language",
+    },
+    improvements: {
+      type: Type.ARRAY,
+      items: {
+        type: Type.OBJECT,
+        properties: {
+          issue: {
+            type: Type.STRING,
+            description:
+              "What sounded off, described in plain language (e.g., 'The \"th\" in \"weather\" sounded like a \"d\"')",
+          },
+          tip: {
+            type: Type.STRING,
+            description:
+              "A simple, practical tip to fix it (e.g., 'Try putting your tongue between your teeth and blowing gently')",
+          },
+        },
+        required: ["issue", "tip"],
+      },
+      description: "1-3 specific things to work on, with easy-to-follow tips",
+    },
+    textMatch: {
+      type: Type.STRING,
+      description: "Whether the speaker read the expected text: yes, partial, or no",
+    },
+  },
+  required: ["score", "summary", "strengths", "improvements", "textMatch"],
+};
 
 const analysisSchema = {
   type: Type.OBJECT,
@@ -134,6 +183,7 @@ export async function POST(request: NextRequest) {
     const audio = formData.get("audio") as Blob | null;
     const prompt = formData.get("prompt") as string | null;
     const phonemes = formData.get("phonemes") as string | null;
+    const mode = (formData.get("mode") as AnalysisMode | null) ?? "advanced";
 
     if (!audio || !prompt) {
       return NextResponse.json(
@@ -146,13 +196,14 @@ export async function POST(request: NextRequest) {
     const base64Audio = Buffer.from(arrayBuffer).toString("base64");
 
     console.log("--- Analyze request ---");
+    console.log("Mode:", mode);
     console.log("Audio size:", arrayBuffer.byteLength, "bytes");
     console.log("Audio mimeType:", audio.type);
     console.log("Prompt:", prompt);
     console.log("Phonemes:", phonemes);
     console.log("GEMINI_API_KEY set:", !!process.env.GEMINI_API_KEY);
 
-    const geminiPrompt = `You are an expert phonetician and accent coach. Listen carefully to this audio recording and analyse the SOUNDS — how they are physically produced — not just the words.
+    const advancedPrompt = `You are an expert phonetician and accent coach. Listen carefully to this audio recording and analyse the SOUNDS — how they are physically produced — not just the words.
 
 The speaker was asked to read: "${prompt}"
 Target phonemes to focus on: ${phonemes ?? "general"}
@@ -160,6 +211,16 @@ Target phonemes to focus on: ${phonemes ?? "general"}
 Analyse the audio for: accent origin and telltale patterns, per-phoneme production quality (tongue position, voicing, aspiration, vowel quality), sound substitutions, stress/rhythm/intonation, and give concrete practice tips.
 
 Be honest and detailed. This is for serious pronunciation improvement, not encouragement.`;
+
+    const simplifiedPrompt = `You are a friendly pronunciation coach helping someone improve their English. Listen to this audio recording and give simple, practical feedback. Do NOT use any technical terms, IPA symbols, or phonetics jargon — explain everything like you would to a friend.
+
+The speaker was asked to read: "${prompt}"
+
+Focus on: which specific words or sounds were tricky, what the speaker did well, and give easy practical tips to improve. Be honest but encouraging. Use plain everyday language.`;
+
+    const isSimplified = mode === "simplified";
+    const geminiPrompt = isSimplified ? simplifiedPrompt : advancedPrompt;
+    const responseSchema = isSimplified ? simplifiedSchema : analysisSchema;
 
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
@@ -174,14 +235,14 @@ Be honest and detailed. This is for serious pronunciation improvement, not encou
       ],
       config: {
         responseMimeType: "application/json",
-        responseSchema: analysisSchema,
+        responseSchema,
       },
     });
 
     console.log("Gemini raw response:", response.text?.slice(0, 500));
     const analysis = JSON.parse(response.text ?? "{}");
     console.log("--- Analyze complete ---");
-    return NextResponse.json({ feedback: analysis });
+    return NextResponse.json({ feedback: analysis, mode });
   } catch (error: unknown) {
     const err = error instanceof Error ? error : new Error(String(error));
     console.error("--- Analyze API error ---");
