@@ -1,0 +1,117 @@
+.feedback {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.scoreSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.scoreHeader {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+}
+
+.scoreValue {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.scoreMax {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.scoreTrack {
+  height: 6px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.scoreFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.6s ease;
+}
+
+.summary {
+  font-size: 0.925rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.sectionLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.strengthItem {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  padding-left: var(--space-md);
+  position: relative;
+}
+
+.strengthItem::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.improvements {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.improvementCard {
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  border-left: 3px solid var(--color-accent);
+}
+
+.issue {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.tip {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.textMatchNote {
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  text-align: center;
+}
