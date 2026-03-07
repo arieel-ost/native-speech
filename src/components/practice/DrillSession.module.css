@@ -82,8 +82,41 @@
   animation: pulse 1.5s ease infinite;
 }
 
+.recordBtn.cancel {
+  width: auto;
+  height: auto;
+  border-radius: var(--radius-md);
+  flex-direction: row;
+  padding: var(--space-sm) var(--space-lg);
+  border-color: var(--color-text-muted);
+  color: var(--color-text-muted);
+}
+
+.recordBtn.cancel:hover {
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+.cancel .recordIcon {
+  font-size: 1rem;
+}
+
+.recordBtn.retry {
+  width: auto;
+  height: auto;
+  border-radius: var(--radius-md);
+  flex-direction: row;
+  padding: var(--space-sm) var(--space-lg);
+  border-color: var(--color-primary);
+  color: var(--color-primary-light);
+}
+
 .recordIcon {
   font-size: 1.5rem;
+}
+
+.retry .recordIcon {
+  font-size: 1.1rem;
 }
 
 .recording .recordIcon {
@@ -97,6 +130,9 @@
 
 .feedback {
   min-height: 80px;
+}
+
+.feedback:not(:has(> div)) {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,4 +147,21 @@
 .nav {
   display: flex;
   justify-content: space-between;
+}
+
+.audioPlayer {
+  width: 100%;
+  border-radius: var(--radius-md);
+}
+
+.errorText {
+  color: var(--color-error);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.feedbackContent {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
 }
