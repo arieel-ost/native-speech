@@ -2,6 +2,8 @@
 
 import { useState, useRef, useCallback } from "react";
 import { Button, Card } from "@/components/ui";
+import { AudioPlayer } from "./AudioPlayer";
+import { FeedbackDisplay } from "./FeedbackDisplay";
 import type { DrillSession as DrillSessionType } from "@/lib/mock-data";
 import styles from "./DrillSession.module.css";
 
@@ -16,10 +18,11 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [recordingState, setRecordingState] = useState<RecordingState>("idle");
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
-  const [feedback, setFeedback] = useState<string | null>(null);
+  const [feedback, setFeedback] = useState<Record<string, unknown> | null>(null);
   const [error, setError] = useState<string | null>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
+  const abortRef = useRef<AbortController | null>(null);
   const drill = drills[currentIndex];
 
   const startRecording = useCallback(async () => {
@@ -57,9 +60,17 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
     }
   }, []);
 
+  const cancelAnalysis = useCallback(() => {
+    abortRef.current?.abort();
+    abortRef.current = null;
+    setRecordingState("done");
+  }, []);
+
   const analyze = async (blob: Blob) => {
     if (!drill) return;
     setRecordingState("processing");
+    const controller = new AbortController();
+    abortRef.current = controller;
     try {
       console.log("[Recording] Blob size:", blob.size, "bytes");
       console.log("[Recording] Blob type:", blob.type);
@@ -70,7 +81,11 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       formData.append("prompt", drill.prompt);
       formData.append("phonemes", JSON.stringify(drill.targetPhonemes));
 
-      const res = await fetch("/api/analyze", { method: "POST", body: formData });
+      const res = await fetch("/api/analyze", {
+        method: "POST",
+        body: formData,
+        signal: controller.signal,
+      });
       const data = await res.json();
 
       console.log("[Recording] Response status:", res.status);
@@ -90,16 +105,33 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       setFeedback(data.feedback);
       setRecordingState("done");
     } catch (err) {
+      if (err instanceof DOMException && err.name === "AbortError") {
+        console.log("[Recording] Analysis cancelled");
+        return;
+      }
       const message = err instanceof Error ? err.message : String(err);
       console.error("[Recording] Fetch error:", message);
       setError(`Failed to connect to analysis service: ${message}`);
       setRecordingState("done");
+    } finally {
+      abortRef.current = null;
     }
   };
 
+  const handleRetry = () => {
+    setAudioUrl(null);
+    setError(null);
+    // keep previous feedback visible during new recording
+    startRecording();
+  };
+
   const handleRecordClick = () => {
-    if (recordingState === "recording") {
+    if (recordingState === "processing") {
+      cancelAnalysis();
+    } else if (recordingState === "recording") {
       stopRecording();
+    } else if (recordingState === "done") {
+      handleRetry();
     } else {
       startRecording();
     }
@@ -140,26 +172,33 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       </Card>
 
       <button
-        className={`${styles.recordBtn} ${recordingState === "recording" ? styles.recording : ""}`}
+        className={`${styles.recordBtn} ${recordingState === "recording" ? styles.recording : ""} ${recordingState === "done" ? styles.retry : ""} ${recordingState === "processing" ? styles.cancel : ""}`}
         onClick={handleRecordClick}
-        disabled={recordingState === "processing"}
-        aria-label={recordingState === "recording" ? "Stop recording" : "Start recording"}
+        aria-label={
+          recordingState === "processing" ? "Cancel analysis"
+          : recordingState === "recording" ? "Stop recording"
+          : recordingState === "done" ? "Try again"
+          : "Start recording"
+        }
       >
         <span className={styles.recordIcon}>
-          {recordingState === "recording" ? "\u25A0" : "\u25CF"}
+          {recordingState === "processing" ? "\u2715"
+          : recordingState === "recording" ? "\u25A0"
+          : recordingState === "done" ? "\u21BB"
+          : "\u25CF"}
         </span>
         <span>
-          {recordingState === "recording"
-            ? "Stop"
-            : recordingState === "processing"
-              ? "..."
-              : "Record"}
+          {recordingState === "processing"
+            ? "Cancel"
+            : recordingState === "recording"
+              ? "Stop"
+              : recordingState === "done"
+                ? "Retry"
+                : "Record"}
         </span>
       </button>
 
-      {audioUrl && (
-        <audio controls src={audioUrl} className={styles.audioPlayer} />
-      )}
+      {audioUrl && <AudioPlayer src={audioUrl} />}
 
       <Card variant="outlined">
         <div className={styles.feedback}>
@@ -168,7 +207,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
           ) : recordingState === "processing" ? (
             <p className={styles.feedbackText}>Analyzing your pronunciation...</p>
           ) : feedback ? (
-            <pre className={styles.feedbackContent}>{JSON.stringify(feedback, null, 2)}</pre>
+            <FeedbackDisplay data={feedback as never} />
           ) : (
             <p className={styles.feedbackText}>
               {recordingState === "recording"
@@ -183,14 +222,14 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
         <Button
           variant="secondary"
           onClick={() => handleNav("prev")}
-          disabled={currentIndex === 0}
+          disabled={currentIndex === 0 || recordingState === "processing" || recordingState === "recording"}
         >
           Previous
         </Button>
         <Button
           variant="secondary"
           onClick={() => handleNav("next")}
-          disabled={currentIndex === drills.length - 1}
+          disabled={currentIndex === drills.length - 1 || recordingState === "processing" || recordingState === "recording"}
         >
           Next
         </Button>
