@@ -81,6 +81,16 @@
   background: rgba(99, 102, 241, 0.08);
 }
 
+.assessmentLink {
+  border-color: var(--color-primary);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.assessmentLink:hover {
+  background: rgba(99, 102, 241, 0.15);
+  box-shadow: var(--shadow-glow);
+}
+
 .demoIcon {
   font-family: var(--font-mono);
   font-size: 0.9rem;

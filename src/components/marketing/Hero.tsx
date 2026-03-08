@@ -24,8 +24,12 @@ export function Hero() {
           </Link>
         </div>
         <div className={styles.demoSection}>
-          <span className={styles.demoLabel}>Try a demo drill</span>
+          <span className={styles.demoLabel}>Try it now — no account needed</span>
           <div className={styles.demoLinks}>
+            <Link href="/onboarding" className={`${styles.demoLink} ${styles.assessmentLink}`}>
+              <span className={styles.demoIcon}>&#x1F399;</span>
+              Free Accent Assessment
+            </Link>
             <Link href="/practice/th-sounds" className={styles.demoLink}>
               <span className={styles.demoIcon}>θ</span>
               TH Sounds
