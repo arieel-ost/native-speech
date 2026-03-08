@@ -22,12 +22,13 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
   const [recordingState, setRecordingState] = useState<RecordingState>("idle");
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<Record<string, unknown> | null>(null);
-  const [feedbackMode, setFeedbackMode] = useState<AnalysisMode | null>(null);
+  const [feedbackMode, setFeedbackMode] = useState<AnalysisMode>("simplified");
   const [analysisMode, setAnalysisMode] = useState<AnalysisMode>("simplified");
   const [error, setError] = useState<string | null>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const abortRef = useRef<AbortController | null>(null);
+  const lastBlobRef = useRef<Blob | null>(null);
   const drill = drills[currentIndex];
 
   const startRecording = useCallback(async () => {
@@ -47,6 +48,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       mediaRecorder.onstop = async () => {
         stream.getTracks().forEach((t) => t.stop());
         const blob = new Blob(chunksRef.current, { type: mediaRecorder.mimeType });
+        lastBlobRef.current = blob;
         const url = URL.createObjectURL(blob);
         setAudioUrl(url);
         await analyze(blob);
@@ -71,17 +73,19 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
     setRecordingState("done");
   }, []);
 
-  const analyze = async (blob: Blob) => {
+  const analyze = async (blob: Blob, modeOverride?: AnalysisMode) => {
     if (!drill) return;
     setRecordingState("processing");
+    setError(null);
     const controller = new AbortController();
     abortRef.current = controller;
+    const activeMode = modeOverride ?? analysisMode;
     try {
       console.log("[Recording] Blob size:", blob.size, "bytes");
       console.log("[Recording] Blob type:", blob.type);
       console.log("[Recording] Sending to /api/analyze...");
 
-      const effectiveMode = analysisMode === "json" ? "advanced" : analysisMode;
+      const effectiveMode = activeMode === "json" ? "advanced" : activeMode;
       const formData = new FormData();
       formData.append("audio", blob, "recording.webm");
       formData.append("prompt", drill.prompt);
@@ -110,7 +114,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
 
       console.log("[Recording] Analysis result:", JSON.stringify(data.feedback, null, 2));
       setFeedback(data.feedback);
-      setFeedbackMode(analysisMode);
+      setFeedbackMode(activeMode);
       setRecordingState("done");
     } catch (err) {
       if (err instanceof DOMException && err.name === "AbortError") {
@@ -145,6 +149,21 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
     }
   };
 
+  const handleModeChange = (mode: AnalysisMode) => {
+    setAnalysisMode(mode);
+    // JSON is a display-only toggle — no re-analysis needed
+    if (mode === "json") return;
+    // If we have feedback from a different API mode, re-analyze with the stored blob
+    if (feedback && feedbackMode !== mode && lastBlobRef.current) {
+      // feedbackMode tracks which API schema produced the current data;
+      // json doesn't count as a schema change since it reuses advanced
+      const currentSchema = feedbackMode === "json" ? "advanced" : feedbackMode;
+      if (currentSchema !== mode) {
+        analyze(lastBlobRef.current, mode);
+      }
+    }
+  };
+
   const handleNav = (direction: "prev" | "next") => {
     const newIndex = direction === "prev"
       ? Math.max(0, currentIndex - 1)
@@ -153,8 +172,9 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
     setRecordingState("idle");
     setAudioUrl(null);
     setFeedback(null);
-    setFeedbackMode(null);
+    setFeedbackMode("simplified");
     setError(null);
+    lastBlobRef.current = null;
   };
 
   if (!drill) return <p>No drills available for this category.</p>;
@@ -214,7 +234,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
           <button
             key={mode}
             className={`${styles.modeBtn} ${analysisMode === mode ? styles.modeBtnActive : ""}`}
-            onClick={() => setAnalysisMode(mode)}
+            onClick={() => handleModeChange(mode)}
             disabled={recordingState === "recording" || recordingState === "processing"}
           >
             {mode === "simplified" ? "Simple" : mode === "advanced" ? "Advanced" : "JSON"}
@@ -229,7 +249,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
           ) : recordingState === "processing" ? (
             <p className={styles.feedbackText}>Analyzing your pronunciation...</p>
           ) : feedback ? (
-            feedbackMode === "json" ? (
+            analysisMode === "json" ? (
               <JsonFeedbackDisplay data={feedback} />
             ) : feedbackMode === "simplified" ? (
               <SimplifiedFeedbackDisplay data={feedback as never} />
