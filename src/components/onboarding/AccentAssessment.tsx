@@ -198,7 +198,7 @@ export function AccentAssessment() {
 
           <button
             className={styles.backLink}
-            onClick={() => { setStep("language"); setAudioUrl(null); setError(null); }}
+            onClick={() => { stopRecording(); setStep("language"); setAudioUrl(null); setError(null); }}
           >
             &larr; Choose a different language
           </button>

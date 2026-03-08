@@ -105,6 +105,7 @@ export async function POST(request: NextRequest) {
 
     const arrayBuffer = await audio.arrayBuffer();
     const base64Audio = Buffer.from(arrayBuffer).toString("base64");
+    const mimeType = audio.type || "audio/webm";
 
     const drillIds =
       language === "german"
@@ -139,7 +140,7 @@ Be honest but constructive. This is their first interaction with the app — mak
         {
           inlineData: {
             data: base64Audio,
-            mimeType: "audio/webm",
+            mimeType,
           },
         },
         prompt,
@@ -150,7 +151,22 @@ Be honest but constructive. This is their first interaction with the app — mak
       },
     });
 
-    const assessment = JSON.parse(response.text ?? "{}");
+    if (!response.text) {
+      return NextResponse.json(
+        { error: "Gemini returned no analysis — please try again" },
+        { status: 502 },
+      );
+    }
+
+    const assessment = JSON.parse(response.text);
+
+    if (!assessment.accent || !assessment.topProblems) {
+      return NextResponse.json(
+        { error: "Incomplete analysis returned — please try again" },
+        { status: 502 },
+      );
+    }
+
     return NextResponse.json({ assessment });
   } catch (error: unknown) {
     const err = error instanceof Error ? error : new Error(String(error));
