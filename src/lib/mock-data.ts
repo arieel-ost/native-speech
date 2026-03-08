@@ -238,6 +238,27 @@ export const mockPhonemeProgress: PhonemeProgress[] = [
   { phoneme: "ʊ", name: "short OO", accuracy: 70, practiceCount: 8, trend: "stable" },
 ];
 
+export type TargetLanguage = "english" | "german";
+
+export interface DiagnosticPassage {
+  language: TargetLanguage;
+  text: string;
+  coverageNotes: string;
+}
+
+export const diagnosticPassages: Record<TargetLanguage, DiagnosticPassage> = {
+  english: {
+    language: "english",
+    text: "Although three of my brothers thought the weather would be rather unpleasant, they still gathered their thick woolen clothes and left for the northern streets. She specifically requested twelve large orange juices, but the restaurant could only provide roughly half that amount. Would you mind explaining whether this particular situation is actually as straightforward as it first appeared?",
+    coverageNotes: "θ/ð, r/l, consonant clusters (str, npl, sp), word-final stops, vowel contrasts, stress patterns, declarative + list + question intonation",
+  },
+  german: {
+    language: "german",
+    text: "Üblicherweise frühstücken wir gemütlich, aber gestern musste ich schon um Viertel nach sechs aufstehen, weil mein Zug außergewöhnlich früh abfuhr. Die Nachbarin erzählte mir freundlich, dass ihr Schwiegervater im Krankenhaus eine schwierige Operation überstanden hätte. Könnten Sie mir vielleicht erklären, warum die Entscheidung letztendlich so überraschend ausgefallen ist?",
+    coverageNotes: "Umlauts (ü, ö, ä), ch sounds (ç/x), uvular R, consonant clusters (schw, kr, ntsch), word-final devoicing, long/short vowels, stress, declarative + reported speech + polite question intonation",
+  },
+};
+
 export const mockWeeklyScores: WeeklyScore[] = [
   { week: "Jan 6", score: 55 },
   { week: "Jan 13", score: 58 },
