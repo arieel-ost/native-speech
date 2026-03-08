@@ -73,7 +73,7 @@ const combinedSchema = {
         },
         phonemeAnalysis: {
           type: Type.ARRAY,
-          description: "Per-phoneme breakdown of how each target sound was produced",
+          description: "Per-phoneme-per-word breakdown. One entry for each occurrence of a target phoneme in a specific word. For example, if /θ/ appears in both 'think' and 'weather', produce TWO entries — one for each word — so the speaker sees exactly where they succeeded or struggled.",
           items: {
             type: Type.OBJECT,
             properties: {
@@ -81,13 +81,17 @@ const combinedSchema = {
                 type: Type.STRING,
                 description: "The target phoneme in IPA (e.g., /θ/, /æ/, /ɹ/)",
               },
+              word: {
+                type: Type.STRING,
+                description: "The specific word from the prompt where this phoneme was evaluated (e.g., 'think', 'weather')",
+              },
               rating: {
                 type: Type.STRING,
                 description: "Quality rating: good, acceptable, or needs_work",
               },
               produced: {
                 type: Type.STRING,
-                description: "How the speaker actually produced this sound (e.g., 'dental stop /t/ instead of fricative')",
+                description: "How the speaker actually produced this sound in this word (e.g., 'dental stop /t/ instead of fricative')",
               },
               expected: {
                 type: Type.STRING,
@@ -99,7 +103,7 @@ const combinedSchema = {
                 description: "What sound was substituted, if any (e.g., '/t/ for /θ/'). Null if produced correctly.",
               },
             },
-            required: ["phoneme", "rating", "produced", "expected"],
+            required: ["phoneme", "word", "rating", "produced", "expected"],
           },
         },
         prosody: {
@@ -127,7 +131,7 @@ const combinedSchema = {
         },
         tips: {
           type: Type.ARRAY,
-          description: "2-4 concrete, actionable exercises to improve the weakest areas",
+          description: "2-4 concrete, actionable exercises — one per unique sound that needs work. Do NOT repeat the same target sound. Each tip should cover that sound regardless of which word it appeared in.",
           items: {
             type: Type.OBJECT,
             properties: {
