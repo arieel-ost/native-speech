@@ -20,6 +20,9 @@ export function Nav() {
         <Link href="/about" className={styles.link}>About</Link>
       </div>
       <div className={styles.actions}>
+        <Link href="/dashboard">
+          <Button variant="secondary" size="sm">Try Demo</Button>
+        </Link>
         <Link href="/sign-in">
           <Button variant="ghost" size="sm">Sign In</Button>
         </Link>
@@ -40,6 +43,7 @@ export function Nav() {
           <Link href="/#features" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Features</Link>
           <Link href="/pricing" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Pricing</Link>
           <Link href="/about" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>About</Link>
+          <Link href="/dashboard" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Try Demo</Link>
           <Link href="/sign-up" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Get Started</Link>
         </div>
       )}

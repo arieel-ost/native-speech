@@ -34,11 +34,18 @@ export function Hero() {
               <span className={styles.demoIcon}>æ</span>
               Vowel Pairs
             </Link>
-            <Link href="/practice/r-l-distinction" className={styles.demoLink}>
-              <span className={styles.demoIcon}>R</span>
-              R vs L
+            <Link href="/practice/umlauts" className={styles.demoLink}>
+              <span className={styles.demoIcon}>ü</span>
+              Umlaute
+            </Link>
+            <Link href="/practice/ch-sounds" className={styles.demoLink}>
+              <span className={styles.demoIcon}>ch</span>
+              CH-Laute
             </Link>
           </div>
+          <Link href="/practice" className={styles.demoLink}>
+            Browse all drills &rarr;
+          </Link>
         </div>
       </div>
       <div className={styles.visual}>
