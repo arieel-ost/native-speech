@@ -1,3 +1,5 @@
+export type Language = "english" | "german";
+
 export interface DrillCategory {
   id: string;
   name: string;
@@ -6,6 +8,7 @@ export interface DrillCategory {
   difficulty: "beginner" | "intermediate" | "advanced";
   estimatedMinutes: number;
   icon: string;
+  language: Language;
 }
 
 export interface DrillSession {
@@ -55,6 +58,7 @@ export const mockUser = {
 };
 
 export const mockDrillCategories: DrillCategory[] = [
+  // English drills
   {
     id: "th-sounds",
     name: "TH Sounds",
@@ -63,6 +67,7 @@ export const mockDrillCategories: DrillCategory[] = [
     difficulty: "intermediate",
     estimatedMinutes: 10,
     icon: "θ",
+    language: "english",
   },
   {
     id: "vowel-pairs",
@@ -72,6 +77,7 @@ export const mockDrillCategories: DrillCategory[] = [
     difficulty: "beginner",
     estimatedMinutes: 8,
     icon: "æ",
+    language: "english",
   },
   {
     id: "r-l-distinction",
@@ -81,6 +87,7 @@ export const mockDrillCategories: DrillCategory[] = [
     difficulty: "intermediate",
     estimatedMinutes: 12,
     icon: "R",
+    language: "english",
   },
   {
     id: "word-stress",
@@ -90,6 +97,7 @@ export const mockDrillCategories: DrillCategory[] = [
     difficulty: "advanced",
     estimatedMinutes: 15,
     icon: "ˈ",
+    language: "english",
   },
   {
     id: "intonation",
@@ -99,6 +107,7 @@ export const mockDrillCategories: DrillCategory[] = [
     difficulty: "advanced",
     estimatedMinutes: 12,
     icon: "↗",
+    language: "english",
   },
   {
     id: "consonant-clusters",
@@ -108,6 +117,58 @@ export const mockDrillCategories: DrillCategory[] = [
     difficulty: "intermediate",
     estimatedMinutes: 10,
     icon: "str",
+    language: "english",
+  },
+  // German drills
+  {
+    id: "umlauts",
+    name: "Umlaute",
+    description: "Master the ä, ö, and ü vowel sounds",
+    phonemes: ["ɛː", "øː", "yː"],
+    difficulty: "beginner",
+    estimatedMinutes: 10,
+    icon: "ü",
+    language: "german",
+  },
+  {
+    id: "ch-sounds",
+    name: "CH-Laute",
+    description: "Distinguish the ich-Laut and ach-Laut",
+    phonemes: ["ç", "x"],
+    difficulty: "intermediate",
+    estimatedMinutes: 10,
+    icon: "ch",
+    language: "german",
+  },
+  {
+    id: "german-r",
+    name: "German R",
+    description: "Practice the uvular R and vocalic R",
+    phonemes: ["ʁ", "ɐ"],
+    difficulty: "intermediate",
+    estimatedMinutes: 12,
+    icon: "R",
+    language: "german",
+  },
+  {
+    id: "long-short-vowels",
+    name: "Vokallänge",
+    description: "Differentiate long and short German vowels",
+    phonemes: ["aː/a", "oː/ɔ", "eː/ɛ"],
+    difficulty: "beginner",
+    estimatedMinutes: 8,
+    icon: "aː",
+    language: "german",
+  },
+  {
+    id: "final-devoicing",
+    name: "Auslautverhärtung",
+    description: "Practice word-final consonant devoicing",
+    phonemes: ["b→p", "d→t", "g→k"],
+    difficulty: "advanced",
+    estimatedMinutes: 10,
+    icon: "d→t",
+    language: "german",
   },
 ];
 
@@ -124,6 +185,30 @@ export const mockDrillSessions: Record<string, DrillSession[]> = {
   "r-l-distinction": [
     { id: "rl-1", categoryId: "r-l-distinction", prompt: "The light rain was really lovely in the late afternoon.", targetPhonemes: ["r", "l"] },
     { id: "rl-2", categoryId: "r-l-distinction", prompt: "Read the long letter right before the rally.", targetPhonemes: ["r", "l"] },
+  ],
+  // German drill sessions
+  "umlauts": [
+    { id: "um-1", categoryId: "umlauts", prompt: "Die Vögel fühlen sich über den schönen Frühling glücklich.", targetPhonemes: ["øː", "yː"] },
+    { id: "um-2", categoryId: "umlauts", prompt: "Fünf müde Bären wählten gemütliche Höhlen für den Bär.", targetPhonemes: ["yː", "ɛː", "øː"] },
+    { id: "um-3", categoryId: "umlauts", prompt: "Die Ärzte öffneten die Türen der Universität.", targetPhonemes: ["ɛː", "øː", "yː"] },
+  ],
+  "ch-sounds": [
+    { id: "ch-1", categoryId: "ch-sounds", prompt: "Ich möchte mich nicht über die Geschichte beschweren.", targetPhonemes: ["ç"] },
+    { id: "ch-2", categoryId: "ch-sounds", prompt: "Nach acht Wochen machte er noch einen Versuch.", targetPhonemes: ["x"] },
+    { id: "ch-3", categoryId: "ch-sounds", prompt: "Das Mädchen lachte leicht über die Bücher in der Küche.", targetPhonemes: ["ç", "x"] },
+  ],
+  "german-r": [
+    { id: "gr-1", categoryId: "german-r", prompt: "Der Richter reiste mit dem roten Zug nach Frankfurt.", targetPhonemes: ["ʁ"] },
+    { id: "gr-2", categoryId: "german-r", prompt: "Mein Bruder und meine Schwester fahren gerne hierher.", targetPhonemes: ["ʁ", "ɐ"] },
+  ],
+  "long-short-vowels": [
+    { id: "lsv-1", categoryId: "long-short-vowels", prompt: "Der Staat hat in der Stadt viele Straßen gebaut.", targetPhonemes: ["aː", "a"] },
+    { id: "lsv-2", categoryId: "long-short-vowels", prompt: "Die Sonne schien schon den ganzen Sohn an.", targetPhonemes: ["oː", "ɔ"] },
+    { id: "lsv-3", categoryId: "long-short-vowels", prompt: "Bitte geben Sie mir den Besen, wenn Sie lesen wollen.", targetPhonemes: ["eː", "ɛ"] },
+  ],
+  "final-devoicing": [
+    { id: "fd-1", categoryId: "final-devoicing", prompt: "Das Rad und das Bad sind am Abend kalt.", targetPhonemes: ["d→t"] },
+    { id: "fd-2", categoryId: "final-devoicing", prompt: "Der Dieb gab den Korb ab und ging den Berg hinauf.", targetPhonemes: ["b→p", "g→k"] },
   ],
 };
 
