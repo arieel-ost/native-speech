@@ -1,0 +1,349 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-xl);
+  min-height: 60vh;
+}
+
+.stepContent {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 200;
+  text-align: center;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  max-width: 440px;
+  line-height: 1.6;
+}
+
+/* Language selection */
+.languageGrid {
+  display: flex;
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+.languageCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--space-xxl);
+  background: var(--color-surface-alt);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.languageCard:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-glow);
+}
+
+.languageFlag {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary-light);
+  background: rgba(99, 102, 241, 0.1);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+}
+
+.languageName {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* Recording step */
+.passageArea {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.passage {
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+}
+
+.recordBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-lg);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-alt);
+  border: 2px solid var(--color-border);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+}
+
+.recordBtn:hover {
+  border-color: var(--color-primary);
+}
+
+.recordBtn.recording {
+  border-color: var(--color-error);
+  animation: pulse 1.5s ease infinite;
+}
+
+.recordIcon {
+  font-size: 1.5rem;
+}
+
+.recording .recordIcon {
+  color: var(--color-error);
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.2); }
+  50% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+}
+
+.reviewSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.reviewActions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+}
+
+.backLink {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.backLink:hover {
+  color: var(--color-primary-light);
+}
+
+.errorText {
+  color: var(--color-error);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* Analyzing spinner */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Results */
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.scoreCircle {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.1);
+  border: 2px solid var(--color-primary);
+  flex-shrink: 0;
+  padding-top: 18px;
+}
+
+.scoreValue {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-primary-light);
+}
+
+.scoreLabel {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.profileMeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.accentBadge {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.levelBadge {
+  font-size: 0.8125rem;
+  text-transform: capitalize;
+  color: var(--color-text-muted);
+}
+
+.summaryText {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.strengthsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.strengthsList li {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  padding-left: var(--space-md);
+  position: relative;
+}
+
+.strengthsList li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.problemsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.problemItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.problemHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.problemSound {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-primary-light);
+}
+
+.severityBadge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1px var(--space-sm);
+  border-radius: var(--radius-sm);
+}
+
+.severityBadge.high {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--color-error);
+}
+
+.severityBadge.medium {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--color-accent);
+}
+
+.severityBadge.low {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--color-success);
+}
+
+.problemDesc {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.problemExample {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.patternsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.patternBadge {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  padding: var(--space-xs) var(--space-sm);
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: var(--radius-sm);
+  color: var(--color-primary-light);
+}
+
+.resultsActions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+}
