@@ -128,6 +128,42 @@
   50% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
 }
 
+/* Analysis mode toggle */
+.modeToggle {
+  display: flex;
+  align-self: center;
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  gap: 2px;
+}
+
+.modeBtn {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.modeBtn:hover:not(:disabled) {
+  color: var(--color-text);
+}
+
+.modeBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.modeBtnActive {
+  background: var(--color-primary);
+  color: var(--color-text);
+}
+
 .feedback {
   min-height: 80px;
 }

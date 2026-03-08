@@ -4,6 +4,7 @@ import styles from "./FeedbackDisplay.module.css";
 
 interface PhonemeResult {
   phoneme: string;
+  word: string;
   rating: string;
   produced: string;
   expected: string;
@@ -62,6 +63,12 @@ function ScoreRing({ score }: { score: number }) {
 }
 
 export function FeedbackDisplay({ data }: { data: AnalysisFeedback }) {
+  // Group phoneme entries by phoneme symbol so we can show per-word results under each sound
+  const phonemeGroups = data.phonemeAnalysis.reduce<Record<string, PhonemeResult[]>>((acc, p) => {
+    (acc[p.phoneme] ??= []).push(p);
+    return acc;
+  }, {});
+
   return (
     <div className={styles.feedback}>
       {/* Score + Accent header */}
@@ -79,34 +86,40 @@ export function FeedbackDisplay({ data }: { data: AnalysisFeedback }) {
         </div>
       </div>
 
-      {/* Phoneme breakdown */}
+      {/* Phoneme breakdown — grouped by sound, per-word detail */}
       <div className={styles.section}>
         <span className={styles.sectionLabel}>Phoneme analysis</span>
         <div className={styles.phonemeList}>
-          {data.phonemeAnalysis.map((p) => (
-            <div key={p.phoneme} className={styles.phonemeRow}>
+          {Object.entries(phonemeGroups).map(([phoneme, entries]) => (
+            <div key={phoneme} className={styles.phonemeRow}>
               <div className={styles.phonemeHeader}>
-                <span className={styles.phonemeSymbol}>{p.phoneme}</span>
-                <span className={`${styles.ratingBadge} ${ratingColor(p.rating)}`}>
-                  {p.rating.replace("_", " ")}
-                </span>
+                <span className={styles.phonemeSymbol}>{phoneme}</span>
               </div>
-              <div className={styles.phonemeDetails}>
-                <div className={styles.detailRow}>
-                  <span className={styles.detailLabel}>You produced</span>
-                  <span>{p.produced}</span>
-                </div>
-                <div className={styles.detailRow}>
-                  <span className={styles.detailLabel}>Expected</span>
-                  <span>{p.expected}</span>
-                </div>
-                {p.substitution && (
+              {entries.map((p) => (
+                <div key={`${p.phoneme}-${p.word}`} className={styles.phonemeDetails}>
                   <div className={styles.detailRow}>
-                    <span className={styles.detailLabel}>Substitution</span>
-                    <span className={styles.substitution}>{p.substitution}</span>
+                    <span className={styles.detailLabel}>Word</span>
+                    <span><strong>{p.word}</strong></span>
+                    <span className={`${styles.ratingBadge} ${ratingColor(p.rating)}`}>
+                      {p.rating.replace("_", " ")}
+                    </span>
                   </div>
-                )}
-              </div>
+                  <div className={styles.detailRow}>
+                    <span className={styles.detailLabel}>You produced</span>
+                    <span>{p.produced}</span>
+                  </div>
+                  <div className={styles.detailRow}>
+                    <span className={styles.detailLabel}>Expected</span>
+                    <span>{p.expected}</span>
+                  </div>
+                  {p.substitution && (
+                    <div className={styles.detailRow}>
+                      <span className={styles.detailLabel}>Substitution</span>
+                      <span className={styles.substitution}>{p.substitution}</span>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           ))}
         </div>

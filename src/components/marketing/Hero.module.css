@@ -42,6 +42,52 @@
   margin-top: var(--space-xl);
 }
 
+/* Demo drill links */
+.demoSection {
+  margin-top: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.demoLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.demoLinks {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.demoLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.15s ease;
+}
+
+.demoLink:hover {
+  border-color: var(--color-primary);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.demoIcon {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary-light);
+}
+
 .visual {
   flex-shrink: 0;
 }
@@ -73,6 +119,9 @@
   .actions {
     justify-content: center;
   }
+  .demoLinks {
+    justify-content: center;
+  }
   .rings {
     width: 280px;
     height: 280px;
@@ -93,6 +142,9 @@
   .actions {
     flex-direction: column;
     align-items: center;
+  }
+  .demoLinks {
+    flex-direction: column;
   }
   .rings {
     width: 200px;

@@ -4,7 +4,10 @@ import { useState, useRef, useCallback } from "react";
 import { Button, Card } from "@/components/ui";
 import { AudioPlayer } from "./AudioPlayer";
 import { FeedbackDisplay } from "./FeedbackDisplay";
+import { SimplifiedFeedbackDisplay } from "./SimplifiedFeedbackDisplay";
+import { JsonFeedbackDisplay } from "./JsonFeedbackDisplay";
 import type { DrillSession as DrillSessionType } from "@/lib/mock-data";
+import type { AnalysisMode } from "@/app/api/analyze/route";
 import styles from "./DrillSession.module.css";
 
 interface DrillSessionProps {
@@ -14,11 +17,18 @@ interface DrillSessionProps {
 
 type RecordingState = "idle" | "recording" | "processing" | "done";
 
+interface CombinedFeedback {
+  simple: Record<string, unknown>;
+  detailed: Record<string, unknown>;
+  textMatch: string;
+}
+
 export function DrillSession({ drills, categoryName }: DrillSessionProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [recordingState, setRecordingState] = useState<RecordingState>("idle");
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
-  const [feedback, setFeedback] = useState<Record<string, unknown> | null>(null);
+  const [feedback, setFeedback] = useState<CombinedFeedback | null>(null);
+  const [analysisMode, setAnalysisMode] = useState<AnalysisMode>("simplified");
   const [error, setError] = useState<string | null>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
@@ -69,6 +79,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
   const analyze = async (blob: Blob) => {
     if (!drill) return;
     setRecordingState("processing");
+    setError(null);
     const controller = new AbortController();
     abortRef.current = controller;
     try {
@@ -102,7 +113,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       }
 
       console.log("[Recording] Analysis result:", JSON.stringify(data.feedback, null, 2));
-      setFeedback(data.feedback);
+      setFeedback(data.feedback as CombinedFeedback);
       setRecordingState("done");
     } catch (err) {
       if (err instanceof DOMException && err.name === "AbortError") {
@@ -121,7 +132,6 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
   const handleRetry = () => {
     setAudioUrl(null);
     setError(null);
-    // keep previous feedback visible during new recording
     startRecording();
   };
 
@@ -200,6 +210,18 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
 
       {audioUrl && <AudioPlayer src={audioUrl} />}
 
+      <div className={styles.modeToggle}>
+        {(["simplified", "advanced", "json"] as const).map((mode) => (
+          <button
+            key={mode}
+            className={`${styles.modeBtn} ${analysisMode === mode ? styles.modeBtnActive : ""}`}
+            onClick={() => setAnalysisMode(mode)}
+          >
+            {mode === "simplified" ? "Simple" : mode === "advanced" ? "Advanced" : "JSON"}
+          </button>
+        ))}
+      </div>
+
       <Card variant="outlined">
         <div className={styles.feedback}>
           {error ? (
@@ -207,7 +229,13 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
           ) : recordingState === "processing" ? (
             <p className={styles.feedbackText}>Analyzing your pronunciation...</p>
           ) : feedback ? (
-            <FeedbackDisplay data={feedback as never} />
+            analysisMode === "json" ? (
+              <JsonFeedbackDisplay data={feedback as unknown as Record<string, unknown>} />
+            ) : analysisMode === "simplified" ? (
+              <SimplifiedFeedbackDisplay data={{ ...feedback.simple, textMatch: feedback.textMatch } as never} />
+            ) : (
+              <FeedbackDisplay data={{ ...feedback.detailed, textMatch: feedback.textMatch } as never} />
+            )
           ) : (
             <p className={styles.feedbackText}>
               {recordingState === "recording"
