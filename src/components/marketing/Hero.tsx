@@ -23,6 +23,23 @@ export function Hero() {
             <Button variant="secondary" size="lg">See How It Works</Button>
           </Link>
         </div>
+        <div className={styles.demoSection}>
+          <span className={styles.demoLabel}>Try a demo drill</span>
+          <div className={styles.demoLinks}>
+            <Link href="/practice/th-sounds" className={styles.demoLink}>
+              <span className={styles.demoIcon}>θ</span>
+              TH Sounds
+            </Link>
+            <Link href="/practice/vowel-pairs" className={styles.demoLink}>
+              <span className={styles.demoIcon}>æ</span>
+              Vowel Pairs
+            </Link>
+            <Link href="/practice/r-l-distinction" className={styles.demoLink}>
+              <span className={styles.demoIcon}>R</span>
+              R vs L
+            </Link>
+          </div>
+        </div>
       </div>
       <div className={styles.visual}>
         {/* Concentric circle visualization — Resonant Geometry motif */}
