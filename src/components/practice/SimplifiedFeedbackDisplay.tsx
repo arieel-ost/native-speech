@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import styles from "./SimplifiedFeedbackDisplay.module.css";
 
 interface Improvement {
@@ -34,6 +35,8 @@ function ScoreBar({ score }: { score: number }) {
 }
 
 export function SimplifiedFeedbackDisplay({ data }: { data: SimplifiedFeedback }) {
+  const t = useTranslations("feedback");
+
   return (
     <div className={styles.feedback}>
       <ScoreBar score={data.score} />
@@ -42,7 +45,7 @@ export function SimplifiedFeedbackDisplay({ data }: { data: SimplifiedFeedback }
 
       {data.strengths.length > 0 && (
         <div className={styles.section}>
-          <span className={styles.sectionLabel}>What you did well</span>
+          <span className={styles.sectionLabel}>{t("whatYouDidWell")}</span>
           <ul className={styles.list}>
             {data.strengths.map((s, i) => (
               <li key={i} className={styles.strengthItem}>{s}</li>
@@ -53,7 +56,7 @@ export function SimplifiedFeedbackDisplay({ data }: { data: SimplifiedFeedback }
 
       {data.improvements.length > 0 && (
         <div className={styles.section}>
-          <span className={styles.sectionLabel}>Things to work on</span>
+          <span className={styles.sectionLabel}>{t("thingsToWorkOn")}</span>
           <div className={styles.improvements}>
             {data.improvements.map((imp, i) => (
               <div key={i} className={styles.improvementCard}>
@@ -67,7 +70,7 @@ export function SimplifiedFeedbackDisplay({ data }: { data: SimplifiedFeedback }
 
       {data.textMatch !== "yes" && (
         <p className={styles.textMatchNote}>
-          Text match: {data.textMatch}
+          {t("textMatch", { value: data.textMatch })}
         </p>
       )}
     </div>

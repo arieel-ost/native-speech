@@ -1,33 +1,38 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import styles from "./Footer.module.css";
 
 export function Footer() {
+  const t = useTranslations("footer");
+  const tc = useTranslations("common");
+  const tn = useTranslations("nav");
+
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.brand}>
-          <span className={styles.logo}>◉ NativeSpeech</span>
-          <p className={styles.tagline}>Your AI-Powered Accent Coach</p>
+          <span className={styles.logo}>◉ {tc("appName")}</span>
+          <p className={styles.tagline}>{tc("tagline")}</p>
         </div>
         <div className={styles.columns}>
           <div>
-            <h4 className={styles.heading}>Product</h4>
-            <Link href="/#features" className={styles.link}>Features</Link>
-            <Link href="/pricing" className={styles.link}>Pricing</Link>
+            <h4 className={styles.heading}>{t("product")}</h4>
+            <Link href="/#features" className={styles.link}>{tn("features")}</Link>
+            <Link href="/pricing" className={styles.link}>{tn("pricing")}</Link>
           </div>
           <div>
-            <h4 className={styles.heading}>Company</h4>
-            <Link href="/about" className={styles.link}>About</Link>
+            <h4 className={styles.heading}>{t("company")}</h4>
+            <Link href="/about" className={styles.link}>{tn("about")}</Link>
           </div>
           <div>
-            <h4 className={styles.heading}>Legal</h4>
-            <span className={styles.link}>Privacy</span>
-            <span className={styles.link}>Terms</span>
+            <h4 className={styles.heading}>{t("legal")}</h4>
+            <span className={styles.link}>{t("privacy")}</span>
+            <span className={styles.link}>{t("terms")}</span>
           </div>
         </div>
       </div>
       <div className={styles.bottom}>
-        <span>© 2026 NativeSpeechAI. All rights reserved.</span>
+        <span>{t("copyright")}</span>
       </div>
     </footer>
   );

@@ -1,0 +1,287 @@
+{
+  "common": {
+    "appName": "NativeSpeech",
+    "tagline": "Your AI-Powered Accent Coach",
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "signUp": "Sign up",
+    "getStarted": "Get Started",
+    "or": "or",
+    "score": "Score",
+    "dayStreak": "{count} day streak",
+    "min": "{count} min",
+    "guest": "Guest",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "cancel": "Cancel",
+    "stop": "Stop",
+    "retry": "Retry",
+    "record": "Record",
+    "previous": "Previous",
+    "next": "Next",
+    "language": "Language"
+  },
+  "nav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "about": "About",
+    "tryDemo": "Try Demo",
+    "toggleMenu": "Toggle menu"
+  },
+  "hero": {
+    "titleLine1": "Your accent has a pattern.",
+    "titleLine2": "We decode it.",
+    "subtitle": "AI-powered coaching that diagnoses exactly why you mispronounce sounds based on your native language — then builds personalized drills to fix them.",
+    "startAssessment": "Start Free Assessment",
+    "seeHow": "See How It Works",
+    "tryNow": "Try it now — no account needed",
+    "freeAssessment": "Free Accent Assessment",
+    "thSounds": "TH Sounds",
+    "vowelPairs": "Vowel Pairs",
+    "umlaute": "Umlaute",
+    "chLaute": "CH-Laute",
+    "browseAll": "Browse all drills"
+  },
+  "features": {
+    "heading": "How It Works",
+    "subheading": "Expert-level accent coaching, available to everyone.",
+    "l1l2Title": "L1-L2 Diagnosis",
+    "l1l2Desc": "We analyze why you mispronounce sounds based on your native language patterns — not just what you got wrong.",
+    "drillsTitle": "Personalized Drills",
+    "drillsDesc": "Every exercise targets your specific weak spots with sentences designed to challenge exactly the sounds you struggle with.",
+    "trackingTitle": "Real Score Tracking",
+    "trackingDesc": "Watch your pronunciation score improve over time with detailed per-phoneme analytics, not vague percentage grades.",
+    "multiLangTitle": "Multi-Language",
+    "multiLangDesc": "Starting with English and German, expanding to cover the most demanded language pairs worldwide."
+  },
+  "pricingPreview": {
+    "heading": "Simple Pricing",
+    "free": "Free",
+    "freePrice": "$0",
+    "freeFeature1": "Basic accent assessment",
+    "freeFeature2": "3 practice drills",
+    "freeFeature3": "1 language",
+    "premium": "Premium",
+    "premiumPrice": "$14.99",
+    "premiumPeriod": "/mo",
+    "premiumFeature1": "Full AI diagnosis",
+    "premiumFeature2": "Unlimited drills",
+    "premiumFeature3": "All languages",
+    "premiumFeature4": "Progress tracking",
+    "startTrial": "Start Free Trial"
+  },
+  "footer": {
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "copyright": "© 2026 NativeSpeechAI. All rights reserved."
+  },
+  "signInPage": {
+    "title": "Welcome back",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "••••••••",
+    "continueGoogle": "Continue with Google",
+    "continueDemo": "Continue as Demo User",
+    "noAccount": "Don't have an account?",
+    "signUpLink": "Sign up"
+  },
+  "signUpPage": {
+    "title": "Start your journey",
+    "subtitle": "Free accent assessment — no credit card required.",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "••••••••",
+    "createAccount": "Create Account",
+    "continueGoogle": "Continue with Google",
+    "hasAccount": "Already have an account?",
+    "signInLink": "Sign in"
+  },
+  "about": {
+    "title": "About NativeSpeechAI",
+    "problemTitle": "The Problem",
+    "problemText": "Pronunciation coaching is limited to expensive 1-on-1 sessions or generic apps that miss phonetic nuances. Learners receive vague feedback that fails to diagnose accents, regional dialects, or unclear articulation.",
+    "approachTitle": "Our Approach",
+    "approachText": "We built the first app that diagnoses why you mispronounce sounds based on your native language patterns. Not just what you got wrong — but why, and how to fix it with personalized drills that target your specific weak spots.",
+    "founderTitle": "The Founder",
+    "founderName": "Arielle Ostankova",
+    "founderRole": "Founder & CEO",
+    "founderBio": "18 years of software engineering. M.Sc. Informatics. Bachelor in Acting with formal voice training. Multilingual native speaker who has lived the pronunciation challenge firsthand — from Crimea to Germany to building a career in English."
+  },
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "Start free. Upgrade when you need more.",
+    "free": "Free",
+    "freePrice": "$0",
+    "freeFeature1": "Basic accent assessment",
+    "freeFeature2": "3 practice drills per day",
+    "freeFeature3": "1 language pair",
+    "freeFeature4": "Basic progress overview",
+    "premium": "Premium",
+    "premiumPrice": "$14.99",
+    "premiumPeriod": "/mo",
+    "premiumFeature1": "Full AI diagnosis with L1-L2 analysis",
+    "premiumFeature2": "Unlimited personalized drills",
+    "premiumFeature3": "All language pairs",
+    "premiumFeature4": "Detailed progress tracking",
+    "premiumFeature5": "Per-phoneme analytics",
+    "premiumFeature6": "Priority support",
+    "enterprise": "Enterprise",
+    "enterprisePrice": "Custom",
+    "enterpriseFeature1": "Everything in Premium",
+    "enterpriseFeature2": "Team management dashboard",
+    "enterpriseFeature3": "Custom onboarding programs",
+    "enterpriseFeature4": "API access",
+    "enterpriseFeature5": "Dedicated account manager",
+    "contactSales": "Contact Sales",
+    "startTrial": "Start Free Trial"
+  },
+  "header": {
+    "greeting": "Hi, {name}"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "practice": "Practice",
+    "progress": "Progress",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "startPractice": "Start Practice"
+  },
+  "scoreOverview": {
+    "overall": "overall",
+    "dayStreak": "Day Streak",
+    "sessions": "Sessions",
+    "totalPractice": "Total Practice"
+  },
+  "weakSpots": {
+    "heading": "Your Weak Spots",
+    "improving": "improving",
+    "declining": "declining",
+    "stable": "stable"
+  },
+  "recentSessions": {
+    "heading": "Recent Sessions",
+    "duration": "{count}min"
+  },
+  "practicePage": {
+    "title": "Practice",
+    "subtitle": "Choose a drill to start practicing."
+  },
+  "drillGrid": {
+    "english": "English",
+    "german": "Deutsch",
+    "beginner": "beginner",
+    "intermediate": "intermediate",
+    "advanced": "advanced"
+  },
+  "drillSession": {
+    "readAloud": "Read this aloud:",
+    "cancelAnalysis": "Cancel analysis",
+    "stopRecording": "Stop recording",
+    "tryAgain": "Try again",
+    "startRecording": "Start recording",
+    "simple": "Simple",
+    "advanced": "Advanced",
+    "json": "JSON",
+    "analyzing": "Analyzing your pronunciation...",
+    "listening": "Listening...",
+    "placeholder": "Your pronunciation feedback will appear here after recording.",
+    "noDrills": "No drills available for this category.",
+    "micDenied": "Microphone access denied. Please allow microphone access and try again.",
+    "connectError": "Failed to connect to analysis service: {message}"
+  },
+  "feedback": {
+    "detectedAccent": "Detected accent",
+    "confidence": "{level} confidence",
+    "phonemeAnalysis": "Phoneme analysis",
+    "word": "Word",
+    "youProduced": "You produced",
+    "expected": "Expected",
+    "substitution": "Substitution",
+    "rhythmIntonation": "Rhythm & intonation",
+    "stress": "Stress",
+    "practiceTips": "Practice tips",
+    "practiceWith": "Practice with:",
+    "textMatch": "Text match: {value}",
+    "whatYouDidWell": "What you did well",
+    "thingsToWorkOn": "Things to work on"
+  },
+  "progressPage": {
+    "title": "Progress"
+  },
+  "streakTracker": {
+    "thisWeek": "This Week",
+    "dayStreak": "{count} day streak",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat",
+    "sun": "Sun"
+  },
+  "scoreTrend": {
+    "heading": "Score Trend"
+  },
+  "phonemeTable": {
+    "heading": "Per-Phoneme Breakdown",
+    "phoneme": "Phoneme",
+    "name": "Name",
+    "accuracy": "Accuracy",
+    "practice": "Practice",
+    "trend": "Trend",
+    "improving": "Improving",
+    "declining": "Declining",
+    "stable": "Stable"
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": "Profile",
+    "languageSettings": "Language Settings",
+    "nativeLanguage": "Native Language",
+    "targetLanguage": "Target Language",
+    "subscription": "Subscription",
+    "freePlan": "Free Plan",
+    "upgradePremium": "Upgrade to Premium",
+    "interfaceLanguage": "Interface Language",
+    "languageNames": {
+      "en": "English",
+      "ru": "Russian",
+      "es": "Spanish",
+      "de": "German"
+    }
+  },
+  "assessment": {
+    "whatLearning": "What are you learning?",
+    "passageIntro": "We'll have you read a short passage so we can understand your accent and create a personalized plan.",
+    "english": "English",
+    "german": "German",
+    "readAloud": "Read this aloud",
+    "speakNaturally": "Take your time — speak naturally, don't rush.",
+    "reRecord": "Re-record",
+    "analyzeAccent": "Analyze my accent",
+    "chooseDifferent": "Choose a different language",
+    "analyzingTitle": "Analyzing your accent...",
+    "analyzingSubtitle": "Our AI is listening to your pronunciation, identifying patterns, and building your personalized profile.",
+    "profileTitle": "Your accent profile",
+    "accent": "{language} accent",
+    "lowConfidence": "({level} confidence)",
+    "whatsWorking": "What's working well",
+    "areasToImprove": "Areas to improve",
+    "patternsDetected": "Accent patterns detected",
+    "startPracticing": "Start practicing",
+    "retakeAssessment": "Retake assessment",
+    "micDenied": "Microphone access denied. Please allow microphone access and try again.",
+    "connectError": "Failed to connect to assessment service: {message}"
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "en": "English",
+    "ru": "Russian",
+    "es": "Spanish",
+    "de": "German"
+  }
+}

@@ -1,0 +1,287 @@
+{
+  "common": {
+    "appName": "NativeSpeech",
+    "tagline": "Ваш ИИ-тренер по акценту",
+    "signIn": "Войти",
+    "signOut": "Выйти",
+    "signUp": "Регистрация",
+    "getStarted": "Начать",
+    "or": "или",
+    "score": "Балл",
+    "dayStreak": "{count} дн. подряд",
+    "min": "{count} мин",
+    "guest": "Гость",
+    "email": "Эл. почта",
+    "password": "Пароль",
+    "name": "Имя",
+    "cancel": "Отмена",
+    "stop": "Стоп",
+    "retry": "Повторить",
+    "record": "Запись",
+    "previous": "Назад",
+    "next": "Далее",
+    "language": "Язык"
+  },
+  "nav": {
+    "features": "Возможности",
+    "pricing": "Цены",
+    "about": "О нас",
+    "tryDemo": "Демо",
+    "toggleMenu": "Меню"
+  },
+  "hero": {
+    "titleLine1": "У вашего акцента есть паттерн.",
+    "titleLine2": "Мы его расшифруем.",
+    "subtitle": "ИИ-коучинг, который точно определяет, почему вы неправильно произносите звуки на основе вашего родного языка — и создаёт персональные упражнения для их исправления.",
+    "startAssessment": "Бесплатная оценка",
+    "seeHow": "Как это работает",
+    "tryNow": "Попробуйте сейчас — без регистрации",
+    "freeAssessment": "Бесплатная оценка акцента",
+    "thSounds": "Звуки TH",
+    "vowelPairs": "Гласные пары",
+    "umlaute": "Умлауты",
+    "chLaute": "Звуки CH",
+    "browseAll": "Все упражнения"
+  },
+  "features": {
+    "heading": "Как это работает",
+    "subheading": "Профессиональный коучинг акцента, доступный каждому.",
+    "l1l2Title": "L1-L2 диагностика",
+    "l1l2Desc": "Мы анализируем, почему вы неправильно произносите звуки на основе паттернов вашего родного языка — а не просто что вы сказали неправильно.",
+    "drillsTitle": "Персональные упражнения",
+    "drillsDesc": "Каждое упражнение нацелено на ваши слабые места с предложениями, которые тренируют именно те звуки, с которыми у вас трудности.",
+    "trackingTitle": "Отслеживание прогресса",
+    "trackingDesc": "Наблюдайте, как улучшается ваше произношение с помощью детальной аналитики по каждой фонеме.",
+    "multiLangTitle": "Мультиязычность",
+    "multiLangDesc": "Начинаем с английского и немецкого, расширяемся на самые востребованные языковые пары."
+  },
+  "pricingPreview": {
+    "heading": "Простые цены",
+    "free": "Бесплатно",
+    "freePrice": "$0",
+    "freeFeature1": "Базовая оценка акцента",
+    "freeFeature2": "3 упражнения",
+    "freeFeature3": "1 язык",
+    "premium": "Премиум",
+    "premiumPrice": "$14.99",
+    "premiumPeriod": "/мес",
+    "premiumFeature1": "Полная ИИ-диагностика",
+    "premiumFeature2": "Безлимитные упражнения",
+    "premiumFeature3": "Все языки",
+    "premiumFeature4": "Отслеживание прогресса",
+    "startTrial": "Начать пробный период"
+  },
+  "footer": {
+    "product": "Продукт",
+    "company": "Компания",
+    "legal": "Правовая информация",
+    "privacy": "Конфиденциальность",
+    "terms": "Условия",
+    "copyright": "© 2026 NativeSpeechAI. Все права защищены."
+  },
+  "signInPage": {
+    "title": "С возвращением",
+    "emailPlaceholder": "вы@example.com",
+    "passwordPlaceholder": "••••••••",
+    "continueGoogle": "Продолжить с Google",
+    "continueDemo": "Войти как демо-пользователь",
+    "noAccount": "Нет аккаунта?",
+    "signUpLink": "Зарегистрироваться"
+  },
+  "signUpPage": {
+    "title": "Начните свой путь",
+    "subtitle": "Бесплатная оценка акцента — без кредитной карты.",
+    "namePlaceholder": "Ваше имя",
+    "emailPlaceholder": "вы@example.com",
+    "passwordPlaceholder": "••••••••",
+    "createAccount": "Создать аккаунт",
+    "continueGoogle": "Продолжить с Google",
+    "hasAccount": "Уже есть аккаунт?",
+    "signInLink": "Войти"
+  },
+  "about": {
+    "title": "О NativeSpeechAI",
+    "problemTitle": "Проблема",
+    "problemText": "Коучинг произношения ограничен дорогими индивидуальными занятиями или приложениями, которые упускают фонетические нюансы. Учащиеся получают размытую обратную связь без диагностики акцента.",
+    "approachTitle": "Наш подход",
+    "approachText": "Мы создали первое приложение, которое диагностирует, почему вы неправильно произносите звуки на основе паттернов вашего родного языка. Не только что вы сказали неправильно — но почему, и как это исправить.",
+    "founderTitle": "Основатель",
+    "founderName": "Ариэль Останкова",
+    "founderRole": "Основатель и CEO",
+    "founderBio": "18 лет в разработке ПО. Магистр информатики. Бакалавр актёрского мастерства с профессиональной постановкой голоса. Мультиязычный носитель, прошедший путь произношения от Крыма до Германии и карьеры на английском."
+  },
+  "pricing": {
+    "title": "Цены",
+    "subtitle": "Начните бесплатно. Обновитесь, когда нужно.",
+    "free": "Бесплатно",
+    "freePrice": "$0",
+    "freeFeature1": "Базовая оценка акцента",
+    "freeFeature2": "3 упражнения в день",
+    "freeFeature3": "1 языковая пара",
+    "freeFeature4": "Базовый обзор прогресса",
+    "premium": "Премиум",
+    "premiumPrice": "$14.99",
+    "premiumPeriod": "/мес",
+    "premiumFeature1": "Полная ИИ-диагностика с L1-L2 анализом",
+    "premiumFeature2": "Безлимитные персональные упражнения",
+    "premiumFeature3": "Все языковые пары",
+    "premiumFeature4": "Детальное отслеживание прогресса",
+    "premiumFeature5": "Аналитика по фонемам",
+    "premiumFeature6": "Приоритетная поддержка",
+    "enterprise": "Корпоративный",
+    "enterprisePrice": "Индивидуально",
+    "enterpriseFeature1": "Всё из Премиум",
+    "enterpriseFeature2": "Панель управления командой",
+    "enterpriseFeature3": "Индивидуальные программы обучения",
+    "enterpriseFeature4": "Доступ к API",
+    "enterpriseFeature5": "Персональный менеджер",
+    "contactSales": "Связаться с отделом продаж",
+    "startTrial": "Начать пробный период"
+  },
+  "header": {
+    "greeting": "Привет, {name}"
+  },
+  "sidebar": {
+    "dashboard": "Главная",
+    "practice": "Практика",
+    "progress": "Прогресс",
+    "settings": "Настройки"
+  },
+  "dashboard": {
+    "startPractice": "Начать практику"
+  },
+  "scoreOverview": {
+    "overall": "общий",
+    "dayStreak": "Дней подряд",
+    "sessions": "Сессий",
+    "totalPractice": "Всего практики"
+  },
+  "weakSpots": {
+    "heading": "Ваши слабые места",
+    "improving": "улучшается",
+    "declining": "ухудшается",
+    "stable": "стабильно"
+  },
+  "recentSessions": {
+    "heading": "Последние сессии",
+    "duration": "{count}мин"
+  },
+  "practicePage": {
+    "title": "Практика",
+    "subtitle": "Выберите упражнение для начала."
+  },
+  "drillGrid": {
+    "english": "Английский",
+    "german": "Немецкий",
+    "beginner": "начинающий",
+    "intermediate": "средний",
+    "advanced": "продвинутый"
+  },
+  "drillSession": {
+    "readAloud": "Прочитайте вслух:",
+    "cancelAnalysis": "Отменить анализ",
+    "stopRecording": "Остановить запись",
+    "tryAgain": "Попробовать снова",
+    "startRecording": "Начать запись",
+    "simple": "Просто",
+    "advanced": "Подробно",
+    "json": "JSON",
+    "analyzing": "Анализируем ваше произношение...",
+    "listening": "Слушаем...",
+    "placeholder": "Здесь появится обратная связь после записи.",
+    "noDrills": "Нет доступных упражнений для этой категории.",
+    "micDenied": "Доступ к микрофону запрещён. Разрешите доступ и попробуйте снова.",
+    "connectError": "Не удалось подключиться к сервису анализа: {message}"
+  },
+  "feedback": {
+    "detectedAccent": "Обнаруженный акцент",
+    "confidence": "уверенность: {level}",
+    "phonemeAnalysis": "Анализ фонем",
+    "word": "Слово",
+    "youProduced": "Вы произнесли",
+    "expected": "Ожидалось",
+    "substitution": "Замена",
+    "rhythmIntonation": "Ритм и интонация",
+    "stress": "Ударение",
+    "practiceTips": "Советы для практики",
+    "practiceWith": "Практикуйте со словом:",
+    "textMatch": "Совпадение текста: {value}",
+    "whatYouDidWell": "Что вы сделали хорошо",
+    "thingsToWorkOn": "Над чем стоит поработать"
+  },
+  "progressPage": {
+    "title": "Прогресс"
+  },
+  "streakTracker": {
+    "thisWeek": "Эта неделя",
+    "dayStreak": "{count} дн. подряд",
+    "mon": "Пн",
+    "tue": "Вт",
+    "wed": "Ср",
+    "thu": "Чт",
+    "fri": "Пт",
+    "sat": "Сб",
+    "sun": "Вс"
+  },
+  "scoreTrend": {
+    "heading": "Тренд баллов"
+  },
+  "phonemeTable": {
+    "heading": "Разбор по фонемам",
+    "phoneme": "Фонема",
+    "name": "Название",
+    "accuracy": "Точность",
+    "practice": "Практика",
+    "trend": "Тренд",
+    "improving": "Улучшается",
+    "declining": "Ухудшается",
+    "stable": "Стабильно"
+  },
+  "settings": {
+    "title": "Настройки",
+    "profile": "Профиль",
+    "languageSettings": "Настройки языка",
+    "nativeLanguage": "Родной язык",
+    "targetLanguage": "Изучаемый язык",
+    "subscription": "Подписка",
+    "freePlan": "Бесплатный план",
+    "upgradePremium": "Перейти на Премиум",
+    "interfaceLanguage": "Язык интерфейса",
+    "languageNames": {
+      "en": "Английский",
+      "ru": "Русский",
+      "es": "Испанский",
+      "de": "Немецкий"
+    }
+  },
+  "assessment": {
+    "whatLearning": "Что вы изучаете?",
+    "passageIntro": "Мы попросим вас прочитать короткий текст, чтобы понять ваш акцент и создать персональный план.",
+    "english": "Английский",
+    "german": "Немецкий",
+    "readAloud": "Прочитайте вслух",
+    "speakNaturally": "Не торопитесь — говорите естественно.",
+    "reRecord": "Перезаписать",
+    "analyzeAccent": "Анализировать мой акцент",
+    "chooseDifferent": "Выбрать другой язык",
+    "analyzingTitle": "Анализируем ваш акцент...",
+    "analyzingSubtitle": "Наш ИИ слушает ваше произношение, определяет паттерны и создаёт ваш персональный профиль.",
+    "profileTitle": "Ваш профиль акцента",
+    "accent": "{language} акцент",
+    "lowConfidence": "(уверенность: {level})",
+    "whatsWorking": "Что получается хорошо",
+    "areasToImprove": "Области для улучшения",
+    "patternsDetected": "Обнаруженные паттерны акцента",
+    "startPracticing": "Начать практику",
+    "retakeAssessment": "Пройти оценку заново",
+    "micDenied": "Доступ к микрофону запрещён. Разрешите доступ и попробуйте снова.",
+    "connectError": "Не удалось подключиться к сервису оценки: {message}"
+  },
+  "languageSwitcher": {
+    "label": "Язык",
+    "en": "English",
+    "ru": "Русский",
+    "es": "Español",
+    "de": "Deutsch"
+  }
+}

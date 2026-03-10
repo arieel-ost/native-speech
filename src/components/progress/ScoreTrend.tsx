@@ -1,7 +1,9 @@
+import { useTranslations } from "next-intl";
 import { mockWeeklyScores } from "@/lib/mock-data";
 import styles from "./ScoreTrend.module.css";
 
 export function ScoreTrend() {
+  const t = useTranslations("scoreTrend");
   const scores = mockWeeklyScores;
   const maxScore = 100;
   const width = 600;
@@ -19,7 +21,7 @@ export function ScoreTrend() {
 
   return (
     <div>
-      <h3 className={styles.heading}>Score Trend</h3>
+      <h3 className={styles.heading}>{t("heading")}</h3>
       <svg viewBox={`0 0 ${width} ${height}`} className={styles.chart}>
         {/* Grid lines */}
         {[25, 50, 75, 100].map((v) => {

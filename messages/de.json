@@ -1,0 +1,287 @@
+{
+  "common": {
+    "appName": "NativeSpeech",
+    "tagline": "Dein KI-gestützter Akzent-Coach",
+    "signIn": "Anmelden",
+    "signOut": "Abmelden",
+    "signUp": "Registrieren",
+    "getStarted": "Loslegen",
+    "or": "oder",
+    "score": "Punktzahl",
+    "dayStreak": "{count} Tage in Folge",
+    "min": "{count} Min",
+    "guest": "Gast",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "name": "Name",
+    "cancel": "Abbrechen",
+    "stop": "Stopp",
+    "retry": "Wiederholen",
+    "record": "Aufnehmen",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "language": "Sprache"
+  },
+  "nav": {
+    "features": "Funktionen",
+    "pricing": "Preise",
+    "about": "Über uns",
+    "tryDemo": "Demo testen",
+    "toggleMenu": "Menü"
+  },
+  "hero": {
+    "titleLine1": "Dein Akzent hat ein Muster.",
+    "titleLine2": "Wir entschlüsseln es.",
+    "subtitle": "KI-gestütztes Coaching, das genau diagnostiziert, warum du Laute falsch aussprichst — basierend auf deiner Muttersprache — und personalisierte Übungen erstellt.",
+    "startAssessment": "Kostenlose Bewertung",
+    "seeHow": "So funktioniert es",
+    "tryNow": "Jetzt ausprobieren — ohne Konto",
+    "freeAssessment": "Kostenlose Akzent-Bewertung",
+    "thSounds": "TH-Laute",
+    "vowelPairs": "Vokalpaare",
+    "umlaute": "Umlaute",
+    "chLaute": "CH-Laute",
+    "browseAll": "Alle Übungen"
+  },
+  "features": {
+    "heading": "So funktioniert es",
+    "subheading": "Professionelles Akzent-Coaching, für jeden zugänglich.",
+    "l1l2Title": "L1-L2 Diagnose",
+    "l1l2Desc": "Wir analysieren, warum du Laute falsch aussprichst — basierend auf den Mustern deiner Muttersprache, nicht nur was du falsch gesagt hast.",
+    "drillsTitle": "Personalisierte Übungen",
+    "drillsDesc": "Jede Übung zielt auf deine Schwachstellen ab mit Sätzen, die genau die Laute herausfordern, mit denen du Schwierigkeiten hast.",
+    "trackingTitle": "Echte Fortschrittsverfolgung",
+    "trackingDesc": "Beobachte, wie sich deine Aussprache verbessert — mit detaillierter Phonem-Analytik statt vager Prozentbewertungen.",
+    "multiLangTitle": "Mehrsprachig",
+    "multiLangDesc": "Beginnend mit Englisch und Deutsch, mit Erweiterung auf die meistgefragten Sprachpaare weltweit."
+  },
+  "pricingPreview": {
+    "heading": "Einfache Preise",
+    "free": "Kostenlos",
+    "freePrice": "0 €",
+    "freeFeature1": "Grundlegende Akzent-Bewertung",
+    "freeFeature2": "3 Übungen",
+    "freeFeature3": "1 Sprache",
+    "premium": "Premium",
+    "premiumPrice": "14,99 €",
+    "premiumPeriod": "/Monat",
+    "premiumFeature1": "Volle KI-Diagnose",
+    "premiumFeature2": "Unbegrenzte Übungen",
+    "premiumFeature3": "Alle Sprachen",
+    "premiumFeature4": "Fortschrittsverfolgung",
+    "startTrial": "Kostenlos testen"
+  },
+  "footer": {
+    "product": "Produkt",
+    "company": "Unternehmen",
+    "legal": "Rechtliches",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "copyright": "© 2026 NativeSpeechAI. Alle Rechte vorbehalten."
+  },
+  "signInPage": {
+    "title": "Willkommen zurück",
+    "emailPlaceholder": "du@beispiel.de",
+    "passwordPlaceholder": "••••••••",
+    "continueGoogle": "Weiter mit Google",
+    "continueDemo": "Als Demo-Benutzer fortfahren",
+    "noAccount": "Noch kein Konto?",
+    "signUpLink": "Registrieren"
+  },
+  "signUpPage": {
+    "title": "Starte deine Reise",
+    "subtitle": "Kostenlose Akzent-Bewertung — keine Kreditkarte nötig.",
+    "namePlaceholder": "Dein Name",
+    "emailPlaceholder": "du@beispiel.de",
+    "passwordPlaceholder": "••••••••",
+    "createAccount": "Konto erstellen",
+    "continueGoogle": "Weiter mit Google",
+    "hasAccount": "Bereits ein Konto?",
+    "signInLink": "Anmelden"
+  },
+  "about": {
+    "title": "Über NativeSpeechAI",
+    "problemTitle": "Das Problem",
+    "problemText": "Aussprachecoaching beschränkt sich auf teure Einzelsitzungen oder generische Apps, die phonetische Nuancen übersehen. Lernende erhalten vages Feedback ohne Akzentdiagnose.",
+    "approachTitle": "Unser Ansatz",
+    "approachText": "Wir haben die erste App entwickelt, die diagnostiziert, warum du Laute falsch aussprichst — basierend auf den Mustern deiner Muttersprache. Nicht nur was, sondern warum und wie du es beheben kannst.",
+    "founderTitle": "Die Gründerin",
+    "founderName": "Arielle Ostankova",
+    "founderRole": "Gründerin & CEO",
+    "founderBio": "18 Jahre Softwareentwicklung. M.Sc. Informatik. Bachelor in Schauspiel mit professionellem Stimmtraining. Mehrsprachige Muttersprachlerin, die die Aussprache-Herausforderung selbst erlebt hat — von der Krim über Deutschland bis zur Karriere auf Englisch."
+  },
+  "pricing": {
+    "title": "Preise",
+    "subtitle": "Starte kostenlos. Upgrade, wenn du mehr brauchst.",
+    "free": "Kostenlos",
+    "freePrice": "0 €",
+    "freeFeature1": "Grundlegende Akzent-Bewertung",
+    "freeFeature2": "3 Übungen pro Tag",
+    "freeFeature3": "1 Sprachpaar",
+    "freeFeature4": "Grundlegender Fortschrittsüberblick",
+    "premium": "Premium",
+    "premiumPrice": "14,99 €",
+    "premiumPeriod": "/Monat",
+    "premiumFeature1": "Volle KI-Diagnose mit L1-L2 Analyse",
+    "premiumFeature2": "Unbegrenzte personalisierte Übungen",
+    "premiumFeature3": "Alle Sprachpaare",
+    "premiumFeature4": "Detaillierte Fortschrittsverfolgung",
+    "premiumFeature5": "Phonem-Analytik",
+    "premiumFeature6": "Prioritäts-Support",
+    "enterprise": "Enterprise",
+    "enterprisePrice": "Individuell",
+    "enterpriseFeature1": "Alles aus Premium",
+    "enterpriseFeature2": "Team-Management-Dashboard",
+    "enterpriseFeature3": "Individuelle Onboarding-Programme",
+    "enterpriseFeature4": "API-Zugang",
+    "enterpriseFeature5": "Dedizierter Account-Manager",
+    "contactSales": "Vertrieb kontaktieren",
+    "startTrial": "Kostenlos testen"
+  },
+  "header": {
+    "greeting": "Hallo, {name}"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "practice": "Übungen",
+    "progress": "Fortschritt",
+    "settings": "Einstellungen"
+  },
+  "dashboard": {
+    "startPractice": "Übung starten"
+  },
+  "scoreOverview": {
+    "overall": "gesamt",
+    "dayStreak": "Tage in Folge",
+    "sessions": "Sitzungen",
+    "totalPractice": "Gesamtübung"
+  },
+  "weakSpots": {
+    "heading": "Deine Schwachstellen",
+    "improving": "verbessert sich",
+    "declining": "verschlechtert sich",
+    "stable": "stabil"
+  },
+  "recentSessions": {
+    "heading": "Letzte Sitzungen",
+    "duration": "{count}Min"
+  },
+  "practicePage": {
+    "title": "Übungen",
+    "subtitle": "Wähle eine Übung zum Starten."
+  },
+  "drillGrid": {
+    "english": "Englisch",
+    "german": "Deutsch",
+    "beginner": "Anfänger",
+    "intermediate": "Mittelstufe",
+    "advanced": "Fortgeschritten"
+  },
+  "drillSession": {
+    "readAloud": "Lies das laut vor:",
+    "cancelAnalysis": "Analyse abbrechen",
+    "stopRecording": "Aufnahme stoppen",
+    "tryAgain": "Nochmal versuchen",
+    "startRecording": "Aufnahme starten",
+    "simple": "Einfach",
+    "advanced": "Erweitert",
+    "json": "JSON",
+    "analyzing": "Deine Aussprache wird analysiert...",
+    "listening": "Höre zu...",
+    "placeholder": "Hier erscheint das Feedback nach der Aufnahme.",
+    "noDrills": "Keine Übungen für diese Kategorie verfügbar.",
+    "micDenied": "Mikrofonzugriff verweigert. Bitte erlaube den Zugriff und versuche es erneut.",
+    "connectError": "Verbindung zum Analysedienst fehlgeschlagen: {message}"
+  },
+  "feedback": {
+    "detectedAccent": "Erkannter Akzent",
+    "confidence": "Konfidenz: {level}",
+    "phonemeAnalysis": "Phonem-Analyse",
+    "word": "Wort",
+    "youProduced": "Du hast gesagt",
+    "expected": "Erwartet",
+    "substitution": "Ersetzung",
+    "rhythmIntonation": "Rhythmus & Intonation",
+    "stress": "Betonung",
+    "practiceTips": "Übungstipps",
+    "practiceWith": "Übe mit:",
+    "textMatch": "Textübereinstimmung: {value}",
+    "whatYouDidWell": "Was du gut gemacht hast",
+    "thingsToWorkOn": "Woran du arbeiten solltest"
+  },
+  "progressPage": {
+    "title": "Fortschritt"
+  },
+  "streakTracker": {
+    "thisWeek": "Diese Woche",
+    "dayStreak": "{count} Tage in Folge",
+    "mon": "Mo",
+    "tue": "Di",
+    "wed": "Mi",
+    "thu": "Do",
+    "fri": "Fr",
+    "sat": "Sa",
+    "sun": "So"
+  },
+  "scoreTrend": {
+    "heading": "Punktetrend"
+  },
+  "phonemeTable": {
+    "heading": "Phonem-Aufschlüsselung",
+    "phoneme": "Phonem",
+    "name": "Name",
+    "accuracy": "Genauigkeit",
+    "practice": "Übung",
+    "trend": "Trend",
+    "improving": "Verbessert sich",
+    "declining": "Verschlechtert sich",
+    "stable": "Stabil"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "profile": "Profil",
+    "languageSettings": "Spracheinstellungen",
+    "nativeLanguage": "Muttersprache",
+    "targetLanguage": "Zielsprache",
+    "subscription": "Abonnement",
+    "freePlan": "Kostenloser Plan",
+    "upgradePremium": "Auf Premium upgraden",
+    "interfaceLanguage": "Oberflächensprache",
+    "languageNames": {
+      "en": "Englisch",
+      "ru": "Russisch",
+      "es": "Spanisch",
+      "de": "Deutsch"
+    }
+  },
+  "assessment": {
+    "whatLearning": "Was lernst du?",
+    "passageIntro": "Wir bitten dich, einen kurzen Text vorzulesen, damit wir deinen Akzent verstehen und einen personalisierten Plan erstellen können.",
+    "english": "Englisch",
+    "german": "Deutsch",
+    "readAloud": "Lies das laut vor",
+    "speakNaturally": "Lass dir Zeit — sprich natürlich.",
+    "reRecord": "Neu aufnehmen",
+    "analyzeAccent": "Meinen Akzent analysieren",
+    "chooseDifferent": "Andere Sprache wählen",
+    "analyzingTitle": "Dein Akzent wird analysiert...",
+    "analyzingSubtitle": "Unsere KI hört sich deine Aussprache an, identifiziert Muster und erstellt dein persönliches Profil.",
+    "profileTitle": "Dein Akzent-Profil",
+    "accent": "{language}-Akzent",
+    "lowConfidence": "(Konfidenz: {level})",
+    "whatsWorking": "Was gut funktioniert",
+    "areasToImprove": "Verbesserungsbereiche",
+    "patternsDetected": "Erkannte Akzentmuster",
+    "startPracticing": "Übung starten",
+    "retakeAssessment": "Bewertung wiederholen",
+    "micDenied": "Mikrofonzugriff verweigert. Bitte erlaube den Zugriff und versuche es erneut.",
+    "connectError": "Verbindung zum Bewertungsdienst fehlgeschlagen: {message}"
+  },
+  "languageSwitcher": {
+    "label": "Sprache",
+    "en": "English",
+    "ru": "Русский",
+    "es": "Español",
+    "de": "Deutsch"
+  }
+}

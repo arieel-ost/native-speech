@@ -1,54 +1,56 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui";
 import styles from "./Hero.module.css";
 
 export function Hero() {
+  const t = useTranslations("hero");
+
   return (
     <section className={styles.hero}>
       <div className={styles.content}>
         <h1 className={styles.title}>
-          Your accent has a pattern.
+          {t("titleLine1")}
           <br />
-          <span className={styles.accent}>We decode it.</span>
+          <span className={styles.accent}>{t("titleLine2")}</span>
         </h1>
         <p className={styles.subtitle}>
-          AI-powered coaching that diagnoses exactly why you mispronounce sounds
-          based on your native language — then builds personalized drills to fix them.
+          {t("subtitle")}
         </p>
         <div className={styles.actions}>
           <Link href="/sign-up">
-            <Button size="lg">Start Free Assessment</Button>
+            <Button size="lg">{t("startAssessment")}</Button>
           </Link>
           <Link href="/#features">
-            <Button variant="secondary" size="lg">See How It Works</Button>
+            <Button variant="secondary" size="lg">{t("seeHow")}</Button>
           </Link>
         </div>
         <div className={styles.demoSection}>
-          <span className={styles.demoLabel}>Try it now — no account needed</span>
+          <span className={styles.demoLabel}>{t("tryNow")}</span>
           <div className={styles.demoLinks}>
             <Link href="/onboarding" className={`${styles.demoLink} ${styles.assessmentLink}`}>
               <span className={styles.demoIcon}>&#x1F399;</span>
-              Free Accent Assessment
+              {t("freeAssessment")}
             </Link>
             <Link href="/practice/th-sounds" className={styles.demoLink}>
               <span className={styles.demoIcon}>θ</span>
-              TH Sounds
+              {t("thSounds")}
             </Link>
             <Link href="/practice/vowel-pairs" className={styles.demoLink}>
               <span className={styles.demoIcon}>æ</span>
-              Vowel Pairs
+              {t("vowelPairs")}
             </Link>
             <Link href="/practice/umlauts" className={styles.demoLink}>
               <span className={styles.demoIcon}>ü</span>
-              Umlaute
+              {t("umlaute")}
             </Link>
             <Link href="/practice/ch-sounds" className={styles.demoLink}>
               <span className={styles.demoIcon}>ch</span>
-              CH-Laute
+              {t("chLaute")}
             </Link>
           </div>
           <Link href="/practice" className={styles.demoLink}>
-            Browse all drills &rarr;
+            {t("browseAll")} &rarr;
           </Link>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { Card, Badge } from "@/components/ui";
 import { mockWeakSpots } from "@/lib/mock-data";
 import styles from "./WeakSpots.module.css";
@@ -6,9 +7,11 @@ const trendLabels = { improving: "↑", declining: "↓", stable: "→" };
 const trendVariants = { improving: "success", declining: "error", stable: "default" } as const;
 
 export function WeakSpots() {
+  const t = useTranslations("weakSpots");
+
   return (
     <div>
-      <h3 className={styles.heading}>Your Weak Spots</h3>
+      <h3 className={styles.heading}>{t("heading")}</h3>
       <div className={styles.grid}>
         {mockWeakSpots.map((spot) => (
           <Card key={spot.phoneme} variant="outlined">
@@ -18,7 +21,7 @@ export function WeakSpots() {
               <div className={styles.meta}>
                 <span className={styles.accuracy}>{spot.accuracy}%</span>
                 <Badge variant={trendVariants[spot.trend]}>
-                  {trendLabels[spot.trend]} {spot.trend}
+                  {trendLabels[spot.trend]} {t(spot.trend)}
                 </Badge>
               </div>
             </div>

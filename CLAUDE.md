@@ -14,6 +14,45 @@
 - TypeScript
 - next-auth v5 (beta)
 - @google/genai (Gemini SDK)
+- next-intl (i18n / translations)
+
+## Internationalization (i18n)
+
+**Locales:** `en` (default), `ru`, `es`, `de`
+
+**How it works:**
+- `next-intl` with App Router — all pages live under `src/app/[locale]/`
+- Translation files: `messages/en.json`, `messages/ru.json`, `messages/es.json`, `messages/de.json`
+- English is the default locale with "as-needed" prefix (no `/en/` in URLs)
+- Middleware in `middleware.ts` detects browser language and redirects
+- `src/i18n/routing.ts` — locale config
+- `src/i18n/navigation.ts` — locale-aware `Link`, `useRouter`, `usePathname`
+- `src/i18n/request.ts` — server-side message loading
+- `global.d.ts` — TypeScript types derived from `en.json` for type-safe translation keys
+
+**Developer workflow — EVERY new feature must include translations:**
+
+1. **Add English keys first** to `messages/en.json` under the appropriate namespace
+2. **Add translations** for `ru.json`, `es.json`, `de.json` with the same keys
+3. **Use `useTranslations(namespace)`** in client components or `getTranslations(namespace)` in server components — never hardcode UI strings
+4. **Use `Link` from `@/i18n/navigation`** instead of `next/link` for all internal links (so URLs are locale-aware)
+5. **TypeScript will catch missing keys** — `en.json` is the source of truth for the `IntlMessages` type
+
+**Quick reference:**
+```tsx
+// Client component
+import { useTranslations } from "next-intl";
+const t = useTranslations("myNamespace");
+return <h1>{t("title")}</h1>;
+
+// Server component
+import { getTranslations } from "next-intl/server";
+const t = await getTranslations("myNamespace");
+
+// Links — always use locale-aware Link
+import { Link } from "@/i18n/navigation";
+<Link href="/dashboard">...</Link>
+```
 
 ## Recording Feature (branch: `recording`)
 
