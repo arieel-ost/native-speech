@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Button, Card } from "@/components/ui";
 import { AudioPlayer } from "./AudioPlayer";
 import { FeedbackDisplay } from "./FeedbackDisplay";
@@ -26,6 +26,7 @@ interface CombinedFeedback {
 
 export function DrillSession({ drills, categoryName }: DrillSessionProps) {
   const t = useTranslations("DrillSession");
+  const locale = useLocale();
   const tPractice = useTranslations("Practice");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [recordingState, setRecordingState] = useState<RecordingState>("idle");
@@ -94,6 +95,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       formData.append("audio", blob, "recording.webm");
       formData.append("prompt", drill.prompt);
       formData.append("phonemes", JSON.stringify(drill.targetPhonemes));
+      formData.append("locale", locale);
 
       const res = await fetch("/api/analyze", {
         method: "POST",

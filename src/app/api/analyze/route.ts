@@ -5,6 +5,13 @@ export type AnalysisMode = "advanced" | "simplified" | "json";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
+const localeToLanguage: Record<string, string> = {
+  en: "English",
+  ru: "Russian",
+  es: "Spanish",
+  fr: "French",
+};
+
 const combinedSchema = {
   type: Type.OBJECT,
   description: "Complete pronunciation analysis with both detailed and simplified views derived from the same analysis",
@@ -168,6 +175,8 @@ export async function POST(request: NextRequest) {
     const audio = formData.get("audio") as Blob | null;
     const prompt = formData.get("prompt") as string | null;
     const phonemes = formData.get("phonemes") as string | null;
+    const locale = (formData.get("locale") as string) ?? "en";
+    const language = localeToLanguage[locale] ?? "English";
 
     if (!audio || !prompt) {
       return NextResponse.json(
@@ -197,7 +206,9 @@ Provide TWO views of your analysis:
 
 2. "simple" — A friendly plain-language summary of the SAME analysis above. No technical terms, no IPA symbols, no phonetics jargon. Describe sounds using everyday words (e.g., 'the "th" sounded like a "d"'). Include what went well and practical tips. Be honest but encouraging.
 
-Both views must reflect the same underlying analysis — the simple view is an accessible overview of the detailed findings.`;
+Both views must reflect the same underlying analysis — the simple view is an accessible overview of the detailed findings.
+
+IMPORTANT: Respond entirely in ${language}. All text fields in your response — summaries, tips, descriptions, pattern names, exercise instructions — must be written in ${language}. Keep IPA symbols and phoneme notation as-is.`;
 
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
