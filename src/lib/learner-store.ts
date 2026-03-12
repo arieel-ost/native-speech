@@ -103,8 +103,9 @@ export function saveProfile(
   language: LearnerProfile["language"],
   assessment: AssessmentData,
 ): LearnerProfile {
+  const id = getLearnerId() || generateId();
   const profile: LearnerProfile = {
-    id: generateId(),
+    id,
     createdAt: new Date().toISOString(),
     language,
     assessment,
