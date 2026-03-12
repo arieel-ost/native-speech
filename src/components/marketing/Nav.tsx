@@ -1,12 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui";
+import { LocaleSwitcher } from "@/components/ui/LocaleSwitcher";
 import styles from "./Nav.module.css";
 
 export function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const t = useTranslations("Nav");
 
   return (
     <nav className={styles.nav}>
@@ -15,24 +18,25 @@ export function Nav() {
         <span className={styles.logoText}>NativeSpeech</span>
       </Link>
       <div className={styles.links}>
-        <Link href="/#features" className={styles.link}>Features</Link>
-        <Link href="/pricing" className={styles.link}>Pricing</Link>
-        <Link href="/about" className={styles.link}>About</Link>
+        <Link href="/#features" className={styles.link}>{t("features")}</Link>
+        <Link href="/pricing" className={styles.link}>{t("pricing")}</Link>
+        <Link href="/about" className={styles.link}>{t("about")}</Link>
       </div>
       <div className={styles.actions}>
+        <LocaleSwitcher />
         <Link href="/dashboard">
-          <Button variant="secondary" size="sm">Try Demo</Button>
+          <Button variant="secondary" size="sm">{t("tryDemo")}</Button>
         </Link>
         <Link href="/sign-in">
-          <Button variant="ghost" size="sm">Sign In</Button>
+          <Button variant="ghost" size="sm">{t("signIn")}</Button>
         </Link>
         <Link href="/sign-up" className={styles.ctaDesktop}>
-          <Button variant="primary" size="sm">Get Started</Button>
+          <Button variant="primary" size="sm">{t("getStarted")}</Button>
         </Link>
         <button
           className={styles.menuBtn}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          aria-label={t("toggleMenu")}
           aria-expanded={menuOpen}
         >
           {menuOpen ? "✕" : "☰"}
@@ -40,11 +44,11 @@ export function Nav() {
       </div>
       {menuOpen && (
         <div className={styles.mobileMenu}>
-          <Link href="/#features" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Features</Link>
-          <Link href="/pricing" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Pricing</Link>
-          <Link href="/about" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>About</Link>
-          <Link href="/dashboard" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Try Demo</Link>
-          <Link href="/sign-up" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>Get Started</Link>
+          <Link href="/#features" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>{t("features")}</Link>
+          <Link href="/pricing" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>{t("pricing")}</Link>
+          <Link href="/about" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>{t("about")}</Link>
+          <Link href="/dashboard" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>{t("tryDemo")}</Link>
+          <Link href="/sign-up" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>{t("getStarted")}</Link>
         </div>
       )}
     </nav>
