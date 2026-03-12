@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 import { Button, Card } from "@/components/ui";
 import { AudioPlayer } from "@/components/practice/AudioPlayer";
 import { diagnosticPassages, type TargetLanguage } from "@/lib/mock-data";
@@ -30,6 +32,8 @@ interface Assessment {
 }
 
 export function AccentAssessment() {
+  const t = useTranslations("AccentAssessment");
+  const router = useRouter();
   const [step, setStep] = useState<Step>("language");
   const [language, setLanguage] = useState<TargetLanguage | null>(null);
   const [recordingState, setRecordingState] = useState<"idle" | "recording">("idle");
@@ -60,7 +64,7 @@ export function AccentAssessment() {
       };
 
       mediaRecorder.onstop = () => {
-        stream.getTracks().forEach((t) => t.stop());
+        stream.getTracks().forEach((track) => track.stop());
         const blob = new Blob(chunksRef.current, { type: mediaRecorder.mimeType });
         const url = URL.createObjectURL(blob);
         setAudioUrl(url);
@@ -70,9 +74,9 @@ export function AccentAssessment() {
       mediaRecorder.start();
       setRecordingState("recording");
     } catch {
-      setError("Microphone access denied. Please allow microphone access and try again.");
+      setError(t("micDenied"));
     }
-  }, []);
+  }, [t]);
 
   const stopRecording = useCallback(() => {
     if (mediaRecorderRef.current?.state === "recording") {
@@ -114,7 +118,7 @@ export function AccentAssessment() {
       setStep("results");
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
-      setError(`Failed to connect to assessment service: ${message}`);
+      setError(t("connectionError", { message }));
       setStep("record");
     }
   };
@@ -130,10 +134,9 @@ export function AccentAssessment() {
     <div className={styles.container}>
       {step === "language" && (
         <div className={styles.stepContent}>
-          <h1 className={styles.title}>What are you learning?</h1>
+          <h1 className={styles.title}>{t("chooseLanguageTitle")}</h1>
           <p className={styles.subtitle}>
-            We&apos;ll have you read a short passage so we can understand your accent and
-            create a personalized plan.
+            {t("chooseLanguageSubtitle")}
           </p>
           <div className={styles.languageGrid}>
             <button
@@ -141,14 +144,14 @@ export function AccentAssessment() {
               onClick={() => handleLanguageSelect("english")}
             >
               <span className={styles.languageFlag}>EN</span>
-              <span className={styles.languageName}>English</span>
+              <span className={styles.languageName}>{t("english")}</span>
             </button>
             <button
               className={styles.languageCard}
               onClick={() => handleLanguageSelect("german")}
             >
               <span className={styles.languageFlag}>DE</span>
-              <span className={styles.languageName}>German</span>
+              <span className={styles.languageName}>{t("german")}</span>
             </button>
           </div>
         </div>
@@ -156,9 +159,9 @@ export function AccentAssessment() {
 
       {step === "record" && passage && (
         <div className={styles.stepContent}>
-          <h1 className={styles.title}>Read this aloud</h1>
+          <h1 className={styles.title}>{t("readAloudTitle")}</h1>
           <p className={styles.subtitle}>
-            Take your time — speak naturally, don&apos;t rush.
+            {t("readAloudSubtitle")}
           </p>
 
           <Card variant="elevated">
@@ -178,7 +181,7 @@ export function AccentAssessment() {
               <span className={styles.recordIcon}>
                 {recordingState === "recording" ? "\u25A0" : "\u25CF"}
               </span>
-              <span>{recordingState === "recording" ? "Stop" : "Record"}</span>
+              <span>{recordingState === "recording" ? t("stop") : t("record")}</span>
             </button>
           </div>
 
@@ -187,10 +190,10 @@ export function AccentAssessment() {
               <AudioPlayer src={audioUrl} />
               <div className={styles.reviewActions}>
                 <Button variant="secondary" onClick={handleRetry}>
-                  Re-record
+                  {t("reRecord")}
                 </Button>
                 <Button onClick={submitRecording}>
-                  Analyze my accent
+                  {t("analyzeAccent")}
                 </Button>
               </div>
             </div>
@@ -200,17 +203,16 @@ export function AccentAssessment() {
             className={styles.backLink}
             onClick={() => { stopRecording(); setStep("language"); setAudioUrl(null); setError(null); }}
           >
-            &larr; Choose a different language
+            &larr; {t("chooseDifferent")}
           </button>
         </div>
       )}
 
       {step === "analyzing" && (
         <div className={styles.stepContent}>
-          <h1 className={styles.title}>Analyzing your accent...</h1>
+          <h1 className={styles.title}>{t("analyzingTitle")}</h1>
           <p className={styles.subtitle}>
-            Our AI is listening to your pronunciation, identifying patterns,
-            and building your personalized profile.
+            {t("analyzingSubtitle")}
           </p>
           <div className={styles.spinner} />
         </div>
@@ -218,7 +220,7 @@ export function AccentAssessment() {
 
       {step === "results" && assessment && (
         <div className={styles.stepContent}>
-          <h1 className={styles.title}>Your accent profile</h1>
+          <h1 className={styles.title}>{t("resultsTitle")}</h1>
 
           <Card variant="elevated">
             <div className={styles.profileHeader}>
@@ -228,8 +230,8 @@ export function AccentAssessment() {
               </div>
               <div className={styles.profileMeta}>
                 <span className={styles.accentBadge}>
-                  {assessment.accent.detectedLanguage} accent
-                  {assessment.accent.confidence === "high" ? "" : ` (${assessment.accent.confidence} confidence)`}
+                  {t("accent", { language: assessment.accent.detectedLanguage })}
+                  {assessment.accent.confidence === "high" ? "" : ` (${t("confidence", { level: assessment.accent.confidence })})`}
                 </span>
                 <span className={styles.levelBadge}>{assessment.level}</span>
               </div>
@@ -240,7 +242,7 @@ export function AccentAssessment() {
 
           <Card variant="outlined">
             <div className={styles.section}>
-              <h2 className={styles.sectionTitle}>What&apos;s working well</h2>
+              <h2 className={styles.sectionTitle}>{t("whatsWorking")}</h2>
               <ul className={styles.strengthsList}>
                 {assessment.strengths.map((s, i) => (
                   <li key={i}>{s}</li>
@@ -251,7 +253,7 @@ export function AccentAssessment() {
 
           <Card variant="outlined">
             <div className={styles.section}>
-              <h2 className={styles.sectionTitle}>Areas to improve</h2>
+              <h2 className={styles.sectionTitle}>{t("areasToImprove")}</h2>
               <div className={styles.problemsList}>
                 {assessment.topProblems.map((p, i) => (
                   <div key={i} className={styles.problemItem}>
@@ -274,7 +276,7 @@ export function AccentAssessment() {
           {assessment.accent.telltalePatterns.length > 0 && (
             <Card variant="outlined">
               <div className={styles.section}>
-                <h2 className={styles.sectionTitle}>Accent patterns detected</h2>
+                <h2 className={styles.sectionTitle}>{t("accentPatterns")}</h2>
                 <div className={styles.patternsList}>
                   {assessment.accent.telltalePatterns.map((p, i) => (
                     <span key={i} className={styles.patternBadge}>{p}</span>
@@ -285,11 +287,11 @@ export function AccentAssessment() {
           )}
 
           <div className={styles.resultsActions}>
-            <Button onClick={() => (window.location.href = "/practice")}>
-              Start practicing
+            <Button onClick={() => router.push("/practice")}>
+              {t("startPracticing")}
             </Button>
             <Button variant="secondary" onClick={handleRetry}>
-              Retake assessment
+              {t("retakeAssessment")}
             </Button>
           </div>
         </div>
