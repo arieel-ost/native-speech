@@ -197,7 +197,8 @@
     "advanced": "Advanced",
     "json": "JSON",
     "micDenied": "Microphone access denied. Please allow microphone access and try again.",
-    "connectionError": "Failed to connect to analysis service: {message}"
+    "connectionError": "Failed to connect to analysis service: {message}",
+    "backToDashboard": "Back to Dashboard"
   },
   "FeedbackDisplay": {
     "detectedAccent": "Detected accent",

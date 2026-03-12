@@ -197,7 +197,8 @@
     "advanced": "Avancé",
     "json": "JSON",
     "micDenied": "Accès au microphone refusé. Veuillez autoriser l'accès au microphone et réessayer.",
-    "connectionError": "Impossible de se connecter au service d'analyse : {message}"
+    "connectionError": "Impossible de se connecter au service d'analyse : {message}",
+    "backToDashboard": "Retour au tableau de bord"
   },
   "FeedbackDisplay": {
     "detectedAccent": "Accent détecté",

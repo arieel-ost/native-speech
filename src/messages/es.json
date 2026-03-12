@@ -197,7 +197,8 @@
     "advanced": "Avanzado",
     "json": "JSON",
     "micDenied": "Acceso al micrófono denegado. Por favor permite el acceso al micrófono e inténtalo de nuevo.",
-    "connectionError": "Error al conectar con el servicio de análisis: {message}"
+    "connectionError": "Error al conectar con el servicio de análisis: {message}",
+    "backToDashboard": "Volver al panel"
   },
   "FeedbackDisplay": {
     "detectedAccent": "Acento detectado",

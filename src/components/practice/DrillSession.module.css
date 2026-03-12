@@ -201,3 +201,15 @@
   line-height: 1.6;
   white-space: pre-wrap;
 }
+
+.backLink {
+  display: block;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  margin-top: var(--space-sm);
+}
+
+.backLink:hover {
+  color: var(--color-text);
+}
