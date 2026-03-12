@@ -1,0 +1,348 @@
+{
+  "Metadata": {
+    "title": "NativeSpeechAI — Votre coach d'accent propulsé par l'IA",
+    "description": "Coaching de prononciation par IA qui diagnostique pourquoi vous prononcez mal certains sons et crée des exercices personnalisés pour perfectionner votre accent."
+  },
+  "Nav": {
+    "features": "Fonctionnalités",
+    "pricing": "Tarifs",
+    "about": "À propos",
+    "tryDemo": "Essayer la démo",
+    "signIn": "Se connecter",
+    "getStarted": "Commencer",
+    "toggleMenu": "Ouvrir le menu"
+  },
+  "Hero": {
+    "headline": "Votre accent a un schéma.",
+    "accent": "On le décode.",
+    "subtitle": "Un coaching par IA qui diagnostique précisément pourquoi vous prononcez mal certains sons en fonction de votre langue maternelle — puis crée des exercices personnalisés pour les corriger.",
+    "cta": "Évaluation gratuite",
+    "howItWorks": "Comment ça marche",
+    "demoLabel": "Essayez maintenant — sans créer de compte",
+    "freeAssessment": "Évaluation d'accent gratuite",
+    "browseAll": "Voir tous les exercices"
+  },
+  "Features": {
+    "heading": "Comment ça marche",
+    "subheading": "Un coaching d'accent de niveau expert, accessible à tous.",
+    "l1l2Title": "Diagnostic L1-L2",
+    "l1l2Desc": "Nous analysons pourquoi vous prononcez mal certains sons en fonction des schémas de votre langue maternelle — pas seulement ce que vous avez mal dit.",
+    "drillsTitle": "Exercices personnalisés",
+    "drillsDesc": "Chaque exercice cible vos points faibles spécifiques avec des phrases conçues pour travailler exactement les sons qui vous posent problème.",
+    "trackingTitle": "Suivi de score réel",
+    "trackingDesc": "Suivez l'évolution de votre score de prononciation au fil du temps avec des analyses détaillées par phonème, pas de simples pourcentages vagues.",
+    "multiLangTitle": "Multi-langues",
+    "multiLangDesc": "Commençant par l'anglais et l'allemand, avec une expansion vers les paires de langues les plus demandées dans le monde."
+  },
+  "Footer": {
+    "tagline": "Votre coach d'accent propulsé par l'IA",
+    "product": "Produit",
+    "features": "Fonctionnalités",
+    "pricing": "Tarifs",
+    "company": "Entreprise",
+    "about": "À propos",
+    "legal": "Mentions légales",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "copyright": "© 2026 NativeSpeechAI. Tous droits réservés."
+  },
+  "PricingPreview": {
+    "heading": "Tarifs simples",
+    "free": "Gratuit",
+    "freePrice": "$0",
+    "freeFeature1": "Évaluation d'accent basique",
+    "freeFeature2": "3 exercices de pratique",
+    "freeFeature3": "1 langue",
+    "freeBtn": "Commencer",
+    "premium": "Premium",
+    "premiumPrice": "$14.99",
+    "premiumPeriod": "/mois",
+    "premiumFeature1": "Diagnostic IA complet",
+    "premiumFeature2": "Exercices illimités",
+    "premiumFeature3": "Toutes les langues",
+    "premiumFeature4": "Suivi de progression",
+    "premiumBtn": "Essai gratuit"
+  },
+  "Pricing": {
+    "title": "Tarifs",
+    "subtitle": "Commencez gratuitement. Passez au niveau supérieur quand vous en avez besoin.",
+    "free": "Gratuit",
+    "freePrice": "$0",
+    "freeFeature1": "Évaluation d'accent basique",
+    "freeFeature2": "3 exercices par jour",
+    "freeFeature3": "1 paire de langues",
+    "freeFeature4": "Aperçu basique de progression",
+    "freeBtn": "Commencer",
+    "premium": "Premium",
+    "premiumPrice": "$14.99",
+    "premiumPeriod": "/mois",
+    "premiumFeature1": "Diagnostic IA complet avec analyse L1-L2",
+    "premiumFeature2": "Exercices personnalisés illimités",
+    "premiumFeature3": "Toutes les paires de langues",
+    "premiumFeature4": "Suivi de progression détaillé",
+    "premiumFeature5": "Analyses par phonème",
+    "premiumFeature6": "Support prioritaire",
+    "premiumBtn": "Essai gratuit",
+    "enterprise": "Entreprise",
+    "enterprisePrice": "Sur mesure",
+    "enterpriseFeature1": "Tout ce qui est dans Premium",
+    "enterpriseFeature2": "Tableau de bord de gestion d'équipe",
+    "enterpriseFeature3": "Programmes d'intégration personnalisés",
+    "enterpriseFeature4": "Accès API",
+    "enterpriseFeature5": "Responsable de compte dédié",
+    "enterpriseBtn": "Contacter les ventes"
+  },
+  "About": {
+    "title": "À propos de NativeSpeechAI",
+    "problemTitle": "Le problème",
+    "problemText": "Le coaching en prononciation se limite à des sessions individuelles coûteuses ou à des applis génériques qui passent à côté des nuances phonétiques. Les apprenants reçoivent des retours vagues qui ne diagnostiquent ni les accents, ni les dialectes régionaux, ni les problèmes d'articulation.",
+    "approachTitle": "Notre approche",
+    "approachText": "Nous avons créé la première appli qui diagnostique pourquoi vous prononcez mal certains sons en fonction des schémas de votre langue maternelle. Pas juste ce que vous avez mal dit — mais pourquoi, et comment le corriger avec des exercices personnalisés qui ciblent vos points faibles.",
+    "founderTitle": "La fondatrice",
+    "founderName": "Arielle Ostankova",
+    "founderRole": "Fondatrice & PDG",
+    "founderBio": "18 ans d'ingénierie logicielle. Master en informatique. Licence en art dramatique avec formation vocale. Polyglotte native qui a vécu le défi de la prononciation de première main — de la Crimée à l'Allemagne, en passant par une carrière en anglais."
+  },
+  "SignIn": {
+    "title": "Bon retour",
+    "email": "E-mail",
+    "emailPlaceholder": "vous@exemple.com",
+    "password": "Mot de passe",
+    "passwordPlaceholder": "••••••••",
+    "submit": "Se connecter",
+    "or": "ou",
+    "google": "Continuer avec Google",
+    "demo": "Continuer en mode démo",
+    "noAccount": "Pas encore de compte ?",
+    "signUpLink": "S'inscrire"
+  },
+  "SignUp": {
+    "title": "Commencez l'aventure",
+    "subtitle": "Évaluation d'accent gratuite — sans carte bancaire.",
+    "name": "Nom",
+    "namePlaceholder": "Votre nom",
+    "email": "E-mail",
+    "emailPlaceholder": "vous@exemple.com",
+    "password": "Mot de passe",
+    "passwordPlaceholder": "••••••••",
+    "submit": "Créer un compte",
+    "or": "ou",
+    "google": "Continuer avec Google",
+    "hasAccount": "Vous avez déjà un compte ?",
+    "signInLink": "Se connecter"
+  },
+  "Sidebar": {
+    "dashboard": "Tableau de bord",
+    "practice": "Pratique",
+    "progress": "Progression",
+    "settings": "Paramètres"
+  },
+  "Header": {
+    "greeting": "Salut, {name}",
+    "guest": "Invité",
+    "score": "Score : {value}",
+    "streak": "{count} jours de suite",
+    "signOut": "Se déconnecter",
+    "signIn": "Se connecter"
+  },
+  "Dashboard": {
+    "startPractice": "Commencer la pratique"
+  },
+  "ScoreOverview": {
+    "dayStreak": "Jours de suite",
+    "sessions": "Sessions",
+    "totalPractice": "Pratique totale"
+  },
+  "RecentSessions": {
+    "title": "Sessions récentes",
+    "duration": "{minutes} min"
+  },
+  "WeakSpots": {
+    "title": "Vos points faibles",
+    "improving": "en progrès",
+    "declining": "en baisse",
+    "stable": "stable"
+  },
+  "Practice": {
+    "title": "Pratique",
+    "subtitle": "Choisissez un exercice pour commencer.",
+    "noDrills": "Aucun exercice disponible pour cette catégorie."
+  },
+  "DrillGrid": {
+    "english": "English",
+    "german": "Deutsch",
+    "min": "{count} min"
+  },
+  "DrillSession": {
+    "readAloud": "Lisez ceci à voix haute :",
+    "record": "Enregistrer",
+    "stop": "Arrêter",
+    "cancel": "Annuler",
+    "retry": "Réessayer",
+    "listening": "Écoute en cours...",
+    "analyzing": "Analyse de votre prononciation...",
+    "feedbackPlaceholder": "Votre retour de prononciation apparaîtra ici après l'enregistrement.",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "simple": "Simple",
+    "advanced": "Avancé",
+    "json": "JSON",
+    "micDenied": "Accès au microphone refusé. Veuillez autoriser l'accès au microphone et réessayer.",
+    "connectionError": "Impossible de se connecter au service d'analyse : {message}"
+  },
+  "FeedbackDisplay": {
+    "detectedAccent": "Accent détecté",
+    "confidence": "Confiance {level}",
+    "phonemeAnalysis": "Analyse des phonèmes",
+    "word": "Mot",
+    "youProduced": "Vous avez produit",
+    "expected": "Attendu",
+    "substitution": "Substitution",
+    "rhythmIntonation": "Rythme et intonation",
+    "stress": "Accentuation",
+    "practiceTips": "Conseils de pratique",
+    "practiceWith": "Entraînez-vous avec :",
+    "textMatch": "Correspondance texte : {value}",
+    "outOf": "/ 10"
+  },
+  "SimplifiedFeedback": {
+    "outOf": "/ 10",
+    "whatYouDidWell": "Ce que vous avez bien fait",
+    "thingsToWorkOn": "Points à travailler",
+    "textMatch": "Correspondance texte : {value}"
+  },
+  "Progress": {
+    "title": "Progression"
+  },
+  "ScoreTrend": {
+    "title": "Évolution du score"
+  },
+  "PhonemeTable": {
+    "title": "Détail par phonème",
+    "phoneme": "Phonème",
+    "name": "Nom",
+    "accuracy": "Précision",
+    "practice": "Pratique",
+    "trend": "Tendance",
+    "improving": "↑ En progrès",
+    "declining": "↓ En baisse",
+    "stable": "→ Stable"
+  },
+  "StreakTracker": {
+    "title": "Cette semaine",
+    "streak": "{count} jours de suite",
+    "mon": "Lun",
+    "tue": "Mar",
+    "wed": "Mer",
+    "thu": "Jeu",
+    "fri": "Ven",
+    "sat": "Sam",
+    "sun": "Dim"
+  },
+  "Settings": {
+    "title": "Paramètres",
+    "profile": "Profil",
+    "name": "Nom",
+    "email": "E-mail",
+    "languageSettings": "Paramètres de langue",
+    "nativeLanguage": "Langue maternelle",
+    "targetLanguage": "Langue cible",
+    "uiLanguage": "Langue de l'interface",
+    "subscription": "Abonnement",
+    "freePlan": "Forfait gratuit",
+    "upgrade": "Passer au Premium"
+  },
+  "LocaleSwitcher": {
+    "label": "Langue",
+    "en": "English",
+    "ru": "Русский",
+    "es": "Español",
+    "fr": "Français"
+  },
+  "AccentAssessment": {
+    "chooseLanguageTitle": "Qu'apprenez-vous ?",
+    "chooseLanguageSubtitle": "Nous allons vous faire lire un court passage pour comprendre votre accent et créer un plan personnalisé.",
+    "english": "Anglais",
+    "german": "Allemand",
+    "readAloudTitle": "Lisez ceci à voix haute",
+    "readAloudSubtitle": "Prenez votre temps — parlez naturellement, ne vous pressez pas.",
+    "record": "Enregistrer",
+    "stop": "Arrêter",
+    "reRecord": "Réenregistrer",
+    "analyzeAccent": "Analyser mon accent",
+    "chooseDifferent": "Choisir une autre langue",
+    "analyzingTitle": "Analyse de votre accent...",
+    "analyzingSubtitle": "Notre IA écoute votre prononciation, identifie les schémas et construit votre profil personnalisé.",
+    "resultsTitle": "Votre profil d'accent",
+    "accent": "Accent {language}",
+    "confidence": "Confiance {level}",
+    "whatsWorking": "Ce qui fonctionne bien",
+    "areasToImprove": "Points à améliorer",
+    "accentPatterns": "Schémas d'accent détectés",
+    "startPracticing": "Commencer la pratique",
+    "retakeAssessment": "Refaire l'évaluation",
+    "micDenied": "Accès au microphone refusé. Veuillez autoriser l'accès au microphone et réessayer.",
+    "connectionError": "Impossible de se connecter au service d'évaluation : {message}"
+  },
+  "Drills": {
+    "th-sounds": {
+      "name": "TH Sounds",
+      "description": "Maîtrisez les sons TH voisé et non voisé"
+    },
+    "vowel-pairs": {
+      "name": "Vowel Pairs",
+      "description": "Distinguez les sons vocaliques similaires"
+    },
+    "r-l-distinction": {
+      "name": "R vs L",
+      "description": "Distinction claire entre les sons R et L"
+    },
+    "word-stress": {
+      "name": "Word Stress",
+      "description": "Accentuation correcte des mots polysyllabiques"
+    },
+    "intonation": {
+      "name": "Intonation",
+      "description": "Schémas d'intonation montante et descendante"
+    },
+    "consonant-clusters": {
+      "name": "Consonant Clusters",
+      "description": "Gérez les combinaisons complexes de consonnes"
+    },
+    "umlauts": {
+      "name": "Umlaute",
+      "description": "Maîtrisez les sons vocaliques ä, ö et ü"
+    },
+    "ch-sounds": {
+      "name": "CH-Laute",
+      "description": "Distinguez le ich-Laut et le ach-Laut"
+    },
+    "german-r": {
+      "name": "German R",
+      "description": "Pratiquez le R uvulaire et le R vocalisé"
+    },
+    "long-short-vowels": {
+      "name": "Vokallänge",
+      "description": "Différenciez les voyelles longues et courtes en allemand"
+    },
+    "final-devoicing": {
+      "name": "Auslautverhärtung",
+      "description": "Pratiquez le dévoisement des consonnes finales"
+    }
+  },
+  "Phonemes": {
+    "voicelessTH": "TH non voisé",
+    "voicedTH": "TH voisé",
+    "shortA": "A court",
+    "rSound": "son R",
+    "lSound": "son L",
+    "shortI": "I court",
+    "longE": "E long",
+    "shortOO": "OO court"
+  },
+  "Difficulty": {
+    "beginner": "débutant",
+    "intermediate": "intermédiaire",
+    "advanced": "avancé"
+  }
+}
