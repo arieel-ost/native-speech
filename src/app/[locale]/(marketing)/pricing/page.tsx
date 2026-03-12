@@ -1,53 +1,56 @@
 import { Card, Button } from "@/components/ui";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import styles from "./page.module.css";
 
-export default function PricingPage() {
+export default async function PricingPage() {
+  const t = await getTranslations("Pricing");
+
   return (
     <div className={styles.page}>
-      <h1 className={styles.title}>Pricing</h1>
-      <p className={styles.subtitle}>Start free. Upgrade when you need more.</p>
+      <h1 className={styles.title}>{t("title")}</h1>
+      <p className={styles.subtitle}>{t("subtitle")}</p>
       <div className={styles.grid}>
         <Card variant="outlined">
           <div className={styles.plan}>
-            <h2 className={styles.planName}>Free</h2>
-            <div className={styles.price}>$0</div>
+            <h2 className={styles.planName}>{t("free")}</h2>
+            <div className={styles.price}>{t("freePrice")}</div>
             <ul className={styles.features}>
-              <li>Basic accent assessment</li>
-              <li>3 practice drills per day</li>
-              <li>1 language pair</li>
-              <li>Basic progress overview</li>
+              <li>{t("freeFeature1")}</li>
+              <li>{t("freeFeature2")}</li>
+              <li>{t("freeFeature3")}</li>
+              <li>{t("freeFeature4")}</li>
             </ul>
-            <Link href="/sign-up"><Button variant="secondary">Get Started</Button></Link>
+            <Link href="/sign-up"><Button variant="secondary">{t("freeBtn")}</Button></Link>
           </div>
         </Card>
         <Card variant="elevated">
           <div className={styles.plan}>
-            <h2 className={styles.planName}>Premium</h2>
-            <div className={styles.price}>$14.99<span className={styles.period}>/mo</span></div>
+            <h2 className={styles.planName}>{t("premium")}</h2>
+            <div className={styles.price}>{t("premiumPrice")}<span className={styles.period}>{t("premiumPeriod")}</span></div>
             <ul className={styles.features}>
-              <li>Full AI diagnosis with L1-L2 analysis</li>
-              <li>Unlimited personalized drills</li>
-              <li>All language pairs</li>
-              <li>Detailed progress tracking</li>
-              <li>Per-phoneme analytics</li>
-              <li>Priority support</li>
+              <li>{t("premiumFeature1")}</li>
+              <li>{t("premiumFeature2")}</li>
+              <li>{t("premiumFeature3")}</li>
+              <li>{t("premiumFeature4")}</li>
+              <li>{t("premiumFeature5")}</li>
+              <li>{t("premiumFeature6")}</li>
             </ul>
-            <Link href="/sign-up"><Button>Start Free Trial</Button></Link>
+            <Link href="/sign-up"><Button>{t("premiumBtn")}</Button></Link>
           </div>
         </Card>
         <Card variant="outlined">
           <div className={styles.plan}>
-            <h2 className={styles.planName}>Enterprise</h2>
-            <div className={styles.price}>Custom</div>
+            <h2 className={styles.planName}>{t("enterprise")}</h2>
+            <div className={styles.price}>{t("enterprisePrice")}</div>
             <ul className={styles.features}>
-              <li>Everything in Premium</li>
-              <li>Team management dashboard</li>
-              <li>Custom onboarding programs</li>
-              <li>API access</li>
-              <li>Dedicated account manager</li>
+              <li>{t("enterpriseFeature1")}</li>
+              <li>{t("enterpriseFeature2")}</li>
+              <li>{t("enterpriseFeature3")}</li>
+              <li>{t("enterpriseFeature4")}</li>
+              <li>{t("enterpriseFeature5")}</li>
             </ul>
-            <Button variant="secondary">Contact Sales</Button>
+            <Button variant="secondary">{t("enterpriseBtn")}</Button>
           </div>
         </Card>
       </div>

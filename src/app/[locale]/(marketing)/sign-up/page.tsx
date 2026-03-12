@@ -1,15 +1,18 @@
 import { signIn } from "@/auth";
 import { Card, Button, Input } from "@/components/ui";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import styles from "./page.module.css";
 
-export default function SignUpPage() {
+export default async function SignUpPage() {
+  const t = await getTranslations("SignUp");
+
   return (
     <div className={styles.container}>
       <Card variant="outlined">
         <div className={styles.form}>
-          <h1 className={styles.title}>Start your journey</h1>
-          <p className={styles.subtitle}>Free accent assessment — no credit card required.</p>
+          <h1 className={styles.title}>{t("title")}</h1>
+          <p className={styles.subtitle}>{t("subtitle")}</p>
           <form
             action={async (formData) => {
               "use server";
@@ -18,13 +21,13 @@ export default function SignUpPage() {
             }}
           >
             <div className={styles.fields}>
-              <Input label="Name" name="name" type="text" placeholder="Your name" required />
-              <Input label="Email" name="email" type="email" placeholder="you@example.com" required />
-              <Input label="Password" name="password" type="password" placeholder="••••••••" required />
+              <Input label={t("name")} name="name" type="text" placeholder={t("namePlaceholder")} required />
+              <Input label={t("email")} name="email" type="email" placeholder={t("emailPlaceholder")} required />
+              <Input label={t("password")} name="password" type="password" placeholder={t("passwordPlaceholder")} required />
             </div>
-            <Button type="submit" className={styles.submitBtn}>Create Account</Button>
+            <Button type="submit" className={styles.submitBtn}>{t("submit")}</Button>
           </form>
-          <div className={styles.divider}><span>or</span></div>
+          <div className={styles.divider}><span>{t("or")}</span></div>
           <form
             action={async () => {
               "use server";
@@ -32,11 +35,11 @@ export default function SignUpPage() {
             }}
           >
             <Button type="submit" variant="secondary" className={styles.submitBtn}>
-              Continue with Google
+              {t("google")}
             </Button>
           </form>
           <p className={styles.footer}>
-            Already have an account? <Link href="/sign-in" className={styles.link}>Sign in</Link>
+            {t("hasAccount")} <Link href="/sign-in" className={styles.link}>{t("signInLink")}</Link>
           </p>
         </div>
       </Card>

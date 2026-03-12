@@ -1,40 +1,31 @@
 import { Card } from "@/components/ui";
+import { getTranslations } from "next-intl/server";
 import styles from "./page.module.css";
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const t = await getTranslations("About");
+
   return (
     <div className={styles.page}>
-      <h1 className={styles.title}>About NativeSpeechAI</h1>
+      <h1 className={styles.title}>{t("title")}</h1>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>The Problem</h2>
-        <p className={styles.text}>
-          Pronunciation coaching is limited to expensive 1-on-1 sessions or generic apps that miss
-          phonetic nuances. Learners receive vague feedback that fails to diagnose accents, regional
-          dialects, or unclear articulation.
-        </p>
+        <h2 className={styles.sectionTitle}>{t("problemTitle")}</h2>
+        <p className={styles.text}>{t("problemText")}</p>
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>Our Approach</h2>
-        <p className={styles.text}>
-          We built the first app that diagnoses why you mispronounce sounds based on your native
-          language patterns. Not just what you got wrong — but why, and how to fix it with
-          personalized drills that target your specific weak spots.
-        </p>
+        <h2 className={styles.sectionTitle}>{t("approachTitle")}</h2>
+        <p className={styles.text}>{t("approachText")}</p>
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>The Founder</h2>
+        <h2 className={styles.sectionTitle}>{t("founderTitle")}</h2>
         <Card variant="outlined">
           <div className={styles.founder}>
-            <h3 className={styles.founderName}>Arielle Ostankova</h3>
-            <p className={styles.founderRole}>Founder & CEO</p>
-            <p className={styles.text}>
-              18 years of software engineering. M.Sc. Informatics. Bachelor in Acting with formal
-              voice training. Multilingual native speaker who has lived the pronunciation challenge
-              firsthand — from Crimea to Germany to building a career in English.
-            </p>
+            <h3 className={styles.founderName}>{t("founderName")}</h3>
+            <p className={styles.founderRole}>{t("founderRole")}</p>
+            <p className={styles.text}>{t("founderBio")}</p>
           </div>
         </Card>
       </section>
