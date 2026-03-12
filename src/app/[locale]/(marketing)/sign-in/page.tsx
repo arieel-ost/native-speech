@@ -1,14 +1,17 @@
 import { signIn } from "@/auth";
 import { Card, Button, Input } from "@/components/ui";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import styles from "./page.module.css";
 
-export default function SignInPage() {
+export default async function SignInPage() {
+  const t = await getTranslations("SignIn");
+
   return (
     <div className={styles.container}>
       <Card variant="outlined">
         <div className={styles.form}>
-          <h1 className={styles.title}>Welcome back</h1>
+          <h1 className={styles.title}>{t("title")}</h1>
           <form
             action={async (formData) => {
               "use server";
@@ -16,12 +19,12 @@ export default function SignInPage() {
             }}
           >
             <div className={styles.fields}>
-              <Input label="Email" name="email" type="email" placeholder="you@example.com" required />
-              <Input label="Password" name="password" type="password" placeholder="••••••••" required />
+              <Input label={t("email")} name="email" type="email" placeholder={t("emailPlaceholder")} required />
+              <Input label={t("password")} name="password" type="password" placeholder={t("passwordPlaceholder")} required />
             </div>
-            <Button type="submit" className={styles.submitBtn}>Sign In</Button>
+            <Button type="submit" className={styles.submitBtn}>{t("submit")}</Button>
           </form>
-          <div className={styles.divider}><span>or</span></div>
+          <div className={styles.divider}><span>{t("or")}</span></div>
           <form
             action={async () => {
               "use server";
@@ -29,7 +32,7 @@ export default function SignInPage() {
             }}
           >
             <Button type="submit" variant="secondary" className={styles.submitBtn}>
-              Continue with Google
+              {t("google")}
             </Button>
           </form>
           <form
@@ -39,11 +42,11 @@ export default function SignInPage() {
             }}
           >
             <Button type="submit" variant="secondary" className={styles.submitBtn}>
-              Continue as Demo User
+              {t("demo")}
             </Button>
           </form>
           <p className={styles.footer}>
-            Don&apos;t have an account? <Link href="/sign-up" className={styles.link}>Sign up</Link>
+            {t("noAccount")} <Link href="/sign-up" className={styles.link}>{t("signUpLink")}</Link>
           </p>
         </div>
       </Card>

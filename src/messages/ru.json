@@ -1,0 +1,348 @@
+{
+  "Metadata": {
+    "title": "NativeSpeechAI — Ваш ИИ-тренер по акценту",
+    "description": "ИИ-тренер произношения, который определяет причины ошибок в произношении и создаёт персональные упражнения для улучшения акцента."
+  },
+  "Nav": {
+    "features": "Возможности",
+    "pricing": "Цены",
+    "about": "О нас",
+    "tryDemo": "Попробовать демо",
+    "signIn": "Войти",
+    "getStarted": "Начать",
+    "toggleMenu": "Меню"
+  },
+  "Hero": {
+    "headline": "У вашего акцента есть паттерн.",
+    "accent": "Мы его расшифруем.",
+    "subtitle": "ИИ-тренер, который определяет, почему именно вы произносите звуки неправильно, исходя из вашего родного языка — и создаёт персональные упражнения для исправления.",
+    "cta": "Бесплатная оценка акцента",
+    "howItWorks": "Как это работает",
+    "demoLabel": "Попробуйте прямо сейчас — без регистрации",
+    "freeAssessment": "Бесплатная оценка акцента",
+    "browseAll": "Все упражнения"
+  },
+  "Features": {
+    "heading": "Как это работает",
+    "subheading": "Профессиональный тренинг акцента, доступный каждому.",
+    "l1l2Title": "Диагностика L1-L2",
+    "l1l2Desc": "Мы анализируем, почему вы произносите звуки неправильно, на основе паттернов вашего родного языка — а не просто фиксируем ошибки.",
+    "drillsTitle": "Персональные упражнения",
+    "drillsDesc": "Каждое упражнение направлено на ваши конкретные слабые места с предложениями, которые бросают вызов именно тем звукам, с которыми у вас трудности.",
+    "trackingTitle": "Реальное отслеживание прогресса",
+    "trackingDesc": "Следите за улучшением произношения с детальной аналитикой по каждой фонеме, а не размытыми оценками в процентах.",
+    "multiLangTitle": "Мультиязычность",
+    "multiLangDesc": "Начинаем с английского и немецкого, расширяемся на самые востребованные языковые пары в мире."
+  },
+  "Footer": {
+    "tagline": "Ваш ИИ-тренер по акценту",
+    "product": "Продукт",
+    "features": "Возможности",
+    "pricing": "Цены",
+    "company": "Компания",
+    "about": "О нас",
+    "legal": "Юридическая информация",
+    "privacy": "Конфиденциальность",
+    "terms": "Условия",
+    "copyright": "© 2026 NativeSpeechAI. Все права защищены."
+  },
+  "PricingPreview": {
+    "heading": "Простые цены",
+    "free": "Бесплатно",
+    "freePrice": "$0",
+    "freeFeature1": "Базовая оценка акцента",
+    "freeFeature2": "3 упражнения",
+    "freeFeature3": "1 язык",
+    "freeBtn": "Начать",
+    "premium": "Премиум",
+    "premiumPrice": "$14.99",
+    "premiumPeriod": "/мес",
+    "premiumFeature1": "Полная ИИ-диагностика",
+    "premiumFeature2": "Безлимитные упражнения",
+    "premiumFeature3": "Все языки",
+    "premiumFeature4": "Отслеживание прогресса",
+    "premiumBtn": "Начать бесплатный период"
+  },
+  "Pricing": {
+    "title": "Цены",
+    "subtitle": "Начните бесплатно. Перейдите на платный план, когда понадобится больше.",
+    "free": "Бесплатно",
+    "freePrice": "$0",
+    "freeFeature1": "Базовая оценка акцента",
+    "freeFeature2": "3 упражнения в день",
+    "freeFeature3": "1 языковая пара",
+    "freeFeature4": "Базовый обзор прогресса",
+    "freeBtn": "Начать",
+    "premium": "Премиум",
+    "premiumPrice": "$14.99",
+    "premiumPeriod": "/мес",
+    "premiumFeature1": "Полная ИИ-диагностика с анализом L1-L2",
+    "premiumFeature2": "Безлимитные персональные упражнения",
+    "premiumFeature3": "Все языковые пары",
+    "premiumFeature4": "Детальное отслеживание прогресса",
+    "premiumFeature5": "Аналитика по каждой фонеме",
+    "premiumFeature6": "Приоритетная поддержка",
+    "premiumBtn": "Начать бесплатный период",
+    "enterprise": "Для бизнеса",
+    "enterprisePrice": "По запросу",
+    "enterpriseFeature1": "Всё из Премиума",
+    "enterpriseFeature2": "Панель управления командой",
+    "enterpriseFeature3": "Индивидуальные программы обучения",
+    "enterpriseFeature4": "Доступ к API",
+    "enterpriseFeature5": "Персональный менеджер",
+    "enterpriseBtn": "Связаться с отделом продаж"
+  },
+  "About": {
+    "title": "О NativeSpeechAI",
+    "problemTitle": "Проблема",
+    "problemText": "Тренировка произношения ограничена дорогими индивидуальными занятиями или типовыми приложениями, которые упускают фонетические нюансы. Ученики получают размытую обратную связь, которая не помогает разобраться в акценте, региональных особенностях или нечёткой артикуляции.",
+    "approachTitle": "Наш подход",
+    "approachText": "Мы создали первое приложение, которое определяет, почему вы произносите звуки неправильно, исходя из паттернов вашего родного языка. Не просто что пошло не так — а почему, и как это исправить с помощью персональных упражнений, направленных на ваши конкретные слабые места.",
+    "founderTitle": "Основатель",
+    "founderName": "Arielle Ostankova",
+    "founderRole": "Основатель и CEO",
+    "founderBio": "18 лет в разработке ПО. Магистр информатики. Диплом актёрского мастерства с профессиональной постановкой голоса. Мультиязычный носитель, который прошёл через все трудности произношения на собственном опыте — от Крыма до Германии и карьеры на английском."
+  },
+  "SignIn": {
+    "title": "С возвращением",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "password": "Пароль",
+    "passwordPlaceholder": "••••••••",
+    "submit": "Войти",
+    "or": "или",
+    "google": "Продолжить с Google",
+    "demo": "Продолжить как демо-пользователь",
+    "noAccount": "Нет аккаунта?",
+    "signUpLink": "Зарегистрироваться"
+  },
+  "SignUp": {
+    "title": "Начните свой путь",
+    "subtitle": "Бесплатная оценка акцента — без банковской карты.",
+    "name": "Имя",
+    "namePlaceholder": "Ваше имя",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "password": "Пароль",
+    "passwordPlaceholder": "••••••••",
+    "submit": "Создать аккаунт",
+    "or": "или",
+    "google": "Продолжить с Google",
+    "hasAccount": "Уже есть аккаунт?",
+    "signInLink": "Войти"
+  },
+  "Sidebar": {
+    "dashboard": "Главная",
+    "practice": "Практика",
+    "progress": "Прогресс",
+    "settings": "Настройки"
+  },
+  "Header": {
+    "greeting": "Привет, {name}",
+    "guest": "Гость",
+    "score": "Балл: {value}",
+    "streak": "{count} дн. подряд",
+    "signOut": "Выйти",
+    "signIn": "Войти"
+  },
+  "Dashboard": {
+    "startPractice": "Начать практику"
+  },
+  "ScoreOverview": {
+    "dayStreak": "Дней подряд",
+    "sessions": "Сессии",
+    "totalPractice": "Всего практики"
+  },
+  "RecentSessions": {
+    "title": "Недавние сессии",
+    "duration": "{minutes} мин"
+  },
+  "WeakSpots": {
+    "title": "Ваши слабые места",
+    "improving": "улучшается",
+    "declining": "ухудшается",
+    "stable": "стабильно"
+  },
+  "Practice": {
+    "title": "Практика",
+    "subtitle": "Выберите упражнение для начала.",
+    "noDrills": "Нет доступных упражнений для этой категории."
+  },
+  "DrillGrid": {
+    "english": "English",
+    "german": "Deutsch",
+    "min": "{count} мин"
+  },
+  "DrillSession": {
+    "readAloud": "Прочитайте вслух:",
+    "record": "Записать",
+    "stop": "Стоп",
+    "cancel": "Отмена",
+    "retry": "Заново",
+    "listening": "Слушаю...",
+    "analyzing": "Анализирую ваше произношение...",
+    "feedbackPlaceholder": "Отзыв о произношении появится здесь после записи.",
+    "previous": "Назад",
+    "next": "Далее",
+    "simple": "Простой",
+    "advanced": "Подробный",
+    "json": "JSON",
+    "micDenied": "Доступ к микрофону запрещён. Разрешите доступ к микрофону и попробуйте снова.",
+    "connectionError": "Не удалось подключиться к сервису анализа: {message}"
+  },
+  "FeedbackDisplay": {
+    "detectedAccent": "Обнаруженный акцент",
+    "confidence": "Уверенность: {level}",
+    "phonemeAnalysis": "Анализ фонем",
+    "word": "Слово",
+    "youProduced": "Вы произнесли",
+    "expected": "Ожидалось",
+    "substitution": "Замена",
+    "rhythmIntonation": "Ритм и интонация",
+    "stress": "Ударение",
+    "practiceTips": "Советы для практики",
+    "practiceWith": "Потренируйтесь с:",
+    "textMatch": "Совпадение текста: {value}",
+    "outOf": "/ 10"
+  },
+  "SimplifiedFeedback": {
+    "outOf": "/ 10",
+    "whatYouDidWell": "Что получилось хорошо",
+    "thingsToWorkOn": "Над чем поработать",
+    "textMatch": "Совпадение текста: {value}"
+  },
+  "Progress": {
+    "title": "Прогресс"
+  },
+  "ScoreTrend": {
+    "title": "Динамика баллов"
+  },
+  "PhonemeTable": {
+    "title": "Разбор по фонемам",
+    "phoneme": "Фонема",
+    "name": "Название",
+    "accuracy": "Точность",
+    "practice": "Практика",
+    "trend": "Тренд",
+    "improving": "↑ Улучшается",
+    "declining": "↓ Ухудшается",
+    "stable": "→ Стабильно"
+  },
+  "StreakTracker": {
+    "title": "Эта неделя",
+    "streak": "{count} дн. подряд",
+    "mon": "Пн",
+    "tue": "Вт",
+    "wed": "Ср",
+    "thu": "Чт",
+    "fri": "Пт",
+    "sat": "Сб",
+    "sun": "Вс"
+  },
+  "Settings": {
+    "title": "Настройки",
+    "profile": "Профиль",
+    "name": "Имя",
+    "email": "Email",
+    "languageSettings": "Языковые настройки",
+    "nativeLanguage": "Родной язык",
+    "targetLanguage": "Изучаемый язык",
+    "uiLanguage": "Язык интерфейса",
+    "subscription": "Подписка",
+    "freePlan": "Бесплатный план",
+    "upgrade": "Перейти на Премиум"
+  },
+  "LocaleSwitcher": {
+    "label": "Язык",
+    "en": "English",
+    "ru": "Русский",
+    "es": "Español",
+    "fr": "Français"
+  },
+  "AccentAssessment": {
+    "chooseLanguageTitle": "Что вы изучаете?",
+    "chooseLanguageSubtitle": "Мы попросим вас прочитать короткий отрывок, чтобы понять ваш акцент и создать персональный план.",
+    "english": "Английский",
+    "german": "Немецкий",
+    "readAloudTitle": "Прочитайте вслух",
+    "readAloudSubtitle": "Не торопитесь — говорите естественно.",
+    "record": "Записать",
+    "stop": "Стоп",
+    "reRecord": "Перезаписать",
+    "analyzeAccent": "Проанализировать акцент",
+    "chooseDifferent": "Выбрать другой язык",
+    "analyzingTitle": "Анализируем ваш акцент...",
+    "analyzingSubtitle": "Наш ИИ слушает ваше произношение, определяет паттерны и создаёт ваш персональный профиль.",
+    "resultsTitle": "Ваш профиль акцента",
+    "accent": "{language} акцент",
+    "confidence": "Уверенность: {level}",
+    "whatsWorking": "Что получается хорошо",
+    "areasToImprove": "Области для улучшения",
+    "accentPatterns": "Обнаруженные паттерны акцента",
+    "startPracticing": "Начать практику",
+    "retakeAssessment": "Пройти оценку заново",
+    "micDenied": "Доступ к микрофону запрещён. Разрешите доступ к микрофону и попробуйте снова.",
+    "connectionError": "Не удалось подключиться к сервису оценки: {message}"
+  },
+  "Drills": {
+    "th-sounds": {
+      "name": "Звуки TH",
+      "description": "Освойте звонкий и глухой звуки TH"
+    },
+    "vowel-pairs": {
+      "name": "Пары гласных",
+      "description": "Различайте похожие гласные звуки"
+    },
+    "r-l-distinction": {
+      "name": "R и L",
+      "description": "Чёткое различие между звуками R и L"
+    },
+    "word-stress": {
+      "name": "Ударение в словах",
+      "description": "Правильные схемы ударения в многосложных словах"
+    },
+    "intonation": {
+      "name": "Интонация",
+      "description": "Восходящие и нисходящие интонационные паттерны"
+    },
+    "consonant-clusters": {
+      "name": "Группы согласных",
+      "description": "Освойте сложные сочетания согласных"
+    },
+    "umlauts": {
+      "name": "Umlaute",
+      "description": "Освойте гласные звуки ä, ö и ü"
+    },
+    "ch-sounds": {
+      "name": "CH-Laute",
+      "description": "Различайте ich-Laut и ach-Laut"
+    },
+    "german-r": {
+      "name": "Немецкий R",
+      "description": "Практикуйте увулярный R и вокалический R"
+    },
+    "long-short-vowels": {
+      "name": "Vokallänge",
+      "description": "Различайте долгие и краткие немецкие гласные"
+    },
+    "final-devoicing": {
+      "name": "Auslautverhärtung",
+      "description": "Практикуйте оглушение конечных согласных"
+    }
+  },
+  "Phonemes": {
+    "voicelessTH": "глухой TH",
+    "voicedTH": "звонкий TH",
+    "shortA": "краткий A",
+    "rSound": "звук R",
+    "lSound": "звук L",
+    "shortI": "краткий I",
+    "longE": "долгий E",
+    "shortOO": "краткий OO"
+  },
+  "Difficulty": {
+    "beginner": "начинающий",
+    "intermediate": "средний",
+    "advanced": "продвинутый"
+  }
+}

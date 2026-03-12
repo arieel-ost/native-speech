@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
+import { useTranslations, useLocale } from "next-intl";
 import { Button, Card } from "@/components/ui";
 import { AudioPlayer } from "./AudioPlayer";
 import { FeedbackDisplay } from "./FeedbackDisplay";
@@ -24,6 +25,9 @@ interface CombinedFeedback {
 }
 
 export function DrillSession({ drills, categoryName }: DrillSessionProps) {
+  const t = useTranslations("DrillSession");
+  const locale = useLocale();
+  const tPractice = useTranslations("Practice");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [recordingState, setRecordingState] = useState<RecordingState>("idle");
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
@@ -60,7 +64,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       mediaRecorder.start();
       setRecordingState("recording");
     } catch {
-      setError("Microphone access denied. Please allow microphone access and try again.");
+      setError(t("micDenied"));
     }
   }, []);
 
@@ -91,6 +95,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       formData.append("audio", blob, "recording.webm");
       formData.append("prompt", drill.prompt);
       formData.append("phonemes", JSON.stringify(drill.targetPhonemes));
+      formData.append("locale", locale);
 
       const res = await fetch("/api/analyze", {
         method: "POST",
@@ -122,7 +127,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       }
       const message = err instanceof Error ? err.message : String(err);
       console.error("[Recording] Fetch error:", message);
-      setError(`Failed to connect to analysis service: ${message}`);
+      setError(t("connectionError", { message }));
       setRecordingState("done");
     } finally {
       abortRef.current = null;
@@ -158,7 +163,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
     setError(null);
   };
 
-  if (!drill) return <p>No drills available for this category.</p>;
+  if (!drill) return <p>{tPractice("noDrills")}</p>;
 
   return (
     <div className={styles.session}>
@@ -171,7 +176,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
 
       <Card variant="elevated">
         <div className={styles.promptArea}>
-          <p className={styles.instruction}>Read this aloud:</p>
+          <p className={styles.instruction}>{t("readAloud")}</p>
           <p className={styles.prompt}>{drill.prompt}</p>
           <div className={styles.phonemes}>
             {drill.targetPhonemes.map((p) => (
@@ -185,10 +190,10 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
         className={`${styles.recordBtn} ${recordingState === "recording" ? styles.recording : ""} ${recordingState === "done" ? styles.retry : ""} ${recordingState === "processing" ? styles.cancel : ""}`}
         onClick={handleRecordClick}
         aria-label={
-          recordingState === "processing" ? "Cancel analysis"
-          : recordingState === "recording" ? "Stop recording"
-          : recordingState === "done" ? "Try again"
-          : "Start recording"
+          recordingState === "processing" ? t("cancel")
+          : recordingState === "recording" ? t("stop")
+          : recordingState === "done" ? t("retry")
+          : t("record")
         }
       >
         <span className={styles.recordIcon}>
@@ -199,12 +204,12 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
         </span>
         <span>
           {recordingState === "processing"
-            ? "Cancel"
+            ? t("cancel")
             : recordingState === "recording"
-              ? "Stop"
+              ? t("stop")
               : recordingState === "done"
-                ? "Retry"
-                : "Record"}
+                ? t("retry")
+                : t("record")}
         </span>
       </button>
 
@@ -217,7 +222,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
             className={`${styles.modeBtn} ${analysisMode === mode ? styles.modeBtnActive : ""}`}
             onClick={() => setAnalysisMode(mode)}
           >
-            {mode === "simplified" ? "Simple" : mode === "advanced" ? "Advanced" : "JSON"}
+            {mode === "simplified" ? t("simple") : mode === "advanced" ? t("advanced") : t("json")}
           </button>
         ))}
       </div>
@@ -227,7 +232,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
           {error ? (
             <p className={styles.errorText}>{error}</p>
           ) : recordingState === "processing" ? (
-            <p className={styles.feedbackText}>Analyzing your pronunciation...</p>
+            <p className={styles.feedbackText}>{t("analyzing")}</p>
           ) : feedback ? (
             analysisMode === "json" ? (
               <JsonFeedbackDisplay data={feedback as unknown as Record<string, unknown>} />
@@ -239,8 +244,8 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
           ) : (
             <p className={styles.feedbackText}>
               {recordingState === "recording"
-                ? "Listening..."
-                : "Your pronunciation feedback will appear here after recording."}
+                ? t("listening")
+                : t("feedbackPlaceholder")}
             </p>
           )}
         </div>
@@ -252,14 +257,14 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
           onClick={() => handleNav("prev")}
           disabled={currentIndex === 0 || recordingState === "processing" || recordingState === "recording"}
         >
-          Previous
+          {t("previous")}
         </Button>
         <Button
           variant="secondary"
           onClick={() => handleNav("next")}
           disabled={currentIndex === drills.length - 1 || recordingState === "processing" || recordingState === "recording"}
         >
-          Next
+          {t("next")}
         </Button>
       </div>
     </div>

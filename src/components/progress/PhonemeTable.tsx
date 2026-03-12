@@ -1,23 +1,27 @@
+import { useTranslations } from "next-intl";
 import { Badge } from "@/components/ui";
 import { mockPhonemeProgress } from "@/lib/mock-data";
 import styles from "./PhonemeTable.module.css";
 
 const trendVariants = { improving: "success", declining: "error", stable: "default" } as const;
-const trendLabels = { improving: "↑ Improving", declining: "↓ Declining", stable: "→ Stable" };
 
 export function PhonemeTable() {
+  const t = useTranslations("PhonemeTable");
+
+  const trendLabels = { improving: t("improving"), declining: t("declining"), stable: t("stable") };
+
   return (
     <div>
-      <h3 className={styles.heading}>Per-Phoneme Breakdown</h3>
+      <h3 className={styles.heading}>{t("title")}</h3>
       <div className={styles.tableWrapper}>
       <table className={styles.table}>
         <thead>
           <tr>
-            <th>Phoneme</th>
-            <th>Name</th>
-            <th>Accuracy</th>
-            <th>Practice</th>
-            <th>Trend</th>
+            <th>{t("phoneme")}</th>
+            <th>{t("name")}</th>
+            <th>{t("accuracy")}</th>
+            <th>{t("practice")}</th>
+            <th>{t("trend")}</th>
           </tr>
         </thead>
         <tbody>

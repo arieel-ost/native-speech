@@ -3,6 +3,13 @@ import { NextRequest, NextResponse } from "next/server";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
+const localeToLanguage: Record<string, string> = {
+  en: "English",
+  ru: "Russian",
+  es: "Spanish",
+  fr: "French",
+};
+
 const assessmentSchema = {
   type: Type.OBJECT,
   description: "Onboarding accent assessment profile",
@@ -103,6 +110,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const locale = (formData.get("locale") as string) ?? "en";
+    const uiLanguage = localeToLanguage[locale] ?? "English";
+
     const arrayBuffer = await audio.arrayBuffer();
     const base64Audio = Buffer.from(arrayBuffer).toString("base64");
     const mimeType = audio.type || "audio/webm";
@@ -132,7 +142,9 @@ Your task is to BUILD A LEARNER PROFILE — not give drill-by-drill feedback. An
 
 6. **Summary**: Write a warm, encouraging 2-3 sentence summary. Name their accent, acknowledge strengths, and frame their biggest challenge as very achievable.
 
-Be honest but constructive. This is their first interaction with the app — make them feel understood and motivated.`;
+Be honest but constructive. This is their first interaction with the app — make them feel understood and motivated.
+
+IMPORTANT: Respond entirely in ${uiLanguage}. All text fields in your response — summary, descriptions, strengths, pattern names — must be written in ${uiLanguage}. Keep IPA symbols and phoneme notation as-is.`;
 
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",

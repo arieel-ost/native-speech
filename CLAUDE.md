@@ -39,3 +39,17 @@
 **Environment:**
 - `GEMINI_API_KEY` in `.env.local` (AI Studio key)
 - Needs to be added to Vercel env vars before deploy
+
+## i18n — Translation Workflow
+
+- **Translations are always the LAST step** of any feature implementation
+- Build features with hardcoded English or translation keys first
+- Once working and reviewed, extract strings to `src/messages/` as the final task
+- Always update ALL locale files (en, ru, es, fr) when adding keys
+- Use AI-generated translations for non-English locales
+- `en.json` is the source of truth — other locales mirror its key structure
+- Use `next-intl` `useTranslations('Namespace')` hook — one namespace per component
+- Use `Link`, `usePathname`, `useRouter` from `@/i18n/navigation` instead of `next/link` or `next/navigation`
+- Locale switcher is in Nav (marketing) and Header (app)
+- Never hardcode user-facing strings in components — always use translation keys
+- Fallback: English in production, key name in development

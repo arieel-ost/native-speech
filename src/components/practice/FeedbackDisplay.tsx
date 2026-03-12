@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import styles from "./FeedbackDisplay.module.css";
 
 interface PhonemeResult {
@@ -38,7 +39,7 @@ function ratingColor(rating: string) {
   return styles.needsWork;
 }
 
-function ScoreRing({ score }: { score: number }) {
+function ScoreRing({ score, outOfLabel }: { score: number; outOfLabel: string }) {
   const pct = (score / 10) * 100;
   const circumference = 2 * Math.PI * 36;
   const offset = circumference - (pct / 100) * circumference;
@@ -57,12 +58,14 @@ function ScoreRing({ score }: { score: number }) {
         />
       </svg>
       <span className={styles.scoreValue}>{score}</span>
-      <span className={styles.scoreLabel}>/ 10</span>
+      <span className={styles.scoreLabel}>{outOfLabel}</span>
     </div>
   );
 }
 
 export function FeedbackDisplay({ data }: { data: AnalysisFeedback }) {
+  const t = useTranslations("FeedbackDisplay");
+
   // Group phoneme entries by phoneme symbol so we can show per-word results under each sound
   const phonemeGroups = data.phonemeAnalysis.reduce<Record<string, PhonemeResult[]>>((acc, p) => {
     (acc[p.phoneme] ??= []).push(p);
@@ -73,11 +76,11 @@ export function FeedbackDisplay({ data }: { data: AnalysisFeedback }) {
     <div className={styles.feedback}>
       {/* Score + Accent header */}
       <div className={styles.topRow}>
-        <ScoreRing score={data.overallScore} />
+        <ScoreRing score={data.overallScore} outOfLabel={t("outOf")} />
         <div className={styles.accentInfo}>
-          <span className={styles.sectionLabel}>Detected accent</span>
+          <span className={styles.sectionLabel}>{t("detectedAccent")}</span>
           <span className={styles.accentLang}>{data.accent.detectedLanguage}</span>
-          <span className={styles.accentConf}>{data.accent.confidence} confidence</span>
+          <span className={styles.accentConf}>{t("confidence", { level: data.accent.confidence })}</span>
           <div className={styles.patterns}>
             {data.accent.telltalePatterns.map((p) => (
               <span key={p} className={styles.patternTag}>{p}</span>
@@ -88,7 +91,7 @@ export function FeedbackDisplay({ data }: { data: AnalysisFeedback }) {
 
       {/* Phoneme breakdown — grouped by sound, per-word detail */}
       <div className={styles.section}>
-        <span className={styles.sectionLabel}>Phoneme analysis</span>
+        <span className={styles.sectionLabel}>{t("phonemeAnalysis")}</span>
         <div className={styles.phonemeList}>
           {Object.entries(phonemeGroups).map(([phoneme, entries]) => (
             <div key={phoneme} className={styles.phonemeRow}>
@@ -98,23 +101,23 @@ export function FeedbackDisplay({ data }: { data: AnalysisFeedback }) {
               {entries.map((p) => (
                 <div key={`${p.phoneme}-${p.word}`} className={styles.phonemeDetails}>
                   <div className={styles.detailRow}>
-                    <span className={styles.detailLabel}>Word</span>
+                    <span className={styles.detailLabel}>{t("word")}</span>
                     <span><strong>{p.word}</strong></span>
                     <span className={`${styles.ratingBadge} ${ratingColor(p.rating)}`}>
                       {p.rating.replace("_", " ")}
                     </span>
                   </div>
                   <div className={styles.detailRow}>
-                    <span className={styles.detailLabel}>You produced</span>
+                    <span className={styles.detailLabel}>{t("youProduced")}</span>
                     <span>{p.produced}</span>
                   </div>
                   <div className={styles.detailRow}>
-                    <span className={styles.detailLabel}>Expected</span>
+                    <span className={styles.detailLabel}>{t("expected")}</span>
                     <span>{p.expected}</span>
                   </div>
                   {p.substitution && (
                     <div className={styles.detailRow}>
-                      <span className={styles.detailLabel}>Substitution</span>
+                      <span className={styles.detailLabel}>{t("substitution")}</span>
                       <span className={styles.substitution}>{p.substitution}</span>
                     </div>
                   )}
@@ -127,10 +130,10 @@ export function FeedbackDisplay({ data }: { data: AnalysisFeedback }) {
 
       {/* Prosody */}
       <div className={styles.section}>
-        <span className={styles.sectionLabel}>Rhythm &amp; intonation</span>
+        <span className={styles.sectionLabel}>{t("rhythmIntonation")}</span>
         <div className={styles.prosodyGrid}>
           <div className={styles.prosodyItem}>
-            <span className={styles.detailLabel}>Stress</span>
+            <span className={styles.detailLabel}>{t("stress")}</span>
             <span className={`${styles.ratingBadge} ${ratingColor(data.prosody.stressAccuracy)}`}>
               {data.prosody.stressAccuracy.replace("_", " ")}
             </span>
@@ -142,13 +145,13 @@ export function FeedbackDisplay({ data }: { data: AnalysisFeedback }) {
 
       {/* Tips */}
       <div className={styles.section}>
-        <span className={styles.sectionLabel}>Practice tips</span>
+        <span className={styles.sectionLabel}>{t("practiceTips")}</span>
         <div className={styles.tipsList}>
           {data.tips.map((tip, i) => (
             <div key={i} className={styles.tipCard}>
               <span className={styles.tipSound}>{tip.targetSound}</span>
               <p className={styles.tipExercise}>{tip.exercise}</p>
-              <span className={styles.tipWord}>Practice with: <strong>{tip.practiceWord}</strong></span>
+              <span className={styles.tipWord}>{t("practiceWith")} <strong>{tip.practiceWord}</strong></span>
             </div>
           ))}
         </div>
@@ -157,7 +160,7 @@ export function FeedbackDisplay({ data }: { data: AnalysisFeedback }) {
       {/* Text match note */}
       {data.textMatch !== "yes" && (
         <p className={styles.textMatchNote}>
-          Text match: {data.textMatch}
+          {t("textMatch", { value: data.textMatch })}
         </p>
       )}
     </div>
