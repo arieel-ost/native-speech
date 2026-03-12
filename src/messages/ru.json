@@ -146,22 +146,29 @@
     "signIn": "Войти"
   },
   "Dashboard": {
-    "startPractice": "Начать практику"
+    "startPractice": "Начать практику",
+    "noProfileTitle": "Добро пожаловать в NativeSpeech",
+    "noProfileDescription": "Пройдите оценку акцента, чтобы получить персонализированные рекомендации.",
+    "takeAssessment": "Пройти оценку"
   },
   "ScoreOverview": {
     "dayStreak": "Дней подряд",
-    "sessions": "Сессии",
-    "totalPractice": "Всего практики"
+    "sessions": "Сессии"
   },
   "RecentSessions": {
     "title": "Недавние сессии",
-    "duration": "{minutes} мин"
+    "duration": "{minutes} мин",
+    "noSessions": "Завершите упражнение, чтобы увидеть историю здесь."
   },
   "WeakSpots": {
     "title": "Ваши слабые места",
     "improving": "улучшается",
     "declining": "ухудшается",
-    "stable": "стабильно"
+    "stable": "стабильно",
+    "not_started": "не начато",
+    "struggled": "трудности",
+    "strong": "уверенно",
+    "practiced": "{count}x практика"
   },
   "Practice": {
     "title": "Практика",

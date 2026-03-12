@@ -40,3 +40,9 @@
   font-size: 0.75rem;
   color: var(--color-text-muted);
 }
+
+.empty {
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: var(--space-md);
+}

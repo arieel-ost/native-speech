@@ -1,31 +1,52 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import { Card, Badge } from "@/components/ui";
-import { mockRecentSessions } from "@/lib/mock-data";
+import type { SessionRecord } from "@/lib/learner-store";
+import { mockDrillCategories } from "@/lib/mock-data";
 import styles from "./RecentSessions.module.css";
 
-export function RecentSessions() {
+interface RecentSessionsProps {
+  sessions: SessionRecord[];
+}
+
+export function RecentSessions({ sessions }: RecentSessionsProps) {
   const t = useTranslations("RecentSessions");
+
+  const recent = [...sessions].reverse().slice(0, 10);
+
+  if (recent.length === 0) {
+    return (
+      <div>
+        <h3 className={styles.heading}>{t("title")}</h3>
+        <Card variant="outlined">
+          <p className={styles.empty}>{t("noSessions")}</p>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div>
       <h3 className={styles.heading}>{t("title")}</h3>
       <div className={styles.list}>
-        {mockRecentSessions.map((session) => (
-          <Card key={session.id} variant="outlined">
-            <div className={styles.session}>
-              <div>
-                <span className={styles.name}>{session.categoryName}</span>
-                <span className={styles.date}>{session.date}</span>
-              </div>
-              <div className={styles.meta}>
-                <Badge variant={session.score >= 70 ? "success" : "default"}>
-                  {session.score}%
+        {recent.map((session) => {
+          const category = mockDrillCategories.find((c) => c.id === session.drillCategoryId);
+          const date = new Date(session.timestamp).toLocaleDateString();
+          return (
+            <Card key={session.id} variant="outlined">
+              <div className={styles.session}>
+                <div>
+                  <span className={styles.name}>{category?.name ?? session.drillCategoryId}</span>
+                  <span className={styles.date}>{date}</span>
+                </div>
+                <Badge variant={session.overallScore >= 7 ? "success" : "default"}>
+                  {session.overallScore}/10
                 </Badge>
-                <span className={styles.duration}>{t("duration", { minutes: session.duration })}</span>
               </div>
-            </div>
-          </Card>
-        ))}
+            </Card>
+          );
+        })}
       </div>
     </div>
   );

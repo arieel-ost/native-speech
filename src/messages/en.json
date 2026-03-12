@@ -146,22 +146,29 @@
     "signIn": "Sign In"
   },
   "Dashboard": {
-    "startPractice": "Start Practice"
+    "startPractice": "Start Practice",
+    "noProfileTitle": "Welcome to NativeSpeech",
+    "noProfileDescription": "Take a quick accent assessment to get personalized practice recommendations.",
+    "takeAssessment": "Take Your Assessment"
   },
   "ScoreOverview": {
     "dayStreak": "Day Streak",
-    "sessions": "Sessions",
-    "totalPractice": "Total Practice"
+    "sessions": "Sessions"
   },
   "RecentSessions": {
     "title": "Recent Sessions",
-    "duration": "{minutes}min"
+    "duration": "{minutes}min",
+    "noSessions": "Complete a practice drill to see your history here."
   },
   "WeakSpots": {
     "title": "Your Weak Spots",
     "improving": "improving",
     "declining": "declining",
-    "stable": "stable"
+    "stable": "stable",
+    "not_started": "not started",
+    "struggled": "struggling",
+    "strong": "strong",
+    "practiced": "{count}x practiced"
   },
   "Practice": {
     "title": "Practice",
