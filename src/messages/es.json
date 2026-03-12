@@ -171,7 +171,9 @@
   "DrillGrid": {
     "english": "English",
     "german": "Deutsch",
-    "min": "{count} min"
+    "min": "{count} min",
+    "startHere": "Empieza aquí",
+    "recommended": "Recomendado"
   },
   "DrillSession": {
     "readAloud": "Lee esto en voz alta:",
