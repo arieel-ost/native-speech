@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { Button, Card } from "@/components/ui";
 import { AudioPlayer } from "@/components/practice/AudioPlayer";
@@ -34,6 +34,7 @@ interface Assessment {
 export function AccentAssessment() {
   const t = useTranslations("AccentAssessment");
   const router = useRouter();
+  const locale = useLocale();
   const [step, setStep] = useState<Step>("language");
   const [language, setLanguage] = useState<TargetLanguage | null>(null);
   const [recordingState, setRecordingState] = useState<"idle" | "recording">("idle");
@@ -98,6 +99,7 @@ export function AccentAssessment() {
       formData.append("audio", blob, "assessment.webm");
       formData.append("language", language);
       formData.append("passage", passage.text);
+      formData.append("locale", locale);
 
       const res = await fetch("/api/assess", {
         method: "POST",
