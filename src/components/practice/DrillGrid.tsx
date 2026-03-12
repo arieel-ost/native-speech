@@ -1,10 +1,11 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { Card, Badge } from "@/components/ui";
 import { mockDrillCategories, type Language } from "@/lib/mock-data";
-import { getProfile } from "@/lib/learner-store";
+import { getProfile, type LearnerProfile } from "@/lib/learner-store";
 import styles from "./DrillGrid.module.css";
 
 const difficultyVariants = { beginner: "success", intermediate: "accent", advanced: "error" } as const;
@@ -12,7 +13,12 @@ const difficultyVariants = { beginner: "success", intermediate: "accent", advanc
 export function DrillGrid() {
   const t = useTranslations("DrillGrid");
   const tDrills = useTranslations("Drills");
-  const profile = getProfile();
+  const [profile, setProfile] = useState<LearnerProfile | null>(null);
+
+  useEffect(() => {
+    setProfile(getProfile());
+  }, []);
+
   const recommended = profile?.assessment.recommendedDrills ?? [];
   const targetLanguage = profile?.language;
 

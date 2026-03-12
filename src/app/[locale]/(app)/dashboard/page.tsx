@@ -1,12 +1,18 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui";
 import { ScoreOverview } from "@/components/dashboard/ScoreOverview";
 import { RecentSessions } from "@/components/dashboard/RecentSessions";
 import { WeakSpots } from "@/components/dashboard/WeakSpots";
-import { getProfile, getPhonemeProgress, getCurrentScore } from "@/lib/learner-store";
+import {
+  getProfile,
+  getPhonemeProgress,
+  getCurrentScore,
+  type LearnerProfile,
+} from "@/lib/learner-store";
 import styles from "./page.module.css";
 
 function calculateStreak(sessions: { timestamp: string }[]): number {
@@ -17,15 +23,17 @@ function calculateStreak(sessions: { timestamp: string }[]): number {
 
   let streak = 0;
   const today = new Date();
+  let offset = 0;
   for (let i = 0; i < dates.length; i++) {
     const expected = new Date(today);
-    expected.setDate(expected.getDate() - i);
+    expected.setDate(expected.getDate() - i - offset);
     if (dates[i] === expected.toDateString()) {
       streak++;
     } else if (i === 0) {
-      const yesterday = new Date(today);
-      yesterday.setDate(yesterday.getDate() - 1);
-      if (dates[i] === yesterday.toDateString()) {
+      // Allow streak to start from yesterday
+      offset = 1;
+      expected.setDate(expected.getDate() - 1);
+      if (dates[i] === expected.toDateString()) {
         streak++;
       } else {
         break;
@@ -39,7 +47,16 @@ function calculateStreak(sessions: { timestamp: string }[]): number {
 
 export default function DashboardPage() {
   const t = useTranslations("Dashboard");
-  const profile = getProfile();
+  const [profile, setProfile] = useState<LearnerProfile | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setProfile(getProfile());
+    setMounted(true);
+  }, []);
+
+  // Show nothing during SSR/hydration to avoid mismatch
+  if (!mounted) return null;
 
   if (!profile) {
     return (
