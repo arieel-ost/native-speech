@@ -1,5 +1,6 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { NextRequest, NextResponse } from "next/server";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
@@ -113,6 +114,25 @@ export async function POST(request: NextRequest) {
     const locale = (formData.get("locale") as string) ?? "en";
     const uiLanguage = localeToLanguage[locale] ?? "English";
 
+    const fingerprint = request.headers.get("x-learner-id") ?? "anonymous";
+    const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim()
+      ?? request.headers.get("x-real-ip")
+      ?? "unknown";
+
+    const rateLimit = checkRateLimit(fingerprint, ip);
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { error: "Daily limit reached. Try again tomorrow." },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(rateLimit.retryAfterSeconds),
+            "X-RateLimit-Remaining": "0",
+          },
+        },
+      );
+    }
+
     const arrayBuffer = await audio.arrayBuffer();
     const base64Audio = Buffer.from(arrayBuffer).toString("base64");
     const mimeType = audio.type || "audio/webm";
@@ -179,7 +199,9 @@ IMPORTANT: Respond entirely in ${uiLanguage}. All text fields in your response â
       );
     }
 
-    return NextResponse.json({ assessment });
+    return NextResponse.json({ assessment }, {
+      headers: { "X-RateLimit-Remaining": String(rateLimit.remaining) },
+    });
   } catch (error: unknown) {
     const err = error instanceof Error ? error : new Error(String(error));
     console.error("Assess API error:", err.message);

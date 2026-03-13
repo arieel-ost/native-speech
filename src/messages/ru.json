@@ -146,22 +146,29 @@
     "signIn": "Войти"
   },
   "Dashboard": {
-    "startPractice": "Начать практику"
+    "startPractice": "Начать практику",
+    "noProfileTitle": "Добро пожаловать в NativeSpeech",
+    "noProfileDescription": "Пройдите оценку акцента, чтобы получить персонализированные рекомендации.",
+    "takeAssessment": "Пройти оценку"
   },
   "ScoreOverview": {
     "dayStreak": "Дней подряд",
-    "sessions": "Сессии",
-    "totalPractice": "Всего практики"
+    "sessions": "Сессии"
   },
   "RecentSessions": {
     "title": "Недавние сессии",
-    "duration": "{minutes} мин"
+    "duration": "{minutes} мин",
+    "noSessions": "Завершите упражнение, чтобы увидеть историю здесь."
   },
   "WeakSpots": {
     "title": "Ваши слабые места",
     "improving": "улучшается",
     "declining": "ухудшается",
-    "stable": "стабильно"
+    "stable": "стабильно",
+    "not_started": "не начато",
+    "struggled": "трудности",
+    "strong": "уверенно",
+    "practiced": "{count}x практика"
   },
   "Practice": {
     "title": "Практика",
@@ -171,7 +178,9 @@
   "DrillGrid": {
     "english": "English",
     "german": "Deutsch",
-    "min": "{count} мин"
+    "min": "{count} мин",
+    "startHere": "Начните здесь",
+    "recommended": "Рекомендовано"
   },
   "DrillSession": {
     "readAloud": "Прочитайте вслух:",
@@ -188,7 +197,8 @@
     "advanced": "Подробный",
     "json": "JSON",
     "micDenied": "Доступ к микрофону запрещён. Разрешите доступ к микрофону и попробуйте снова.",
-    "connectionError": "Не удалось подключиться к сервису анализа: {message}"
+    "connectionError": "Не удалось подключиться к сервису анализа: {message}",
+    "backToDashboard": "Вернуться к панели"
   },
   "FeedbackDisplay": {
     "detectedAccent": "Обнаруженный акцент",

@@ -146,22 +146,29 @@
     "signIn": "Sign In"
   },
   "Dashboard": {
-    "startPractice": "Start Practice"
+    "startPractice": "Start Practice",
+    "noProfileTitle": "Welcome to NativeSpeech",
+    "noProfileDescription": "Take a quick accent assessment to get personalized practice recommendations.",
+    "takeAssessment": "Take Your Assessment"
   },
   "ScoreOverview": {
     "dayStreak": "Day Streak",
-    "sessions": "Sessions",
-    "totalPractice": "Total Practice"
+    "sessions": "Sessions"
   },
   "RecentSessions": {
     "title": "Recent Sessions",
-    "duration": "{minutes}min"
+    "duration": "{minutes}min",
+    "noSessions": "Complete a practice drill to see your history here."
   },
   "WeakSpots": {
     "title": "Your Weak Spots",
     "improving": "improving",
     "declining": "declining",
-    "stable": "stable"
+    "stable": "stable",
+    "not_started": "not started",
+    "struggled": "struggling",
+    "strong": "strong",
+    "practiced": "{count}x practiced"
   },
   "Practice": {
     "title": "Practice",
@@ -171,7 +178,9 @@
   "DrillGrid": {
     "english": "English",
     "german": "Deutsch",
-    "min": "{count} min"
+    "min": "{count} min",
+    "startHere": "Start here",
+    "recommended": "Recommended"
   },
   "DrillSession": {
     "readAloud": "Read this aloud:",
@@ -188,7 +197,8 @@
     "advanced": "Advanced",
     "json": "JSON",
     "micDenied": "Microphone access denied. Please allow microphone access and try again.",
-    "connectionError": "Failed to connect to analysis service: {message}"
+    "connectionError": "Failed to connect to analysis service: {message}",
+    "backToDashboard": "Back to Dashboard"
   },
   "FeedbackDisplay": {
     "detectedAccent": "Detected accent",

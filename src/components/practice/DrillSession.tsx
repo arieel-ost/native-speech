@@ -7,6 +7,8 @@ import { AudioPlayer } from "./AudioPlayer";
 import { FeedbackDisplay } from "./FeedbackDisplay";
 import { SimplifiedFeedbackDisplay } from "./SimplifiedFeedbackDisplay";
 import { JsonFeedbackDisplay } from "./JsonFeedbackDisplay";
+import { Link } from "@/i18n/navigation";
+import { addSession, getProfile, getLearnerId } from "@/lib/learner-store";
 import type { DrillSession as DrillSessionType } from "@/lib/mock-data";
 import type { AnalysisMode } from "@/app/api/analyze/route";
 import styles from "./DrillSession.module.css";
@@ -101,6 +103,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
         method: "POST",
         body: formData,
         signal: controller.signal,
+        headers: { "X-Learner-ID": getLearnerId() },
       });
       const data = await res.json();
 
@@ -120,6 +123,27 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       console.log("[Recording] Analysis result:", JSON.stringify(data.feedback, null, 2));
       setFeedback(data.feedback as CombinedFeedback);
       setRecordingState("done");
+
+      try {
+        if (getProfile()) {
+          const detailed = data.feedback.detailed as {
+            phonemeAnalysis?: { phoneme: string; rating: string; word: string }[];
+            overallScore?: number;
+          };
+          addSession({
+            drillCategoryId: drill.categoryId,
+            drillItemId: drill.id,
+            overallScore: (data.feedback.simple as { score?: number })?.score ?? detailed?.overallScore ?? 5,
+            phonemeScores: (detailed?.phonemeAnalysis ?? []).map((pa) => ({
+              phoneme: pa.phoneme,
+              rating: pa.rating as "good" | "acceptable" | "needs_work",
+              word: pa.word,
+            })),
+          });
+        }
+      } catch (err) {
+        console.error("[Recording] Failed to save session:", err);
+      }
     } catch (err) {
       if (err instanceof DOMException && err.name === "AbortError") {
         console.log("[Recording] Analysis cancelled");
@@ -267,6 +291,10 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
           {t("next")}
         </Button>
       </div>
+
+      <Link href="/dashboard" className={styles.backLink}>
+        {t("backToDashboard")}
+      </Link>
     </div>
   );
 }

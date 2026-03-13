@@ -6,6 +6,7 @@ import { useRouter } from "@/i18n/navigation";
 import { Button, Card } from "@/components/ui";
 import { AudioPlayer } from "@/components/practice/AudioPlayer";
 import { diagnosticPassages, type TargetLanguage } from "@/lib/mock-data";
+import { saveProfile, getLearnerId } from "@/lib/learner-store";
 import styles from "./AccentAssessment.module.css";
 
 type Step = "language" | "record" | "analyzing" | "results";
@@ -104,6 +105,7 @@ export function AccentAssessment() {
       const res = await fetch("/api/assess", {
         method: "POST",
         body: formData,
+        headers: { "X-Learner-ID": getLearnerId() },
       });
       const data = await res.json();
 
@@ -117,6 +119,7 @@ export function AccentAssessment() {
       }
 
       setAssessment(data.assessment as Assessment);
+      saveProfile(language!, data.assessment);
       setStep("results");
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
@@ -289,7 +292,7 @@ export function AccentAssessment() {
           )}
 
           <div className={styles.resultsActions}>
-            <Button onClick={() => router.push("/practice")}>
+            <Button onClick={() => router.push("/dashboard")}>
               {t("startPracticing")}
             </Button>
             <Button variant="secondary" onClick={handleRetry}>

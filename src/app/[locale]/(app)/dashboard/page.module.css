@@ -16,3 +16,17 @@
     grid-template-columns: 1fr;
   }
 }
+
+.emptyState {
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.emptyState h2 {
+  margin-bottom: var(--space-xs);
+}
+
+.emptyState p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}

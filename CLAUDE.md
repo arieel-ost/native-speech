@@ -15,30 +15,47 @@
 - next-auth v5 (beta)
 - @google/genai (Gemini SDK)
 
-## Recording Feature (branch: `recording`)
+## Architecture
 
-**Status:** MVP working — audio capture, playback, and Gemini analysis all functional.
+### Demo User Loop (branch: `feature/demo-loop`)
 
-**What's done:**
-- `src/app/api/analyze/route.ts` — API route that receives audio FormData, sends to Gemini, returns feedback
-- `src/components/practice/DrillSession.tsx` — MediaRecorder capture, `<audio>` playback, fetch to `/api/analyze`, display response
-- Gemini prompt forces transcription first, compares against expected text, then evaluates pronunciation
-- Debug logging in browser console (`[Recording]` prefix) and server terminal
+Full user loop without auth — all state in localStorage:
 
-**What's next:**
-- Test with correct pronunciation to see quality of phoneme-level feedback
-- Experiment with Gemini prompt variations (see design doc)
-- Try `gemini-3-flash-preview` again when available (currently 503, using `gemini-2.5-flash`)
-- Remove debug logging before merge
-- Design structured feedback UI based on what Gemini returns
+```
+Onboarding → Dashboard → Recommended Drills → Practice → Measure Improvement → Repeat
+```
 
-**Key files:**
-- Design: `docs/plans/2026-03-07-recording-design.md`
-- Implementation plan: `docs/plans/2026-03-07-recording-implementation.md`
+**Key modules:**
+- `src/lib/learner-store.ts` — localStorage CRUD for LearnerProfile, SessionRecord, phoneme progress derivation
+- `src/lib/rate-limit.ts` — in-memory rate limiter (fingerprint + IP, 30 calls/day)
+- `src/app/api/analyze/route.ts` — practice drill analysis (Gemini 2.5 Flash, structured JSON schema)
+- `src/app/api/assess/route.ts` — onboarding accent assessment (Gemini 2.5 Flash)
 
-**Environment:**
-- `GEMINI_API_KEY` in `.env.local` (AI Studio key)
+**Data flow:**
+- Onboarding saves `LearnerProfile` to localStorage (assessment scores, recommended drills, accent data)
+- DrillSession appends `SessionRecord` after each Gemini analysis
+- Dashboard derives all views from localStorage: score (weighted avg), phoneme progress, session history
+- DrillGrid reads `recommendedDrills` to sort/badge drills
+
+### API Routes
+
+Both routes receive audio FormData, send to Gemini, return structured JSON:
+- `/api/analyze` — practice feedback (simple + detailed + textMatch views)
+- `/api/assess` — onboarding learner profile (accent, problems, strengths, recommendations)
+- Both rate-limited: `X-Learner-ID` header + IP, 30 calls/day, returns `X-RateLimit-Remaining`
+
+### Environment
+
+- `GEMINI_API_KEY` in `.env.local` (Google AI Studio key)
 - Needs to be added to Vercel env vars before deploy
+
+## Patterns & Gotchas
+
+- **localStorage + SSR hydration:** Always defer localStorage reads to `useEffect` with `useState`. Direct reads in render cause hydration mismatches. See dashboard `page.tsx` and `DrillGrid.tsx` for pattern.
+- **Client components:** Any component reading localStorage must be `"use client"`
+- **Mock data:** `src/lib/mock-data.ts` contains drill content (categories, prompts, passages) — this is NOT mock user data, it's real content. Mock user/session data (`mockUser`, `mockRecentSessions`, etc.) should NOT be imported in production components.
+- **Gemini model:** Using `gemini-2.5-flash` — cheapest option with audio support. Don't upgrade to Pro without cost analysis.
+- **Debug logging:** `[Recording]` prefix console logs still present in DrillSession.tsx and API routes — remove before production deploy.
 
 ## i18n — Translation Workflow
 

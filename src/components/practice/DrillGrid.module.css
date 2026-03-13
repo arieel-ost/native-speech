@@ -66,3 +66,14 @@
   font-size: 0.75rem;
   color: var(--color-text-muted);
 }
+
+.recommended {
+  border-color: var(--color-primary);
+  border-width: 2px;
+}
+
+.startHere {
+  border-color: var(--color-accent);
+  border-width: 2px;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
+}

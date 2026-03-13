@@ -146,22 +146,29 @@
     "signIn": "Iniciar Sesión"
   },
   "Dashboard": {
-    "startPractice": "Empezar Práctica"
+    "startPractice": "Empezar Práctica",
+    "noProfileTitle": "Bienvenido a NativeSpeech",
+    "noProfileDescription": "Realiza una evaluación rápida de acento para obtener recomendaciones personalizadas.",
+    "takeAssessment": "Realizar evaluación"
   },
   "ScoreOverview": {
     "dayStreak": "Racha de Días",
-    "sessions": "Sesiones",
-    "totalPractice": "Práctica Total"
+    "sessions": "Sesiones"
   },
   "RecentSessions": {
     "title": "Sesiones Recientes",
-    "duration": "{minutes}min"
+    "duration": "{minutes}min",
+    "noSessions": "Completa un ejercicio para ver tu historial aquí."
   },
   "WeakSpots": {
     "title": "Tus Puntos Débiles",
     "improving": "mejorando",
     "declining": "empeorando",
-    "stable": "estable"
+    "stable": "estable",
+    "not_started": "no iniciado",
+    "struggled": "con dificultad",
+    "strong": "fuerte",
+    "practiced": "{count}x practicado"
   },
   "Practice": {
     "title": "Práctica",
@@ -171,7 +178,9 @@
   "DrillGrid": {
     "english": "English",
     "german": "Deutsch",
-    "min": "{count} min"
+    "min": "{count} min",
+    "startHere": "Empieza aquí",
+    "recommended": "Recomendado"
   },
   "DrillSession": {
     "readAloud": "Lee esto en voz alta:",
@@ -188,7 +197,8 @@
     "advanced": "Avanzado",
     "json": "JSON",
     "micDenied": "Acceso al micrófono denegado. Por favor permite el acceso al micrófono e inténtalo de nuevo.",
-    "connectionError": "Error al conectar con el servicio de análisis: {message}"
+    "connectionError": "Error al conectar con el servicio de análisis: {message}",
+    "backToDashboard": "Volver al panel"
   },
   "FeedbackDisplay": {
     "detectedAccent": "Acento detectado",
