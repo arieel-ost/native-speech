@@ -55,29 +55,13 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
     }
   }, [pipeline, t]);
 
-  const stopRecording = useCallback(async () => {
-    const { blob, metadata } = await pipeline.stopRecording();
-    const url = URL.createObjectURL(blob);
-    setAudioUrl(url);
-
-    // Speech gate: reject recordings with < 2s detected speech
-    const MIN_SPEECH_SECONDS = 2;
-    if (metadata.speechDuration < MIN_SPEECH_SECONDS) {
-      setError(t("notEnoughSpeech"));
-      setRecordingState("done");
-      return;
-    }
-
-    await analyze(blob);
-  }, [pipeline, t]);
-
   const cancelAnalysis = useCallback(() => {
     abortRef.current?.abort();
     abortRef.current = null;
     setRecordingState("done");
   }, []);
 
-  const analyze = async (blob: Blob) => {
+  const analyze = useCallback(async (blob: Blob) => {
     if (!drill) return;
     setRecordingState("processing");
     setError(null);
@@ -151,7 +135,23 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
     } finally {
       abortRef.current = null;
     }
-  };
+  }, [drill, locale, t]);
+
+  const stopRecording = useCallback(async () => {
+    const { blob, metadata } = await pipeline.stopRecording();
+    const url = URL.createObjectURL(blob);
+    setAudioUrl(url);
+
+    // Speech gate: reject recordings with < 2s detected speech
+    const MIN_SPEECH_SECONDS = 2;
+    if (metadata.speechDuration < MIN_SPEECH_SECONDS) {
+      setError(t("notEnoughSpeech"));
+      setRecordingState("done");
+      return;
+    }
+
+    await analyze(blob);
+  }, [pipeline, t, analyze]);
 
   const handleRetry = () => {
     setAudioUrl(null);
