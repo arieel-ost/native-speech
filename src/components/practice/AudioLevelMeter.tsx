@@ -34,12 +34,23 @@ export function AudioLevelMeter({
     };
   }, [isRecording]);
 
+  // Peak-hold: snap up instantly, hold 800ms after speech pause, then decay
+  const holdRef = useRef({ level: 0, time: 0 });
+
   if (!isRecording) return null;
 
   // Logarithmic scaling — maps normal speech (~0.03-0.15 RMS) to 44-65% (good zone)
-  const volumePercent = rmsLevel > 0.001
+  const rawPercent = rmsLevel > 0.001
     ? Math.min(Math.max(30 * Math.log10(rmsLevel / 0.001), 0), 100)
     : 0;
+
+  const now = performance.now();
+  if (rawPercent >= holdRef.current.level) {
+    holdRef.current = { level: rawPercent, time: now };
+  } else if (now - holdRef.current.time > 800) {
+    holdRef.current.level += (rawPercent - holdRef.current.level) * 0.08;
+  }
+  const volumePercent = holdRef.current.level;
 
   // Determine zone and status
   const zone = audioQuality.tooLoud
