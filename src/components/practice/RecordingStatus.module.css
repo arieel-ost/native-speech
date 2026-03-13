@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.volumeBar {
+  flex: 1;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.volumeFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.05s ease-out;
+}
+
+.statusText {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  min-width: 120px;
+  text-align: right;
+}
+
+.warning {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-error);
+}
