@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { Button, Card } from "@/components/ui";
 import { AudioPlayer } from "@/components/practice/AudioPlayer";
+import { WaveformVisualizer } from "@/components/practice/WaveformVisualizer";
 import { diagnosticPassages, type TargetLanguage } from "@/lib/mock-data";
 import { saveProfile, getLearnerId } from "@/lib/learner-store";
 import styles from "./AccentAssessment.module.css";
@@ -40,6 +41,7 @@ export function AccentAssessment() {
   const [language, setLanguage] = useState<TargetLanguage | null>(null);
   const [recordingState, setRecordingState] = useState<"idle" | "recording">("idle");
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
+  const [stream, setStream] = useState<MediaStream | null>(null);
   const [assessment, setAssessment] = useState<Assessment | null>(null);
   const [error, setError] = useState<string | null>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
@@ -56,8 +58,15 @@ export function AccentAssessment() {
     try {
       setError(null);
       setAudioUrl(null);
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const mediaRecorder = new MediaRecorder(stream);
+      const newStream = await navigator.mediaDevices.getUserMedia({ 
+        audio: { 
+          noiseSuppression: true, 
+          autoGainControl: true, 
+          echoCancellation: true
+        } 
+      });
+      setStream(newStream);
+      const mediaRecorder = new MediaRecorder(newStream);
       mediaRecorderRef.current = mediaRecorder;
       chunksRef.current = [];
 
@@ -66,7 +75,8 @@ export function AccentAssessment() {
       };
 
       mediaRecorder.onstop = () => {
-        stream.getTracks().forEach((track) => track.stop());
+        newStream.getTracks().forEach((track) => track.stop());
+        setStream(null);
         const blob = new Blob(chunksRef.current, { type: mediaRecorder.mimeType });
         const url = URL.createObjectURL(blob);
         setAudioUrl(url);
@@ -130,6 +140,7 @@ export function AccentAssessment() {
 
   const handleRetry = () => {
     setAudioUrl(null);
+    setStream(null);
     setAssessment(null);
     setError(null);
     setStep("record");
@@ -188,6 +199,12 @@ export function AccentAssessment() {
               </span>
               <span>{recordingState === "recording" ? t("stop") : t("record")}</span>
             </button>
+          </div>
+
+          <div style={{ marginTop: '1rem', marginBottom: '1rem' }}>
+            {(recordingState === "recording" || audioUrl) && (
+               <WaveformVisualizer stream={stream} isRecording={recordingState === "recording"} />
+            )}
           </div>
 
           {audioUrl && (

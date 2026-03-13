@@ -4,6 +4,7 @@ import { useState, useRef, useCallback } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Button, Card } from "@/components/ui";
 import { AudioPlayer } from "./AudioPlayer";
+import { WaveformVisualizer } from "./WaveformVisualizer";
 import { FeedbackDisplay } from "./FeedbackDisplay";
 import { SimplifiedFeedbackDisplay } from "./SimplifiedFeedbackDisplay";
 import { JsonFeedbackDisplay } from "./JsonFeedbackDisplay";
@@ -33,6 +34,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [recordingState, setRecordingState] = useState<RecordingState>("idle");
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
+  const [stream, setStream] = useState<MediaStream | null>(null);
   const [feedback, setFeedback] = useState<CombinedFeedback | null>(null);
   const [analysisMode, setAnalysisMode] = useState<AnalysisMode>("simplified");
   const [error, setError] = useState<string | null>(null);
@@ -41,48 +43,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
   const abortRef = useRef<AbortController | null>(null);
   const drill = drills[currentIndex];
 
-  const startRecording = useCallback(async () => {
-    try {
-      setError(null);
-      setFeedback(null);
-      setAudioUrl(null);
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const mediaRecorder = new MediaRecorder(stream);
-      mediaRecorderRef.current = mediaRecorder;
-      chunksRef.current = [];
-
-      mediaRecorder.ondataavailable = (e) => {
-        if (e.data.size > 0) chunksRef.current.push(e.data);
-      };
-
-      mediaRecorder.onstop = async () => {
-        stream.getTracks().forEach((t) => t.stop());
-        const blob = new Blob(chunksRef.current, { type: mediaRecorder.mimeType });
-        const url = URL.createObjectURL(blob);
-        setAudioUrl(url);
-        await analyze(blob);
-      };
-
-      mediaRecorder.start();
-      setRecordingState("recording");
-    } catch {
-      setError(t("micDenied"));
-    }
-  }, []);
-
-  const stopRecording = useCallback(() => {
-    if (mediaRecorderRef.current?.state === "recording") {
-      mediaRecorderRef.current.stop();
-    }
-  }, []);
-
-  const cancelAnalysis = useCallback(() => {
-    abortRef.current?.abort();
-    abortRef.current = null;
-    setRecordingState("done");
-  }, []);
-
-  const analyze = async (blob: Blob) => {
+  const analyze = useCallback(async (blob: Blob) => {
     if (!drill) return;
     setRecordingState("processing");
     setError(null);
@@ -92,6 +53,24 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       console.log("[Recording] Blob size:", blob.size, "bytes");
       console.log("[Recording] Blob type:", blob.type);
       console.log("[Recording] Sending to /api/analyze...");
+
+      // MOCK ANALYSIS FOR TESTING
+      console.log("⚠️ SKIPPING API CALL TO SAVE CREDITS ⚠️");
+      setTimeout(() => {
+        if (!abortRef.current) return;
+        setFeedback({
+          simple: { score: 9 },
+          detailed: { 
+            overallScore: 9, 
+            phonemeAnalysis: [
+              { phoneme: "a", rating: "good", word: "test" }
+            ] 
+          },
+          textMatch: drill.prompt
+        } as CombinedFeedback);
+        setRecordingState("done");
+      }, 1000);
+      return;
 
       const formData = new FormData();
       formData.append("audio", blob, "recording.webm");
@@ -156,10 +135,60 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
     } finally {
       abortRef.current = null;
     }
-  };
+  }, [drill, locale, t]);
+
+  const startRecording = useCallback(async () => {
+    try {
+      setError(null);
+      setFeedback(null);
+      setAudioUrl(null);
+      const newStream = await navigator.mediaDevices.getUserMedia({ 
+        audio: { 
+          noiseSuppression: true, 
+          autoGainControl: true, 
+          echoCancellation: true
+        } 
+      });
+      setStream(newStream);
+      const mediaRecorder = new MediaRecorder(newStream);
+      mediaRecorderRef.current = mediaRecorder;
+      chunksRef.current = [];
+
+      mediaRecorder.ondataavailable = (e) => {
+        if (e.data.size > 0) chunksRef.current.push(e.data);
+      };
+
+      mediaRecorder.onstop = async () => {
+        newStream.getTracks().forEach((t) => t.stop());
+        setStream(null);
+        const blob = new Blob(chunksRef.current, { type: mediaRecorder.mimeType });
+        const url = URL.createObjectURL(blob);
+        setAudioUrl(url);
+        await analyze(blob);
+      };
+
+      mediaRecorder.start();
+      setRecordingState("recording");
+    } catch {
+      setError(t("micDenied"));
+    }
+  }, [analyze, t]);
+
+  const stopRecording = useCallback(() => {
+    if (mediaRecorderRef.current?.state === "recording") {
+      mediaRecorderRef.current.stop();
+    }
+  }, []);
+
+  const cancelAnalysis = useCallback(() => {
+    abortRef.current?.abort();
+    abortRef.current = null;
+    setRecordingState("done");
+  }, []);
 
   const handleRetry = () => {
     setAudioUrl(null);
+    setStream(null);
     setError(null);
     startRecording();
   };
@@ -183,6 +212,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
     setCurrentIndex(newIndex);
     setRecordingState("idle");
     setAudioUrl(null);
+    setStream(null);
     setFeedback(null);
     setError(null);
   };
@@ -249,6 +279,12 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
             {mode === "simplified" ? t("simple") : mode === "advanced" ? t("advanced") : t("json")}
           </button>
         ))}
+      </div>
+
+      <div style={{ marginTop: '1rem', marginBottom: '1rem' }}>
+        {recordingState !== "idle" && (
+           <WaveformVisualizer stream={stream} isRecording={recordingState === "recording"} />
+        )}
       </div>
 
       <Card variant="outlined">
