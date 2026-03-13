@@ -6,6 +6,7 @@ import styles from "./EnhancedRecordingFeedback.module.css";
 
 const MAX_DURATION_S = 120; // 2 minutes
 const MAX_DURATION_MS = MAX_DURATION_S * 1000;
+const SAMPLE_INTERVAL_MS = 50; // ~20 samples/sec — smooth but not dense
 
 interface EnhancedRecordingFeedbackProps {
   rmsLevel: number;
@@ -28,6 +29,13 @@ const ZONE_COLORS = {
   loud: "rgba(239, 68, 68, 0.85)",
 };
 
+function toPercent(rmsLevel: number): number {
+  if (rmsLevel <= 0.001) return 0;
+  // sqrt scaling — better spread across full range
+  // 0.01→10, 0.04→20, 0.1→32, 0.2→45, 0.4→63, 0.7→84, 1.0→100
+  return Math.min(Math.sqrt(rmsLevel) * 100, 100);
+}
+
 function getZone(volumePercent: number, audioQuality: AudioQuality): "quiet" | "good" | "loud" {
   if (audioQuality.tooLoud) return "loud";
   if (audioQuality.tooQuiet || volumePercent < 20) return "quiet";
@@ -47,6 +55,7 @@ export function EnhancedRecordingFeedback({
   const samplesRef = useRef<VolumeSample[]>([]);
   const startTimeRef = useRef(0);
   const maxFiredRef = useRef(false);
+  const lastSampleTimeRef = useRef(0);
 
   // Reset state when recording starts
   useEffect(() => {
@@ -54,6 +63,7 @@ export function EnhancedRecordingFeedback({
       samplesRef.current = [];
       startTimeRef.current = performance.now();
       maxFiredRef.current = false;
+      lastSampleTimeRef.current = 0;
     }
   }, [isRecording]);
 
@@ -88,16 +98,15 @@ export function EnhancedRecordingFeedback({
     const { width, height } = dimsRef.current;
     if (width === 0) return;
 
-    // Compute current volume
-    const volumePercent = rmsLevel > 0.001
-      ? Math.min(Math.max(30 * Math.log10(rmsLevel / 0.001), 0), 100)
-      : 0;
-
+    const volumePercent = toPercent(rmsLevel);
     const elapsed = performance.now() - startTimeRef.current;
     const zone = getZone(volumePercent, audioQuality);
 
-    // Push sample
-    samplesRef.current.push({ time: elapsed, level: volumePercent, zone });
+    // Downsample: only push a sample every SAMPLE_INTERVAL_MS
+    if (elapsed - lastSampleTimeRef.current >= SAMPLE_INTERVAL_MS) {
+      samplesRef.current.push({ time: elapsed, level: volumePercent, zone });
+      lastSampleTimeRef.current = elapsed;
+    }
 
     // Fire max duration callback once
     if (elapsed >= MAX_DURATION_MS && !maxFiredRef.current) {
@@ -109,13 +118,13 @@ export function EnhancedRecordingFeedback({
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, width, height);
 
-    // "Good zone" background band
+    // "Good zone" background band (20%-75% volume)
     const goodTop = height * (1 - 0.75);
     const goodBottom = height * (1 - 0.20);
     ctx.fillStyle = "rgba(34, 197, 94, 0.06)";
     ctx.fillRect(0, goodTop, width, goodBottom - goodTop);
 
-    // Guide lines at good zone boundaries
+    // Guide lines
     ctx.setLineDash([4, 6]);
     ctx.strokeStyle = "rgba(34, 197, 94, 0.2)";
     ctx.lineWidth = 1;
@@ -127,31 +136,38 @@ export function EnhancedRecordingFeedback({
     ctx.stroke();
     ctx.setLineDash([]);
 
-    // Draw volume as a colored line
+    // Draw volume line — one continuous path per color zone
     const samples = samplesRef.current;
     if (samples.length < 2) return;
 
-    // Draw line segments colored by zone
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 2.5;
     ctx.lineJoin = "round";
     ctx.lineCap = "round";
 
-    for (let i = 1; i < samples.length; i++) {
-      const prev = samples[i - 1];
-      const curr = samples[i];
-      const x0 = (prev.time / MAX_DURATION_MS) * width;
-      const y0 = height - (prev.level / 100) * height;
-      const x1 = (curr.time / MAX_DURATION_MS) * width;
-      const y1 = height - (curr.level / 100) * height;
+    // Group consecutive samples by zone, draw each group as a continuous path
+    let segStart = 0;
+    for (let i = 1; i <= samples.length; i++) {
+      const zoneChanged = i === samples.length || samples[i].zone !== samples[segStart].zone;
+      if (!zoneChanged) continue;
 
+      // Draw segment from segStart to i-1
       ctx.beginPath();
-      ctx.strokeStyle = ZONE_COLORS[curr.zone];
-      ctx.moveTo(x0, y0);
-      ctx.lineTo(x1, y1);
+      ctx.strokeStyle = ZONE_COLORS[samples[segStart].zone];
+
+      // Start one sample before segStart for continuity (overlap)
+      const drawFrom = Math.max(0, segStart - 1);
+      for (let j = drawFrom; j < i; j++) {
+        const s = samples[j];
+        const x = (s.time / MAX_DURATION_MS) * width;
+        const y = height - (s.level / 100) * height;
+        if (j === drawFrom) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
       ctx.stroke();
+      segStart = i;
     }
 
-    // Playhead line at current position
+    // Playhead
     const playheadX = Math.min((elapsed / MAX_DURATION_MS) * width, width);
     ctx.strokeStyle = "rgba(255, 255, 255, 0.4)";
     ctx.lineWidth = 1;
@@ -174,9 +190,7 @@ export function EnhancedRecordingFeedback({
   const mm = String(Math.floor(elapsedS / 60)).padStart(2, "0");
   const ss = String(elapsedS % 60).padStart(2, "0");
 
-  const volumePercent = rmsLevel > 0.001
-    ? Math.min(Math.max(30 * Math.log10(rmsLevel / 0.001), 0), 100)
-    : 0;
+  const volumePercent = toPercent(rmsLevel);
   const zone = getZone(volumePercent, audioQuality);
 
   const statusText = !isVadReady

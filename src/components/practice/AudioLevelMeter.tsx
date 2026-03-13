@@ -36,9 +36,9 @@ export function AudioLevelMeter({
 
   if (!isRecording) return null;
 
-  // Logarithmic scaling — maps normal speech (~0.03-0.15 RMS) to 44-65% (good zone)
+  // sqrt scaling — full range: 0.04→20%, 0.1→32%, 0.2→45%, 0.5→71%, 1.0→100%
   const volumePercent = rmsLevel > 0.001
-    ? Math.min(Math.max(30 * Math.log10(rmsLevel / 0.001), 0), 100)
+    ? Math.min(Math.sqrt(rmsLevel) * 100, 100)
     : 0;
 
   // Determine zone and status
