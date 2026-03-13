@@ -27,9 +27,9 @@ interface AudioPipelineState {
   isVadReady: boolean;
 }
 
-const SILENCE_THRESHOLD = 0.01;
-const LOUD_THRESHOLD = 0.95;
-const QUIET_THRESHOLD = 0.02;
+const SILENCE_THRESHOLD = 0.05;
+const LOUD_THRESHOLD = 0.85;
+const QUIET_THRESHOLD = 0.03;
 const NO_SPEECH_TIMEOUT_MS = 3000;
 
 export function useAudioPipeline() {
@@ -95,8 +95,8 @@ export function useAudioPipeline() {
     amplitudeSamplesRef.current.push(rms);
     if (peak > peakRef.current) peakRef.current = peak;
 
-    // Detect speech via amplitude (basic — VAD will improve this in Task 3)
-    if (rms > SILENCE_THRESHOLD && !hasSpeechRef.current) {
+    // Detect speech via amplitude — only used as fallback when VAD is not active
+    if (!vadRef.current && rms > SILENCE_THRESHOLD && !hasSpeechRef.current) {
       hasSpeechRef.current = true;
       if (noSpeechTimerRef.current) {
         clearTimeout(noSpeechTimerRef.current);
