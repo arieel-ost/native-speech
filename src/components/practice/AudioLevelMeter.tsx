@@ -4,6 +4,13 @@ import { useState, useEffect, useRef } from "react";
 import type { AudioQuality } from "@/hooks/useAudioPipeline";
 import styles from "./AudioLevelMeter.module.css";
 
+// Fixed dB scale: -60dB (silence) → 0dB (max)
+function rmsToPercent(rms: number): number {
+  if (rms <= 0.001) return 0;
+  const dB = 20 * Math.log10(rms);
+  return Math.max(0, Math.min(((dB + 60) / 60) * 100, 100));
+}
+
 interface AudioLevelMeterProps {
   rmsLevel: number;
   isSpeaking: boolean;
@@ -36,15 +43,13 @@ export function AudioLevelMeter({
 
   if (!isRecording) return null;
 
-  // sqrt scaling — full range: 0.04→20%, 0.1→32%, 0.2→45%, 0.5→71%, 1.0→100%
-  const volumePercent = rmsLevel > 0.001
-    ? Math.min(Math.sqrt(rmsLevel) * 100, 100)
-    : 0;
+  // Fixed dB scale — same as online voice meters
+  const volumePercent = rmsToPercent(rmsLevel);
 
-  // Determine zone and status
-  const zone = audioQuality.tooLoud
+  // Zone from dB thresholds (instant visual feedback)
+  const zone = volumePercent > 85
     ? "loud"
-    : audioQuality.tooQuiet || volumePercent < 20
+    : volumePercent < 25
       ? "quiet"
       : "good";
 
@@ -98,8 +103,8 @@ export function AudioLevelMeter({
         {/* Track with zone gradient */}
         <div className={styles.track}>
           {/* Zone tick marks */}
-          <div className={styles.tick} style={{ left: "20%" }} />
-          <div className={styles.tick} style={{ left: "75%" }} />
+          <div className={styles.tick} style={{ left: "25%" }} />
+          <div className={styles.tick} style={{ left: "85%" }} />
           {/* Fill */}
           <div
             className={styles.fill}

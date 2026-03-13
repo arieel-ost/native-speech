@@ -29,16 +29,17 @@ const ZONE_COLORS = {
   loud: "rgba(239, 68, 68, 0.85)",
 };
 
-function toPercent(rmsLevel: number): number {
-  if (rmsLevel <= 0.001) return 0;
-  // sqrt scaling — better spread across full range
-  // 0.01→10, 0.04→20, 0.1→32, 0.2→45, 0.4→63, 0.7→84, 1.0→100
-  return Math.min(Math.sqrt(rmsLevel) * 100, 100);
+// Fixed dB scale: -60dB (silence) → 0dB (max)
+// Standard mapping used by online voice meters and OS audio tools
+function rmsToPercent(rms: number): number {
+  if (rms <= 0.001) return 0;
+  const dB = 20 * Math.log10(rms); // 0–1 RMS → -60..0 dB
+  return Math.max(0, Math.min(((dB + 60) / 60) * 100, 100));
 }
 
-function getZone(volumePercent: number, audioQuality: AudioQuality): "quiet" | "good" | "loud" {
-  if (audioQuality.tooLoud) return "loud";
-  if (audioQuality.tooQuiet || volumePercent < 20) return "quiet";
+function getZone(percent: number): "quiet" | "good" | "loud" {
+  if (percent > 85) return "loud";
+  if (percent < 25) return "quiet";
   return "good";
 }
 
@@ -98,9 +99,9 @@ export function EnhancedRecordingFeedback({
     const { width, height } = dimsRef.current;
     if (width === 0) return;
 
-    const volumePercent = toPercent(rmsLevel);
+    const volumePercent = rmsToPercent(rmsLevel);
     const elapsed = performance.now() - startTimeRef.current;
-    const zone = getZone(volumePercent, audioQuality);
+    const zone = getZone(volumePercent);
 
     // Downsample: only push a sample every SAMPLE_INTERVAL_MS
     if (elapsed - lastSampleTimeRef.current >= SAMPLE_INTERVAL_MS) {
@@ -118,9 +119,9 @@ export function EnhancedRecordingFeedback({
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, width, height);
 
-    // "Good zone" background band (20%-75% volume)
-    const goodTop = height * (1 - 0.75);
-    const goodBottom = height * (1 - 0.20);
+    // "Good zone" background band (25%-85% on dB scale)
+    const goodTop = height * (1 - 0.85);
+    const goodBottom = height * (1 - 0.25);
     ctx.fillStyle = "rgba(34, 197, 94, 0.06)";
     ctx.fillRect(0, goodTop, width, goodBottom - goodTop);
 
@@ -190,8 +191,8 @@ export function EnhancedRecordingFeedback({
   const mm = String(Math.floor(elapsedS / 60)).padStart(2, "0");
   const ss = String(elapsedS % 60).padStart(2, "0");
 
-  const volumePercent = toPercent(rmsLevel);
-  const zone = getZone(volumePercent, audioQuality);
+  const volumePercent = rmsToPercent(rmsLevel);
+  const zone = getZone(volumePercent);
 
   const statusText = !isVadReady
     ? "Preparing microphone..."
