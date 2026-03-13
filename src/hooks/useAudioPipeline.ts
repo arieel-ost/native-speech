@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
+import type { MicVAD as MicVADType } from "@ricky0123/vad-web";
 
 export interface AudioQuality {
   tooQuiet: boolean;
@@ -53,12 +54,16 @@ export function useAudioPipeline() {
   const peakRef = useRef<number>(0);
   const noSpeechTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const hasSpeechRef = useRef<boolean>(false);
+  const vadRef = useRef<MicVADType | null>(null);
+  const speechStartRef = useRef<number>(0);
+  const accumulatedSpeechRef = useRef<number>(0);
 
   // Cleanup on unmount
   useEffect(() => {
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       if (noSpeechTimerRef.current) clearTimeout(noSpeechTimerRef.current);
+      vadRef.current?.destroy();
       audioContextRef.current?.close();
       streamRef.current?.getTracks().forEach((t) => t.stop());
     };
@@ -137,6 +142,8 @@ export function useAudioPipeline() {
     amplitudeSamplesRef.current = [];
     peakRef.current = 0;
     hasSpeechRef.current = false;
+    accumulatedSpeechRef.current = 0;
+    speechStartRef.current = 0;
     startTimeRef.current = Date.now();
 
     // Start no-speech detection timer
@@ -155,6 +162,45 @@ export function useAudioPipeline() {
     // Start animation frame loop
     processAudio();
 
+    // Initialize VAD (lazy-loaded, graceful fallback)
+    try {
+      const { MicVAD } = await import("@ricky0123/vad-web");
+      const vad = await MicVAD.new({
+        getStream: async () => stream,
+        baseAssetPath: "/vad/",
+        onnxWASMBasePath: "/vad/",
+        onSpeechStart: () => {
+          hasSpeechRef.current = true;
+          speechStartRef.current = Date.now();
+          if (noSpeechTimerRef.current) {
+            clearTimeout(noSpeechTimerRef.current);
+            noSpeechTimerRef.current = null;
+          }
+          setState((prev) => ({
+            ...prev,
+            isSpeaking: true,
+            audioQuality: { ...prev.audioQuality, noSpeechDetected: false },
+          }));
+        },
+        onSpeechEnd: () => {
+          if (speechStartRef.current > 0) {
+            accumulatedSpeechRef.current += (Date.now() - speechStartRef.current) / 1000;
+            speechStartRef.current = 0;
+          }
+          setState((prev) => ({
+            ...prev,
+            isSpeaking: false,
+            speechDuration: accumulatedSpeechRef.current,
+          }));
+        },
+      });
+      vad.start();
+      vadRef.current = vad;
+      setState((prev) => ({ ...prev, isVadReady: true }));
+    } catch (err) {
+      console.warn("[AudioPipeline] VAD failed to initialize, using amplitude fallback:", err);
+    }
+
     return stream;
   }, [processAudio]);
 
@@ -170,6 +216,16 @@ export function useAudioPipeline() {
       }
 
       mediaRecorder.onstop = () => {
+        // Destroy VAD
+        vadRef.current?.destroy();
+        vadRef.current = null;
+
+        // Finalize speech duration if still speaking
+        if (speechStartRef.current > 0) {
+          accumulatedSpeechRef.current += (Date.now() - speechStartRef.current) / 1000;
+          speechStartRef.current = 0;
+        }
+
         // Stop all tracks
         streamRef.current?.getTracks().forEach((t) => t.stop());
 
@@ -192,9 +248,12 @@ export function useAudioPipeline() {
           : 0;
         const totalDuration = (Date.now() - startTimeRef.current) / 1000;
         const speechSamples = samples.filter((s) => s > SILENCE_THRESHOLD).length;
-        const speechDuration = samples.length > 0
-          ? (speechSamples / samples.length) * totalDuration
-          : 0;
+        // Use VAD-tracked speech duration if available, else fall back to amplitude estimate
+        const speechDuration = accumulatedSpeechRef.current > 0
+          ? accumulatedSpeechRef.current
+          : samples.length > 0
+            ? (speechSamples / samples.length) * totalDuration
+            : 0;
 
         const metadata: AudioMetadata = {
           avgAmplitude,
