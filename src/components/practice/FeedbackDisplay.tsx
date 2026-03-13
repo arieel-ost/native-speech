@@ -67,7 +67,7 @@ export function FeedbackDisplay({ data }: { data: AnalysisFeedback }) {
   const t = useTranslations("FeedbackDisplay");
 
   // Group phoneme entries by phoneme symbol so we can show per-word results under each sound
-  const phonemeGroups = data.phonemeAnalysis.reduce<Record<string, PhonemeResult[]>>((acc, p) => {
+  const phonemeGroups = (data.phonemeAnalysis || []).reduce<Record<string, PhonemeResult[]>>((acc, p) => {
     (acc[p.phoneme] ??= []).push(p);
     return acc;
   }, {});
@@ -79,10 +79,10 @@ export function FeedbackDisplay({ data }: { data: AnalysisFeedback }) {
         <ScoreRing score={data.overallScore} outOfLabel={t("outOf")} />
         <div className={styles.accentInfo}>
           <span className={styles.sectionLabel}>{t("detectedAccent")}</span>
-          <span className={styles.accentLang}>{data.accent.detectedLanguage}</span>
-          <span className={styles.accentConf}>{t("confidence", { level: data.accent.confidence })}</span>
+          <span className={styles.accentLang}>{data.accent?.detectedLanguage || "Unknown"}</span>
+          <span className={styles.accentConf}>{t("confidence", { level: data.accent?.confidence || "low" })}</span>
           <div className={styles.patterns}>
-            {data.accent.telltalePatterns.map((p) => (
+            {(data.accent?.telltalePatterns || []).map((p) => (
               <span key={p} className={styles.patternTag}>{p}</span>
             ))}
           </div>
@@ -134,12 +134,12 @@ export function FeedbackDisplay({ data }: { data: AnalysisFeedback }) {
         <div className={styles.prosodyGrid}>
           <div className={styles.prosodyItem}>
             <span className={styles.detailLabel}>{t("stress")}</span>
-            <span className={`${styles.ratingBadge} ${ratingColor(data.prosody.stressAccuracy)}`}>
-              {data.prosody.stressAccuracy.replace("_", " ")}
+            <span className={`${styles.ratingBadge} ${ratingColor(data.prosody?.stressAccuracy || "acceptable")}`}>
+              {(data.prosody?.stressAccuracy || "acceptable").replace("_", " ")}
             </span>
           </div>
-          <p className={styles.prosodyNote}>{data.prosody.rhythmNotes}</p>
-          <p className={styles.prosodyNote}>{data.prosody.intonationNotes}</p>
+          <p className={styles.prosodyNote}>{data.prosody?.rhythmNotes || "No rhythm data."}</p>
+          <p className={styles.prosodyNote}>{data.prosody?.intonationNotes || "No intonation data."}</p>
         </div>
       </div>
 
@@ -147,7 +147,7 @@ export function FeedbackDisplay({ data }: { data: AnalysisFeedback }) {
       <div className={styles.section}>
         <span className={styles.sectionLabel}>{t("practiceTips")}</span>
         <div className={styles.tipsList}>
-          {data.tips.map((tip, i) => (
+          {(data.tips || []).map((tip, i) => (
             <div key={i} className={styles.tipCard}>
               <span className={styles.tipSound}>{tip.targetSound}</span>
               <p className={styles.tipExercise}>{tip.exercise}</p>

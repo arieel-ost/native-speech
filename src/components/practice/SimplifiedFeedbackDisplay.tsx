@@ -41,9 +41,9 @@ export function SimplifiedFeedbackDisplay({ data }: { data: SimplifiedFeedback }
     <div className={styles.feedback}>
       <ScoreBar score={data.score} outOfLabel={t("outOf")} />
 
-      <p className={styles.summary}>{data.summary}</p>
+      <p className={styles.summary}>{data.summary || "No summary available."}</p>
 
-      {data.strengths.length > 0 && (
+      {data.strengths?.length > 0 && (
         <div className={styles.section}>
           <span className={styles.sectionLabel}>{t("whatYouDidWell")}</span>
           <ul className={styles.list}>
@@ -54,7 +54,7 @@ export function SimplifiedFeedbackDisplay({ data }: { data: SimplifiedFeedback }
         </div>
       )}
 
-      {data.improvements.length > 0 && (
+      {data.improvements?.length > 0 && (
         <div className={styles.section}>
           <span className={styles.sectionLabel}>{t("thingsToWorkOn")}</span>
           <div className={styles.improvements}>
