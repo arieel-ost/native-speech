@@ -9,6 +9,8 @@ import { SimplifiedFeedbackDisplay } from "./SimplifiedFeedbackDisplay";
 import { JsonFeedbackDisplay } from "./JsonFeedbackDisplay";
 import { WaveformVisualizer } from "./WaveformVisualizer";
 import { RecordingStatus } from "./RecordingStatus";
+import { AudioLevelMeter } from "./AudioLevelMeter";
+import { EnhancedRecordingFeedback } from "./EnhancedRecordingFeedback";
 import { Link } from "@/i18n/navigation";
 import { useAudioPipeline } from "@/hooks/useAudioPipeline";
 import { addSession, getProfile, getLearnerId } from "@/lib/learner-store";
@@ -236,18 +238,34 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
         </span>
       </button>
 
-      <WaveformVisualizer
-        waveformData={pipeline.waveformData}
-        rmsLevel={pipeline.rmsLevel}
-        isRecording={recordingState === "recording"}
-      />
-      <RecordingStatus
-        rmsLevel={pipeline.rmsLevel}
-        isSpeaking={pipeline.isSpeaking}
-        audioQuality={pipeline.audioQuality}
-        isRecording={recordingState === "recording"}
-        isVadReady={pipeline.isVadReady}
-      />
+      {/* === OPTION A: Unified level meter (no waveform) === */}
+      {recordingState === "recording" && (
+        <div style={{ border: "1px solid rgba(99,102,241,0.3)", borderRadius: 8, padding: 12, marginBottom: 8 }}>
+          <p style={{ margin: "0 0 8px", fontSize: "0.75rem", color: "#6366f1", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>Option A — Level Meter Only</p>
+          <AudioLevelMeter
+            rmsLevel={pipeline.rmsLevel}
+            isSpeaking={pipeline.isSpeaking}
+            audioQuality={pipeline.audioQuality}
+            isRecording={recordingState === "recording"}
+            isVadReady={pipeline.isVadReady}
+          />
+        </div>
+      )}
+
+      {/* === OPTION B: Volume timeline + level bar === */}
+      {recordingState === "recording" && (
+        <div style={{ border: "1px solid rgba(245,158,11,0.3)", borderRadius: 8, padding: 12 }}>
+          <p style={{ margin: "0 0 8px", fontSize: "0.75rem", color: "#f59e0b", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>Option B — Volume Timeline + Level Bar</p>
+          <EnhancedRecordingFeedback
+            rmsLevel={pipeline.rmsLevel}
+            isSpeaking={pipeline.isSpeaking}
+            audioQuality={pipeline.audioQuality}
+            isRecording={recordingState === "recording"}
+            isVadReady={pipeline.isVadReady}
+            onMaxDuration={stopRecording}
+          />
+        </div>
+      )}
 
       {audioUrl && <AudioPlayer src={audioUrl} />}
 

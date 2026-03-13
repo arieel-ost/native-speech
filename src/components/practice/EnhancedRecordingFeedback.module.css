@@ -1,0 +1,177 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Waveform */
+.waveformWrap {
+  position: relative;
+  width: 100%;
+  height: 96px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-alt);
+  overflow: hidden;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.guideLabel {
+  position: absolute;
+  right: 8px;
+  font-size: 0.6rem;
+  color: rgba(34, 197, 94, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+
+/* Time row */
+.timeRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2px;
+}
+
+.elapsed {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.remaining {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Volume bar */
+.meterSection {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.zoneLabels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2px;
+}
+
+.zoneLabel {
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+}
+
+.zoneLabelGood {
+  color: #22c55e;
+  opacity: 0.8;
+}
+
+.track {
+  position: relative;
+  height: 20px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    to right,
+    rgba(150, 150, 150, 0.12) 0% 20%,
+    rgba(34, 197, 94, 0.1) 20% 75%,
+    rgba(239, 68, 68, 0.1) 75% 100%
+  );
+  overflow: visible;
+}
+
+.tickLeft {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 20%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.tickRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 75%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    to right,
+    rgba(150, 150, 150, 0.25) 0%,
+    rgba(34, 197, 94, 0.35) 30%,
+    rgba(34, 197, 94, 0.35) 70%,
+    rgba(245, 158, 11, 0.35) 85%,
+    rgba(239, 68, 68, 0.35) 100%
+  );
+  transition: width 0.06s ease-out;
+}
+
+.marker {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  width: 3px;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: left 0.06s ease-out;
+}
+
+.marker_quiet {
+  background: #9ca3af;
+  box-shadow: 0 0 6px rgba(156, 163, 175, 0.5);
+}
+
+.marker_good {
+  background: #22c55e;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+}
+
+.marker_loud {
+  background: #ef4444;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+}
+
+/* Status */
+.status {
+  margin: 0;
+  text-align: center;
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+
+.statusMuted {
+  color: var(--color-text-muted);
+}
+
+.statusSuccess {
+  color: #22c55e;
+}
+
+.statusError {
+  color: #ef4444;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fill,
+  .marker {
+    transition: none;
+  }
+}
