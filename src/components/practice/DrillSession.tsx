@@ -7,7 +7,10 @@ import { AudioPlayer } from "./AudioPlayer";
 import { FeedbackDisplay } from "./FeedbackDisplay";
 import { SimplifiedFeedbackDisplay } from "./SimplifiedFeedbackDisplay";
 import { JsonFeedbackDisplay } from "./JsonFeedbackDisplay";
+import { WaveformVisualizer } from "./WaveformVisualizer";
+import { RecordingStatus } from "./RecordingStatus";
 import { Link } from "@/i18n/navigation";
+import { useAudioPipeline } from "@/hooks/useAudioPipeline";
 import { addSession, getProfile, getLearnerId } from "@/lib/learner-store";
 import type { DrillSession as DrillSessionType } from "@/lib/mock-data";
 import type { AnalysisMode } from "@/app/api/analyze/route";
@@ -36,9 +39,8 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
   const [feedback, setFeedback] = useState<CombinedFeedback | null>(null);
   const [analysisMode, setAnalysisMode] = useState<AnalysisMode>("simplified");
   const [error, setError] = useState<string | null>(null);
-  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
-  const chunksRef = useRef<Blob[]>([]);
   const abortRef = useRef<AbortController | null>(null);
+  const pipeline = useAudioPipeline();
   const drill = drills[currentIndex];
 
   const startRecording = useCallback(async () => {
@@ -46,35 +48,28 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       setError(null);
       setFeedback(null);
       setAudioUrl(null);
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const mediaRecorder = new MediaRecorder(stream);
-      mediaRecorderRef.current = mediaRecorder;
-      chunksRef.current = [];
-
-      mediaRecorder.ondataavailable = (e) => {
-        if (e.data.size > 0) chunksRef.current.push(e.data);
-      };
-
-      mediaRecorder.onstop = async () => {
-        stream.getTracks().forEach((t) => t.stop());
-        const blob = new Blob(chunksRef.current, { type: mediaRecorder.mimeType });
-        const url = URL.createObjectURL(blob);
-        setAudioUrl(url);
-        await analyze(blob);
-      };
-
-      mediaRecorder.start();
+      await pipeline.startRecording();
       setRecordingState("recording");
     } catch {
       setError(t("micDenied"));
     }
-  }, []);
+  }, [pipeline, t]);
 
-  const stopRecording = useCallback(() => {
-    if (mediaRecorderRef.current?.state === "recording") {
-      mediaRecorderRef.current.stop();
+  const stopRecording = useCallback(async () => {
+    const { blob, metadata } = await pipeline.stopRecording();
+    const url = URL.createObjectURL(blob);
+    setAudioUrl(url);
+
+    // Speech gate: reject recordings with < 2s detected speech
+    const MIN_SPEECH_SECONDS = 2;
+    if (metadata.speechDuration < MIN_SPEECH_SECONDS) {
+      setError(t("notEnoughSpeech"));
+      setRecordingState("done");
+      return;
     }
-  }, []);
+
+    await analyze(blob);
+  }, [pipeline, t]);
 
   const cancelAnalysis = useCallback(() => {
     abortRef.current?.abort();
@@ -236,6 +231,19 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
                 : t("record")}
         </span>
       </button>
+
+      <WaveformVisualizer
+        waveformData={pipeline.waveformData}
+        rmsLevel={pipeline.rmsLevel}
+        isRecording={recordingState === "recording"}
+      />
+      <RecordingStatus
+        rmsLevel={pipeline.rmsLevel}
+        isSpeaking={pipeline.isSpeaking}
+        audioQuality={pipeline.audioQuality}
+        isRecording={recordingState === "recording"}
+        isVadReady={pipeline.isVadReady}
+      />
 
       {audioUrl && <AudioPlayer src={audioUrl} />}
 
