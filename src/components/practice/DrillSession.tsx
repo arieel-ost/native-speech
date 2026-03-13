@@ -56,20 +56,19 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
 
       // MOCK ANALYSIS FOR TESTING
       console.log("⚠️ SKIPPING API CALL TO SAVE CREDITS ⚠️");
-      setTimeout(() => {
-        if (!abortRef.current) return;
-        setFeedback({
-          simple: { score: 9 },
-          detailed: { 
-            overallScore: 9, 
-            phonemeAnalysis: [
-              { phoneme: "a", rating: "good", word: "test" }
-            ] 
-          },
-          textMatch: drill.prompt
-        } as CombinedFeedback);
-        setRecordingState("done");
-      }, 1000);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      if (!abortRef.current) return;
+      setFeedback({
+        simple: { score: 9 },
+        detailed: { 
+          overallScore: 9, 
+          phonemeAnalysis: [
+            { phoneme: "a", rating: "good", word: "test" }
+          ] 
+        },
+        textMatch: drill.prompt
+      } as CombinedFeedback);
+      setRecordingState("done");
       return;
 
       const formData = new FormData();
