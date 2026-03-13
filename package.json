@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@google/genai": "^1.44.0",
+    "@ricky0123/vad-web": "^0.0.30",
     "next": "16.1.6",
     "next-auth": "5.0.0-beta.30",
     "next-intl": "^4.8.3",
