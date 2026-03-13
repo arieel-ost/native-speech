@@ -63,6 +63,9 @@ export function useAudioPipeline() {
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       if (noSpeechTimerRef.current) clearTimeout(noSpeechTimerRef.current);
+      if (mediaRecorderRef.current?.state === "recording") {
+        mediaRecorderRef.current.stop();
+      }
       vadRef.current?.destroy();
       audioContextRef.current?.close();
       streamRef.current?.getTracks().forEach((t) => t.stop());
@@ -119,8 +122,11 @@ export function useAudioPipeline() {
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     streamRef.current = stream;
 
-    // Set up AudioContext + AnalyserNode
+    // Set up AudioContext + AnalyserNode (resume if suspended by browser policy)
     const audioContext = new AudioContext();
+    if (audioContext.state === "suspended") {
+      await audioContext.resume();
+    }
     const source = audioContext.createMediaStreamSource(stream);
     const analyser = audioContext.createAnalyser();
     analyser.fftSize = 2048;

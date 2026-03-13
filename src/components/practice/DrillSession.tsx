@@ -172,6 +172,10 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
   };
 
   const handleNav = (direction: "prev" | "next") => {
+    // Stop recording if active before navigating
+    if (recordingState === "recording") {
+      pipeline.stopRecording(); // discard result
+    }
     const newIndex = direction === "prev"
       ? Math.max(0, currentIndex - 1)
       : Math.min(drills.length - 1, currentIndex + 1);
