@@ -7,10 +7,10 @@ import { AudioPlayer } from "./AudioPlayer";
 import { FeedbackDisplay } from "./FeedbackDisplay";
 import { SimplifiedFeedbackDisplay } from "./SimplifiedFeedbackDisplay";
 import { JsonFeedbackDisplay } from "./JsonFeedbackDisplay";
-import { WaveformVisualizer } from "./WaveformVisualizer";
-import { RecordingStatus } from "./RecordingStatus";
-import { AudioLevelMeter } from "./AudioLevelMeter";
 import { EnhancedRecordingFeedback } from "./EnhancedRecordingFeedback";
+import { MiniSpectrum } from "./MiniSpectrum";
+import { VoiceSpectrogram } from "./VoiceSpectrogram";
+import { BreathingBackground } from "./BreathingBackground";
 import { Link } from "@/i18n/navigation";
 import { useAudioPipeline } from "@/hooks/useAudioPipeline";
 import { addSession, getProfile, getLearnerId } from "@/lib/learner-store";
@@ -211,60 +211,59 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
         </div>
       </Card>
 
-      <button
-        className={`${styles.recordBtn} ${recordingState === "recording" ? styles.recording : ""} ${recordingState === "done" ? styles.retry : ""} ${recordingState === "processing" ? styles.cancel : ""}`}
-        onClick={handleRecordClick}
-        aria-label={
-          recordingState === "processing" ? t("cancel")
-          : recordingState === "recording" ? t("stop")
-          : recordingState === "done" ? t("retry")
-          : t("record")
-        }
-      >
-        <span className={styles.recordIcon}>
-          {recordingState === "processing" ? "\u2715"
-          : recordingState === "recording" ? "\u25A0"
-          : recordingState === "done" ? "\u21BB"
-          : "\u25CF"}
-        </span>
-        <span>
-          {recordingState === "processing"
-            ? t("cancel")
-            : recordingState === "recording"
-              ? t("stop")
-              : recordingState === "done"
-                ? t("retry")
-                : t("record")}
-        </span>
-      </button>
+      <div className={styles.recordArea}>
+        <BreathingBackground
+          rmsLevel={pipeline.rmsLevel}
+          isRecording={recordingState === "recording"}
+        />
+        <button
+          className={`${styles.recordBtn} ${recordingState === "recording" ? styles.recording : ""} ${recordingState === "done" ? styles.retry : ""} ${recordingState === "processing" ? styles.cancel : ""}`}
+          onClick={handleRecordClick}
+          aria-label={
+            recordingState === "processing" ? t("cancel")
+            : recordingState === "recording" ? t("stop")
+            : recordingState === "done" ? t("retry")
+            : t("record")
+          }
+        >
+          <span className={styles.recordIcon}>
+            {recordingState === "processing" ? "\u2715"
+            : recordingState === "recording" ? "\u25A0"
+            : recordingState === "done" ? "\u21BB"
+            : "\u25CF"}
+          </span>
+          <span>
+            {recordingState === "processing"
+              ? t("cancel")
+              : recordingState === "recording"
+                ? t("stop")
+                : recordingState === "done"
+                  ? t("retry")
+                  : t("record")}
+          </span>
+        </button>
+      </div>
 
-      {/* === OPTION A: Unified level meter (no waveform) === */}
       {recordingState === "recording" && (
-        <div style={{ border: "1px solid rgba(99,102,241,0.3)", borderRadius: 8, padding: 12, marginBottom: 8 }}>
-          <p style={{ margin: "0 0 8px", fontSize: "0.75rem", color: "#6366f1", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>Option A — Level Meter Only</p>
-          <AudioLevelMeter
-            rmsLevel={pipeline.rmsLevel}
-            isSpeaking={pipeline.isSpeaking}
-            audioQuality={pipeline.audioQuality}
-            isRecording={recordingState === "recording"}
-            isVadReady={pipeline.isVadReady}
-          />
-        </div>
-      )}
-
-      {/* === OPTION B: Volume timeline + level bar === */}
-      {recordingState === "recording" && (
-        <div style={{ border: "1px solid rgba(245,158,11,0.3)", borderRadius: 8, padding: 12 }}>
-          <p style={{ margin: "0 0 8px", fontSize: "0.75rem", color: "#f59e0b", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>Option B — Volume Timeline + Level Bar</p>
+        <>
           <EnhancedRecordingFeedback
             rmsLevel={pipeline.rmsLevel}
             isSpeaking={pipeline.isSpeaking}
             audioQuality={pipeline.audioQuality}
-            isRecording={recordingState === "recording"}
+            isRecording={true}
             isVadReady={pipeline.isVadReady}
             onMaxDuration={stopRecording}
           />
-        </div>
+          <MiniSpectrum
+            sourceNode={pipeline.sourceNode}
+            audioContext={pipeline.audioContext}
+            isRecording={true}
+          />
+          <VoiceSpectrogram
+            analyserNode={pipeline.analyserNode}
+            isRecording={true}
+          />
+        </>
       )}
 
       {audioUrl && <AudioPlayer src={audioUrl} />}

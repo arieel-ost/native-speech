@@ -7,6 +7,7 @@
       "dependencies": {
         "@google/genai": "^1.44.0",
         "@ricky0123/vad-web": "^0.0.30",
+        "audiomotion-analyzer": "^4.5.4",
         "next": "16.1.6",
         "next-auth": "5.0.0-beta.30",
         "next-intl": "^4.8.3",
@@ -390,6 +391,8 @@
     "ast-types-flow": ["ast-types-flow@0.0.8", "", {}, "sha512-OH/2E5Fg20h2aPrbe+QL8JZQFko0YZaF+j4mnQ7BGhfavO7OpSLa8a0y9sBwomHdSbkhTS8TQNayBfnW5DwbvQ=="],
 
     "async-function": ["async-function@1.0.0", "", {}, "sha512-hsU18Ae8CDTR6Kgu9DYf0EbCr/a5iGL0rytQDobUcdpYOKokk8LEjVphnXkDkgpi0wYVsqrXuP0bZxJaTqdgoA=="],
+
+    "audiomotion-analyzer": ["audiomotion-analyzer@4.5.4", "", {}, "sha512-bBTIFr0VgM764MJN3ATIyKrv2BzGTfQgJugulIHNEIFT0+zbz7lb+2CvFTPvk6n3J06wwWiJBPZFEIt9OSxzfQ=="],
 
     "available-typed-arrays": ["available-typed-arrays@1.0.7", "", { "dependencies": { "possible-typed-array-names": "^1.0.0" } }, "sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ=="],
 

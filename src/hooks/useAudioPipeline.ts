@@ -48,6 +48,7 @@ export function useAudioPipeline() {
   const chunksRef = useRef<Blob[]>([]);
   const audioContextRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
+  const sourceNodeRef = useRef<MediaStreamAudioSourceNode | null>(null);
   const rafRef = useRef<number>(0);
   const startTimeRef = useRef<number>(0);
   const amplitudeSamplesRef = useRef<number[]>([]);
@@ -134,6 +135,7 @@ export function useAudioPipeline() {
     source.connect(analyser);
     audioContextRef.current = audioContext;
     analyserRef.current = analyser;
+    sourceNodeRef.current = source;
 
     // Set up MediaRecorder
     const mediaRecorder = new MediaRecorder(stream);
@@ -241,6 +243,9 @@ export function useAudioPipeline() {
         // Stop no-speech timer
         if (noSpeechTimerRef.current) clearTimeout(noSpeechTimerRef.current);
 
+        // Null out source node
+        sourceNodeRef.current = null;
+
         // Close audio context
         audioContextRef.current?.close();
 
@@ -291,5 +296,8 @@ export function useAudioPipeline() {
     ...state,
     startRecording,
     stopRecording,
+    analyserNode: analyserRef.current,
+    sourceNode: sourceNodeRef.current,
+    audioContext: audioContextRef.current,
   };
 }
