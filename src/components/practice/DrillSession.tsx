@@ -267,8 +267,6 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
         </span>
       </button>
 
-      {audioUrl && <AudioPlayer src={audioUrl} />}
-
       <div className={styles.modeToggle}>
         {(["simplified", "advanced", "json"] as const).map((mode) => (
           <button
@@ -281,9 +279,12 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
         ))}
       </div>
 
-      <div style={{ marginTop: '1rem', marginBottom: '1rem' }}>
-        {recordingState !== "idle" && (
+      <div style={{ marginTop: '1rem', marginBottom: '1rem', minHeight: '120px' }}>
+        {recordingState !== "idle" && recordingState !== "done" && (
            <WaveformVisualizer stream={stream} isRecording={recordingState === "recording"} />
+        )}
+        {recordingState === "done" && audioUrl && (
+           <AudioPlayer src={audioUrl} />
         )}
       </div>
 

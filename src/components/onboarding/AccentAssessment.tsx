@@ -201,25 +201,24 @@ export function AccentAssessment() {
             </button>
           </div>
 
-          <div style={{ marginTop: '1rem', marginBottom: '1rem' }}>
-            {(recordingState === "recording" || audioUrl) && (
-               <WaveformVisualizer stream={stream} isRecording={recordingState === "recording"} />
+          <div style={{ marginTop: '1rem', marginBottom: '1rem', minHeight: '120px' }}>
+            {recordingState === "recording" && (
+               <WaveformVisualizer stream={stream} isRecording={true} />
+            )}
+            {recordingState !== "recording" && audioUrl && (
+              <div className={styles.reviewSection}>
+                <AudioPlayer src={audioUrl} />
+                <div className={styles.reviewActions}>
+                  <Button variant="secondary" onClick={handleRetry}>
+                    {t("reRecord")}
+                  </Button>
+                  <Button onClick={submitRecording}>
+                    {t("analyzeAccent")}
+                  </Button>
+                </div>
+              </div>
             )}
           </div>
-
-          {audioUrl && (
-            <div className={styles.reviewSection}>
-              <AudioPlayer src={audioUrl} />
-              <div className={styles.reviewActions}>
-                <Button variant="secondary" onClick={handleRetry}>
-                  {t("reRecord")}
-                </Button>
-                <Button onClick={submitRecording}>
-                  {t("analyzeAccent")}
-                </Button>
-              </div>
-            </div>
-          )}
 
           <button
             className={styles.backLink}
