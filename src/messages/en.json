@@ -198,7 +198,14 @@
     "json": "JSON",
     "micDenied": "Microphone access denied. Please allow microphone access and try again.",
     "connectionError": "Failed to connect to analysis service: {message}",
-    "backToDashboard": "Back to Dashboard"
+    "backToDashboard": "Back to Dashboard",
+    "waitingForSpeech": "Waiting for speech...",
+    "speaking": "Hearing you...",
+    "tooQuiet": "Too quiet — move closer to your microphone",
+    "tooLoud": "Too loud — move further away",
+    "noSpeechDetected": "No speech detected — try speaking",
+    "notEnoughSpeech": "Not enough speech detected. Please try recording again.",
+    "preparingAudio": "Preparing audio..."
   },
   "FeedbackDisplay": {
     "detectedAccent": "Detected accent",

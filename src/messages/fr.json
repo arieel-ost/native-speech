@@ -198,7 +198,14 @@
     "json": "JSON",
     "micDenied": "Accès au microphone refusé. Veuillez autoriser l'accès au microphone et réessayer.",
     "connectionError": "Impossible de se connecter au service d'analyse : {message}",
-    "backToDashboard": "Retour au tableau de bord"
+    "backToDashboard": "Retour au tableau de bord",
+    "waitingForSpeech": "En attente de parole...",
+    "speaking": "Je vous entends...",
+    "tooQuiet": "Trop faible — rapprochez-vous du microphone",
+    "tooLoud": "Trop fort — éloignez-vous du microphone",
+    "noSpeechDetected": "Aucune parole détectée — essayez de parler",
+    "notEnoughSpeech": "Pas assez de parole détectée. Veuillez réessayer l'enregistrement.",
+    "preparingAudio": "Préparation de l'audio..."
   },
   "FeedbackDisplay": {
     "detectedAccent": "Accent détecté",
