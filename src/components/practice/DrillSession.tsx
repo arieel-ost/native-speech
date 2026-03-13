@@ -59,12 +59,30 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       if (!abortRef.current) return;
       setFeedback({
-        simple: { score: 9 },
+        simple: { 
+          score: 9, 
+          summary: "Great job on parsing and holding the vowels.",
+          strengths: ["Clear pronunciation", "Good pace"],
+          improvements: []
+        },
         detailed: { 
-          overallScore: 9, 
+          overallScore: 9,
+          accent: {
+            detectedLanguage: "German",
+            confidence: "high",
+            telltalePatterns: ["Replacing TH with D"]
+          },
           phonemeAnalysis: [
-            { phoneme: "a", rating: "good", word: "test" }
-          ] 
+            { phoneme: "a", rating: "good", word: "test", produced: "ah", expected: "ah" }
+          ],
+          prosody: {
+            stressAccuracy: "good",
+            rhythmNotes: "Good rhythm.",
+            intonationNotes: "Good intonation."
+          },
+          tips: [
+            { targetSound: "TH", exercise: "Put tongue between teeth", practiceWord: "The" }
+          ]
         },
         textMatch: drill.prompt
       } as CombinedFeedback);
