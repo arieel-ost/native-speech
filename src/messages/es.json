@@ -180,7 +180,10 @@
     "german": "Deutsch",
     "min": "{count} min",
     "startHere": "Empieza aquí",
-    "recommended": "Recomendado"
+    "recommended": "Recomendado",
+    "phonemeDrills": "Ejercicios de fonemas",
+    "phonemeFocus": "Fonema",
+    "steps": "pasos"
   },
   "DrillSession": {
     "readAloud": "Lee esto en voz alta:",
@@ -349,6 +352,21 @@
     "shortI": "I corta",
     "longE": "E larga",
     "shortOO": "OO corta"
+  },
+  "PhonemeDrill": {
+    "reference": "Referencia",
+    "you": "Tú",
+    "analyzing": "Analizando tu pronunciación...",
+    "feedbackPlaceholder": "Escucha, luego graba o repite para obtener retroalimentación.",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "backToPractice": "Volver a la práctica",
+    "noDrills": "No hay pasos disponibles.",
+    "connectionError": "No se pudo conectar al servicio de análisis: {message}",
+    "stepType_isolated": "Sonido aislado",
+    "stepType_minimal_pair": "Par mínimo",
+    "stepType_word": "Palabra",
+    "stepType_short_phrase": "Frase corta"
   },
   "Difficulty": {
     "beginner": "principiante",

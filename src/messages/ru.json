@@ -180,7 +180,10 @@
     "german": "Deutsch",
     "min": "{count} мин",
     "startHere": "Начните здесь",
-    "recommended": "Рекомендовано"
+    "recommended": "Рекомендовано",
+    "phonemeDrills": "Упражнения на фонемы",
+    "phonemeFocus": "Фонема",
+    "steps": "шагов"
   },
   "DrillSession": {
     "readAloud": "Прочитайте вслух:",
@@ -349,6 +352,21 @@
     "shortI": "краткий I",
     "longE": "долгий E",
     "shortOO": "краткий OO"
+  },
+  "PhonemeDrill": {
+    "reference": "Образец",
+    "you": "Вы",
+    "analyzing": "Анализирую ваше произношение...",
+    "feedbackPlaceholder": "Послушайте, затем запишите или повторите для получения отзыва.",
+    "previous": "Назад",
+    "next": "Далее",
+    "backToPractice": "Вернуться к практике",
+    "noDrills": "Нет доступных шагов.",
+    "connectionError": "Не удалось подключиться к сервису анализа: {message}",
+    "stepType_isolated": "Изолированный звук",
+    "stepType_minimal_pair": "Минимальная пара",
+    "stepType_word": "Слово",
+    "stepType_short_phrase": "Короткая фраза"
   },
   "Difficulty": {
     "beginner": "начинающий",
