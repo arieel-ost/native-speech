@@ -5,12 +5,13 @@ export interface TrackableWord {
 }
 
 export interface FindActiveWordIndexOptions {
-  referenceText: string;
+  referenceText?: string;
+  referenceWords?: TrackableWord[];
   transcript: string;
   previousActiveWordIndex?: number;
 }
 
-const MAX_REFERENCE_LOOKAHEAD = 2;
+const MAX_REFERENCE_LOOKAHEAD = 4;
 
 export function tokenizeTrackableWords(text: string): TrackableWord[] {
   return text
@@ -24,12 +25,11 @@ export function tokenizeTrackableWords(text: string): TrackableWord[] {
     .filter((word) => word.normalized.length > 0);
 }
 
-export function findActiveWordIndex({
-  referenceText,
-  transcript,
-  previousActiveWordIndex,
-}: FindActiveWordIndexOptions): number | undefined {
-  const referenceWords = tokenizeTrackableWords(referenceText);
+export function findActiveWordIndex(
+  options: FindActiveWordIndexOptions,
+): number | undefined {
+  const { transcript, previousActiveWordIndex } = options;
+  const referenceWords = options.referenceWords ?? tokenizeTrackableWords(options.referenceText ?? "");
   const spokenWords = tokenizeTrackableWords(transcript);
 
   if (referenceWords.length === 0) {

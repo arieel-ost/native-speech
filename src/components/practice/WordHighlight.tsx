@@ -26,10 +26,43 @@ export function WordHighlight({
   isRecording,
 }: WordHighlightProps) {
   const words = useMemo(() => prompt.split(/\s+/).filter(Boolean), [prompt]);
-  const scoreByIndex = useMemo(
-    () => new Map(wordScores?.map((score) => [score.index, score])),
-    [wordScores],
-  );
+  const scoreByIndex = useMemo(() => {
+    if (!wordScores) return new Map<number, WordScore>();
+    const map = new Map<number, WordScore>();
+    const normalize = (w: string) =>
+      w.toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
+
+    for (const score of wordScores) {
+      const targetNorm = normalize(score.word);
+      // Fast path: index matches the expected word
+      if (
+        score.index < words.length &&
+        normalize(words[score.index]) === targetNorm
+      ) {
+        map.set(score.index, score);
+        continue;
+      }
+      // Fallback: search nearby for the matching word
+      let found = false;
+      for (let delta = -2; delta <= 2; delta++) {
+        const candidate = score.index + delta;
+        if (
+          candidate >= 0 &&
+          candidate < words.length &&
+          !map.has(candidate) &&
+          normalize(words[candidate]) === targetNorm
+        ) {
+          map.set(candidate, score);
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        map.set(score.index, score);
+      }
+    }
+    return map;
+  }, [wordScores, words]);
 
   return (
     <div className={styles.container}>

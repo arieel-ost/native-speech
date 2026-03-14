@@ -42,6 +42,25 @@ describe("findActiveWordIndex", () => {
     ).toBe(5);
   });
 
+  test("matches when speaker skips up to 3 reference words (lookahead=4)", () => {
+    expect(
+      findActiveWordIndex({
+        referenceText: "The weather is rather nice today",
+        transcript: "The nice",
+      }),
+    ).toBe(4);
+  });
+
+  test("does not match when speaker skips beyond the lookahead window", () => {
+    // "evening" is at index 6, skipping 5 words — beyond lookahead of 4
+    expect(
+      findActiveWordIndex({
+        referenceText: "The weather is rather nice this evening",
+        transcript: "The evening",
+      }),
+    ).toBe(0); // only "The" matched, "evening" was out of reach
+  });
+
   test("does not regress behind previous progress when interim text restarts", () => {
     expect(
       findActiveWordIndex({

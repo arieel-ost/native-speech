@@ -124,6 +124,62 @@
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  .good {
+    background: rgba(34, 197, 94, 0.18);
+    color: rgb(74, 222, 128);
+  }
+
+  .acceptable {
+    background: rgba(245, 158, 11, 0.18);
+    color: rgb(251, 191, 36);
+  }
+
+  .needs_work {
+    background: rgba(239, 68, 68, 0.18);
+    color: rgb(252, 129, 129);
+  }
+
+  .spoken {
+    opacity: 0.5;
+  }
+}
+
+/* Tooltip edge overflow protection */
+.word:first-child .tooltip,
+.word:nth-child(2) .tooltip {
+  left: 0;
+  transform: translateY(6px);
+}
+
+.hasIssue:first-child:hover .tooltip,
+.hasIssue:first-child:focus-visible .tooltip,
+.hasIssue:nth-child(2):hover .tooltip,
+.hasIssue:nth-child(2):focus-visible .tooltip {
+  transform: translateY(0);
+}
+
+.word:first-child .tooltip::after,
+.word:nth-child(2) .tooltip::after {
+  left: 20px;
+}
+
+.word:nth-last-child(-n + 2) .tooltip {
+  left: auto;
+  right: 0;
+  transform: translateY(6px);
+}
+
+.hasIssue:nth-last-child(-n + 2):hover .tooltip,
+.hasIssue:nth-last-child(-n + 2):focus-visible .tooltip {
+  transform: translateY(0);
+}
+
+.word:nth-last-child(-n + 2) .tooltip::after {
+  left: auto;
+  right: 20px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .word,
   .tooltip {

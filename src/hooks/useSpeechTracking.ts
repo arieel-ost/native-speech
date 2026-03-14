@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { findActiveWordIndex } from "@/lib/speech-tracking";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { findActiveWordIndex, tokenizeTrackableWords } from "@/lib/speech-tracking";
 
 interface UseSpeechTrackingOptions {
   referenceText: string;
@@ -32,6 +32,9 @@ function getSpeechRecognitionConstructor():
   return window.SpeechRecognition ?? window.webkitSpeechRecognition;
 }
 
+const isSpeechRecognitionSupported =
+  typeof window !== "undefined" && getSpeechRecognitionConstructor() !== undefined;
+
 export function useSpeechTracking({
   referenceText,
   enabled,
@@ -45,7 +48,11 @@ export function useSpeechTracking({
     activeWordIndex: undefined,
   });
 
-  const isSupported = getSpeechRecognitionConstructor() !== undefined;
+  const isSupported = isSpeechRecognitionSupported;
+  const referenceWords = useMemo(
+    () => tokenizeTrackableWords(referenceText),
+    [referenceText],
+  );
   const hasCurrentSessionState = trackingState.sessionKey === sessionKey;
 
   useEffect(() => {
@@ -87,7 +94,7 @@ export function useSpeechTracking({
           sessionKey,
           interimTranscript: trimmedTranscript,
           activeWordIndex: findActiveWordIndex({
-            referenceText,
+            referenceWords,
             transcript: trimmedTranscript,
             previousActiveWordIndex,
           }),
@@ -132,7 +139,7 @@ export function useSpeechTracking({
         // Ignore shutdown races during unmount or navigation.
       }
     };
-  }, [enabled, lang, referenceText, sessionKey]);
+  }, [enabled, lang, referenceWords, sessionKey]);
 
   return {
     isSupported,
