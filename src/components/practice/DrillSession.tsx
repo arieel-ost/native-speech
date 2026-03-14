@@ -84,7 +84,21 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
             { targetSound: "TH", exercise: "Put tongue between teeth", practiceWord: "The" }
           ]
         },
-        textMatch: drill.prompt
+        textMatch: drill.prompt,
+        wordScores: [
+          { word: "The", index: 0, score: 8, rating: "good", issue: null },
+          { word: "weather", index: 1, score: 6, rating: "acceptable", issue: "w slightly soft" },
+          { word: "is", index: 2, score: 9, rating: "good", issue: null },
+          { word: "rather", index: 3, score: 5, rating: "acceptable", issue: "r slightly rolled" },
+          { word: "nice", index: 4, score: 9, rating: "good", issue: null },
+          { word: "today,", index: 5, score: 8, rating: "good", issue: null },
+          { word: "though", index: 6, score: 3, rating: "needs_work", issue: "th pronounced as d" },
+          { word: "it", index: 7, score: 9, rating: "good", issue: null },
+          { word: "might", index: 8, score: 8, rating: "good", issue: null },
+          { word: "thunder", index: 9, score: 4, rating: "acceptable", issue: "th slightly off" },
+          { word: "this", index: 10, score: 3, rating: "needs_work", issue: "th pronounced as z" },
+          { word: "Thursday.", index: 11, score: 4, rating: "acceptable", issue: "th needs work" },
+        ],
       } as CombinedFeedback);
       setRecordingState("done");
       return;
