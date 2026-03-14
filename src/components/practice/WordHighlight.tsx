@@ -1,5 +1,7 @@
 "use client";
 
+import { useMemo } from "react";
+import type { CSSProperties } from "react";
 import styles from "./WordHighlight.module.css";
 
 export interface WordScore {
@@ -11,13 +13,9 @@ export interface WordScore {
 }
 
 export interface WordHighlightProps {
-  /** The original prompt text */
   prompt: string;
-  /** Per-word scores from Gemini (post-recording) */
   wordScores?: WordScore[];
-  /** Index of the word currently being spoken (real-time tracking) */
   activeWordIndex?: number;
-  /** Whether the user is currently recording */
   isRecording?: boolean;
 }
 
@@ -27,31 +25,59 @@ export function WordHighlight({
   activeWordIndex,
   isRecording,
 }: WordHighlightProps) {
-  const words = prompt.split(/\s+/);
+  const words = useMemo(() => prompt.split(/\s+/).filter(Boolean), [prompt]);
+  const scoreByIndex = useMemo(
+    () => new Map(wordScores?.map((score) => [score.index, score])),
+    [wordScores],
+  );
 
   return (
     <div className={styles.container}>
-      {words.map((word, i) => {
-        const score = wordScores?.find((ws) => ws.index === i);
-        const isActive = isRecording && activeWordIndex === i;
-        const isPast = isRecording && activeWordIndex !== undefined && i < activeWordIndex;
+      {words.map((word, index) => {
+        const score = scoreByIndex.get(index);
+        const isActive = isRecording && activeWordIndex === index;
+        const isPast =
+          isRecording && activeWordIndex !== undefined && index < activeWordIndex;
+        const hasIssue = Boolean(score?.issue);
 
         let className = styles.word;
+
         if (isActive) {
-          className += ` ${styles.active}`;
-        } else if (score) {
-          className += ` ${styles[score.rating]}`;
+          className = `${className} ${styles.active}`;
         } else if (isPast) {
-          className += ` ${styles.spoken}`;
+          className = `${className} ${styles.spoken}`;
+        } else if (score) {
+          className = `${className} ${styles[score.rating]} ${styles.revealed}`;
         }
+
+        if (hasIssue) {
+          className = `${className} ${styles.hasIssue}`;
+        }
+
+        const style = score
+          ? ({
+              "--word-reveal-delay": `${index * 80}ms`,
+            } as CSSProperties)
+          : undefined;
 
         return (
           <span
-            key={i}
+            key={`${word}-${index}`}
             className={className}
-            title={score?.issue ?? undefined}
+            style={style}
+            aria-describedby={hasIssue ? `word-issue-${index}` : undefined}
+            tabIndex={hasIssue ? 0 : undefined}
           >
-            {word}
+            <span>{word}</span>
+            {hasIssue ? (
+              <span
+                id={`word-issue-${index}`}
+                className={styles.tooltip}
+                role="tooltip"
+              >
+                {score?.issue}
+              </span>
+            ) : null}
           </span>
         );
       })}

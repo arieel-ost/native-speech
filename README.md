@@ -44,11 +44,13 @@ src/
     marketing/            # Hero, Features, PricingPreview, Nav, Footer
     app/                  # Sidebar, Header (app shell chrome)
     dashboard/            # ScoreOverview, RecentSessions, WeakSpots
-    practice/             # DrillGrid, DrillSession (recording + analysis)
+    practice/             # DrillGrid, DrillSession (recording + known-text word tracking + analysis)
     progress/             # ScoreTrend, StreakTracker, PhonemeTable
   providers/              # ThemeProvider, AuthProvider
+  hooks/                  # Browser speech tracking and audio visualization hooks
   lib/
     mock-data.ts          # All drill content, scores, session data
+    speech-tracking.ts    # Transcript normalization + active-word matching
     theme.ts              # Theme configuration
   auth.ts                 # NextAuth config (stub credentials provider)
 ```
@@ -56,11 +58,12 @@ src/
 **Request flow for recording:**
 
 1. User clicks Record in `DrillSession` — browser captures audio via `MediaRecorder` (webm/opus)
-2. User clicks Stop — audio blob is created, playback `<audio>` element appears
-3. Component POSTs `FormData` (audio blob + prompt text + target phonemes) to `/api/analyze`
-4. API route base64-encodes the audio, sends it to Gemini with a structured evaluation prompt
-5. Gemini analyses the audio — hearing how sounds were produced, comparing against expected pronunciation, and evaluating accuracy
-6. Raw feedback text is returned and displayed in the feedback card
+2. While recording, browser `SpeechRecognition` listens in parallel for known-text drills and highlights the current prompt word with a neutral state
+3. User clicks Stop — audio blob is created, playback `<audio>` element appears
+4. Component POSTs `FormData` (audio blob + prompt text + target phonemes) to `/api/analyze`
+5. API route base64-encodes the audio, sends it to Gemini with a structured evaluation prompt
+6. Gemini analyses the audio and returns structured feedback including `wordScores` for every prompt word
+7. The prompt swaps from neutral tracking to post-analysis pronunciation colors (`good`, `acceptable`, `needs_work`), with issue text on hover/focus
 
 ## Tech stack
 
@@ -87,7 +90,9 @@ Open [http://localhost:3000](http://localhost:3000). Sign in with any credential
 | File                                                | What's in it                                                                                                       |
 | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | `CLAUDE.md`                                         | Project conventions, stack details, recording feature status and next steps. **Start here if you're an AI agent.** |
+| `docs/architecture.md`                              | Living architecture doc for the demo loop, practice flow, word highlighting, and dashboard derivations              |
 | `docs/plans/2026-03-07-recording-design.md`         | Design doc for the audio recording + Gemini analysis feature                                                       |
 | `docs/plans/2026-03-07-recording-implementation.md` | Step-by-step implementation plan for the recording feature                                                         |
+| `docs/plans/2026-03-14-word-highlighting-design.md` | Research and UX rationale for known-text word-level pronunciation highlighting                                     |
 | `docs/plans/2026-03-02-mvp-shell-design.md`         | Original design for the app shell (layouts, pages, components)                                                     |
 | `docs/plans/2026-03-02-mvp-shell-implementation.md` | Implementation plan for the MVP shell                                                                              |

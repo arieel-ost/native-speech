@@ -362,10 +362,22 @@ Props: `drills: DrillSession[]`, `categoryName: string`
 
 #### Analysis Flow
 
-1. Stop recording → `onstop` fires → blob created → `analyze(blob)` called automatically
-2. FormData sent to `POST /api/analyze` with: `audio`, `prompt`, `phonemes` (JSON), `locale`, and `X-Learner-ID` header
-3. On success, feedback stored as `CombinedFeedback` (`simple` + `detailed` + `textMatch`)
-4. Session saved to localStorage via `addSession()` — extracts `overallScore` from `simple.score` (fallback to `detailed.overallScore` or 5), and maps `detailed.phonemeAnalysis` to `PhonemeScore[]`
+1. Start recording → `MediaRecorder` captures audio and `useSpeechTracking()` optionally starts browser `SpeechRecognition` for known-text drills
+2. During recording, `WordHighlight` receives `activeWordIndex` and renders a neutral current-word highlight plus subdued styling for already-spoken words
+3. Stop recording → `onstop` fires → blob created → `analyze(blob)` called automatically
+4. FormData sent to `POST /api/analyze` with: `audio`, `prompt`, `phonemes` (JSON), `locale`, and `X-Learner-ID` header
+5. On success, feedback stored as `CombinedFeedback` (`simple` + `detailed` + `textMatch` + `wordScores`)
+6. Session saved to localStorage via `addSession()` — extracts `overallScore` from `simple.score` (fallback to `detailed.overallScore` or 5), and maps `detailed.phonemeAnalysis` to `PhonemeScore[]`
+
+#### Known-Text Word Highlighting
+
+- `src/hooks/useSpeechTracking.ts` wraps browser `SpeechRecognition` and exposes `activeWordIndex`, `interimTranscript`, and `isSupported`
+- `src/lib/speech-tracking.ts` normalizes transcript/reference words, tolerates bounded STT drift, and never regresses progress within one recording session
+- `src/components/practice/WordHighlight.tsx` has two UI phases:
+  - During recording: neutral active-word highlight only
+  - After Gemini analysis: staggered per-word reveal using `wordScores` with `good`, `acceptable`, and `needs_work` states
+- Tooltip content comes from `wordScores[i].issue` and is available on hover and keyboard focus
+- If browser speech recognition is unsupported, recording and Gemini analysis still work; only live word tracking is absent
 
 #### Three Feedback Display Modes
 

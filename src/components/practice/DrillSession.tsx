@@ -10,6 +10,7 @@ import { SimplifiedFeedbackDisplay } from "./SimplifiedFeedbackDisplay";
 import { JsonFeedbackDisplay } from "./JsonFeedbackDisplay";
 import { WordHighlight } from "./WordHighlight";
 import type { WordScore } from "./WordHighlight";
+import { useSpeechTracking } from "@/hooks/useSpeechTracking";
 import { Link } from "@/i18n/navigation";
 import { addSession, getProfile, getLearnerId } from "@/lib/learner-store";
 import type { DrillSession as DrillSessionType } from "@/lib/mock-data";
@@ -30,6 +31,13 @@ interface CombinedFeedback {
   wordScores?: WordScore[];
 }
 
+const BCP47_MAP: Record<string, string> = {
+  en: "en-US",
+  ru: "ru-RU",
+  es: "es-ES",
+  fr: "fr-FR",
+};
+
 export function DrillSession({ drills, categoryName }: DrillSessionProps) {
   const t = useTranslations("DrillSession");
   const locale = useLocale();
@@ -41,10 +49,18 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
   const [feedback, setFeedback] = useState<CombinedFeedback | null>(null);
   const [analysisMode, setAnalysisMode] = useState<AnalysisMode>("simplified");
   const [error, setError] = useState<string | null>(null);
+  const [trackingSessionKey, setTrackingSessionKey] = useState(0);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const abortRef = useRef<AbortController | null>(null);
   const drill = drills[currentIndex];
+
+  const { activeWordIndex } = useSpeechTracking({
+    referenceText: drill?.prompt ?? "",
+    enabled: recordingState === "recording",
+    lang: BCP47_MAP[locale] ?? "en-US",
+    sessionKey: trackingSessionKey,
+  });
 
   const analyze = useCallback(async (blob: Blob) => {
     if (!drill) return;
@@ -202,6 +218,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       };
 
       mediaRecorder.start();
+      setTrackingSessionKey((currentKey) => currentKey + 1);
       setRecordingState("recording");
     } catch {
       setError(t("micDenied"));
@@ -268,6 +285,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
           <WordHighlight
             prompt={drill.prompt}
             wordScores={feedback?.wordScores}
+            activeWordIndex={activeWordIndex}
             isRecording={recordingState === "recording"}
           />
           <div className={styles.phonemes}>

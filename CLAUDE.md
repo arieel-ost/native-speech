@@ -28,8 +28,11 @@ Onboarding → Dashboard → Recommended Drills → Practice → Measure Improve
 **Key modules:**
 - `src/lib/learner-store.ts` — localStorage CRUD for LearnerProfile, SessionRecord, phoneme progress derivation
 - `src/lib/rate-limit.ts` — in-memory rate limiter (fingerprint + IP, 30 calls/day)
+- `src/lib/speech-tracking.ts` — known-text transcript normalization and active-word matching
 - `src/app/api/analyze/route.ts` — practice drill analysis (Gemini 2.5 Flash, structured JSON schema)
 - `src/app/api/assess/route.ts` — onboarding accent assessment (Gemini 2.5 Flash)
+- `src/hooks/useSpeechTracking.ts` — browser `SpeechRecognition` wrapper for neutral live word tracking
+- `src/components/practice/WordHighlight.tsx` — prompt rendering for live tracking and post-analysis per-word scoring
 
 **Data flow:**
 - Onboarding saves `LearnerProfile` to localStorage (assessment scores, recommended drills, accent data)
@@ -40,7 +43,7 @@ Onboarding → Dashboard → Recommended Drills → Practice → Measure Improve
 ### API Routes
 
 Both routes receive audio FormData, send to Gemini, return structured JSON:
-- `/api/analyze` — practice feedback (simple + detailed + textMatch views)
+- `/api/analyze` — practice feedback (simple + detailed + textMatch + wordScores views)
 - `/api/assess` — onboarding learner profile (accent, problems, strengths, recommendations)
 - Both rate-limited: `X-Learner-ID` header + IP, 30 calls/day, returns `X-RateLimit-Remaining`
 
@@ -55,6 +58,9 @@ Both routes receive audio FormData, send to Gemini, return structured JSON:
 - **Client components:** Any component reading localStorage must be `"use client"`
 - **Mock data:** `src/lib/mock-data.ts` contains drill content (categories, prompts, passages) — this is NOT mock user data, it's real content. Mock user/session data (`mockUser`, `mockRecentSessions`, etc.) should NOT be imported in production components.
 - **Gemini model:** Using `gemini-2.5-flash` — cheapest option with audio support. Don't upgrade to Pro without cost analysis.
+- **Known-text word tracking:** Browser `SpeechRecognition` is best-effort only. It drives neutral prompt progress during recording, not pronunciation scoring.
+- **Browser support:** Live word tracking depends on `SpeechRecognition` / `webkitSpeechRecognition`. If unsupported, recording and Gemini analysis still work.
+- **Scope boundary:** Current word-highlighting feature is for known-text drills only. Free speech and Azure Pronunciation Assessment are deferred.
 - **Debug logging:** `[Recording]` prefix console logs still present in DrillSession.tsx and API routes — remove before production deploy.
 
 ## i18n — Translation Workflow
