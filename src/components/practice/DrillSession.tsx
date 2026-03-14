@@ -13,13 +13,17 @@ import type { WordScore } from "./WordHighlight";
 import { useSpeechTracking } from "@/hooks/useSpeechTracking";
 import { Link } from "@/i18n/navigation";
 import { addSession, getProfile, getLearnerId } from "@/lib/learner-store";
-import type { DrillSession as DrillSessionType } from "@/lib/mock-data";
+import type {
+  DrillSession as DrillSessionType,
+  Language,
+} from "@/lib/mock-data";
 import type { AnalysisMode } from "@/app/api/analyze/route";
 import styles from "./DrillSession.module.css";
 
 interface DrillSessionProps {
   drills: DrillSessionType[];
   categoryName: string;
+  drillLanguage: Language;
 }
 
 type RecordingState = "idle" | "recording" | "processing" | "done";
@@ -31,14 +35,16 @@ interface CombinedFeedback {
   wordScores?: WordScore[];
 }
 
-const BCP47_MAP: Record<string, string> = {
-  en: "en-US",
-  ru: "ru-RU",
-  es: "es-ES",
-  fr: "fr-FR",
+const BCP47_MAP: Record<Language, string> = {
+  english: "en-US",
+  german: "de-DE",
 };
 
-export function DrillSession({ drills, categoryName }: DrillSessionProps) {
+export function DrillSession({
+  drills,
+  categoryName,
+  drillLanguage,
+}: DrillSessionProps) {
   const t = useTranslations("DrillSession");
   const locale = useLocale();
   const tPractice = useTranslations("Practice");
@@ -58,7 +64,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
   const { activeWordIndex } = useSpeechTracking({
     referenceText: drill?.prompt ?? "",
     enabled: recordingState === "recording",
-    lang: BCP47_MAP[locale] ?? "en-US",
+    lang: BCP47_MAP[drillLanguage],
     sessionKey: trackingSessionKey,
   });
 

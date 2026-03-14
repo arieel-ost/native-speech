@@ -20,6 +20,7 @@ export default async function DrillPage({ params }: Props) {
     <DrillSession
       drills={drills ?? []}
       categoryName={t(`${drillId}.name`)}
+      drillLanguage={category.language}
     />
   );
 }
