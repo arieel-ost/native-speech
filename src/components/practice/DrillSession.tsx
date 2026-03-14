@@ -8,6 +8,8 @@ import { WaveformVisualizer } from "./WaveformVisualizer";
 import { FeedbackDisplay } from "./FeedbackDisplay";
 import { SimplifiedFeedbackDisplay } from "./SimplifiedFeedbackDisplay";
 import { JsonFeedbackDisplay } from "./JsonFeedbackDisplay";
+import { WordHighlight } from "./WordHighlight";
+import type { WordScore } from "./WordHighlight";
 import { Link } from "@/i18n/navigation";
 import { addSession, getProfile, getLearnerId } from "@/lib/learner-store";
 import type { DrillSession as DrillSessionType } from "@/lib/mock-data";
@@ -25,6 +27,7 @@ interface CombinedFeedback {
   simple: Record<string, unknown>;
   detailed: Record<string, unknown>;
   textMatch: string;
+  wordScores?: WordScore[];
 }
 
 export function DrillSession({ drills, categoryName }: DrillSessionProps) {
@@ -262,7 +265,11 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       <Card variant="elevated">
         <div className={styles.promptArea}>
           <p className={styles.instruction}>{t("readAloud")}</p>
-          <p className={styles.prompt}>{drill.prompt}</p>
+          <WordHighlight
+            prompt={drill.prompt}
+            wordScores={feedback?.wordScores}
+            isRecording={recordingState === "recording"}
+          />
           <div className={styles.phonemes}>
             {drill.targetPhonemes.map((p) => (
               <span key={p} className={styles.phoneme}>{p}</span>
