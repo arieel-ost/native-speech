@@ -166,8 +166,43 @@ const combinedSchema = {
       type: Type.STRING,
       description: "Whether the speaker read the expected text: yes, partial, or no",
     },
+    wordScores: {
+      type: Type.ARRAY,
+      description:
+        "Per-word pronunciation assessment. One entry for EVERY word in the prompt, in order. Score each word based on how clearly and correctly the speaker pronounced it.",
+      items: {
+        type: Type.OBJECT,
+        properties: {
+          word: {
+            type: Type.STRING,
+            description: "The exact word from the prompt",
+          },
+          index: {
+            type: Type.NUMBER,
+            description: "Zero-based position of this word in the prompt",
+          },
+          score: {
+            type: Type.NUMBER,
+            description:
+              "Pronunciation quality score from 1 (unintelligible) to 10 (native-like)",
+          },
+          rating: {
+            type: Type.STRING,
+            description:
+              "Quality category: good (score 7-10), acceptable (score 4-6), or needs_work (score 1-3)",
+          },
+          issue: {
+            type: Type.STRING,
+            nullable: true,
+            description:
+              "Brief description of what was wrong, if anything (e.g., 'th pronounced as d'). Null if good.",
+          },
+        },
+        required: ["word", "index", "score", "rating"],
+      },
+    },
   },
-  required: ["simple", "detailed", "textMatch"],
+  required: ["simple", "detailed", "textMatch", "wordScores"],
 };
 
 export async function POST(request: NextRequest) {
@@ -220,13 +255,15 @@ export async function POST(request: NextRequest) {
 The speaker was asked to read: "${prompt}"
 Target phonemes to focus on: ${phonemes ?? "general"}
 
-Provide TWO views of your analysis:
+Provide TWO views of your analysis plus a per-word scoring:
 
 1. "detailed" — Full technical analysis: accent origin and telltale patterns, per-phoneme production quality (tongue position, voicing, aspiration, vowel quality) with IPA, sound substitutions, stress/rhythm/intonation, and concrete practice exercises. Be honest and detailed.
 
 2. "simple" — A friendly plain-language summary of the SAME analysis above. No technical terms, no IPA symbols, no phonetics jargon. Describe sounds using everyday words (e.g., 'the "th" sounded like a "d"'). Include what went well and practical tips. Be honest but encouraging.
 
-Both views must reflect the same underlying analysis — the simple view is an accessible overview of the detailed findings.
+3. "wordScores" — For EVERY word in the prompt text, in reading order, assign a pronunciation quality score (1-10) and rate it as good/acceptable/needs_work. If a word had issues, briefly note what was wrong. Include ALL words, even small ones like "the", "is", "a".
+
+All views must reflect the same underlying analysis — the simple view is an accessible overview of the detailed findings.
 
 IMPORTANT: Respond entirely in ${language}. All text fields in your response — summaries, tips, descriptions, pattern names, exercise instructions — must be written in ${language}. Keep IPA symbols and phoneme notation as-is.`;
 

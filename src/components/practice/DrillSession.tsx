@@ -8,15 +8,22 @@ import { WaveformVisualizer } from "./WaveformVisualizer";
 import { FeedbackDisplay } from "./FeedbackDisplay";
 import { SimplifiedFeedbackDisplay } from "./SimplifiedFeedbackDisplay";
 import { JsonFeedbackDisplay } from "./JsonFeedbackDisplay";
+import { WordHighlight } from "./WordHighlight";
+import type { WordScore } from "./WordHighlight";
+import { useSpeechTracking } from "@/hooks/useSpeechTracking";
 import { Link } from "@/i18n/navigation";
 import { addSession, getProfile, getLearnerId } from "@/lib/learner-store";
-import type { DrillSession as DrillSessionType } from "@/lib/mock-data";
+import type {
+  DrillSession as DrillSessionType,
+  Language,
+} from "@/lib/mock-data";
 import type { AnalysisMode } from "@/app/api/analyze/route";
 import styles from "./DrillSession.module.css";
 
 interface DrillSessionProps {
   drills: DrillSessionType[];
   categoryName: string;
+  drillLanguage: Language;
 }
 
 type RecordingState = "idle" | "recording" | "processing" | "done";
@@ -25,9 +32,19 @@ interface CombinedFeedback {
   simple: Record<string, unknown>;
   detailed: Record<string, unknown>;
   textMatch: string;
+  wordScores?: WordScore[];
 }
 
-export function DrillSession({ drills, categoryName }: DrillSessionProps) {
+const BCP47_MAP: Record<Language, string> = {
+  english: "en-US",
+  german: "de-DE",
+};
+
+export function DrillSession({
+  drills,
+  categoryName,
+  drillLanguage,
+}: DrillSessionProps) {
   const t = useTranslations("DrillSession");
   const locale = useLocale();
   const tPractice = useTranslations("Practice");
@@ -38,10 +55,18 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
   const [feedback, setFeedback] = useState<CombinedFeedback | null>(null);
   const [analysisMode, setAnalysisMode] = useState<AnalysisMode>("simplified");
   const [error, setError] = useState<string | null>(null);
+  const [trackingSessionKey, setTrackingSessionKey] = useState(0);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const abortRef = useRef<AbortController | null>(null);
   const drill = drills[currentIndex];
+
+  const { activeWordIndex } = useSpeechTracking({
+    referenceText: drill?.prompt ?? "",
+    enabled: recordingState === "recording",
+    lang: BCP47_MAP[drillLanguage],
+    sessionKey: trackingSessionKey,
+  });
 
   const analyze = useCallback(async (blob: Blob) => {
     if (!drill) return;
@@ -53,41 +78,6 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       console.log("[Recording] Blob size:", blob.size, "bytes");
       console.log("[Recording] Blob type:", blob.type);
       console.log("[Recording] Sending to /api/analyze...");
-
-      // MOCK ANALYSIS FOR TESTING
-      console.log("⚠️ SKIPPING API CALL TO SAVE CREDITS ⚠️");
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      if (!abortRef.current) return;
-      setFeedback({
-        simple: { 
-          score: 9, 
-          summary: "Great job on parsing and holding the vowels.",
-          strengths: ["Clear pronunciation", "Good pace"],
-          improvements: []
-        },
-        detailed: { 
-          overallScore: 9,
-          accent: {
-            detectedLanguage: "German",
-            confidence: "high",
-            telltalePatterns: ["Replacing TH with D"]
-          },
-          phonemeAnalysis: [
-            { phoneme: "a", rating: "good", word: "test", produced: "ah", expected: "ah" }
-          ],
-          prosody: {
-            stressAccuracy: "good",
-            rhythmNotes: "Good rhythm.",
-            intonationNotes: "Good intonation."
-          },
-          tips: [
-            { targetSound: "TH", exercise: "Put tongue between teeth", practiceWord: "The" }
-          ]
-        },
-        textMatch: drill.prompt
-      } as CombinedFeedback);
-      setRecordingState("done");
-      return;
 
       const formData = new FormData();
       formData.append("audio", blob, "recording.webm");
@@ -185,6 +175,7 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       };
 
       mediaRecorder.start();
+      setTrackingSessionKey((currentKey) => currentKey + 1);
       setRecordingState("recording");
     } catch {
       setError(t("micDenied"));
@@ -248,7 +239,12 @@ export function DrillSession({ drills, categoryName }: DrillSessionProps) {
       <Card variant="elevated">
         <div className={styles.promptArea}>
           <p className={styles.instruction}>{t("readAloud")}</p>
-          <p className={styles.prompt}>{drill.prompt}</p>
+          <WordHighlight
+            prompt={drill.prompt}
+            wordScores={feedback?.wordScores}
+            activeWordIndex={activeWordIndex}
+            isRecording={recordingState === "recording"}
+          />
           <div className={styles.phonemes}>
             {drill.targetPhonemes.map((p) => (
               <span key={p} className={styles.phoneme}>{p}</span>

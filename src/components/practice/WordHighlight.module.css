@@ -1,0 +1,193 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  padding: var(--space-md) 0;
+}
+
+.word {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  cursor: default;
+}
+
+.active {
+  background: rgba(59, 130, 246, 0.16);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.28);
+  animation: pulse-word 1s ease-in-out infinite;
+}
+
+.spoken {
+  color: var(--color-text);
+  opacity: 0.62;
+}
+
+.good {
+  background: rgba(34, 197, 94, 0.14);
+  color: rgb(21, 128, 61);
+}
+
+.acceptable {
+  background: rgba(245, 158, 11, 0.15);
+  color: rgb(180, 83, 9);
+}
+
+.needs_work {
+  background: rgba(239, 68, 68, 0.14);
+  color: rgb(185, 28, 28);
+}
+
+.revealed {
+  animation: reveal-word 320ms ease both;
+  animation-delay: var(--word-reveal-delay, 0ms);
+}
+
+.hasIssue {
+  cursor: help;
+}
+
+.hasIssue:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.5);
+  outline-offset: 2px;
+}
+
+.tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  width: max-content;
+  max-width: min(220px, 70vw);
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.96);
+  color: white;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 6px);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+  z-index: 2;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 10px;
+  height: 10px;
+  background: rgba(15, 23, 42, 0.96);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.hasIssue:hover .tooltip,
+.hasIssue:focus-visible .tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@keyframes pulse-word {
+  0%,
+  100% {
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.28);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.1);
+  }
+}
+
+@keyframes reveal-word {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .good {
+    background: rgba(34, 197, 94, 0.18);
+    color: rgb(74, 222, 128);
+  }
+
+  .acceptable {
+    background: rgba(245, 158, 11, 0.18);
+    color: rgb(251, 191, 36);
+  }
+
+  .needs_work {
+    background: rgba(239, 68, 68, 0.18);
+    color: rgb(252, 129, 129);
+  }
+
+  .spoken {
+    opacity: 0.5;
+  }
+}
+
+/* Tooltip edge overflow protection */
+.word:first-child .tooltip,
+.word:nth-child(2) .tooltip {
+  left: 0;
+  transform: translateY(6px);
+}
+
+.hasIssue:first-child:hover .tooltip,
+.hasIssue:first-child:focus-visible .tooltip,
+.hasIssue:nth-child(2):hover .tooltip,
+.hasIssue:nth-child(2):focus-visible .tooltip {
+  transform: translateY(0);
+}
+
+.word:first-child .tooltip::after,
+.word:nth-child(2) .tooltip::after {
+  left: 20px;
+}
+
+.word:nth-last-child(-n + 2) .tooltip {
+  left: auto;
+  right: 0;
+  transform: translateY(6px);
+}
+
+.hasIssue:nth-last-child(-n + 2):hover .tooltip,
+.hasIssue:nth-last-child(-n + 2):focus-visible .tooltip {
+  transform: translateY(0);
+}
+
+.word:nth-last-child(-n + 2) .tooltip::after {
+  left: auto;
+  right: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word,
+  .tooltip {
+    transition: none;
+  }
+
+  .active,
+  .revealed {
+    animation: none;
+  }
+}
