@@ -374,7 +374,7 @@
     "listen": "Escuchar",
     "record": "Grabar",
     "stop": "Parar",
-    "shadow": "Repetir",
+    "shadow": "Escuchar y repetir",
     "speed": "Velocidad:",
     "phaseListening": "Escuchando la referencia...",
     "phaseRecording": "Grabando — ¡habla ahora!",

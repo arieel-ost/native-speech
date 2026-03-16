@@ -374,7 +374,7 @@
     "listen": "Listen",
     "record": "Record",
     "stop": "Stop",
-    "shadow": "Shadow",
+    "shadow": "Listen & Repeat",
     "speed": "Speed:",
     "phaseListening": "Listening to reference...",
     "phaseRecording": "Recording — speak now!",
