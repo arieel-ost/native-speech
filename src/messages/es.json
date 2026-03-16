@@ -370,6 +370,17 @@
     "youSaid": "Dijiste",
     "target": "Objetivo"
   },
+  "ShadowingPlayer": {
+    "listen": "Escuchar",
+    "record": "Grabar",
+    "stop": "Parar",
+    "shadow": "Repetir",
+    "speed": "Velocidad:",
+    "phaseListening": "Escuchando la referencia...",
+    "phaseRecording": "Grabando — ¡habla ahora!",
+    "phaseShadowListen": "Escucha con atención...",
+    "phaseShadowRepeat": "¡Ahora repite!"
+  },
   "Difficulty": {
     "beginner": "principiante",
     "intermediate": "intermedio",

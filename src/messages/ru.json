@@ -370,6 +370,17 @@
     "youSaid": "Вы сказали",
     "target": "Цель"
   },
+  "ShadowingPlayer": {
+    "listen": "Слушать",
+    "record": "Запись",
+    "stop": "Стоп",
+    "shadow": "Повторять",
+    "speed": "Скорость:",
+    "phaseListening": "Слушаем эталон...",
+    "phaseRecording": "Запись — говорите!",
+    "phaseShadowListen": "Внимательно слушайте...",
+    "phaseShadowRepeat": "Теперь повторите!"
+  },
   "Difficulty": {
     "beginner": "начинающий",
     "intermediate": "средний",

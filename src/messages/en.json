@@ -370,6 +370,17 @@
     "youSaid": "You said",
     "target": "Target"
   },
+  "ShadowingPlayer": {
+    "listen": "Listen",
+    "record": "Record",
+    "stop": "Stop",
+    "shadow": "Shadow",
+    "speed": "Speed:",
+    "phaseListening": "Listening to reference...",
+    "phaseRecording": "Recording — speak now!",
+    "phaseShadowListen": "Listen carefully...",
+    "phaseShadowRepeat": "Now repeat!"
+  },
   "Difficulty": {
     "beginner": "beginner",
     "intermediate": "intermediate",

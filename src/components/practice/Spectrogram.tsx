@@ -1,13 +1,20 @@
 "use client";
 
-import { useRef, useEffect, useCallback } from "react";
+import { useRef, useEffect, useCallback, useState } from "react";
+import {
+  FFT_SIZE,
+  SMOOTHING,
+  heatColor,
+  rowToBin,
+} from "@/lib/spectrogram-utils";
+import type { SpectrogramWorkerInput } from "@/workers/spectrogram.worker";
 import styles from "./Spectrogram.module.css";
 
 /**
  * Renders a scrolling spectrogram from either a live MediaStream or a static AudioBuffer.
  *
  * - Live mode: pass `stream` — draws a real-time scrolling spectrogram.
- * - Static mode: pass `audioBuffer` — renders the full spectrogram of the buffer.
+ * - Static mode: pass `audioBuffer` — delegates FFT to a Web Worker (non-blocking).
  *
  * Uses a Mel-weighted frequency scale for perceptually meaningful colour mapping
  * and a "hot" colourmap (black → purple → red → orange → yellow → white).
@@ -26,50 +33,6 @@ interface SpectrogramProps {
   className?: string;
 }
 
-/* ---- colour map (hot) ---- */
-function heatColor(value: number): [number, number, number] {
-  // value 0..1 → black → purple → red → orange → yellow → white
-  const v = Math.max(0, Math.min(1, value));
-  if (v < 0.2) {
-    const t = v / 0.2;
-    return [Math.round(t * 80), 0, Math.round(t * 120)]; // black → purple
-  }
-  if (v < 0.4) {
-    const t = (v - 0.2) / 0.2;
-    return [80 + Math.round(t * 175), 0, 120 - Math.round(t * 120)]; // purple → red
-  }
-  if (v < 0.6) {
-    const t = (v - 0.4) / 0.2;
-    return [255, Math.round(t * 140), 0]; // red → orange
-  }
-  if (v < 0.8) {
-    const t = (v - 0.6) / 0.2;
-    return [255, 140 + Math.round(t * 115), 0]; // orange → yellow
-  }
-  const t = (v - 0.8) / 0.2;
-  return [255, 255, Math.round(t * 255)]; // yellow → white
-}
-
-/* ---- Mel scale helpers ---- */
-function hzToMel(hz: number) {
-  return 2595 * Math.log10(1 + hz / 700);
-}
-
-function melToHz(mel: number) {
-  return 700 * (10 ** (mel / 2595) - 1);
-}
-
-/** Map pixel row (0=top=high freq, height-1=bottom=low freq) to FFT bin */
-function rowTobin(row: number, canvasHeight: number, fftSize: number, sampleRate: number) {
-  const maxFreq = sampleRate / 2;
-  const melMax = hzToMel(maxFreq);
-  const melMin = hzToMel(60); // cut below 60 Hz
-  // row 0 = top = high freq
-  const mel = melMax - ((row / canvasHeight) * (melMax - melMin));
-  const hz = melToHz(mel);
-  return Math.round((hz / maxFreq) * (fftSize / 2));
-}
-
 export function Spectrogram({
   stream,
   audioBuffer,
@@ -79,16 +42,22 @@ export function Spectrogram({
 }: SpectrogramProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const rafRef = useRef<number | null>(null);
-  const ctxRef = useRef<AudioContext | null>(null);
-  const analyserRef = useRef<AnalyserNode | null>(null);
+  const workerRef = useRef<Worker | null>(null);
   const columnRef = useRef(0);
+  const [rendering, setRendering] = useState(false);
 
-  /* ---- Static render from AudioBuffer ---- */
+  // Cleanup worker on unmount
+  useEffect(() => {
+    return () => {
+      workerRef.current?.terminate();
+      workerRef.current = null;
+    };
+  }, []);
+
+  /* ---- Static render via Web Worker ---- */
   const renderStatic = useCallback((buffer: AudioBuffer) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
 
     const dpr = window.devicePixelRatio || 1;
     const rect = canvas.getBoundingClientRect();
@@ -97,64 +66,37 @@ export function Spectrogram({
     canvas.width = w;
     canvas.height = h;
 
-    // Offline analysis
-    const offCtx = new OfflineAudioContext(1, buffer.length, buffer.sampleRate);
-    const source = offCtx.createBufferSource();
-    source.buffer = buffer;
-    const analyser = offCtx.createAnalyser();
-    analyser.fftSize = 2048;
-    analyser.smoothingTimeConstant = 0.3;
-    source.connect(analyser);
-    analyser.connect(offCtx.destination);
-    source.start();
+    setRendering(true);
 
-    offCtx.startRendering().then(() => {
-      // We can't use the analyser after offline rendering, so do a manual STFT
-      const raw = buffer.getChannelData(0);
-      const fftSize = 2048;
-      const hopSize = Math.max(1, Math.floor(raw.length / w));
-      const imgData = ctx.createImageData(w, h);
+    // Lazy-init worker
+    if (!workerRef.current) {
+      workerRef.current = new Worker(
+        new URL("../../workers/spectrogram.worker.ts", import.meta.url),
+      );
+    }
 
-      for (let col = 0; col < w; col++) {
-        const start = col * hopSize;
-        // Simple magnitude spectrum via DFT approximation using overlapping windows
-        const frame = new Float32Array(fftSize);
-        for (let i = 0; i < fftSize && start + i < raw.length; i++) {
-          // Hann window
-          frame[i] = raw[start + i] * (0.5 - 0.5 * Math.cos((2 * Math.PI * i) / (fftSize - 1)));
-        }
-        // Compute magnitude spectrum (only need first half)
-        const halfBins = fftSize / 2;
-        const magnitudes = new Float32Array(halfBins);
-        for (let k = 0; k < halfBins; k++) {
-          let re = 0, im = 0;
-          for (let n = 0; n < fftSize; n++) {
-            const angle = (2 * Math.PI * k * n) / fftSize;
-            re += frame[n] * Math.cos(angle);
-            im -= frame[n] * Math.sin(angle);
-          }
-          magnitudes[k] = Math.sqrt(re * re + im * im);
-        }
+    const worker = workerRef.current;
+    const samples = buffer.getChannelData(0);
 
-        // Map to canvas rows using Mel scale
-        for (let row = 0; row < h; row++) {
-          const bin = rowTobin(row, h, fftSize, buffer.sampleRate);
-          const clampedBin = Math.min(bin, halfBins - 1);
-          // dB scale: -80 dB floor
-          const mag = magnitudes[clampedBin] || 0.00001;
-          const dB = 20 * Math.log10(mag / fftSize);
-          const norm = Math.max(0, Math.min(1, (dB + 80) / 80));
-          const [r, g, b] = heatColor(norm);
-          const idx = (row * w + col) * 4;
-          imgData.data[idx] = r;
-          imgData.data[idx + 1] = g;
-          imgData.data[idx + 2] = b;
-          imgData.data[idx + 3] = 255;
-        }
+    worker.onmessage = (e) => {
+      const { pixels, width, height } = e.data;
+      const ctx = canvas.getContext("2d");
+      if (ctx) {
+        const imgData = new ImageData(pixels, width, height);
+        canvas.width = width;
+        canvas.height = height;
+        ctx.putImageData(imgData, 0, 0);
       }
+      setRendering(false);
+    };
 
-      ctx.putImageData(imgData, 0, 0);
-    });
+    const msg: SpectrogramWorkerInput = {
+      samples: samples.slice(), // copy — transferable would neuter the original
+      sampleRate: buffer.sampleRate,
+      width: w,
+      height: h,
+    };
+    worker.postMessage(msg);
   }, []);
 
   /* ---- Live scrolling render from MediaStream ---- */
@@ -165,11 +107,9 @@ export function Spectrogram({
     if (!canvas) return;
 
     const audioCtx = new AudioContext();
-    ctxRef.current = audioCtx;
     const analyser = audioCtx.createAnalyser();
-    analyser.fftSize = 2048;
-    analyser.smoothingTimeConstant = 0.3;
-    analyserRef.current = analyser;
+    analyser.fftSize = FFT_SIZE;
+    analyser.smoothingTimeConstant = SMOOTHING;
 
     const src = audioCtx.createMediaStreamSource(stream);
     src.connect(analyser);
@@ -194,7 +134,7 @@ export function Spectrogram({
 
       // Draw new column at the right edge
       for (let row = 0; row < h; row++) {
-        const bin = rowTobin(row, h, analyser.fftSize, audioCtx.sampleRate);
+        const bin = rowToBin(row, h, analyser.fftSize, audioCtx.sampleRate);
         const clampedBin = Math.min(bin, freqData.length - 1);
         const norm = freqData[clampedBin] / 255;
         const [r, g, b] = heatColor(norm);
@@ -230,6 +170,9 @@ export function Spectrogram({
       {hasContent ? (
         <>
           <canvas ref={canvasRef} className={styles.canvas} />
+          {rendering && (
+            <div className={styles.rendering}>Rendering...</div>
+          )}
           <span className={`${styles.axisLabel} ${styles.axisHigh}`}>high</span>
           <span className={`${styles.axisLabel} ${styles.axisLow}`}>low</span>
         </>

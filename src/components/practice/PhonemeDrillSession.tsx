@@ -40,10 +40,25 @@ interface PhonemeFeedback {
   expected?: string;
 }
 
+interface PhonemeAssetEntry {
+  audio: string;
+  spectrogram: string;
+  audio3x: string;
+  spectrogram3x: string;
+}
+
 /** Look up pre-recorded audio & spectrogram for a given IPA symbol */
-function getPhonemeAssets(ipa: string): { audio: string; spectrogram: string } | null {
-  const entry = (phonemeMap as Record<string, { audio: string; spectrogram: string }>)[ipa];
-  return entry ?? null;
+function getPhonemeAssets(
+  ipa: string,
+  stepType: string,
+): { audio: string; spectrogram: string } | null {
+  const entry = (phonemeMap as Record<string, PhonemeAssetEntry>)[ipa];
+  if (!entry) return null;
+  // Isolated steps use 3x-repeated versions
+  if (stepType === "isolated") {
+    return { audio: entry.audio3x, spectrogram: entry.spectrogram3x };
+  }
+  return { audio: entry.audio, spectrogram: entry.spectrogram };
 }
 
 interface PhonemeDrillSessionProps {
@@ -64,7 +79,7 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
 
   const step = drill.steps[currentStep];
   const lang = BCP47_MAP[drill.language];
-  const assets = getPhonemeAssets(drill.phoneme);
+  const assets = getPhonemeAssets(drill.phoneme, step?.type ?? "word");
 
   const analyzeRecording = useCallback(
     async (blob: Blob) => {

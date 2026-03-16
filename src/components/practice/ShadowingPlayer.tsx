@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import styles from "./ShadowingPlayer.module.css";
 
 type Phase = "idle" | "listening" | "recording" | "shadowing_listen" | "shadowing_record";
@@ -32,12 +33,15 @@ export function ShadowingPlayer({
   onStreamEnd,
   disabled = false,
 }: ShadowingPlayerProps) {
+  const t = useTranslations("ShadowingPlayer");
   const [phase, setPhase] = useState<Phase>("idle");
   const [speed, setSpeed] = useState<number>(1.0);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const streamRef = useRef<MediaStream | null>(null);
   const audioElRef = useRef<HTMLAudioElement | null>(null);
+  /** Duration of the last reference playback in ms — used for shadow auto-stop */
+  const lastRefDurationRef = useRef<number>(2000);
 
   // Cleanup on unmount
   useEffect(() => {
@@ -56,12 +60,16 @@ export function ShadowingPlayer({
   /** Play reference audio — uses pre-recorded file if available, falls back to TTS */
   const playReference = useCallback(
     (playbackSpeed: number): Promise<void> => {
+      const start = Date.now();
       if (phonemeAudioSrc) {
         return new Promise((resolve, reject) => {
           const audio = new Audio(phonemeAudioSrc);
           audio.playbackRate = playbackSpeed;
           audioElRef.current = audio;
-          audio.onended = () => resolve();
+          audio.onended = () => {
+            lastRefDurationRef.current = Date.now() - start;
+            resolve();
+          };
           audio.onerror = () => reject(new Error("Failed to play reference audio"));
           audio.play().catch(reject);
         });
@@ -73,7 +81,10 @@ export function ShadowingPlayer({
         utterance.lang = lang;
         utterance.rate = playbackSpeed;
         utterance.pitch = 1;
-        utterance.onend = () => resolve();
+        utterance.onend = () => {
+          lastRefDurationRef.current = Date.now() - start;
+          resolve();
+        };
         utterance.onerror = (e) => {
           if (e.error === "canceled") resolve();
           else reject(e);
@@ -151,10 +162,6 @@ export function ShadowingPlayer({
     }
     setPhase("recording");
     const result = await startRecording();
-
-    // Return a stop function — we wait for stopRecording to be called
-    // This is handled by the user clicking the button again
-    // The promise resolves when mediaRecorder.onstop fires
     onRecorded(result.blob, result.buffer);
     setPhase("idle");
   }, [phase, startRecording, stopRecording, onRecorded]);
@@ -175,20 +182,19 @@ export function ShadowingPlayer({
     // Short pause
     await new Promise((r) => setTimeout(r, 500));
 
-    // Phase 2: Record user
+    // Phase 2: Record user — auto-stop based on actual reference duration
     setPhase("shadowing_record");
     const recordPromise = startRecording();
 
-    // Auto-stop after estimated duration + buffer
-    const estimatedDuration = Math.max(2000, text.split(" ").length * 500);
+    const autoStopMs = Math.max(2000, Math.round(lastRefDurationRef.current * 1.5) + 1000);
     setTimeout(() => {
       stopRecording();
-    }, estimatedDuration);
+    }, autoStopMs);
 
     const result = await recordPromise;
     onRecorded(result.blob, result.buffer);
     setPhase("idle");
-  }, [phase, speed, playReference, startRecording, stopRecording, text, onRecorded]);
+  }, [phase, speed, playReference, startRecording, stopRecording, onRecorded]);
 
   const handleRecordClick = () => {
     if (phase === "recording" || phase === "shadowing_record") {
@@ -205,16 +211,16 @@ export function ShadowingPlayer({
   let phaseText = "";
   let phaseClass = "";
   if (phase === "listening") {
-    phaseText = "Listening to reference...";
+    phaseText = t("phaseListening");
     phaseClass = styles.phaseListening;
   } else if (phase === "recording") {
-    phaseText = "Recording — speak now!";
+    phaseText = t("phaseRecording");
     phaseClass = styles.phaseRecording;
   } else if (phase === "shadowing_listen") {
-    phaseText = "Listen carefully...";
+    phaseText = t("phaseShadowListen");
     phaseClass = styles.phaseShadowing;
   } else if (phase === "shadowing_record") {
-    phaseText = "Now repeat!";
+    phaseText = t("phaseShadowRepeat");
     phaseClass = styles.phaseRecording;
   }
 
@@ -231,7 +237,7 @@ export function ShadowingPlayer({
           disabled={disabled || isBusy}
         >
           <span className={styles.btnIcon}>{isPlaying ? "🔊" : "▶"}</span>
-          Listen
+          {t("listen")}
         </button>
 
         <button
@@ -240,7 +246,7 @@ export function ShadowingPlayer({
           disabled={disabled || (isBusy && !isRecording)}
         >
           <span className={styles.btnIcon}>{isRecording ? "◼" : "●"}</span>
-          {isRecording ? "Stop" : "Record"}
+          {isRecording ? t("stop") : t("record")}
         </button>
 
         <button
@@ -249,12 +255,12 @@ export function ShadowingPlayer({
           disabled={disabled || isBusy}
         >
           <span className={styles.btnIcon}>🔄</span>
-          Shadow
+          {t("shadow")}
         </button>
       </div>
 
       <div className={styles.speedControl}>
-        <span>Speed:</span>
+        <span>{t("speed")}</span>
         {SPEEDS.map((s) => (
           <button
             key={s}

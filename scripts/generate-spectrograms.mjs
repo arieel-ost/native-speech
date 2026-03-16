@@ -168,19 +168,23 @@ async function main() {
 
   console.log(`\nDone: ${ok} generated, ${fail} failed`);
 
-  // Update phoneme-map.json to include spectrogram paths
+  // Update phoneme-map.json to include spectrogram and 3x paths
   const mapPath = join(PHONEME_DIR, "phoneme-map.json");
   const map = JSON.parse(await readFile(mapPath, "utf-8"));
   const newMap = {};
-  for (const [ipa, audioPath] of Object.entries(map)) {
+  for (const [ipa, entry] of Object.entries(map)) {
+    // entry may be a string (old format) or an object (new format)
+    const audioPath = typeof entry === "string" ? entry : entry.audio;
     const base = audioPath.replace(".mp3", "");
     newMap[ipa] = {
       audio: audioPath,
       spectrogram: `${base}_spectrogram.png`,
+      audio3x: `${base}_3x.mp3`,
+      spectrogram3x: `${base}_3x_spectrogram.png`,
     };
   }
   await writeFile(mapPath, JSON.stringify(newMap, null, 2));
-  console.log("Updated phoneme-map.json with spectrogram paths");
+  console.log("Updated phoneme-map.json with spectrogram and 3x paths");
 }
 
 main();
