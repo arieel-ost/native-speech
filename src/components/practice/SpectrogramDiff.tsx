@@ -1,11 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { Spectrogram } from "./Spectrogram";
 import styles from "./SpectrogramDiff.module.css";
 
 interface SpectrogramDiffProps {
-  /** Reference audio buffer (TTS / model pronunciation) */
-  referenceBuffer: AudioBuffer | null;
+  /** Pre-generated spectrogram image path for the reference phoneme */
+  referenceSpectrogramSrc?: string | null;
   /** User's recorded audio buffer */
   userBuffer: AudioBuffer | null;
   /** Live stream for real-time user spectrogram during recording */
@@ -15,7 +16,7 @@ interface SpectrogramDiffProps {
 }
 
 export function SpectrogramDiff({
-  referenceBuffer,
+  referenceSpectrogramSrc,
   userBuffer,
   userStream,
   referenceLabel = "Reference",
@@ -24,11 +25,25 @@ export function SpectrogramDiff({
   return (
     <div className={styles.wrapper}>
       <div className={styles.pair}>
-        <Spectrogram
-          audioBuffer={referenceBuffer}
-          label={referenceLabel}
-          placeholder="Reference will appear here"
-        />
+        <div className={styles.referencePanel}>
+          {referenceSpectrogramSrc ? (
+            <>
+              <span className={styles.panelLabel}>{referenceLabel}</span>
+              <Image
+                src={referenceSpectrogramSrc}
+                alt={`${referenceLabel} spectrogram`}
+                width={400}
+                height={200}
+                className={styles.referenceImg}
+                unoptimized
+              />
+              <span className={`${styles.axisLabel} ${styles.axisHigh}`}>high</span>
+              <span className={`${styles.axisLabel} ${styles.axisLow}`}>low</span>
+            </>
+          ) : (
+            <div className={styles.empty}>Reference will appear here</div>
+          )}
+        </div>
         <Spectrogram
           audioBuffer={userStream ? undefined : userBuffer}
           stream={userStream}

@@ -366,7 +366,9 @@
     "stepType_isolated": "Son isolé",
     "stepType_minimal_pair": "Paire minimale",
     "stepType_word": "Mot",
-    "stepType_short_phrase": "Phrase courte"
+    "stepType_short_phrase": "Phrase courte",
+    "youSaid": "Vous avez dit",
+    "target": "Cible"
   },
   "Difficulty": {
     "beginner": "débutant",

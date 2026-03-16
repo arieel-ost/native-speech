@@ -10,16 +10,14 @@ interface ShadowingPlayerProps {
   text: string;
   /** BCP-47 language tag for TTS voice (e.g. "en-US", "de-DE") */
   lang: string;
+  /** Path to a pre-recorded phoneme audio file (e.g. /audio/phonemes/th_voiceless.mp3) */
+  phonemeAudioSrc?: string | null;
   /** Called when recording finishes — passes the audio blob and decoded AudioBuffer */
   onRecorded: (blob: Blob, buffer: AudioBuffer) => void;
-  /** Called when TTS reference finishes generating — passes decoded AudioBuffer */
-  onReferenceReady: (buffer: AudioBuffer) => void;
   /** Called when live recording stream starts */
   onStreamStart?: (stream: MediaStream) => void;
   /** Called when live recording stream ends */
   onStreamEnd?: () => void;
-  /** Current phase text */
-  phaseLabel?: string;
   disabled?: boolean;
 }
 
@@ -28,8 +26,8 @@ const SPEEDS = [0.6, 0.8, 1.0] as const;
 export function ShadowingPlayer({
   text,
   lang,
+  phonemeAudioSrc,
   onRecorded,
-  onReferenceReady,
   onStreamStart,
   onStreamEnd,
   disabled = false,
@@ -39,11 +37,15 @@ export function ShadowingPlayer({
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const streamRef = useRef<MediaStream | null>(null);
-  const synthRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const audioElRef = useRef<HTMLAudioElement | null>(null);
 
   // Cleanup on unmount
   useEffect(() => {
     return () => {
+      if (audioElRef.current) {
+        audioElRef.current.pause();
+        audioElRef.current = null;
+      }
       window.speechSynthesis.cancel();
       if (streamRef.current) {
         streamRef.current.getTracks().forEach((t) => t.stop());
@@ -51,26 +53,35 @@ export function ShadowingPlayer({
     };
   }, []);
 
-  const speakReference = useCallback(
+  /** Play reference audio — uses pre-recorded file if available, falls back to TTS */
+  const playReference = useCallback(
     (playbackSpeed: number): Promise<void> => {
+      if (phonemeAudioSrc) {
+        return new Promise((resolve, reject) => {
+          const audio = new Audio(phonemeAudioSrc);
+          audio.playbackRate = playbackSpeed;
+          audioElRef.current = audio;
+          audio.onended = () => resolve();
+          audio.onerror = () => reject(new Error("Failed to play reference audio"));
+          audio.play().catch(reject);
+        });
+      }
+      // Fallback to browser TTS for words/phrases without a phoneme audio file
       return new Promise((resolve, reject) => {
         window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = lang;
         utterance.rate = playbackSpeed;
         utterance.pitch = 1;
-        synthRef.current = utterance;
-
         utterance.onend = () => resolve();
         utterance.onerror = (e) => {
           if (e.error === "canceled") resolve();
           else reject(e);
         };
-
         window.speechSynthesis.speak(utterance);
       });
     },
-    [text, lang],
+    [phonemeAudioSrc, text, lang],
   );
 
   const startRecording = useCallback(async (): Promise<{ blob: Blob; buffer: AudioBuffer }> => {
@@ -121,23 +132,16 @@ export function ShadowingPlayer({
     }
   }, []);
 
-  /** Listen to reference TTS */
+  /** Listen to reference audio */
   const handleListen = useCallback(async () => {
     setPhase("listening");
     try {
-      await speakReference(speed);
-      // Generate a reference buffer for spectrogram
-      const ctx = new AudioContext();
-      const sampleRate = ctx.sampleRate;
-      const duration = Math.max(1, text.split(" ").length * 0.3);
-      const buffer = ctx.createBuffer(1, Math.round(sampleRate * duration), sampleRate);
-      await ctx.close();
-      onReferenceReady(buffer);
+      await playReference(speed);
     } catch {
-      // TTS error — ignore
+      // playback error — ignore
     }
     setPhase("idle");
-  }, [speed, speakReference, text, onReferenceReady]);
+  }, [speed, playReference]);
 
   /** Record user's pronunciation */
   const handleRecord = useCallback(async () => {
@@ -162,7 +166,7 @@ export function ShadowingPlayer({
     // Phase 1: Listen to reference
     setPhase("shadowing_listen");
     try {
-      await speakReference(speed);
+      await playReference(speed);
     } catch {
       setPhase("idle");
       return;
@@ -184,7 +188,7 @@ export function ShadowingPlayer({
     const result = await recordPromise;
     onRecorded(result.blob, result.buffer);
     setPhase("idle");
-  }, [phase, speed, speakReference, startRecording, stopRecording, text, onRecorded]);
+  }, [phase, speed, playReference, startRecording, stopRecording, text, onRecorded]);
 
   const handleRecordClick = () => {
     if (phase === "recording" || phase === "shadowing_record") {

@@ -366,7 +366,9 @@
     "stepType_isolated": "Sonido aislado",
     "stepType_minimal_pair": "Par mínimo",
     "stepType_word": "Palabra",
-    "stepType_short_phrase": "Frase corta"
+    "stepType_short_phrase": "Frase corta",
+    "youSaid": "Dijiste",
+    "target": "Objetivo"
   },
   "Difficulty": {
     "beginner": "principiante",

@@ -1,0 +1,166 @@
+{
+  "p": {
+    "audio": "/audio/phonemes/p.mp3",
+    "spectrogram": "/audio/phonemes/p_spectrogram.png"
+  },
+  "b": {
+    "audio": "/audio/phonemes/b.mp3",
+    "spectrogram": "/audio/phonemes/b_spectrogram.png"
+  },
+  "t": {
+    "audio": "/audio/phonemes/t.mp3",
+    "spectrogram": "/audio/phonemes/t_spectrogram.png"
+  },
+  "d": {
+    "audio": "/audio/phonemes/d.mp3",
+    "spectrogram": "/audio/phonemes/d_spectrogram.png"
+  },
+  "k": {
+    "audio": "/audio/phonemes/k.mp3",
+    "spectrogram": "/audio/phonemes/k_spectrogram.png"
+  },
+  "g": {
+    "audio": "/audio/phonemes/g.mp3",
+    "spectrogram": "/audio/phonemes/g_spectrogram.png"
+  },
+  "m": {
+    "audio": "/audio/phonemes/m.mp3",
+    "spectrogram": "/audio/phonemes/m_spectrogram.png"
+  },
+  "n": {
+    "audio": "/audio/phonemes/n.mp3",
+    "spectrogram": "/audio/phonemes/n_spectrogram.png"
+  },
+  "ŋ": {
+    "audio": "/audio/phonemes/ng.mp3",
+    "spectrogram": "/audio/phonemes/ng_spectrogram.png"
+  },
+  "tʃ": {
+    "audio": "/audio/phonemes/ch.mp3",
+    "spectrogram": "/audio/phonemes/ch_spectrogram.png"
+  },
+  "dʒ": {
+    "audio": "/audio/phonemes/jh.mp3",
+    "spectrogram": "/audio/phonemes/jh_spectrogram.png"
+  },
+  "f": {
+    "audio": "/audio/phonemes/f.mp3",
+    "spectrogram": "/audio/phonemes/f_spectrogram.png"
+  },
+  "v": {
+    "audio": "/audio/phonemes/v.mp3",
+    "spectrogram": "/audio/phonemes/v_spectrogram.png"
+  },
+  "θ": {
+    "audio": "/audio/phonemes/th_voiceless.mp3",
+    "spectrogram": "/audio/phonemes/th_voiceless_spectrogram.png"
+  },
+  "ð": {
+    "audio": "/audio/phonemes/th_voiced.mp3",
+    "spectrogram": "/audio/phonemes/th_voiced_spectrogram.png"
+  },
+  "s": {
+    "audio": "/audio/phonemes/s.mp3",
+    "spectrogram": "/audio/phonemes/s_spectrogram.png"
+  },
+  "z": {
+    "audio": "/audio/phonemes/z.mp3",
+    "spectrogram": "/audio/phonemes/z_spectrogram.png"
+  },
+  "ʃ": {
+    "audio": "/audio/phonemes/sh.mp3",
+    "spectrogram": "/audio/phonemes/sh_spectrogram.png"
+  },
+  "ʒ": {
+    "audio": "/audio/phonemes/zh.mp3",
+    "spectrogram": "/audio/phonemes/zh_spectrogram.png"
+  },
+  "h": {
+    "audio": "/audio/phonemes/h.mp3",
+    "spectrogram": "/audio/phonemes/h_spectrogram.png"
+  },
+  "w": {
+    "audio": "/audio/phonemes/w.mp3",
+    "spectrogram": "/audio/phonemes/w_spectrogram.png"
+  },
+  "j": {
+    "audio": "/audio/phonemes/y.mp3",
+    "spectrogram": "/audio/phonemes/y_spectrogram.png"
+  },
+  "r": {
+    "audio": "/audio/phonemes/r.mp3",
+    "spectrogram": "/audio/phonemes/r_spectrogram.png"
+  },
+  "l": {
+    "audio": "/audio/phonemes/l.mp3",
+    "spectrogram": "/audio/phonemes/l_spectrogram.png"
+  },
+  "i": {
+    "audio": "/audio/phonemes/ee.mp3",
+    "spectrogram": "/audio/phonemes/ee_spectrogram.png"
+  },
+  "ɪ": {
+    "audio": "/audio/phonemes/ih.mp3",
+    "spectrogram": "/audio/phonemes/ih_spectrogram.png"
+  },
+  "eɪ": {
+    "audio": "/audio/phonemes/ey.mp3",
+    "spectrogram": "/audio/phonemes/ey_spectrogram.png"
+  },
+  "ɛ": {
+    "audio": "/audio/phonemes/eh.mp3",
+    "spectrogram": "/audio/phonemes/eh_spectrogram.png"
+  },
+  "æ": {
+    "audio": "/audio/phonemes/ae.mp3",
+    "spectrogram": "/audio/phonemes/ae_spectrogram.png"
+  },
+  "ʌ": {
+    "audio": "/audio/phonemes/uh.mp3",
+    "spectrogram": "/audio/phonemes/uh_spectrogram.png"
+  },
+  "ə": {
+    "audio": "/audio/phonemes/schwa.mp3",
+    "spectrogram": "/audio/phonemes/schwa_spectrogram.png"
+  },
+  "u": {
+    "audio": "/audio/phonemes/oo.mp3",
+    "spectrogram": "/audio/phonemes/oo_spectrogram.png"
+  },
+  "ʊ": {
+    "audio": "/audio/phonemes/uh_short.mp3",
+    "spectrogram": "/audio/phonemes/uh_short_spectrogram.png"
+  },
+  "oʊ": {
+    "audio": "/audio/phonemes/oh.mp3",
+    "spectrogram": "/audio/phonemes/oh_spectrogram.png"
+  },
+  "ɔ": {
+    "audio": "/audio/phonemes/aw.mp3",
+    "spectrogram": "/audio/phonemes/aw_spectrogram.png"
+  },
+  "ɑ": {
+    "audio": "/audio/phonemes/ah.mp3",
+    "spectrogram": "/audio/phonemes/ah_spectrogram.png"
+  },
+  "aɪ": {
+    "audio": "/audio/phonemes/ai.mp3",
+    "spectrogram": "/audio/phonemes/ai_spectrogram.png"
+  },
+  "aʊ": {
+    "audio": "/audio/phonemes/ow.mp3",
+    "spectrogram": "/audio/phonemes/ow_spectrogram.png"
+  },
+  "ɔɪ": {
+    "audio": "/audio/phonemes/oi.mp3",
+    "spectrogram": "/audio/phonemes/oi_spectrogram.png"
+  },
+  "x": {
+    "audio": "/audio/phonemes/x_velar.mp3",
+    "spectrogram": "/audio/phonemes/x_velar_spectrogram.png"
+  },
+  "ʔ": {
+    "audio": "/audio/phonemes/glottal_stop.mp3",
+    "spectrogram": "/audio/phonemes/glottal_stop_spectrogram.png"
+  }
+}

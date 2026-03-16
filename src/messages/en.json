@@ -366,7 +366,9 @@
     "stepType_isolated": "Isolated Sound",
     "stepType_minimal_pair": "Minimal Pair",
     "stepType_word": "Word",
-    "stepType_short_phrase": "Short Phrase"
+    "stepType_short_phrase": "Short Phrase",
+    "youSaid": "You said",
+    "target": "Target"
   },
   "Difficulty": {
     "beginner": "beginner",

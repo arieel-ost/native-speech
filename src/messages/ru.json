@@ -366,7 +366,9 @@
     "stepType_isolated": "Изолированный звук",
     "stepType_minimal_pair": "Минимальная пара",
     "stepType_word": "Слово",
-    "stepType_short_phrase": "Короткая фраза"
+    "stepType_short_phrase": "Короткая фраза",
+    "youSaid": "Вы сказали",
+    "target": "Цель"
   },
   "Difficulty": {
     "beginner": "начинающий",

@@ -9,6 +9,7 @@ import { AudioPlayer } from "./AudioPlayer";
 import { Link } from "@/i18n/navigation";
 import { getLearnerId, addSession, getProfile } from "@/lib/learner-store";
 import type { PhonemeDrill, Language } from "@/lib/mock-data";
+import phonemeMap from "@/../public/audio/phonemes/phoneme-map.json";
 import styles from "./PhonemeDrillSession.module.css";
 
 const BCP47_MAP: Record<Language, string> = {
@@ -35,6 +36,14 @@ interface PhonemeFeedback {
   summary: string;
   tip: string;
   phonemeRating: "good" | "acceptable" | "needs_work";
+  produced?: string;
+  expected?: string;
+}
+
+/** Look up pre-recorded audio & spectrogram for a given IPA symbol */
+function getPhonemeAssets(ipa: string): { audio: string; spectrogram: string } | null {
+  const entry = (phonemeMap as Record<string, { audio: string; spectrogram: string }>)[ipa];
+  return entry ?? null;
 }
 
 interface PhonemeDrillSessionProps {
@@ -45,7 +54,6 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
   const t = useTranslations("PhonemeDrill");
   const locale = useLocale();
   const [currentStep, setCurrentStep] = useState(0);
-  const [referenceBuffer, setReferenceBuffer] = useState<AudioBuffer | null>(null);
   const [userBuffer, setUserBuffer] = useState<AudioBuffer | null>(null);
   const [userStream, setUserStream] = useState<MediaStream | null>(null);
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
@@ -56,6 +64,7 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
 
   const step = drill.steps[currentStep];
   const lang = BCP47_MAP[drill.language];
+  const assets = getPhonemeAssets(drill.phoneme);
 
   const analyzeRecording = useCallback(
     async (blob: Blob) => {
@@ -125,10 +134,6 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
     [analyzeRecording],
   );
 
-  const handleReferenceReady = useCallback((buffer: AudioBuffer) => {
-    setReferenceBuffer(buffer);
-  }, []);
-
   const handleStreamStart = useCallback((stream: MediaStream) => {
     setUserStream(stream);
   }, []);
@@ -143,7 +148,6 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
     setError(null);
     setAudioUrl(null);
     setUserBuffer(null);
-    setReferenceBuffer(null);
     setUserStream(null);
   };
 
@@ -196,8 +200,8 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
       <ShadowingPlayer
         text={step.prompt}
         lang={lang}
+        phonemeAudioSrc={assets?.audio}
         onRecorded={handleRecorded}
-        onReferenceReady={handleReferenceReady}
         onStreamStart={handleStreamStart}
         onStreamEnd={handleStreamEnd}
         disabled={analyzing}
@@ -206,7 +210,7 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
       {/* Spectrogram comparison */}
       <div className={styles.spectrogramSection}>
         <SpectrogramDiff
-          referenceBuffer={referenceBuffer}
+          referenceSpectrogramSrc={assets?.spectrogram}
           userBuffer={userBuffer}
           userStream={userStream}
           referenceLabel={t("reference")}
@@ -237,6 +241,17 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
                 <span className={styles.scoreValue}>{feedback.score}</span>
                 <span className={styles.scoreMax}>/ 10</span>
               </div>
+              {feedback.produced && feedback.expected && feedback.produced !== feedback.expected && (
+                <div className={styles.phonemeComparison}>
+                  <span className={styles.phonemeProduced}>
+                    {t("youSaid")}: <strong>/{feedback.produced}/</strong>
+                  </span>
+                  <span className={styles.phonemeArrow}>→</span>
+                  <span className={styles.phonemeExpected}>
+                    {t("target")}: <strong>/{feedback.expected}/</strong>
+                  </span>
+                </div>
+              )}
               <p className={styles.feedbackSummary}>{feedback.summary}</p>
               {feedback.tip && (
                 <div className={styles.feedbackTip}>
