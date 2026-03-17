@@ -180,7 +180,10 @@
     "german": "Deutsch",
     "min": "{count} min",
     "startHere": "Start here",
-    "recommended": "Recommended"
+    "recommended": "Recommended",
+    "phonemeDrills": "Phoneme Focus Drills",
+    "phonemeFocus": "Phoneme Focus",
+    "steps": "steps"
   },
   "DrillSession": {
     "readAloud": "Read this aloud:",
@@ -349,6 +352,39 @@
     "shortI": "short I",
     "longE": "long E",
     "shortOO": "short OO"
+  },
+  "PhonemeDrill": {
+    "reference": "Reference",
+    "you": "You",
+    "analyzing": "Analyzing your pronunciation...",
+    "feedbackPlaceholder": "Listen, then record or shadow to get feedback.",
+    "previous": "Previous",
+    "next": "Next",
+    "backToPractice": "Back to Practice",
+    "noDrills": "No drill steps available.",
+    "connectionError": "Failed to connect to analysis service: {message}",
+    "stepType_isolated": "Isolated Sound",
+    "stepType_minimal_pair": "Minimal Pair",
+    "stepType_word": "Word",
+    "stepType_short_phrase": "Short Phrase",
+    "youSaid": "You said",
+    "target": "Target",
+    "sideBySide": "Side by side",
+    "overlay": "Overlay"
+  },
+  "ShadowingPlayer": {
+    "listen": "Listen",
+    "record": "Record",
+    "stop": "Stop",
+    "listenRepeat": "Listen & Repeat",
+    "shadow": "Shadow",
+    "speed": "Speed:",
+    "phaseListening": "Listening to reference...",
+    "phaseRecording": "Recording — speak now!",
+    "phaseShadowListen": "Listen carefully...",
+    "phaseShadowRepeat": "Now repeat!",
+    "phaseShadowing": "Shadowing — speak along!",
+    "phaseGetReady": "Get ready..."
   },
   "Difficulty": {
     "beginner": "beginner",

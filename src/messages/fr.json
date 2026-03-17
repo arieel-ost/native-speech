@@ -180,7 +180,10 @@
     "german": "Deutsch",
     "min": "{count} min",
     "startHere": "Commencez ici",
-    "recommended": "Recommandé"
+    "recommended": "Recommandé",
+    "phonemeDrills": "Exercices de phonèmes",
+    "phonemeFocus": "Phonème",
+    "steps": "étapes"
   },
   "DrillSession": {
     "readAloud": "Lisez ceci à voix haute :",
@@ -349,6 +352,39 @@
     "shortI": "I court",
     "longE": "E long",
     "shortOO": "OO court"
+  },
+  "PhonemeDrill": {
+    "reference": "Référence",
+    "you": "Vous",
+    "analyzing": "Analyse de votre prononciation...",
+    "feedbackPlaceholder": "Écoutez, puis enregistrez ou répétez pour obtenir un retour.",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "backToPractice": "Retour à la pratique",
+    "noDrills": "Aucune étape disponible.",
+    "connectionError": "Impossible de se connecter au service d'analyse : {message}",
+    "stepType_isolated": "Son isolé",
+    "stepType_minimal_pair": "Paire minimale",
+    "stepType_word": "Mot",
+    "stepType_short_phrase": "Phrase courte",
+    "youSaid": "Vous avez dit",
+    "target": "Cible",
+    "sideBySide": "Côte à côte",
+    "overlay": "Superposition"
+  },
+  "ShadowingPlayer": {
+    "listen": "Écouter",
+    "record": "Enregistrer",
+    "stop": "Arrêter",
+    "listenRepeat": "Écouter et répéter",
+    "shadow": "Shadowing",
+    "speed": "Vitesse :",
+    "phaseListening": "Écoute de la référence...",
+    "phaseRecording": "Enregistrement — parlez !",
+    "phaseShadowListen": "Écoutez attentivement...",
+    "phaseShadowRepeat": "Maintenant, répétez !",
+    "phaseShadowing": "Shadowing — parlez en même temps !",
+    "phaseGetReady": "Préparez-vous..."
   },
   "Difficulty": {
     "beginner": "débutant",

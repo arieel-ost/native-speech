@@ -273,7 +273,7 @@ IMPORTANT: Respond entirely in ${language}. All text fields in your response —
         {
           inlineData: {
             data: base64Audio,
-            mimeType: "audio/webm",
+            mimeType: audio.type || "audio/webm",
           },
         },
         combinedPrompt,

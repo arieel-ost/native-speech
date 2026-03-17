@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Card, Badge } from "@/components/ui";
 import type { SessionRecord } from "@/lib/learner-store";
-import { mockDrillCategories } from "@/lib/mock-data";
+import { mockDrillCategories, phonemeDrills } from "@/lib/mock-data";
 import styles from "./RecentSessions.module.css";
 
 interface RecentSessionsProps {
@@ -32,12 +32,16 @@ export function RecentSessions({ sessions }: RecentSessionsProps) {
       <div className={styles.list}>
         {recent.map((session) => {
           const category = mockDrillCategories.find((c) => c.id === session.drillCategoryId);
+          const phonemeDrill = !category
+            ? phonemeDrills.find((d) => d.id === session.drillCategoryId)
+            : null;
+          const displayName = category?.name ?? (phonemeDrill ? `${phonemeDrill.phoneme} ${phonemeDrill.name}` : session.drillCategoryId);
           const date = new Date(session.timestamp).toLocaleDateString();
           return (
             <Card key={session.id} variant="outlined">
               <div className={styles.session}>
                 <div>
-                  <span className={styles.name}>{category?.name ?? session.drillCategoryId}</span>
+                  <span className={styles.name}>{displayName}</span>
                   <span className={styles.date}>{date}</span>
                 </div>
                 <Badge variant={session.overallScore >= 7 ? "success" : "default"}>
