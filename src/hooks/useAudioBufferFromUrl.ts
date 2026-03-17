@@ -14,7 +14,7 @@ export function useAudioBufferFromUrl(url: string | null | undefined) {
     url ? bufferCache.get(url) ?? null : null,
   );
   const [loading, setLoading] = useState(false);
-  const cancelRef = useRef(false);
+  const requestIdRef = useRef(0);
 
   useEffect(() => {
     if (!url) {
@@ -31,7 +31,8 @@ export function useAudioBufferFromUrl(url: string | null | undefined) {
       return;
     }
 
-    cancelRef.current = false;
+    // Each effect run gets a unique ID — only the latest request writes state
+    const thisRequest = ++requestIdRef.current;
     setLoading(true);
 
     let ctx: AudioContext | null = null;
@@ -40,27 +41,27 @@ export function useAudioBufferFromUrl(url: string | null | undefined) {
       try {
         const res = await fetch(url);
         const arrayBuf = await res.arrayBuffer();
-        if (cancelRef.current) return;
+        if (requestIdRef.current !== thisRequest) return;
 
         ctx = new AudioContext();
         const decoded = await ctx.decodeAudioData(arrayBuf);
-        if (cancelRef.current) return;
+        if (requestIdRef.current !== thisRequest) return;
 
         bufferCache.set(url, decoded);
         setBuffer(decoded);
       } catch (err) {
-        console.warn("[useAudioBufferFromUrl] decode failed:", err);
+        if (requestIdRef.current === thisRequest) {
+          console.warn("[useAudioBufferFromUrl] decode failed:", err);
+        }
       } finally {
-        setLoading(false);
+        if (requestIdRef.current === thisRequest) {
+          setLoading(false);
+        }
         if (ctx && ctx.state !== "closed") {
           ctx.close().catch(() => {});
         }
       }
     })();
-
-    return () => {
-      cancelRef.current = true;
-    };
   }, [url]);
 
   return { buffer, loading };

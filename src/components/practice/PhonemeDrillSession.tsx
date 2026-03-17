@@ -7,7 +7,6 @@ import { ShadowingPlayer } from "./ShadowingPlayer";
 import { SpectrogramDiff } from "./SpectrogramDiff";
 import { AudioPlayer } from "./AudioPlayer";
 import { Link } from "@/i18n/navigation";
-import { useAudioBufferFromUrl } from "@/hooks/useAudioBufferFromUrl";
 import { getLearnerId, addSession, getProfile } from "@/lib/learner-store";
 import type { PhonemeDrill, Language } from "@/lib/mock-data";
 import phonemeMap from "@/../public/audio/phonemes/phoneme-map.json";
@@ -50,11 +49,15 @@ interface PhonemeAssetEntry {
   spectrogramShadow?: string;
   audio3xShadow?: string;
   spectrogram3xShadow?: string;
+  durationShadow?: number;
+  duration3xShadow?: number;
 }
 
 interface PhonemeAssets {
   audio: string;
   spectrogram: string;
+  /** Pre-calculated duration in seconds — always known, no async decode needed */
+  duration: number | null;
 }
 
 /**
@@ -86,11 +89,13 @@ function getPhonemeAssets(
     return {
       audio: entry.audio3xShadow ?? entry.audio3x,
       spectrogram: entry.spectrogram3xShadow ?? entry.spectrogram3x,
+      duration: entry.duration3xShadow ?? null,
     };
   }
   return {
     audio: entry.audioShadow ?? entry.audio,
     spectrogram: entry.spectrogramShadow ?? entry.spectrogram,
+    duration: entry.durationShadow ?? null,
   };
 }
 
@@ -116,9 +121,7 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
   const assets = getPhonemeAssets(drill.phoneme, step?.type ?? "word");
   const refAudioSrc = assets?.audio ?? null;
   const refSpectrogramSrc = assets?.spectrogram ?? null;
-
-  const { buffer: refAudioBuffer } = useAudioBufferFromUrl(refAudioSrc);
-  const refDuration = refAudioBuffer?.duration ?? null;
+  const refDuration = assets?.duration ?? null;
 
   const analyzeRecording = useCallback(
     async (blob: Blob) => {
