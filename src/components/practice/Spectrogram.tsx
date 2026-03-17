@@ -31,6 +31,14 @@ interface SpectrogramProps {
   placeholder?: string;
   /** CSS class on the root container */
   className?: string;
+  /** Playback progress 0→1 — shows a vertical cursor */
+  playbackProgress?: number | null;
+  /**
+   * When set with `stream`, switches live mode to progressive fill (left→right)
+   * instead of scrolling.  The canvas width maps to this many seconds, so the
+   * user spectrogram and the reference share the same time-scale.
+   */
+  maxDuration?: number | null;
 }
 
 export function Spectrogram({
@@ -39,12 +47,15 @@ export function Spectrogram({
   label,
   placeholder = "No audio yet",
   className = "",
+  playbackProgress,
+  maxDuration,
 }: SpectrogramProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const workerRef = useRef<Worker | null>(null);
   const columnRef = useRef(0);
   const [rendering, setRendering] = useState(false);
+  const [liveProgress, setLiveProgress] = useState<number | null>(null);
 
   // Cleanup worker on unmount
   useEffect(() => {
@@ -99,9 +110,18 @@ export function Spectrogram({
     worker.postMessage(msg);
   }, []);
 
-  /* ---- Live scrolling render from MediaStream ---- */
+  /* ---- Live render from MediaStream ---- */
+  /*
+   * Two modes:
+   *   1. Scrolling (default) — new column at right edge, shifts left.
+   *   2. Progressive fill — when `maxDuration` is set, draws left→right so the
+   *      canvas maps to the same time-scale as the reference spectrogram.
+   */
   useEffect(() => {
-    if (!stream) return;
+    if (!stream) {
+      setLiveProgress(null);
+      return;
+    }
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -125,21 +145,45 @@ export function Spectrogram({
     const h = canvas.height;
     const w = canvas.width;
 
+    const progressive = maxDuration != null && maxDuration > 0;
+    const startTime = performance.now();
+    const totalMs = (maxDuration ?? 1) * 1000;
+    let lastCol = -1;
+
     const draw = () => {
       analyser.getByteFrequencyData(freqData);
 
-      // Shift existing image left by 1 pixel
-      const existing = ctx2d.getImageData(1, 0, w - 1, h);
-      ctx2d.putImageData(existing, 0, 0);
+      if (progressive) {
+        const elapsed = performance.now() - startTime;
+        const progress = Math.min(1, elapsed / totalMs);
+        const col = Math.min(Math.floor(progress * w), w - 1);
 
-      // Draw new column at the right edge
-      for (let row = 0; row < h; row++) {
-        const bin = rowToBin(row, h, analyser.fftSize, audioCtx.sampleRate);
-        const clampedBin = Math.min(bin, freqData.length - 1);
-        const norm = freqData[clampedBin] / 255;
-        const [r, g, b] = heatColor(norm);
-        ctx2d.fillStyle = `rgb(${r},${g},${b})`;
-        ctx2d.fillRect(w - 1, row, 1, 1);
+        // Draw all columns from lastCol+1 to col (in case we skipped frames)
+        for (let c = lastCol + 1; c <= col; c++) {
+          for (let row = 0; row < h; row++) {
+            const bin = rowToBin(row, h, analyser.fftSize, audioCtx.sampleRate);
+            const clampedBin = Math.min(bin, freqData.length - 1);
+            const norm = freqData[clampedBin] / 255;
+            const [r, g, b] = heatColor(norm);
+            ctx2d.fillStyle = `rgb(${r},${g},${b})`;
+            ctx2d.fillRect(c, row, 1, 1);
+          }
+        }
+        lastCol = col;
+        setLiveProgress(progress);
+      } else {
+        // Original scrolling mode
+        const existing = ctx2d.getImageData(1, 0, w - 1, h);
+        ctx2d.putImageData(existing, 0, 0);
+
+        for (let row = 0; row < h; row++) {
+          const bin = rowToBin(row, h, analyser.fftSize, audioCtx.sampleRate);
+          const clampedBin = Math.min(bin, freqData.length - 1);
+          const norm = freqData[clampedBin] / 255;
+          const [r, g, b] = heatColor(norm);
+          ctx2d.fillStyle = `rgb(${r},${g},${b})`;
+          ctx2d.fillRect(w - 1, row, 1, 1);
+        }
       }
 
       columnRef.current++;
@@ -150,10 +194,11 @@ export function Spectrogram({
 
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      setLiveProgress(null);
       src.disconnect();
       if (audioCtx.state !== "closed") audioCtx.close();
     };
-  }, [stream]);
+  }, [stream, maxDuration]);
 
   /* ---- Static buffer render trigger ---- */
   useEffect(() => {
@@ -172,6 +217,12 @@ export function Spectrogram({
           <canvas ref={canvasRef} className={styles.canvas} />
           {rendering && (
             <div className={styles.rendering}>Rendering...</div>
+          )}
+          {(playbackProgress ?? liveProgress) != null && (
+            <div
+              className={styles.playbackCursor}
+              style={{ left: `${((playbackProgress ?? liveProgress)!) * 100}%` }}
+            />
           )}
           <span className={`${styles.axisLabel} ${styles.axisHigh}`}>high</span>
           <span className={`${styles.axisLabel} ${styles.axisLow}`}>low</span>

@@ -4,7 +4,10 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import styles from "./ShadowingPlayer.module.css";
 
-type Phase = "idle" | "listening" | "recording" | "shadowing_listen" | "shadowing_record";
+type Phase = "idle" | "listening" | "recording" | "listen_repeat_listen" | "listen_repeat_record" | "countdown" | "shadowing";
+
+/** Buffer added after reference duration before auto-stopping recording (seconds) */
+const AUTO_STOP_BUFFER = 0.5;
 
 interface ShadowingPlayerProps {
   /** The text to speak via TTS */
@@ -19,6 +22,13 @@ interface ShadowingPlayerProps {
   onStreamStart?: (stream: MediaStream) => void;
   /** Called when live recording stream ends */
   onStreamEnd?: () => void;
+  /** Called with reference playback progress (0→1), null when not playing */
+  onRefProgress?: (progress: number | null) => void;
+  /**
+   * Reference audio duration in seconds. When set, all recording modes
+   * auto-stop after this + 0.5s buffer so spectrograms align for overlay.
+   */
+  maxRecordDuration?: number | null;
   disabled?: boolean;
 }
 
@@ -31,21 +41,26 @@ export function ShadowingPlayer({
   onRecorded,
   onStreamStart,
   onStreamEnd,
+  onRefProgress,
+  maxRecordDuration,
   disabled = false,
 }: ShadowingPlayerProps) {
   const t = useTranslations("ShadowingPlayer");
   const [phase, setPhase] = useState<Phase>("idle");
+  const [countdown, setCountdown] = useState<number | null>(null);
   const [speed, setSpeed] = useState<number>(1.0);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const streamRef = useRef<MediaStream | null>(null);
   const audioElRef = useRef<HTMLAudioElement | null>(null);
-  /** Duration of the last reference playback in ms — used for shadow auto-stop */
-  const lastRefDurationRef = useRef<number>(2000);
+  const autoStopTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const rafRef = useRef<number | null>(null);
 
   // Cleanup on unmount
   useEffect(() => {
     return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      if (autoStopTimerRef.current) clearTimeout(autoStopTimerRef.current);
       if (audioElRef.current) {
         audioElRef.current.pause();
         audioElRef.current = null;
@@ -57,21 +72,47 @@ export function ShadowingPlayer({
     };
   }, []);
 
+  /** Stop tracking reference playback progress */
+  const stopProgressTracking = useCallback(() => {
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
+    onRefProgress?.(null);
+  }, [onRefProgress]);
+
   /** Play reference audio — uses pre-recorded file if available, falls back to TTS */
   const playReference = useCallback(
     (playbackSpeed: number): Promise<void> => {
-      const start = Date.now();
       if (phonemeAudioSrc) {
         return new Promise((resolve, reject) => {
           const audio = new Audio(phonemeAudioSrc);
           audio.playbackRate = playbackSpeed;
           audioElRef.current = audio;
+
+          // Track playback progress via rAF
+          const trackProgress = () => {
+            if (audio.duration && isFinite(audio.duration)) {
+              onRefProgress?.(audio.currentTime / audio.duration);
+            }
+            rafRef.current = requestAnimationFrame(trackProgress);
+          };
+
+          audio.onplay = () => {
+            rafRef.current = requestAnimationFrame(trackProgress);
+          };
           audio.onended = () => {
-            lastRefDurationRef.current = Date.now() - start;
+            stopProgressTracking();
             resolve();
           };
-          audio.onerror = () => reject(new Error("Failed to play reference audio"));
-          audio.play().catch(reject);
+          audio.onerror = () => {
+            stopProgressTracking();
+            reject(new Error("Failed to play reference audio"));
+          };
+          audio.play().catch((err) => {
+            stopProgressTracking();
+            reject(err);
+          });
         });
       }
       // Fallback to browser TTS for words/phrases without a phoneme audio file
@@ -81,10 +122,7 @@ export function ShadowingPlayer({
         utterance.lang = lang;
         utterance.rate = playbackSpeed;
         utterance.pitch = 1;
-        utterance.onend = () => {
-          lastRefDurationRef.current = Date.now() - start;
-          resolve();
-        };
+        utterance.onend = () => resolve();
         utterance.onerror = (e) => {
           if (e.error === "canceled") resolve();
           else reject(e);
@@ -92,12 +130,20 @@ export function ShadowingPlayer({
         window.speechSynthesis.speak(utterance);
       });
     },
-    [phonemeAudioSrc, text, lang],
+    [phonemeAudioSrc, text, lang, onRefProgress, stopProgressTracking],
   );
 
-  const startRecording = useCallback(async (): Promise<{ blob: Blob; buffer: AudioBuffer }> => {
+  const startRecording = useCallback(async (opts?: { disableEchoCancellation?: boolean }): Promise<{ blob: Blob; buffer: AudioBuffer }> => {
     const stream = await navigator.mediaDevices.getUserMedia({
-      audio: { noiseSuppression: true, autoGainControl: true, echoCancellation: true },
+      audio: {
+        noiseSuppression: true,
+        autoGainControl: true,
+        // Disable echo cancellation when recording alongside reference playback
+        // (shadow mode). Even with headphones, the browser uses the OS audio
+        // output stream as a reference signal and suppresses correlated input —
+        // which is exactly the user's voice during shadowing.
+        echoCancellation: !opts?.disableEchoCancellation,
+      },
     });
     streamRef.current = stream;
     onStreamStart?.(stream);
@@ -138,10 +184,28 @@ export function ShadowingPlayer({
   }, [onStreamStart, onStreamEnd]);
 
   const stopRecording = useCallback(() => {
+    if (autoStopTimerRef.current) {
+      clearTimeout(autoStopTimerRef.current);
+      autoStopTimerRef.current = null;
+    }
     if (mediaRecorderRef.current?.state === "recording") {
       mediaRecorderRef.current.stop();
     }
   }, []);
+
+  /** Start recording with auto-stop after refDuration + buffer */
+  const startRecordingWithAutoStop = useCallback(async (opts?: { disableEchoCancellation?: boolean }): Promise<{ blob: Blob; buffer: AudioBuffer }> => {
+    const recordPromise = startRecording(opts);
+
+    if (maxRecordDuration != null && maxRecordDuration > 0) {
+      autoStopTimerRef.current = setTimeout(
+        () => stopRecording(),
+        (maxRecordDuration + AUTO_STOP_BUFFER) * 1000,
+      );
+    }
+
+    return recordPromise;
+  }, [startRecording, stopRecording, maxRecordDuration]);
 
   /** Listen to reference audio */
   const handleListen = useCallback(async () => {
@@ -156,22 +220,27 @@ export function ShadowingPlayer({
 
   /** Record user's pronunciation */
   const handleRecord = useCallback(async () => {
-    if (phase === "recording") {
-      stopRecording();
+    if (phase !== "idle") return;
+    setPhase("recording");
+
+    let result: { blob: Blob; buffer: AudioBuffer };
+    try {
+      result = await startRecordingWithAutoStop();
+    } catch {
+      setPhase("idle");
       return;
     }
-    setPhase("recording");
-    const result = await startRecording();
+
     onRecorded(result.blob, result.buffer);
     setPhase("idle");
-  }, [phase, startRecording, stopRecording, onRecorded]);
+  }, [phase, startRecordingWithAutoStop, stopRecording, onRecorded]);
 
-  /** Shadowing: listen then immediately record */
-  const handleShadow = useCallback(async () => {
+  /** Listen & Repeat: listen first, then record */
+  const handleListenRepeat = useCallback(async () => {
     if (phase !== "idle") return;
 
     // Phase 1: Listen to reference
-    setPhase("shadowing_listen");
+    setPhase("listen_repeat_listen");
     try {
       await playReference(speed);
     } catch {
@@ -182,31 +251,75 @@ export function ShadowingPlayer({
     // Short pause
     await new Promise((r) => setTimeout(r, 500));
 
-    // Phase 2: Record user — auto-stop based on actual reference duration
-    setPhase("shadowing_record");
-    const recordPromise = startRecording();
+    // Phase 2: Record — same auto-stop as all other modes
+    setPhase("listen_repeat_record");
 
-    const autoStopMs = Math.max(2000, Math.round(lastRefDurationRef.current * 1.5) + 1000);
-    setTimeout(() => {
-      stopRecording();
-    }, autoStopMs);
+    let result: { blob: Blob; buffer: AudioBuffer };
+    try {
+      result = await startRecordingWithAutoStop();
+    } catch {
+      setPhase("idle");
+      return;
+    }
 
-    const result = await recordPromise;
     onRecorded(result.blob, result.buffer);
     setPhase("idle");
-  }, [phase, speed, playReference, startRecording, stopRecording, onRecorded]);
+  }, [phase, speed, playReference, startRecordingWithAutoStop, onRecorded]);
 
-  const handleRecordClick = () => {
-    if (phase === "recording" || phase === "shadowing_record") {
-      stopRecording();
-    } else {
-      handleRecord();
+  /** Play a short tick sound via Web Audio API */
+  const playTick = useCallback((freq: number = 800) => {
+    try {
+      const ctx = new AudioContext();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "sine";
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.15, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.06);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.06);
+    } catch {
+      // Web Audio not available — skip
     }
-  };
+  }, []);
 
-  const isRecording = phase === "recording" || phase === "shadowing_record";
-  const isPlaying = phase === "listening" || phase === "shadowing_listen";
+  /** Real shadowing: 3-2-1 countdown, then play reference and record simultaneously */
+  const handleShadow = useCallback(async () => {
+    if (phase !== "idle") return;
+
+    // Countdown phase: 3 → 2 → 1
+    setPhase("countdown");
+    for (const n of [3, 2, 1]) {
+      setCountdown(n);
+      playTick(n === 1 ? 1000 : 700);
+      await new Promise((r) => setTimeout(r, 800));
+    }
+    setCountdown(null);
+
+    // Start recording and playback simultaneously — the reference audio's
+    // 1s leading silence gives the user visual prep time on the spectrogram.
+    setPhase("shadowing");
+
+    let result: { blob: Blob; buffer: AudioBuffer };
+    try {
+      const recordPromise = startRecordingWithAutoStop({ disableEchoCancellation: true });
+      // Play reference alongside recording — auto-stop handles the timing
+      playReference(speed).catch(() => {});
+      result = await recordPromise;
+    } catch {
+      setPhase("idle");
+      return;
+    }
+
+    onRecorded(result.blob, result.buffer);
+    setPhase("idle");
+  }, [phase, speed, playTick, playReference, startRecordingWithAutoStop, onRecorded]);
+
   const isBusy = phase !== "idle";
+  const isRecording = phase === "recording" || phase === "listen_repeat_record" || phase === "shadowing";
+  const isPlaying = phase === "listening" || phase === "listen_repeat_listen";
+  const isShadowing = phase === "shadowing" || phase === "countdown";
 
   let phaseText = "";
   let phaseClass = "";
@@ -216,12 +329,18 @@ export function ShadowingPlayer({
   } else if (phase === "recording") {
     phaseText = t("phaseRecording");
     phaseClass = styles.phaseRecording;
-  } else if (phase === "shadowing_listen") {
+  } else if (phase === "listen_repeat_listen") {
     phaseText = t("phaseShadowListen");
     phaseClass = styles.phaseShadowing;
-  } else if (phase === "shadowing_record") {
+  } else if (phase === "listen_repeat_record") {
     phaseText = t("phaseShadowRepeat");
     phaseClass = styles.phaseRecording;
+  } else if (phase === "countdown") {
+    phaseText = t("phaseGetReady");
+    phaseClass = styles.phaseShadowing;
+  } else if (phase === "shadowing") {
+    phaseText = t("phaseShadowing");
+    phaseClass = styles.phaseShadowing;
   }
 
   return (
@@ -229,6 +348,12 @@ export function ShadowingPlayer({
       <div className={`${styles.phase} ${phaseClass}`}>
         {phaseText || "\u00A0"}
       </div>
+
+      {countdown !== null && (
+        <div className={styles.countdownOverlay}>
+          <span key={countdown} className={styles.countdownNumber}>{countdown}</span>
+        </div>
+      )}
 
       <div className={styles.controls}>
         <button
@@ -241,20 +366,29 @@ export function ShadowingPlayer({
         </button>
 
         <button
-          className={`${styles.btn} ${styles.recordBtn} ${isRecording ? styles.recording : ""}`}
-          onClick={handleRecordClick}
-          disabled={disabled || (isBusy && !isRecording)}
+          className={`${styles.btn} ${styles.recordBtn} ${isRecording && !isShadowing ? styles.recording : ""}`}
+          onClick={handleRecord}
+          disabled={disabled || isBusy}
         >
-          <span className={styles.btnIcon}>{isRecording ? "◼" : "●"}</span>
-          {isRecording ? t("stop") : t("record")}
+          <span className={styles.btnIcon}>●</span>
+          {t("record")}
         </button>
 
         <button
-          className={`${styles.btn} ${styles.shadowBtn} ${phase.startsWith("shadowing") ? styles.active : ""}`}
-          onClick={handleShadow}
+          className={`${styles.btn} ${styles.listenRepeatBtn} ${phase.startsWith("listen_repeat") ? styles.active : ""}`}
+          onClick={handleListenRepeat}
           disabled={disabled || isBusy}
         >
           <span className={styles.btnIcon}>🔄</span>
+          {t("listenRepeat")}
+        </button>
+
+        <button
+          className={`${styles.btn} ${styles.shadowBtn} ${isShadowing ? styles.active : ""}`}
+          onClick={handleShadow}
+          disabled={disabled || isBusy}
+        >
+          <span className={styles.btnIcon}>🎙️</span>
           {t("shadow")}
         </button>
       </div>

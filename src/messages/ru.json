@@ -368,18 +368,23 @@
     "stepType_word": "Слово",
     "stepType_short_phrase": "Короткая фраза",
     "youSaid": "Вы сказали",
-    "target": "Цель"
+    "target": "Цель",
+    "sideBySide": "Рядом",
+    "overlay": "Наложение"
   },
   "ShadowingPlayer": {
     "listen": "Слушать",
     "record": "Запись",
     "stop": "Стоп",
-    "shadow": "Слушай и повтори",
+    "listenRepeat": "Слушай и повтори",
+    "shadow": "Шэдоуинг",
     "speed": "Скорость:",
     "phaseListening": "Слушаем эталон...",
     "phaseRecording": "Запись — говорите!",
     "phaseShadowListen": "Внимательно слушайте...",
-    "phaseShadowRepeat": "Теперь повторите!"
+    "phaseShadowRepeat": "Теперь повторите!",
+    "phaseShadowing": "Шэдоуинг — повторяйте одновременно!",
+    "phaseGetReady": "Приготовьтесь..."
   },
   "Difficulty": {
     "beginner": "начинающий",

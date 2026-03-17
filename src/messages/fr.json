@@ -368,18 +368,23 @@
     "stepType_word": "Mot",
     "stepType_short_phrase": "Phrase courte",
     "youSaid": "Vous avez dit",
-    "target": "Cible"
+    "target": "Cible",
+    "sideBySide": "Côte à côte",
+    "overlay": "Superposition"
   },
   "ShadowingPlayer": {
     "listen": "Écouter",
     "record": "Enregistrer",
     "stop": "Arrêter",
-    "shadow": "Écouter et répéter",
+    "listenRepeat": "Écouter et répéter",
+    "shadow": "Shadowing",
     "speed": "Vitesse :",
     "phaseListening": "Écoute de la référence...",
     "phaseRecording": "Enregistrement — parlez !",
     "phaseShadowListen": "Écoutez attentivement...",
-    "phaseShadowRepeat": "Maintenant, répétez !"
+    "phaseShadowRepeat": "Maintenant, répétez !",
+    "phaseShadowing": "Shadowing — parlez en même temps !",
+    "phaseGetReady": "Préparez-vous..."
   },
   "Difficulty": {
     "beginner": "débutant",

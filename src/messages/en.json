@@ -368,18 +368,23 @@
     "stepType_word": "Word",
     "stepType_short_phrase": "Short Phrase",
     "youSaid": "You said",
-    "target": "Target"
+    "target": "Target",
+    "sideBySide": "Side by side",
+    "overlay": "Overlay"
   },
   "ShadowingPlayer": {
     "listen": "Listen",
     "record": "Record",
     "stop": "Stop",
-    "shadow": "Listen & Repeat",
+    "listenRepeat": "Listen & Repeat",
+    "shadow": "Shadow",
     "speed": "Speed:",
     "phaseListening": "Listening to reference...",
     "phaseRecording": "Recording — speak now!",
     "phaseShadowListen": "Listen carefully...",
-    "phaseShadowRepeat": "Now repeat!"
+    "phaseShadowRepeat": "Now repeat!",
+    "phaseShadowing": "Shadowing — speak along!",
+    "phaseGetReady": "Get ready..."
   },
   "Difficulty": {
     "beginner": "beginner",

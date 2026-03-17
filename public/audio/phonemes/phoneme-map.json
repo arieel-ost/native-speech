@@ -3,246 +3,410 @@
     "audio": "/audio/phonemes/p.mp3",
     "spectrogram": "/audio/phonemes/p_spectrogram.png",
     "audio3x": "/audio/phonemes/p_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/p_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/p_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/p_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/p_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/p_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/p_3x_shadow_spectrogram.png"
   },
   "b": {
     "audio": "/audio/phonemes/b.mp3",
     "spectrogram": "/audio/phonemes/b_spectrogram.png",
     "audio3x": "/audio/phonemes/b_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/b_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/b_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/b_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/b_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/b_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/b_3x_shadow_spectrogram.png"
   },
   "t": {
     "audio": "/audio/phonemes/t.mp3",
     "spectrogram": "/audio/phonemes/t_spectrogram.png",
     "audio3x": "/audio/phonemes/t_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/t_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/t_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/t_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/t_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/t_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/t_3x_shadow_spectrogram.png"
   },
   "d": {
     "audio": "/audio/phonemes/d.mp3",
     "spectrogram": "/audio/phonemes/d_spectrogram.png",
     "audio3x": "/audio/phonemes/d_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/d_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/d_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/d_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/d_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/d_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/d_3x_shadow_spectrogram.png"
   },
   "k": {
     "audio": "/audio/phonemes/k.mp3",
     "spectrogram": "/audio/phonemes/k_spectrogram.png",
     "audio3x": "/audio/phonemes/k_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/k_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/k_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/k_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/k_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/k_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/k_3x_shadow_spectrogram.png"
   },
   "g": {
     "audio": "/audio/phonemes/g.mp3",
     "spectrogram": "/audio/phonemes/g_spectrogram.png",
     "audio3x": "/audio/phonemes/g_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/g_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/g_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/g_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/g_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/g_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/g_3x_shadow_spectrogram.png"
   },
   "m": {
     "audio": "/audio/phonemes/m.mp3",
     "spectrogram": "/audio/phonemes/m_spectrogram.png",
     "audio3x": "/audio/phonemes/m_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/m_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/m_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/m_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/m_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/m_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/m_3x_shadow_spectrogram.png"
   },
   "n": {
     "audio": "/audio/phonemes/n.mp3",
     "spectrogram": "/audio/phonemes/n_spectrogram.png",
     "audio3x": "/audio/phonemes/n_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/n_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/n_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/n_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/n_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/n_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/n_3x_shadow_spectrogram.png"
   },
   "ŋ": {
     "audio": "/audio/phonemes/ng.mp3",
     "spectrogram": "/audio/phonemes/ng_spectrogram.png",
     "audio3x": "/audio/phonemes/ng_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/ng_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/ng_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/ng_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/ng_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/ng_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/ng_3x_shadow_spectrogram.png"
   },
   "tʃ": {
     "audio": "/audio/phonemes/ch.mp3",
     "spectrogram": "/audio/phonemes/ch_spectrogram.png",
     "audio3x": "/audio/phonemes/ch_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/ch_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/ch_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/ch_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/ch_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/ch_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/ch_3x_shadow_spectrogram.png"
   },
   "dʒ": {
     "audio": "/audio/phonemes/jh.mp3",
     "spectrogram": "/audio/phonemes/jh_spectrogram.png",
     "audio3x": "/audio/phonemes/jh_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/jh_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/jh_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/jh_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/jh_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/jh_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/jh_3x_shadow_spectrogram.png"
   },
   "f": {
     "audio": "/audio/phonemes/f.mp3",
     "spectrogram": "/audio/phonemes/f_spectrogram.png",
     "audio3x": "/audio/phonemes/f_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/f_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/f_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/f_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/f_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/f_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/f_3x_shadow_spectrogram.png"
   },
   "v": {
     "audio": "/audio/phonemes/v.mp3",
     "spectrogram": "/audio/phonemes/v_spectrogram.png",
     "audio3x": "/audio/phonemes/v_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/v_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/v_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/v_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/v_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/v_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/v_3x_shadow_spectrogram.png"
   },
   "θ": {
     "audio": "/audio/phonemes/th_voiceless.mp3",
     "spectrogram": "/audio/phonemes/th_voiceless_spectrogram.png",
     "audio3x": "/audio/phonemes/th_voiceless_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/th_voiceless_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/th_voiceless_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/th_voiceless_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/th_voiceless_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/th_voiceless_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/th_voiceless_3x_shadow_spectrogram.png"
   },
   "ð": {
     "audio": "/audio/phonemes/th_voiced.mp3",
     "spectrogram": "/audio/phonemes/th_voiced_spectrogram.png",
     "audio3x": "/audio/phonemes/th_voiced_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/th_voiced_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/th_voiced_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/th_voiced_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/th_voiced_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/th_voiced_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/th_voiced_3x_shadow_spectrogram.png"
   },
   "s": {
     "audio": "/audio/phonemes/s.mp3",
     "spectrogram": "/audio/phonemes/s_spectrogram.png",
     "audio3x": "/audio/phonemes/s_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/s_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/s_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/s_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/s_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/s_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/s_3x_shadow_spectrogram.png"
   },
   "z": {
     "audio": "/audio/phonemes/z.mp3",
     "spectrogram": "/audio/phonemes/z_spectrogram.png",
     "audio3x": "/audio/phonemes/z_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/z_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/z_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/z_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/z_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/z_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/z_3x_shadow_spectrogram.png"
   },
   "ʃ": {
     "audio": "/audio/phonemes/sh.mp3",
     "spectrogram": "/audio/phonemes/sh_spectrogram.png",
     "audio3x": "/audio/phonemes/sh_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/sh_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/sh_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/sh_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/sh_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/sh_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/sh_3x_shadow_spectrogram.png"
   },
   "ʒ": {
     "audio": "/audio/phonemes/zh.mp3",
     "spectrogram": "/audio/phonemes/zh_spectrogram.png",
     "audio3x": "/audio/phonemes/zh_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/zh_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/zh_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/zh_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/zh_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/zh_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/zh_3x_shadow_spectrogram.png"
   },
   "h": {
     "audio": "/audio/phonemes/h.mp3",
     "spectrogram": "/audio/phonemes/h_spectrogram.png",
     "audio3x": "/audio/phonemes/h_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/h_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/h_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/h_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/h_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/h_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/h_3x_shadow_spectrogram.png"
   },
   "w": {
     "audio": "/audio/phonemes/w.mp3",
     "spectrogram": "/audio/phonemes/w_spectrogram.png",
     "audio3x": "/audio/phonemes/w_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/w_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/w_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/w_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/w_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/w_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/w_3x_shadow_spectrogram.png"
   },
   "j": {
     "audio": "/audio/phonemes/y.mp3",
     "spectrogram": "/audio/phonemes/y_spectrogram.png",
     "audio3x": "/audio/phonemes/y_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/y_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/y_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/y_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/y_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/y_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/y_3x_shadow_spectrogram.png"
   },
   "r": {
     "audio": "/audio/phonemes/r.mp3",
     "spectrogram": "/audio/phonemes/r_spectrogram.png",
     "audio3x": "/audio/phonemes/r_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/r_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/r_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/r_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/r_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/r_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/r_3x_shadow_spectrogram.png"
   },
   "l": {
     "audio": "/audio/phonemes/l.mp3",
     "spectrogram": "/audio/phonemes/l_spectrogram.png",
     "audio3x": "/audio/phonemes/l_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/l_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/l_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/l_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/l_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/l_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/l_3x_shadow_spectrogram.png"
   },
   "i": {
     "audio": "/audio/phonemes/ee.mp3",
     "spectrogram": "/audio/phonemes/ee_spectrogram.png",
     "audio3x": "/audio/phonemes/ee_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/ee_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/ee_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/ee_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/ee_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/ee_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/ee_3x_shadow_spectrogram.png"
   },
   "ɪ": {
     "audio": "/audio/phonemes/ih.mp3",
     "spectrogram": "/audio/phonemes/ih_spectrogram.png",
     "audio3x": "/audio/phonemes/ih_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/ih_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/ih_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/ih_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/ih_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/ih_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/ih_3x_shadow_spectrogram.png"
   },
   "eɪ": {
     "audio": "/audio/phonemes/ey.mp3",
     "spectrogram": "/audio/phonemes/ey_spectrogram.png",
     "audio3x": "/audio/phonemes/ey_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/ey_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/ey_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/ey_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/ey_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/ey_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/ey_3x_shadow_spectrogram.png"
   },
   "ɛ": {
     "audio": "/audio/phonemes/eh.mp3",
     "spectrogram": "/audio/phonemes/eh_spectrogram.png",
     "audio3x": "/audio/phonemes/eh_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/eh_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/eh_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/eh_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/eh_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/eh_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/eh_3x_shadow_spectrogram.png"
   },
   "æ": {
     "audio": "/audio/phonemes/ae.mp3",
     "spectrogram": "/audio/phonemes/ae_spectrogram.png",
     "audio3x": "/audio/phonemes/ae_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/ae_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/ae_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/ae_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/ae_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/ae_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/ae_3x_shadow_spectrogram.png"
   },
   "ʌ": {
     "audio": "/audio/phonemes/uh.mp3",
     "spectrogram": "/audio/phonemes/uh_spectrogram.png",
     "audio3x": "/audio/phonemes/uh_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/uh_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/uh_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/uh_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/uh_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/uh_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/uh_3x_shadow_spectrogram.png"
   },
   "ə": {
     "audio": "/audio/phonemes/schwa.mp3",
     "spectrogram": "/audio/phonemes/schwa_spectrogram.png",
     "audio3x": "/audio/phonemes/schwa_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/schwa_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/schwa_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/schwa_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/schwa_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/schwa_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/schwa_3x_shadow_spectrogram.png"
   },
   "u": {
     "audio": "/audio/phonemes/oo.mp3",
     "spectrogram": "/audio/phonemes/oo_spectrogram.png",
     "audio3x": "/audio/phonemes/oo_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/oo_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/oo_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/oo_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/oo_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/oo_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/oo_3x_shadow_spectrogram.png"
   },
   "ʊ": {
     "audio": "/audio/phonemes/uh_short.mp3",
     "spectrogram": "/audio/phonemes/uh_short_spectrogram.png",
     "audio3x": "/audio/phonemes/uh_short_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/uh_short_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/uh_short_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/uh_short_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/uh_short_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/uh_short_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/uh_short_3x_shadow_spectrogram.png"
   },
   "oʊ": {
     "audio": "/audio/phonemes/oh.mp3",
     "spectrogram": "/audio/phonemes/oh_spectrogram.png",
     "audio3x": "/audio/phonemes/oh_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/oh_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/oh_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/oh_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/oh_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/oh_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/oh_3x_shadow_spectrogram.png"
   },
   "ɔ": {
     "audio": "/audio/phonemes/aw.mp3",
     "spectrogram": "/audio/phonemes/aw_spectrogram.png",
     "audio3x": "/audio/phonemes/aw_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/aw_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/aw_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/aw_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/aw_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/aw_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/aw_3x_shadow_spectrogram.png"
   },
   "ɑ": {
     "audio": "/audio/phonemes/ah.mp3",
     "spectrogram": "/audio/phonemes/ah_spectrogram.png",
     "audio3x": "/audio/phonemes/ah_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/ah_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/ah_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/ah_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/ah_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/ah_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/ah_3x_shadow_spectrogram.png"
   },
   "aɪ": {
     "audio": "/audio/phonemes/ai.mp3",
     "spectrogram": "/audio/phonemes/ai_spectrogram.png",
     "audio3x": "/audio/phonemes/ai_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/ai_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/ai_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/ai_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/ai_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/ai_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/ai_3x_shadow_spectrogram.png"
   },
   "aʊ": {
     "audio": "/audio/phonemes/ow.mp3",
     "spectrogram": "/audio/phonemes/ow_spectrogram.png",
     "audio3x": "/audio/phonemes/ow_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/ow_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/ow_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/ow_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/ow_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/ow_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/ow_3x_shadow_spectrogram.png"
   },
   "ɔɪ": {
     "audio": "/audio/phonemes/oi.mp3",
     "spectrogram": "/audio/phonemes/oi_spectrogram.png",
     "audio3x": "/audio/phonemes/oi_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/oi_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/oi_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/oi_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/oi_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/oi_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/oi_3x_shadow_spectrogram.png"
   },
   "x": {
     "audio": "/audio/phonemes/x_velar.mp3",
     "spectrogram": "/audio/phonemes/x_velar_spectrogram.png",
     "audio3x": "/audio/phonemes/x_velar_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/x_velar_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/x_velar_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/x_velar_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/x_velar_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/x_velar_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/x_velar_3x_shadow_spectrogram.png"
   },
   "ʔ": {
     "audio": "/audio/phonemes/glottal_stop.mp3",
     "spectrogram": "/audio/phonemes/glottal_stop_spectrogram.png",
     "audio3x": "/audio/phonemes/glottal_stop_3x.mp3",
-    "spectrogram3x": "/audio/phonemes/glottal_stop_3x_spectrogram.png"
+    "spectrogram3x": "/audio/phonemes/glottal_stop_3x_spectrogram.png",
+    "audioShadow": "/audio/phonemes/glottal_stop_shadow.mp3",
+    "spectrogramShadow": "/audio/phonemes/glottal_stop_shadow_spectrogram.png",
+    "audio3xShadow": "/audio/phonemes/glottal_stop_3x_shadow.mp3",
+    "spectrogram3xShadow": "/audio/phonemes/glottal_stop_3x_shadow_spectrogram.png"
   }
 }

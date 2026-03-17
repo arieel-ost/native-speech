@@ -110,7 +110,7 @@ IMPORTANT: Respond entirely in ${language}. All text fields must be in ${languag
         {
           inlineData: {
             data: base64Audio,
-            mimeType: "audio/webm",
+            mimeType: audio.type || "audio/webm",
           },
         },
         analysisPrompt,

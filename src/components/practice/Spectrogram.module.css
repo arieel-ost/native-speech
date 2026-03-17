@@ -55,6 +55,18 @@
   pointer-events: none;
 }
 
+.playbackCursor {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  z-index: 2;
+  will-change: left;
+}
+
 .empty {
   display: flex;
   align-items: center;

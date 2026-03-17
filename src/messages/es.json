@@ -368,18 +368,23 @@
     "stepType_word": "Palabra",
     "stepType_short_phrase": "Frase corta",
     "youSaid": "Dijiste",
-    "target": "Objetivo"
+    "target": "Objetivo",
+    "sideBySide": "Lado a lado",
+    "overlay": "Superponer"
   },
   "ShadowingPlayer": {
     "listen": "Escuchar",
     "record": "Grabar",
     "stop": "Parar",
-    "shadow": "Escuchar y repetir",
+    "listenRepeat": "Escuchar y repetir",
+    "shadow": "Shadowing",
     "speed": "Velocidad:",
     "phaseListening": "Escuchando la referencia...",
     "phaseRecording": "Grabando — ¡habla ahora!",
     "phaseShadowListen": "Escucha con atención...",
-    "phaseShadowRepeat": "¡Ahora repite!"
+    "phaseShadowRepeat": "¡Ahora repite!",
+    "phaseShadowing": "Shadowing — ¡habla al mismo tiempo!",
+    "phaseGetReady": "Prepárate..."
   },
   "Difficulty": {
     "beginner": "principiante",

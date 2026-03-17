@@ -4,6 +4,35 @@
   gap: var(--space-sm);
 }
 
+/* Toggle bar */
+.toggleBar {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xs);
+}
+
+.toggleBtn {
+  padding: var(--space-xs) var(--space-sm);
+  font-size: 0.7rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.toggleBtn:hover {
+  background: var(--color-surface-alt);
+}
+
+.toggleActive {
+  background: var(--color-primary);
+  color: var(--color-on-primary, #fff);
+  border-color: var(--color-primary);
+}
+
+/* Side-by-side layout */
 .pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -16,6 +45,24 @@
   }
 }
 
+/* Overlay layout — both spectrograms in same grid cell */
+.overlayGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.overlayGrid > * {
+  grid-area: 1 / 1;
+}
+
+.overlayUser {
+  opacity: 0.5;
+  mix-blend-mode: screen;
+  z-index: 1;
+}
+
+/* Legend */
 .legend {
   display: flex;
   justify-content: center;
@@ -44,7 +91,7 @@
   background: #f97316;
 }
 
-/* Reference panel — matches Spectrogram.module.css container */
+/* Reference panel — PNG fallback (matches Spectrogram container) */
 .referencePanel {
   position: relative;
   width: 100%;
@@ -90,6 +137,19 @@
 
 .axisLow {
   bottom: var(--space-xs);
+}
+
+/* Playback cursor — for PNG fallback panel */
+.playbackCursor {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  z-index: 2;
+  will-change: left;
 }
 
 .empty {

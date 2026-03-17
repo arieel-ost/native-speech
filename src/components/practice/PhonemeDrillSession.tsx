@@ -7,6 +7,7 @@ import { ShadowingPlayer } from "./ShadowingPlayer";
 import { SpectrogramDiff } from "./SpectrogramDiff";
 import { AudioPlayer } from "./AudioPlayer";
 import { Link } from "@/i18n/navigation";
+import { useAudioBufferFromUrl } from "@/hooks/useAudioBufferFromUrl";
 import { getLearnerId, addSession, getProfile } from "@/lib/learner-store";
 import type { PhonemeDrill, Language } from "@/lib/mock-data";
 import phonemeMap from "@/../public/audio/phonemes/phoneme-map.json";
@@ -45,20 +46,52 @@ interface PhonemeAssetEntry {
   spectrogram: string;
   audio3x: string;
   spectrogram3x: string;
+  audioShadow?: string;
+  spectrogramShadow?: string;
+  audio3xShadow?: string;
+  spectrogram3xShadow?: string;
 }
 
-/** Look up pre-recorded audio & spectrogram for a given IPA symbol */
+interface PhonemeAssets {
+  audio: string;
+  spectrogram: string;
+}
+
+/**
+ * Normalize phoneme IDs that don't have exact matches in phoneme-map.json.
+ * Handles length marks, slash-separated alternatives, and common aliases.
+ */
+const PHONEME_ALIASES: Record<string, string> = {
+  "ɹ": "r",       // English R variant
+  "iː": "i",      // long E → short E (same base sound)
+  "ɪ/iː": "ɪ",   // short I / long E pair → use short I assets
+  "yː": "u",      // German ü → closest available
+  "øː": "ə",      // German ö → closest available
+  "ç/x": "x",     // German CH pair → velar fricative assets
+};
+
+/**
+ * Look up pre-recorded audio & spectrogram for a given IPA symbol.
+ * Always prefers the shadow variant (1s lead + audio + 0.5s trail)
+ * so spectrograms align across all modes for overlay comparison.
+ */
 function getPhonemeAssets(
   ipa: string,
   stepType: string,
-): { audio: string; spectrogram: string } | null {
-  const entry = (phonemeMap as Record<string, PhonemeAssetEntry>)[ipa];
+): PhonemeAssets | null {
+  const map = phonemeMap as Record<string, PhonemeAssetEntry>;
+  const entry = map[ipa] ?? map[PHONEME_ALIASES[ipa] ?? ""];
   if (!entry) return null;
-  // Isolated steps use 3x-repeated versions
   if (stepType === "isolated") {
-    return { audio: entry.audio3x, spectrogram: entry.spectrogram3x };
+    return {
+      audio: entry.audio3xShadow ?? entry.audio3x,
+      spectrogram: entry.spectrogram3xShadow ?? entry.spectrogram3x,
+    };
   }
-  return { audio: entry.audio, spectrogram: entry.spectrogram };
+  return {
+    audio: entry.audioShadow ?? entry.audio,
+    spectrogram: entry.spectrogramShadow ?? entry.spectrogram,
+  };
 }
 
 interface PhonemeDrillSessionProps {
@@ -76,10 +109,16 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
   const [analyzing, setAnalyzing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());
+  const [refProgress, setRefProgress] = useState<number | null>(null);
 
   const step = drill.steps[currentStep];
   const lang = BCP47_MAP[drill.language];
   const assets = getPhonemeAssets(drill.phoneme, step?.type ?? "word");
+  const refAudioSrc = assets?.audio ?? null;
+  const refSpectrogramSrc = assets?.spectrogram ?? null;
+
+  const { buffer: refAudioBuffer } = useAudioBufferFromUrl(refAudioSrc);
+  const refDuration = refAudioBuffer?.duration ?? null;
 
   const analyzeRecording = useCallback(
     async (blob: Blob) => {
@@ -157,6 +196,11 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
     setUserStream(null);
   }, []);
 
+  const handleRefProgress = useCallback((progress: number | null) => {
+    setRefProgress(progress);
+  }, []);
+
+
   const goToStep = (index: number) => {
     setCurrentStep(index);
     setFeedback(null);
@@ -215,21 +259,27 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
       <ShadowingPlayer
         text={step.prompt}
         lang={lang}
-        phonemeAudioSrc={assets?.audio}
+        phonemeAudioSrc={refAudioSrc}
+        maxRecordDuration={refDuration}
         onRecorded={handleRecorded}
         onStreamStart={handleStreamStart}
         onStreamEnd={handleStreamEnd}
+        onRefProgress={handleRefProgress}
         disabled={analyzing}
       />
 
       {/* Spectrogram comparison */}
       <div className={styles.spectrogramSection}>
         <SpectrogramDiff
-          referenceSpectrogramSrc={assets?.spectrogram}
+          referenceSpectrogramSrc={refSpectrogramSrc}
+          referenceAudioSrc={refAudioSrc}
+          refPlaybackProgress={refProgress}
           userBuffer={userBuffer}
           userStream={userStream}
           referenceLabel={t("reference")}
           userLabel={t("you")}
+          sideBySideLabel={t("sideBySide")}
+          overlayLabel={t("overlay")}
         />
       </div>
 
