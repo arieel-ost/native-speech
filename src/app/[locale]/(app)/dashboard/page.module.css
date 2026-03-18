@@ -19,14 +19,35 @@
 
 .emptyState {
   text-align: center;
-  padding: var(--space-xl) var(--space-md);
+  padding: clamp(2rem, 8vh, 5rem) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  color: var(--color-primary-light);
+  opacity: 0.7;
 }
 
 .emptyState h2 {
-  margin-bottom: var(--space-xs);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
 }
 
 .emptyState p {
   color: var(--color-text-muted);
-  margin-bottom: var(--space-lg);
+  max-width: 28rem;
+  line-height: 1.7;
+}
+
+.emptyActions {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+  flex-wrap: wrap;
+  justify-content: center;
 }

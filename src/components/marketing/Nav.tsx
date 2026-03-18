@@ -25,14 +25,11 @@ export function Nav() {
         </div>
         <div className={styles.actions}>
           <LocaleSwitcher />
-          <Link href="/dashboard">
+          <Link href="/onboarding">
             <Button variant="secondary" size="sm">{t("tryDemo")}</Button>
           </Link>
           <Link href="/sign-in">
             <Button variant="ghost" size="sm">{t("signIn")}</Button>
-          </Link>
-          <Link href="/sign-up" className={styles.ctaDesktop}>
-            <Button variant="primary" size="sm">{t("getStarted")}</Button>
           </Link>
           <button
             className={styles.menuBtn}
@@ -49,8 +46,7 @@ export function Nav() {
           <Link href="/#features" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>{t("features")}</Link>
           <Link href="/pricing" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>{t("pricing")}</Link>
           <Link href="/about" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>{t("about")}</Link>
-          <Link href="/dashboard" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>{t("tryDemo")}</Link>
-          <Link href="/sign-up" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>{t("getStarted")}</Link>
+          <Link href="/onboarding" className={styles.mobileLink} onClick={() => setMenuOpen(false)}>{t("tryDemo")}</Link>
         </div>
       )}
     </nav>

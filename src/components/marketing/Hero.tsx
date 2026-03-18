@@ -3,21 +3,55 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui";
 import styles from "./Hero.module.css";
 
-type DrillLink = {
-  href: string;
-  icon: string;
-  label?: string;
-  labelKey?: "freeAssessment";
-  className?: "assessmentLink";
-};
-
-const drillLinks: DrillLink[] = [
-  { href: "/onboarding", icon: "&#x1F399;", labelKey: "freeAssessment", className: "assessmentLink" },
-  { href: "/practice/th-sounds", icon: "θ", label: "TH Sounds" },
-  { href: "/practice/vowel-pairs", icon: "æ", label: "Vowel Pairs" },
-  { href: "/practice/umlauts", icon: "ü", label: "Umlaute" },
-  { href: "/practice/ch-sounds", icon: "ch", label: "CH-Laute" },
+const mockPhonemes = [
+  { symbol: "θ", name: "th", score: 38, rating: "needs_work" as const },
+  { symbol: "æ", name: "short a", score: 55, rating: "acceptable" as const },
+  { symbol: "ɹ", name: "r", score: 81, rating: "good" as const },
+  { symbol: "ʊ", name: "short oo", score: 63, rating: "acceptable" as const },
 ];
+
+function ScoreArc({ score }: { score: number }) {
+  const radius = 54;
+  const circumference = 2 * Math.PI * radius;
+  const progress = (score / 100) * circumference;
+
+  return (
+    <div className={styles.scoreArc}>
+      <svg viewBox="0 0 128 128" className={styles.arcSvg}>
+        <circle
+          cx="64"
+          cy="64"
+          r={radius}
+          fill="none"
+          stroke="rgba(246, 239, 231, 0.08)"
+          strokeWidth="6"
+        />
+        <circle
+          cx="64"
+          cy="64"
+          r={radius}
+          fill="none"
+          stroke="url(#scoreGradient)"
+          strokeWidth="6"
+          strokeLinecap="round"
+          strokeDasharray={`${progress} ${circumference - progress}`}
+          strokeDashoffset={circumference * 0.25}
+          className={styles.arcProgress}
+        />
+        <defs>
+          <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="var(--color-accent)" />
+            <stop offset="100%" stopColor="var(--color-primary)" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <div className={styles.scoreValue}>
+        <span className={styles.scoreNumber}>{score}</span>
+        <span className={styles.scoreLabel}>/ 100</span>
+      </div>
+    </div>
+  );
+}
 
 export function Hero() {
   const t = useTranslations("Hero");
@@ -25,7 +59,6 @@ export function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.copy}>
-        <span className={styles.kicker}>{t("demoLabel")}</span>
         <h1 className={styles.title}>
           {t("headline")}
           <br />
@@ -33,56 +66,36 @@ export function Hero() {
         </h1>
         <p className={styles.subtitle}>{t("subtitle")}</p>
         <div className={styles.actions}>
-          <Link href="/sign-up">
+          <Link href="/onboarding">
             <Button size="lg">{t("cta")}</Button>
           </Link>
-          <Link href="/#features">
-            <Button variant="secondary" size="lg">{t("howItWorks")}</Button>
-          </Link>
+          <span className={styles.timeBadge}>{t("badge")}</span>
         </div>
+        <Link href="/practice" className={styles.browseLink}>
+          {t("browseAll")} →
+        </Link>
       </div>
       <div className={styles.visual}>
-        <div className={styles.visualPanel}>
-          <div className={styles.signalPanel}>
-            <div className={styles.signalBadge}>{t("freeAssessment")}</div>
-            <div className={styles.ringsWrap}>
-              <svg viewBox="0 0 400 400" className={styles.rings}>
-                {[160, 128, 96, 64, 32].map((radius, index) => (
-                  <circle
-                    key={radius}
-                    cx="200"
-                    cy="200"
-                    r={radius}
-                    fill="none"
-                    stroke="var(--color-primary)"
-                    strokeWidth="1"
-                    opacity={0.12 + index * 0.1}
-                  />
+        <div className={styles.resultCard}>
+          <div className={styles.resultBody}>
+            <ScoreArc score={72} />
+            <div className={styles.resultDetails}>
+              <p className={styles.resultLabel}>{t("resultLabel")}</p>
+              <div className={styles.phonemeList}>
+                {mockPhonemes.map((p) => (
+                  <div key={p.symbol} className={`${styles.phonemeChip} ${styles[p.rating]}`}>
+                    <span className={styles.phonemeSymbol}>/{p.symbol}/</span>
+                    <span className={styles.phonemeName}>{p.name}</span>
+                    <span className={styles.phonemeBar}>
+                      <span
+                        className={styles.phonemeFill}
+                        style={{ width: `${p.score}%` }}
+                      />
+                    </span>
+                  </div>
                 ))}
-              </svg>
-              <div className={styles.signalCore}>
-                <span className={styles.signalCoreText}>◉</span>
               </div>
-            </div>
-          </div>
-          <div className={styles.demoSection}>
-            <div className={styles.demoHeader}>
-              <span className={styles.demoLabel}>{t("demoLabel")}</span>
-              <Link href="/practice" className={styles.browseLink}>
-                {t("browseAll")} →
-              </Link>
-            </div>
-            <div className={styles.demoGrid}>
-              {drillLinks.map((drill) => (
-                <Link
-                  key={drill.href}
-                  href={drill.href}
-                  className={`${styles.demoLink} ${drill.className ? styles[drill.className] : ""}`}
-                >
-                  <span className={styles.demoIcon} dangerouslySetInnerHTML={{ __html: drill.icon }} />
-                  <span>{drill.labelKey ? t(drill.labelKey) : drill.label}</span>
-                </Link>
-              ))}
+              <p className={styles.resultCaption}>{t("resultCaption")}</p>
             </div>
           </div>
         </div>

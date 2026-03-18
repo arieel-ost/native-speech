@@ -16,10 +16,10 @@
     "headline": "Votre accent a un schéma.",
     "accent": "On le décode.",
     "subtitle": "Un coaching par IA qui diagnostique précisément pourquoi vous prononcez mal certains sons en fonction de votre langue maternelle — puis crée des exercices personnalisés pour les corriger.",
-    "cta": "Évaluation gratuite",
-    "howItWorks": "Comment ça marche",
-    "demoLabel": "Essayez maintenant — sans créer de compte",
-    "freeAssessment": "Évaluation d'accent gratuite",
+    "cta": "Tester ma prononciation",
+    "badge": "EN 2 MINUTES",
+    "resultLabel": "Précision des sons",
+    "resultCaption": "Basé sur un échantillon de lecture de 30 secondes",
     "browseAll": "Voir tous les exercices"
   },
   "Features": {
@@ -61,7 +61,13 @@
     "premiumFeature2": "Exercices illimités",
     "premiumFeature3": "Toutes les langues",
     "premiumFeature4": "Suivi de progression",
-    "premiumBtn": "Essai gratuit"
+    "premiumBtn": "Essai gratuit",
+    "comingSoon": "BIENTÔT",
+    "notifyLabel": "Soyez informé du lancement de Premium :",
+    "notifyBtn": "Me notifier",
+    "emailPlaceholder": "vous@exemple.com",
+    "notifySuccess": "Vous êtes sur la liste ! Nous vous préviendrons.",
+    "notifyError": "Une erreur est survenue. Réessayez."
   },
   "Pricing": {
     "title": "Tarifs",
@@ -149,7 +155,8 @@
     "startPractice": "Commencer la pratique",
     "noProfileTitle": "Bienvenue sur NativeSpeech",
     "noProfileDescription": "Faites une évaluation rapide de votre accent pour obtenir des recommandations personnalisées.",
-    "takeAssessment": "Passer l'évaluation"
+    "takeAssessment": "Passer l'évaluation",
+    "browseDrills": "Parcourir les exercices"
   },
   "ScoreOverview": {
     "dayStreak": "Jours de suite",
@@ -201,7 +208,8 @@
     "json": "JSON",
     "micDenied": "Accès au microphone refusé. Veuillez autoriser l'accès au microphone et réessayer.",
     "connectionError": "Impossible de se connecter au service d'analyse : {message}",
-    "backToDashboard": "Retour au tableau de bord"
+    "backToDashboard": "Retour au tableau de bord",
+    "backToPractice": "Retour à la pratique"
   },
   "FeedbackDisplay": {
     "detectedAccent": "Accent détecté",
@@ -354,6 +362,7 @@
     "shortOO": "OO court"
   },
   "PhonemeDrill": {
+    "practice": "Pratique",
     "reference": "Référence",
     "you": "Vous",
     "analyzing": "Analyse de votre prononciation...",

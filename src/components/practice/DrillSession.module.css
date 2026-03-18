@@ -5,6 +5,27 @@
   gap: var(--space-lg);
 }
 
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.breadcrumbLink {
+  color: var(--color-primary-light);
+  text-decoration: none;
+}
+
+.breadcrumbLink:hover {
+  color: var(--color-text);
+}
+
+.breadcrumbSep {
+  opacity: 0.5;
+}
+
 .header {
   display: flex;
   justify-content: space-between;

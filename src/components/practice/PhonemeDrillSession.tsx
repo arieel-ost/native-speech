@@ -218,6 +218,13 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
 
   return (
     <div className={styles.session}>
+      <nav className={styles.breadcrumb}>
+        <Link href="/practice" className={styles.breadcrumbLink}>
+          {t("practice")}
+        </Link>
+        <span className={styles.breadcrumbSep}>›</span>
+        <span>{drill.phoneme} {drill.name}</span>
+      </nav>
       <div className={styles.header}>
         <h1 className={styles.title}>
           <span className={styles.phonemeSymbol}>{drill.phoneme}</span>{" "}

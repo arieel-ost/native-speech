@@ -16,10 +16,10 @@
     "headline": "Your accent has a pattern.",
     "accent": "We decode it.",
     "subtitle": "AI-powered coaching that diagnoses exactly why you mispronounce sounds based on your native language — then builds personalized drills to fix them.",
-    "cta": "Start Free Assessment",
-    "howItWorks": "See How It Works",
-    "demoLabel": "Try it now — no account needed",
-    "freeAssessment": "Free Accent Assessment",
+    "cta": "Check My Pronunciation",
+    "badge": "TAKES 2 MINUTES",
+    "resultLabel": "Sound accuracy",
+    "resultCaption": "Based on a 30-second reading sample",
     "browseAll": "Browse all drills"
   },
   "Features": {
@@ -61,7 +61,13 @@
     "premiumFeature2": "Unlimited drills",
     "premiumFeature3": "All languages",
     "premiumFeature4": "Progress tracking",
-    "premiumBtn": "Start Free Trial"
+    "premiumBtn": "Start Free Trial",
+    "comingSoon": "COMING SOON",
+    "notifyLabel": "Get notified when Premium launches:",
+    "notifyBtn": "Notify Me",
+    "emailPlaceholder": "you@example.com",
+    "notifySuccess": "You're on the list! We'll let you know.",
+    "notifyError": "Something went wrong. Try again."
   },
   "Pricing": {
     "title": "Pricing",
@@ -149,7 +155,8 @@
     "startPractice": "Start Practice",
     "noProfileTitle": "Welcome to NativeSpeech",
     "noProfileDescription": "Take a quick accent assessment to get personalized practice recommendations.",
-    "takeAssessment": "Take Your Assessment"
+    "takeAssessment": "Take Your Assessment",
+    "browseDrills": "Browse Drills"
   },
   "ScoreOverview": {
     "dayStreak": "Day Streak",
@@ -201,7 +208,8 @@
     "json": "JSON",
     "micDenied": "Microphone access denied. Please allow microphone access and try again.",
     "connectionError": "Failed to connect to analysis service: {message}",
-    "backToDashboard": "Back to Dashboard"
+    "backToDashboard": "Back to Dashboard",
+    "backToPractice": "Back to Practice"
   },
   "FeedbackDisplay": {
     "detectedAccent": "Detected accent",
@@ -354,6 +362,7 @@
     "shortOO": "short OO"
   },
   "PhonemeDrill": {
+    "practice": "Practice",
     "reference": "Reference",
     "you": "You",
     "analyzing": "Analyzing your pronunciation...",

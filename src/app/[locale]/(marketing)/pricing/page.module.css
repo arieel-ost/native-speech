@@ -80,6 +80,10 @@
   color: var(--color-primary-light);
 }
 
+.action {
+  margin-top: auto;
+}
+
 @media (max-width: 960px) {
   .grid {
     grid-template-columns: 1fr;

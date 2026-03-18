@@ -16,10 +16,10 @@
     "headline": "Tu acento tiene un patrón.",
     "accent": "Nosotros lo desciframos.",
     "subtitle": "Coaching con IA que diagnostica exactamente por qué pronuncias mal ciertos sonidos según tu idioma nativo — y luego crea ejercicios personalizados para corregirlos.",
-    "cta": "Evaluación Gratuita",
-    "howItWorks": "Cómo Funciona",
-    "demoLabel": "Pruébalo ahora — sin necesidad de cuenta",
-    "freeAssessment": "Evaluación de Acento Gratuita",
+    "cta": "Comprobar mi pronunciación",
+    "badge": "SOLO 2 MINUTOS",
+    "resultLabel": "Precisión de sonidos",
+    "resultCaption": "Basado en una muestra de lectura de 30 segundos",
     "browseAll": "Ver todos los ejercicios"
   },
   "Features": {
@@ -61,7 +61,13 @@
     "premiumFeature2": "Ejercicios ilimitados",
     "premiumFeature3": "Todos los idiomas",
     "premiumFeature4": "Seguimiento de progreso",
-    "premiumBtn": "Prueba Gratuita"
+    "premiumBtn": "Prueba Gratuita",
+    "comingSoon": "PRÓXIMAMENTE",
+    "notifyLabel": "Recibe una notificación cuando se lance Premium:",
+    "notifyBtn": "Notificarme",
+    "emailPlaceholder": "tu@ejemplo.com",
+    "notifySuccess": "¡Estás en la lista! Te avisaremos.",
+    "notifyError": "Algo salió mal. Inténtalo de nuevo."
   },
   "Pricing": {
     "title": "Precios",
@@ -149,7 +155,8 @@
     "startPractice": "Empezar Práctica",
     "noProfileTitle": "Bienvenido a NativeSpeech",
     "noProfileDescription": "Realiza una evaluación rápida de acento para obtener recomendaciones personalizadas.",
-    "takeAssessment": "Realizar evaluación"
+    "takeAssessment": "Realizar evaluación",
+    "browseDrills": "Explorar ejercicios"
   },
   "ScoreOverview": {
     "dayStreak": "Racha de Días",
@@ -201,7 +208,8 @@
     "json": "JSON",
     "micDenied": "Acceso al micrófono denegado. Por favor permite el acceso al micrófono e inténtalo de nuevo.",
     "connectionError": "Error al conectar con el servicio de análisis: {message}",
-    "backToDashboard": "Volver al panel"
+    "backToDashboard": "Volver al panel",
+    "backToPractice": "Volver a práctica"
   },
   "FeedbackDisplay": {
     "detectedAccent": "Acento detectado",
@@ -354,6 +362,7 @@
     "shortOO": "OO corta"
   },
   "PhonemeDrill": {
+    "practice": "Práctica",
     "reference": "Referencia",
     "you": "Tú",
     "analyzing": "Analizando tu pronunciación...",

@@ -62,11 +62,17 @@ export default function DashboardPage() {
     return (
       <div className={styles.page}>
         <div className={styles.emptyState}>
+          <div className={styles.emptyIcon}>◎</div>
           <h2>{t("noProfileTitle")}</h2>
           <p>{t("noProfileDescription")}</p>
-          <Link href="/onboarding">
-            <Button size="lg">{t("takeAssessment")}</Button>
-          </Link>
+          <div className={styles.emptyActions}>
+            <Link href="/onboarding">
+              <Button size="lg">{t("takeAssessment")}</Button>
+            </Link>
+            <Link href="/practice">
+              <Button variant="secondary" size="lg">{t("browseDrills")}</Button>
+            </Link>
+          </div>
         </div>
       </div>
     );

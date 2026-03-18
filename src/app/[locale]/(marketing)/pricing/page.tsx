@@ -1,6 +1,7 @@
 import { Card, Button } from "@/components/ui";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
+import { NotifyForm } from "@/components/marketing/NotifyForm";
 import styles from "./page.module.css";
 
 export default async function PricingPage() {
@@ -21,7 +22,7 @@ export default async function PricingPage() {
               <li>{t("freeFeature3")}</li>
               <li>{t("freeFeature4")}</li>
             </ul>
-            <Link href="/sign-up"><Button variant="secondary">{t("freeBtn")}</Button></Link>
+            <Link href="/sign-up" className={styles.action}><Button variant="secondary">{t("freeBtn")}</Button></Link>
           </div>
         </Card>
         <Card variant="elevated">
@@ -36,7 +37,7 @@ export default async function PricingPage() {
               <li>{t("premiumFeature5")}</li>
               <li>{t("premiumFeature6")}</li>
             </ul>
-            <Link href="/sign-up"><Button>{t("premiumBtn")}</Button></Link>
+            <NotifyForm />
           </div>
         </Card>
         <Card variant="outlined">
@@ -50,7 +51,7 @@ export default async function PricingPage() {
               <li>{t("enterpriseFeature4")}</li>
               <li>{t("enterpriseFeature5")}</li>
             </ul>
-            <Button variant="secondary">{t("enterpriseBtn")}</Button>
+            <a href="mailto:hello@nativespeech.ai" className={styles.action}><Button variant="secondary">{t("enterpriseBtn")}</Button></a>
           </div>
         </Card>
       </div>

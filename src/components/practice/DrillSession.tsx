@@ -229,6 +229,13 @@ export function DrillSession({
 
   return (
     <div className={styles.session}>
+      <nav className={styles.breadcrumb}>
+        <Link href="/practice" className={styles.breadcrumbLink}>
+          {tPractice("title")}
+        </Link>
+        <span className={styles.breadcrumbSep}>›</span>
+        <span>{categoryName}</span>
+      </nav>
       <div className={styles.header}>
         <h1 className={styles.title}>{categoryName}</h1>
         <span className={styles.counter}>
@@ -342,8 +349,8 @@ export function DrillSession({
         </Button>
       </div>
 
-      <Link href="/dashboard" className={styles.backLink}>
-        {t("backToDashboard")}
+      <Link href="/practice" className={styles.backLink}>
+        {t("backToPractice")}
       </Link>
     </div>
   );
