@@ -15,15 +15,24 @@ export function Features() {
   return (
     <section id="features" className={styles.section}>
       <div className={styles.inner}>
-        <h2 className={styles.heading}>{t("heading")}</h2>
-        <p className={styles.subheading}>{t("subheading")}</p>
+        <div className={styles.intro}>
+          <h2 className={styles.heading}>{t("heading")}</h2>
+          <p className={styles.subheading}>{t("subheading")}</p>
+        </div>
         <div className={styles.grid}>
-          {featureKeys.map((f) => (
-            <Card key={f.key} variant="outlined">
+          {featureKeys.map((feature, index) => (
+            <Card
+              key={feature.key}
+              variant={index === 0 ? "elevated" : "outlined"}
+              className={`${styles.featureCard} ${index === 0 ? styles.featureCardLarge : ""}`}
+            >
               <div className={styles.feature}>
-                <span className={styles.icon}>{f.icon}</span>
-                <h3 className={styles.featureTitle}>{t(`${f.key}Title`)}</h3>
-                <p className={styles.featureDesc}>{t(`${f.key}Desc`)}</p>
+                <div className={styles.meta}>
+                  <span className={styles.index}>0{index + 1}</span>
+                  <span className={styles.icon}>{feature.icon}</span>
+                </div>
+                <h3 className={styles.featureTitle}>{t(`${feature.key}Title`)}</h3>
+                <p className={styles.featureDesc}>{t(`${feature.key}Desc`)}</p>
               </div>
             </Card>
           ))}

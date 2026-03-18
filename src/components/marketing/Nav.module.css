@@ -1,21 +1,34 @@
 .nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: 1rem var(--space-xl) 0;
+}
+
+.bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-md) var(--space-xl);
+  gap: var(--space-lg);
   max-width: 1200px;
   margin: 0 auto;
-  flex-wrap: wrap;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(246, 239, 231, 0.08);
+  border-radius: calc(var(--radius-xl) - 6px);
+  background: rgba(15, 12, 10, 0.68);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: 0.75rem;
+  min-width: fit-content;
 }
 
 .logoMark {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -24,19 +37,20 @@
 
 .logoText {
   font-family: var(--font-display);
-  font-weight: 300;
-  font-size: 1.25rem;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
 }
 
 .links {
   display: flex;
-  gap: var(--space-lg);
+  align-items: center;
+  gap: 1.4rem;
 }
 
 .link {
   color: var(--color-text-muted);
-  font-size: 0.875rem;
+  font-size: 0.92rem;
   transition: color 0.2s ease;
 }
 
@@ -47,12 +61,12 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: 0.65rem;
 }
 
 .menuBtn {
   display: none;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   color: var(--color-text);
   padding: var(--space-xs);
   min-width: 44px;
@@ -65,11 +79,7 @@
   display: none;
 }
 
-@media (max-width: 768px) {
-  .nav {
-    padding: var(--space-md);
-  }
-
+@media (max-width: 960px) {
   .links {
     display: none;
   }
@@ -85,22 +95,43 @@
   .mobileMenu {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    padding: var(--space-md) 0;
     gap: var(--space-xs);
+    max-width: 1200px;
+    margin: 0.75rem auto 0;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(246, 239, 231, 0.08);
+    border-radius: calc(var(--radius-xl) - 10px);
+    background: rgba(15, 12, 10, 0.78);
+    backdrop-filter: blur(18px);
   }
 
   .mobileLink {
     display: block;
-    padding: var(--space-sm) var(--space-sm);
+    padding: 0.8rem 0.9rem;
     color: var(--color-text-muted);
-    font-size: 0.875rem;
+    font-size: 0.92rem;
     border-radius: var(--radius-md);
-    transition: all 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   .mobileLink:hover {
     color: var(--color-text);
-    background: var(--color-surface-alt);
+    background: rgba(246, 239, 231, 0.05);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: var(--space-md) var(--space-md) 0;
+  }
+
+  .bar {
+    padding: 0.7rem 0.85rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .actions a:not(.ctaDesktop) {
+    display: none;
   }
 }

@@ -11,13 +11,21 @@ html {
   color-scheme: dark;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  background:
+    radial-gradient(circle at top, rgba(213, 122, 69, 0.18), transparent 32%),
+    radial-gradient(circle at 85% 12%, rgba(120, 184, 174, 0.16), transparent 24%),
+    linear-gradient(180deg, #16110d 0%, #0f0c0a 24%, #0f0c0a 100%);
 }
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-surface);
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(240, 176, 125, 0.1), transparent 22%),
+    radial-gradient(circle at 82% 14%, rgba(120, 184, 174, 0.12), transparent 18%),
+    linear-gradient(180deg, rgba(27, 20, 16, 0.92), rgba(15, 12, 10, 0.98));
   color: var(--color-text);
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -36,7 +44,7 @@ button {
 
 input, select, textarea {
   font: inherit;
-  font-size: 16px; /* prevents iOS zoom on focus */
+  font-size: 16px;
 }
 
 img, svg {
@@ -44,21 +52,24 @@ img, svg {
   max-width: 100%;
 }
 
-/* Scrollbar */
+::selection {
+  background: rgba(240, 176, 125, 0.28);
+  color: var(--color-text);
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-surface);
+  background: rgba(0, 0, 0, 0.16);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: rgba(246, 239, 231, 0.18);
   border-radius: var(--radius-full);
 }
 
-/* Focus visible */
 :focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;

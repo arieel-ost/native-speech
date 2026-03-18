@@ -5,7 +5,7 @@
 
 .main {
   flex: 1;
-  margin-left: 220px;
+  margin-left: 248px;
   display: flex;
   flex-direction: column;
 }
@@ -18,8 +18,9 @@
 @media (max-width: 768px) {
   .main {
     margin-left: 0;
-    padding-bottom: calc(72px + env(safe-area-inset-bottom));
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
   }
+
   .content {
     padding: var(--space-md);
   }
