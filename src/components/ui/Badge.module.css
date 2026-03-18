@@ -1,29 +1,35 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  padding: 2px var(--space-sm);
+  padding: 0.28rem 0.7rem;
   border-radius: var(--radius-full);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
 }
 
 .default {
-  background: var(--color-surface-alt);
+  background: rgba(246, 239, 231, 0.05);
+  border-color: var(--color-border);
   color: var(--color-text-muted);
 }
 
 .success {
-  background: rgba(16, 185, 129, 0.15);
+  background: rgba(95, 191, 147, 0.15);
+  border-color: rgba(95, 191, 147, 0.18);
   color: var(--color-success);
 }
 
 .error {
-  background: rgba(239, 68, 68, 0.15);
+  background: rgba(240, 120, 103, 0.16);
+  border-color: rgba(240, 120, 103, 0.18);
   color: var(--color-error);
 }
 
 .accent {
-  background: rgba(245, 158, 11, 0.15);
+  background: rgba(120, 184, 174, 0.16);
+  border-color: rgba(120, 184, 174, 0.2);
   color: var(--color-accent);
 }

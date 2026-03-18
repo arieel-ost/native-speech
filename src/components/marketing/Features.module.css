@@ -1,5 +1,5 @@
 .section {
-  padding: var(--space-xxl) 0;
+  padding: 0;
 }
 
 .inner {
@@ -8,54 +8,111 @@
   padding: 0 var(--space-xl);
 }
 
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: var(--space-xl);
+  align-items: end;
+  margin-bottom: clamp(1.8rem, 5vw, 3rem);
+}
+
 .heading {
   font-family: var(--font-display);
-  font-size: 2.25rem;
-  font-weight: 200;
-  text-align: center;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.5rem, 4vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
 }
 
 .subheading {
-  text-align: center;
   color: var(--color-text-muted);
-  margin-top: var(--space-sm);
+  line-height: 1.8;
+  max-width: 32rem;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: var(--space-lg);
-  margin-top: var(--space-xl);
+}
+
+.featureCard {
+  grid-column: span 4;
+}
+
+.featureCardLarge {
+  grid-column: span 6;
 }
 
 .feature {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: 1rem;
+  min-height: 100%;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.index {
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
 }
 
 .icon {
-  font-size: 1.5rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(246, 239, 231, 0.05);
   color: var(--color-primary-light);
+  font-size: 1.1rem;
 }
 
 .featureTitle {
-  font-size: 1.125rem;
+  font-family: var(--font-display);
+  font-size: 1.55rem;
   font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 .featureDesc {
   color: var(--color-text-muted);
-  font-size: 0.875rem;
-  line-height: 1.6;
+  font-size: 0.96rem;
+  line-height: 1.75;
+  max-width: 28rem;
+}
+
+@media (max-width: 900px) {
+  .intro {
+    grid-template-columns: 1fr;
+  }
+
+  .featureCard,
+  .featureCardLarge {
+    grid-column: span 6;
+  }
 }
 
 @media (max-width: 768px) {
   .inner {
     padding: 0 var(--space-md);
   }
-  .heading {
-    font-size: 1.75rem;
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featureCard,
+  .featureCardLarge {
+    grid-column: auto;
   }
 }

@@ -13,34 +13,36 @@ export function Nav() {
 
   return (
     <nav className={styles.nav}>
-      <Link href="/" className={styles.logo}>
-        <span className={styles.logoMark}>◉</span>
-        <span className={styles.logoText}>NativeSpeech</span>
-      </Link>
-      <div className={styles.links}>
-        <Link href="/#features" className={styles.link}>{t("features")}</Link>
-        <Link href="/pricing" className={styles.link}>{t("pricing")}</Link>
-        <Link href="/about" className={styles.link}>{t("about")}</Link>
-      </div>
-      <div className={styles.actions}>
-        <LocaleSwitcher />
-        <Link href="/dashboard">
-          <Button variant="secondary" size="sm">{t("tryDemo")}</Button>
+      <div className={styles.bar}>
+        <Link href="/" className={styles.logo}>
+          <span className={styles.logoMark}>◉</span>
+          <span className={styles.logoText}>NativeSpeech</span>
         </Link>
-        <Link href="/sign-in">
-          <Button variant="ghost" size="sm">{t("signIn")}</Button>
-        </Link>
-        <Link href="/sign-up" className={styles.ctaDesktop}>
-          <Button variant="primary" size="sm">{t("getStarted")}</Button>
-        </Link>
-        <button
-          className={styles.menuBtn}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={t("toggleMenu")}
-          aria-expanded={menuOpen}
-        >
-          {menuOpen ? "✕" : "☰"}
-        </button>
+        <div className={styles.links}>
+          <Link href="/#features" className={styles.link}>{t("features")}</Link>
+          <Link href="/pricing" className={styles.link}>{t("pricing")}</Link>
+          <Link href="/about" className={styles.link}>{t("about")}</Link>
+        </div>
+        <div className={styles.actions}>
+          <LocaleSwitcher />
+          <Link href="/dashboard">
+            <Button variant="secondary" size="sm">{t("tryDemo")}</Button>
+          </Link>
+          <Link href="/sign-in">
+            <Button variant="ghost" size="sm">{t("signIn")}</Button>
+          </Link>
+          <Link href="/sign-up" className={styles.ctaDesktop}>
+            <Button variant="primary" size="sm">{t("getStarted")}</Button>
+          </Link>
+          <button
+            className={styles.menuBtn}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={t("toggleMenu")}
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? "✕" : "☰"}
+          </button>
+        </div>
       </div>
       {menuOpen && (
         <div className={styles.mobileMenu}>

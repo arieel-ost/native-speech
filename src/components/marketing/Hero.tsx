@@ -3,20 +3,35 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui";
 import styles from "./Hero.module.css";
 
+type DrillLink = {
+  href: string;
+  icon: string;
+  label?: string;
+  labelKey?: "freeAssessment";
+  className?: "assessmentLink";
+};
+
+const drillLinks: DrillLink[] = [
+  { href: "/onboarding", icon: "&#x1F399;", labelKey: "freeAssessment", className: "assessmentLink" },
+  { href: "/practice/th-sounds", icon: "θ", label: "TH Sounds" },
+  { href: "/practice/vowel-pairs", icon: "æ", label: "Vowel Pairs" },
+  { href: "/practice/umlauts", icon: "ü", label: "Umlaute" },
+  { href: "/practice/ch-sounds", icon: "ch", label: "CH-Laute" },
+];
+
 export function Hero() {
   const t = useTranslations("Hero");
 
   return (
     <section className={styles.hero}>
-      <div className={styles.content}>
+      <div className={styles.copy}>
+        <span className={styles.kicker}>{t("demoLabel")}</span>
         <h1 className={styles.title}>
           {t("headline")}
           <br />
           <span className={styles.accent}>{t("accent")}</span>
         </h1>
-        <p className={styles.subtitle}>
-          {t("subtitle")}
-        </p>
+        <p className={styles.subtitle}>{t("subtitle")}</p>
         <div className={styles.actions}>
           <Link href="/sign-up">
             <Button size="lg">{t("cta")}</Button>
@@ -25,52 +40,52 @@ export function Hero() {
             <Button variant="secondary" size="lg">{t("howItWorks")}</Button>
           </Link>
         </div>
-        <div className={styles.demoSection}>
-          <span className={styles.demoLabel}>{t("demoLabel")}</span>
-          <div className={styles.demoLinks}>
-            <Link href="/onboarding" className={`${styles.demoLink} ${styles.assessmentLink}`}>
-              <span className={styles.demoIcon}>&#x1F399;</span>
-              {t("freeAssessment")}
-            </Link>
-            <Link href="/practice/th-sounds" className={styles.demoLink}>
-              <span className={styles.demoIcon}>θ</span>
-              TH Sounds
-            </Link>
-            <Link href="/practice/vowel-pairs" className={styles.demoLink}>
-              <span className={styles.demoIcon}>æ</span>
-              Vowel Pairs
-            </Link>
-            <Link href="/practice/umlauts" className={styles.demoLink}>
-              <span className={styles.demoIcon}>ü</span>
-              Umlaute
-            </Link>
-            <Link href="/practice/ch-sounds" className={styles.demoLink}>
-              <span className={styles.demoIcon}>ch</span>
-              CH-Laute
-            </Link>
-          </div>
-          <Link href="/practice" className={styles.demoLink}>
-            {t("browseAll")} &rarr;
-          </Link>
-        </div>
       </div>
       <div className={styles.visual}>
-        {/* Concentric circle visualization — Resonant Geometry motif */}
-        <svg viewBox="0 0 400 400" className={styles.rings}>
-          {[160, 130, 100, 70, 40].map((r, i) => (
-            <circle
-              key={r}
-              cx="200"
-              cy="200"
-              r={r}
-              fill="none"
-              stroke="var(--color-primary)"
-              strokeWidth="1"
-              opacity={0.15 + i * 0.1}
-            />
-          ))}
-          <circle cx="200" cy="200" r="6" fill="var(--color-accent)" />
-        </svg>
+        <div className={styles.visualPanel}>
+          <div className={styles.signalPanel}>
+            <div className={styles.signalBadge}>{t("freeAssessment")}</div>
+            <div className={styles.ringsWrap}>
+              <svg viewBox="0 0 400 400" className={styles.rings}>
+                {[160, 128, 96, 64, 32].map((radius, index) => (
+                  <circle
+                    key={radius}
+                    cx="200"
+                    cy="200"
+                    r={radius}
+                    fill="none"
+                    stroke="var(--color-primary)"
+                    strokeWidth="1"
+                    opacity={0.12 + index * 0.1}
+                  />
+                ))}
+              </svg>
+              <div className={styles.signalCore}>
+                <span className={styles.signalCoreText}>◉</span>
+              </div>
+            </div>
+          </div>
+          <div className={styles.demoSection}>
+            <div className={styles.demoHeader}>
+              <span className={styles.demoLabel}>{t("demoLabel")}</span>
+              <Link href="/practice" className={styles.browseLink}>
+                {t("browseAll")} →
+              </Link>
+            </div>
+            <div className={styles.demoGrid}>
+              {drillLinks.map((drill) => (
+                <Link
+                  key={drill.href}
+                  href={drill.href}
+                  className={`${styles.demoLink} ${drill.className ? styles[drill.className] : ""}`}
+                >
+                  <span className={styles.demoIcon} dangerouslySetInnerHTML={{ __html: drill.icon }} />
+                  <span>{drill.labelKey ? t(drill.labelKey) : drill.label}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { Nav } from "@/components/marketing/Nav";
 import { Footer } from "@/components/marketing/Footer";
+import styles from "./layout.module.css";
 
 export default async function MarketingLayout({
   children,
@@ -13,10 +14,10 @@ export default async function MarketingLayout({
   setRequestLocale(locale);
 
   return (
-    <>
+    <div className={styles.shell}>
       <Nav />
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
       <Footer />
-    </>
+    </div>
   );
 }

@@ -1,51 +1,60 @@
 .page {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: var(--space-xxl) var(--space-xl);
-  text-align: center;
+  padding: clamp(2.5rem, 7vw, 5rem) var(--space-xl) 0;
 }
 
 .title {
+  max-width: 10ch;
   font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 200;
+  font-size: clamp(3rem, 6vw, 4.75rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
 }
 
 .subtitle {
+  max-width: 40rem;
   color: var(--color-text-muted);
-  margin-top: var(--space-sm);
-  margin-bottom: var(--space-xl);
+  margin-top: 1rem;
+  margin-bottom: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.8;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-lg);
-  text-align: center;
+  text-align: left;
 }
 
 .plan {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--space-md);
+  align-items: flex-start;
+  gap: 1rem;
+  min-height: 100%;
 }
 
 .planName {
-  font-size: 1rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.16em;
   color: var(--color-text-muted);
 }
 
 .price {
   font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 200;
+  font-size: clamp(2.3rem, 3vw, 3.5rem);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
 }
 
 .period {
-  font-size: 1rem;
+  margin-left: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
   color: var(--color-text-muted);
 }
 
@@ -53,19 +62,32 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: 0.7rem;
   color: var(--color-text-muted);
-  font-size: 0.875rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.features li {
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.features li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary-light);
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
   .page {
-    padding: var(--space-xl) var(--space-md);
-  }
-  .title {
-    font-size: 1.75rem;
-  }
-  .grid {
-    grid-template-columns: 1fr;
+    padding: var(--space-xl) var(--space-md) 0;
   }
 }

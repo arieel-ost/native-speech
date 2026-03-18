@@ -9,9 +9,11 @@ export function PricingPreview() {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-        <h2 className={styles.heading}>{t("heading")}</h2>
+        <div className={styles.intro}>
+          <h2 className={styles.heading}>{t("heading")}</h2>
+        </div>
         <div className={styles.grid}>
-          <Card variant="outlined">
+          <Card variant="outlined" className={styles.planCard}>
             <div className={styles.plan}>
               <h3 className={styles.planName}>{t("free")}</h3>
               <div className={styles.price}>{t("freePrice")}</div>
@@ -20,20 +22,27 @@ export function PricingPreview() {
                 <li>{t("freeFeature2")}</li>
                 <li>{t("freeFeature3")}</li>
               </ul>
-              <Link href="/sign-up"><Button variant="secondary" size="md">{t("freeBtn")}</Button></Link>
+              <Link href="/sign-up" className={styles.action}>
+                <Button variant="secondary" size="md">{t("freeBtn")}</Button>
+              </Link>
             </div>
           </Card>
-          <Card variant="elevated">
+          <Card variant="elevated" className={`${styles.planCard} ${styles.featured}`}>
             <div className={styles.plan}>
               <h3 className={styles.planName}>{t("premium")}</h3>
-              <div className={styles.price}>{t("premiumPrice")}<span className={styles.period}>{t("premiumPeriod")}</span></div>
+              <div className={styles.price}>
+                {t("premiumPrice")}
+                <span className={styles.period}>{t("premiumPeriod")}</span>
+              </div>
               <ul className={styles.features}>
                 <li>{t("premiumFeature1")}</li>
                 <li>{t("premiumFeature2")}</li>
                 <li>{t("premiumFeature3")}</li>
                 <li>{t("premiumFeature4")}</li>
               </ul>
-              <Link href="/sign-up"><Button size="md">{t("premiumBtn")}</Button></Link>
+              <Link href="/sign-up" className={styles.action}>
+                <Button size="md">{t("premiumBtn")}</Button>
+              </Link>
             </div>
           </Card>
         </div>

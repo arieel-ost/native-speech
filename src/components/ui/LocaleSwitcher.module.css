@@ -1,19 +1,21 @@
 .select {
   appearance: none;
-  background: var(--color-surface);
+  background: rgba(246, 239, 231, 0.04);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  padding: 0.25rem 1.5rem 0.25rem 0.5rem;
-  font-size: 0.8125rem;
-  color: var(--color-text-secondary);
+  border-radius: calc(var(--radius-sm) + 2px);
+  padding: 0.48rem 1.8rem 0.48rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text);
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ae9e8f' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 0.4rem center;
+  background-position: right 0.6rem center;
+  backdrop-filter: blur(12px);
 }
 
 .select:hover {
-  border-color: var(--color-primary);
+  border-color: rgba(240, 176, 125, 0.4);
 }
 
 .select:focus-visible {
