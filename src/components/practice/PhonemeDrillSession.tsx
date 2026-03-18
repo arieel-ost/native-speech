@@ -8,6 +8,7 @@ import { SpectrogramDiff } from "./SpectrogramDiff";
 import { AudioPlayer } from "./AudioPlayer";
 import { Link } from "@/i18n/navigation";
 import { getLearnerId, addSession, getProfile } from "@/lib/learner-store";
+import { ArticulationDiagram } from "./ArticulationDiagram";
 import type { PhonemeDrill, Language } from "@/lib/mock-data";
 import phonemeMap from "@/../public/audio/phonemes/phoneme-map.json";
 import styles from "./PhonemeDrillSession.module.css";
@@ -240,21 +241,25 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
       </div>
 
       {/* Step content */}
-      <Card variant="elevated">
+      <Card variant="elevated" className={styles.stepCardWide}>
         <div className={styles.stepCard}>
-          <span className={styles.stepType}>
-            <span className={styles.stepTypeIcon}>
-              {STEP_TYPE_ICONS[step.type] ?? "📝"}
+          <div className={styles.stepContent}>
+            <span className={styles.stepType}>
+              <span className={styles.stepTypeIcon}>
+                {STEP_TYPE_ICONS[step.type] ?? "📝"}
+              </span>
+              {t(`stepType_${step.type}`, { defaultValue: STEP_TYPE_LABELS[step.type] })}
             </span>
-            {t(`stepType_${step.type}`, { defaultValue: STEP_TYPE_LABELS[step.type] })}
-          </span>
 
-          <p className={styles.prompt}>{step.prompt}</p>
-          <p className={styles.ipa}>/{step.ipa}/</p>
+            <p className={styles.prompt}>{step.prompt}</p>
+            <p className={styles.ipa}>/{step.ipa}/</p>
 
-          <div className={styles.instruction}>
-            {step.instruction}
+            <div className={styles.instruction}>
+              {step.instruction}
+            </div>
           </div>
+
+          <ArticulationDiagram phoneme={drill.phoneme} />
         </div>
       </Card>
 

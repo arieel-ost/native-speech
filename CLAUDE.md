@@ -63,6 +63,14 @@ Both routes receive audio FormData, send to Gemini, return structured JSON:
 - **Scope boundary:** Current word-highlighting feature is for known-text drills only. Free speech and Azure Pronunciation Assessment are deferred.
 - **Debug logging:** `[Recording]` prefix console logs still present in DrillSession.tsx and API routes — remove before production deploy.
 
+## IPA Articulation Diagrams
+
+- Static images in `public/images/ipa-diagrams/` — vocal tract cross-sections for all English (and some German) phonemes
+- `ArticulationDiagram.tsx` maps `PhonemeDrill.phoneme` → image filename via `PHONEME_TO_IMAGE`
+- Full phoneme-to-file mapping reference: `public/images/ipa-diagrams/README.md`
+- Consonants sharing the same place of articulation share a diagram (e.g., θ and ð both use `dental-th-dh.png`)
+- To add a new phoneme drill's diagram: add an entry to `PHONEME_TO_IMAGE` in `ArticulationDiagram.tsx`
+
 ## i18n — Translation Workflow
 
 - **Translations are always the LAST step** of any feature implementation

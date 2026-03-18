@@ -29,10 +29,40 @@
   font-family: var(--font-mono);
 }
 
+.stepCardWide {
+  max-width: none;
+  width: fit-content;
+  min-width: 100%;
+}
+
 .stepCard {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  flex: 1;
+  min-width: 0;
+}
+
+@media (min-width: 720px) {
+  .stepCard {
+    flex-direction: row;
+    align-items: stretch;
+    gap: var(--space-lg);
+  }
+
+  .stepContent {
+    justify-content: center;
+  }
+
+  .stepCardWide {
+    max-width: 800px;
+  }
 }
 
 .stepType {

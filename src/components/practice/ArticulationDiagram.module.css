@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md, 12px);
+  padding: var(--space-sm, 8px);
+  flex-shrink: 0;
+}
+
+.diagram {
+  width: auto;
+  height: 100%;
+  max-height: 240px;
+  display: block;
+  border-radius: var(--radius-sm, 8px);
+  object-fit: contain;
+}
