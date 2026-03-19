@@ -31,7 +31,7 @@
 .subtitle {
   margin-top: 1.5rem;
   font-size: 1.04rem;
-  color: rgba(246, 239, 231, 0.68);
+  color: var(--color-text-muted);
   line-height: 1.85;
   max-width: 32rem;
 }
@@ -49,9 +49,9 @@
   align-items: center;
   padding: 0.35rem 0.7rem;
   border-radius: var(--radius-full);
-  background: rgba(246, 239, 231, 0.06);
-  border: 1px solid rgba(246, 239, 231, 0.1);
-  color: rgba(246, 239, 231, 0.55);
+  background: color-mix(in srgb, var(--color-text) 6%, transparent);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -62,7 +62,7 @@
   display: inline-block;
   margin-top: 1rem;
   padding: 0.5rem 0;
-  color: rgba(246, 239, 231, 0.5);
+  color: var(--color-text-muted);
   font-size: 0.84rem;
   letter-spacing: 0.02em;
   transition: color 0.18s ease;
@@ -80,14 +80,12 @@
 
 .resultCard {
   position: relative;
-  border: 1px solid rgba(246, 239, 231, 0.1);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
-  background:
-    linear-gradient(180deg, rgba(246, 239, 231, 0.06), rgba(246, 239, 231, 0)),
-    rgba(30, 23, 18, 0.85);
+  background: color-mix(in srgb, var(--color-surface-alt) 85%, transparent);
   box-shadow:
     var(--shadow-medium),
-    0 0 0 1px rgba(246, 239, 231, 0.03);
+    0 0 0 1px color-mix(in srgb, var(--color-text) 3%, transparent);
   overflow: hidden;
 }
 
@@ -98,7 +96,7 @@
   width: 14rem;
   height: 14rem;
   border-radius: 50%;
-  background: rgba(213, 122, 69, 0.14);
+  background: color-mix(in srgb, var(--color-primary) 14%, transparent);
   filter: blur(70px);
   pointer-events: none;
 }
@@ -149,7 +147,7 @@
 
 .scoreLabel {
   font-size: 0.7rem;
-  color: rgba(246, 239, 231, 0.45);
+  color: var(--color-text-muted);
   margin-top: 0.15rem;
 }
 
@@ -161,7 +159,7 @@
 
 .resultLabel {
   font-size: 0.72rem;
-  color: rgba(246, 239, 231, 0.5);
+  color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 0.65rem;
@@ -180,8 +178,8 @@
   gap: 0.5rem;
   padding: 0.4rem 0.55rem;
   border-radius: var(--radius-md);
-  background: rgba(246, 239, 231, 0.04);
-  border: 1px solid rgba(246, 239, 231, 0.06);
+  background: color-mix(in srgb, var(--color-text) 4%, transparent);
+  border: 1px solid var(--color-border);
   font-size: 0.82rem;
 }
 
@@ -191,14 +189,14 @@
 }
 
 .phonemeName {
-  color: rgba(246, 239, 231, 0.65);
+  color: var(--color-text-muted);
   font-size: 0.75rem;
 }
 
 .phonemeBar {
   height: 4px;
   border-radius: 2px;
-  background: rgba(246, 239, 231, 0.1);
+  background: color-mix(in srgb, var(--color-text) 10%, transparent);
   overflow: hidden;
 }
 
@@ -211,7 +209,7 @@
 
 /* Rating colors — asymmetric to feel real */
 .needs_work .phonemeFill {
-  background: #e8695a;
+  background: var(--color-error);
 }
 
 .acceptable .phonemeFill {
@@ -219,11 +217,11 @@
 }
 
 .good .phonemeFill {
-  background: #5cb88a;
+  background: var(--color-success);
 }
 
 .needs_work .phonemeSymbol {
-  color: #e8695a;
+  color: var(--color-error);
 }
 
 .acceptable .phonemeSymbol {
@@ -231,13 +229,13 @@
 }
 
 .good .phonemeSymbol {
-  color: #5cb88a;
+  color: var(--color-success);
 }
 
 .resultCaption {
   margin-top: 0.75rem;
   font-size: 0.7rem;
-  color: rgba(246, 239, 231, 0.4);
+  color: var(--color-text-muted);
   line-height: 1.5;
 }
 

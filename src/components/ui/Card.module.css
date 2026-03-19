@@ -6,20 +6,18 @@
 }
 
 .default {
-  background: rgba(24, 19, 16, 0.84);
+  background: color-mix(in srgb, var(--color-surface-alt) 84%, transparent);
   border-color: var(--color-border);
   box-shadow: var(--shadow-subtle);
 }
 
 .outlined {
-  background: rgba(24, 19, 16, 0.66);
+  background: color-mix(in srgb, var(--color-surface-alt) 66%, transparent);
   border-color: var(--color-border);
 }
 
 .elevated {
-  background:
-    linear-gradient(180deg, rgba(246, 239, 231, 0.04), rgba(246, 239, 231, 0)),
-    rgba(24, 19, 16, 0.9);
-  border-color: rgba(240, 176, 125, 0.2);
+  background: color-mix(in srgb, var(--color-surface-alt) 90%, transparent);
+  border-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
   box-shadow: var(--shadow-medium);
 }

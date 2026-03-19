@@ -23,7 +23,7 @@ function ScoreArc({ score }: { score: number }) {
           cy="64"
           r={radius}
           fill="none"
-          stroke="rgba(246, 239, 231, 0.08)"
+          stroke="var(--color-border)"
           strokeWidth="6"
         />
         <circle

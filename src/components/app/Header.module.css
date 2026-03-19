@@ -7,8 +7,8 @@
   justify-content: space-between;
   gap: var(--space-md);
   padding: 1rem var(--space-lg);
-  border-bottom: 1px solid rgba(246, 239, 231, 0.08);
-  background: rgba(15, 12, 10, 0.74);
+  border-bottom: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-surface) 74%, transparent);
   backdrop-filter: blur(18px);
 }
 

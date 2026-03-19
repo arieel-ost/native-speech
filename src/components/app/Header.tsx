@@ -5,6 +5,7 @@ import { useAuth } from "@/providers/AuthProvider";
 import { useTranslations } from "next-intl";
 import { Badge, Button } from "@/components/ui";
 import { LocaleSwitcher } from "@/components/ui/LocaleSwitcher";
+import { ThemeSwitcher } from "@/components/ui/ThemeSwitcher";
 import { getProfile, getCurrentScore } from "@/lib/learner-store";
 import styles from "./Header.module.css";
 
@@ -59,6 +60,7 @@ export function Header() {
         </h2>
       </div>
       <div className={styles.right}>
+        <ThemeSwitcher />
         <LocaleSwitcher />
         {score !== null && (
           <Badge variant="accent">{t("score", { value: score })}</Badge>

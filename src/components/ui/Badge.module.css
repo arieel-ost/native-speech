@@ -11,25 +11,25 @@
 }
 
 .default {
-  background: rgba(246, 239, 231, 0.05);
+  background: color-mix(in srgb, var(--color-text) 5%, transparent);
   border-color: var(--color-border);
   color: var(--color-text-muted);
 }
 
 .success {
-  background: rgba(95, 191, 147, 0.15);
-  border-color: rgba(95, 191, 147, 0.18);
+  background: color-mix(in srgb, var(--color-success) 15%, transparent);
+  border-color: color-mix(in srgb, var(--color-success) 18%, transparent);
   color: var(--color-success);
 }
 
 .error {
-  background: rgba(240, 120, 103, 0.16);
-  border-color: rgba(240, 120, 103, 0.18);
+  background: color-mix(in srgb, var(--color-error) 15%, transparent);
+  border-color: color-mix(in srgb, var(--color-error) 18%, transparent);
   color: var(--color-error);
 }
 
 .accent {
-  background: rgba(120, 184, 174, 0.16);
-  border-color: rgba(120, 184, 174, 0.2);
+  background: color-mix(in srgb, var(--color-accent) 16%, transparent);
+  border-color: color-mix(in srgb, var(--color-accent) 20%, transparent);
   color: var(--color-accent);
 }

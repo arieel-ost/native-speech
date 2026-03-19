@@ -23,7 +23,7 @@
 
 .primary {
   background: var(--gradient-primary);
-  color: #1a120d;
+  color: #fff;
   box-shadow: var(--shadow-subtle);
 }
 
@@ -33,7 +33,7 @@
 }
 
 .secondary {
-  background: rgba(246, 239, 231, 0.04);
+  background: color-mix(in srgb, var(--color-text) 4%, transparent);
   color: var(--color-text);
   border-color: var(--color-border);
   backdrop-filter: blur(14px);
@@ -41,8 +41,8 @@
 
 .secondary:hover:not(:disabled) {
   transform: translateY(-1px);
-  border-color: rgba(240, 176, 125, 0.45);
-  background: rgba(246, 239, 231, 0.08);
+  border-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
+  background: color-mix(in srgb, var(--color-text) 8%, transparent);
 }
 
 .ghost {
@@ -52,7 +52,7 @@
 
 .ghost:hover:not(:disabled) {
   color: var(--color-text);
-  background: rgba(246, 239, 231, 0.05);
+  background: color-mix(in srgb, var(--color-text) 5%, transparent);
 }
 
 .sm {

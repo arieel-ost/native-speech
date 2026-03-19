@@ -41,7 +41,7 @@
   position: absolute;
   inset: 1px;
   border-radius: calc(var(--radius-lg) - 1px);
-  border: 1px solid rgba(240, 176, 125, 0.16);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 16%, transparent);
   pointer-events: none;
 }
 
@@ -92,7 +92,7 @@
 }
 
 .features li::before {
-  content: "•";
+  content: "\2022";
   position: absolute;
   left: 0;
   color: var(--color-primary-light);
@@ -106,7 +106,7 @@
   margin-left: 0.6rem;
   padding: 0.2rem 0.5rem;
   border-radius: var(--radius-full);
-  background: rgba(240, 176, 125, 0.12);
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
   color: var(--color-primary-light);
   font-size: 0.62rem;
   font-weight: 600;

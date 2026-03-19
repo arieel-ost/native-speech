@@ -1,7 +1,9 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import { type Theme, resonantDark } from "@/lib/theme";
+import { createContext, useContext, useEffect, useState, useCallback, type ReactNode } from "react";
+import { type Theme, defaultTheme, themeMap } from "@/lib/theme";
+
+const STORAGE_KEY = "nativespeech-theme";
 
 interface ThemeContextValue {
   theme: Theme;
@@ -9,7 +11,7 @@ interface ThemeContextValue {
 }
 
 const ThemeContext = createContext<ThemeContextValue>({
-  theme: resonantDark,
+  theme: defaultTheme,
   setTheme: () => {},
 });
 
@@ -19,6 +21,9 @@ export function useTheme() {
 
 function applyTheme(theme: Theme) {
   const root = document.documentElement;
+
+  // Color scheme (tells browser to style scrollbars, form controls, etc.)
+  root.style.setProperty("color-scheme", theme.colorScheme);
 
   Object.entries(theme.colors).forEach(([key, value]) => {
     root.style.setProperty(`--color-${camelToKebab(key)}`, value);
@@ -43,18 +48,51 @@ function applyTheme(theme: Theme) {
   Object.entries(theme.shadows).forEach(([key, value]) => {
     root.style.setProperty(`--shadow-${key}`, value);
   });
+
+  // Background layers
+  Object.entries(theme.backgrounds).forEach(([key, value]) => {
+    root.style.setProperty(`--bg-${camelToKebab(key)}`, value);
+  });
 }
 
 function camelToKebab(str: string): string {
   return str.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
 }
 
-export function ThemeProvider({ children, initialTheme }: { children: ReactNode; initialTheme?: Theme }) {
-  const [theme, setTheme] = useState<Theme>(initialTheme ?? resonantDark);
+function loadSavedTheme(): Theme {
+  if (typeof window === "undefined") return defaultTheme;
+  try {
+    const slug = localStorage.getItem(STORAGE_KEY);
+    if (slug && themeMap[slug]) return themeMap[slug];
+  } catch {
+    // localStorage unavailable
+  }
+  return defaultTheme;
+}
 
+export function ThemeProvider({ children, initialTheme }: { children: ReactNode; initialTheme?: Theme }) {
+  const [theme, setThemeState] = useState<Theme>(initialTheme ?? defaultTheme);
+
+  // Hydrate from localStorage on mount
+  useEffect(() => {
+    if (!initialTheme) {
+      setThemeState(loadSavedTheme());
+    }
+  }, [initialTheme]);
+
+  // Apply CSS variables whenever theme changes
   useEffect(() => {
     applyTheme(theme);
   }, [theme]);
+
+  const setTheme = useCallback((t: Theme) => {
+    setThemeState(t);
+    try {
+      localStorage.setItem(STORAGE_KEY, t.slug);
+    } catch {
+      // localStorage unavailable
+    }
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

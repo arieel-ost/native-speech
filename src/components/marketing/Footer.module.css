@@ -1,8 +1,8 @@
 .footer {
   position: relative;
-  border-top: 1px solid rgba(246, 239, 231, 0.08);
+  border-top: 1px solid var(--color-border);
   margin-top: clamp(3rem, 8vw, 6rem);
-  background: linear-gradient(180deg, rgba(246, 239, 231, 0.02), rgba(246, 239, 231, 0));
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-text) 2%, transparent), transparent);
 }
 
 .inner {
@@ -60,7 +60,7 @@
 }
 
 .bottom {
-  border-top: 1px solid rgba(246, 239, 231, 0.08);
+  border-top: 1px solid var(--color-border);
   padding: var(--space-md) var(--space-xl) calc(var(--space-md) + 0.4rem);
   max-width: 1200px;
   margin: 0 auto;

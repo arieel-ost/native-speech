@@ -7,9 +7,9 @@
   display: flex;
   flex-direction: column;
   padding: var(--space-lg) var(--space-md);
-  border: 1px solid rgba(246, 239, 231, 0.08);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
-  background: rgba(15, 12, 10, 0.72);
+  background: color-mix(in srgb, var(--color-surface) 72%, transparent);
   backdrop-filter: blur(18px);
   box-shadow: var(--shadow-subtle);
 }
@@ -56,13 +56,17 @@
 
 .navItem:hover {
   color: var(--color-text);
-  background: rgba(246, 239, 231, 0.05);
+  background: color-mix(in srgb, var(--color-text) 5%, transparent);
 }
 
 .navItem.active {
   color: var(--color-text);
-  background: linear-gradient(135deg, rgba(213, 122, 69, 0.18), rgba(120, 184, 174, 0.08));
-  border: 1px solid rgba(240, 176, 125, 0.14);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-primary) 18%, transparent),
+    color-mix(in srgb, var(--color-accent) 8%, transparent)
+  );
+  border: 1px solid color-mix(in srgb, var(--color-primary) 14%, transparent);
 }
 
 .navItem.active .icon {
@@ -81,8 +85,8 @@
   bottom: 10px;
   left: 10px;
   right: 10px;
-  background: rgba(15, 12, 10, 0.82);
-  border: 1px solid rgba(246, 239, 231, 0.08);
+  background: color-mix(in srgb, var(--color-surface) 82%, transparent);
+  border: 1px solid var(--color-border);
   border-radius: calc(var(--radius-xl) - 6px);
   padding: 0.35rem;
   padding-bottom: calc(0.35rem + env(safe-area-inset-bottom));
@@ -104,7 +108,7 @@
 
 .tab.active {
   color: var(--color-primary-light);
-  background: rgba(246, 239, 231, 0.05);
+  background: color-mix(in srgb, var(--color-text) 5%, transparent);
 }
 
 .tabIcon {

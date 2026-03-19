@@ -14,14 +14,14 @@
 
 .shell::before {
   background:
-    linear-gradient(90deg, transparent 0, transparent calc(50% - 640px), rgba(246, 239, 231, 0.04) calc(50% - 640px), rgba(246, 239, 231, 0.04) calc(50% - 639px), transparent calc(50% - 639px), transparent calc(50% + 639px), rgba(246, 239, 231, 0.04) calc(50% + 639px), rgba(246, 239, 231, 0.04) calc(50% + 640px), transparent calc(50% + 640px)),
-    linear-gradient(180deg, rgba(246, 239, 231, 0.02), transparent 32%);
+    linear-gradient(90deg, transparent 0, transparent calc(50% - 640px), color-mix(in srgb, var(--color-text) 4%, transparent) calc(50% - 640px), color-mix(in srgb, var(--color-text) 4%, transparent) calc(50% - 639px), transparent calc(50% - 639px), transparent calc(50% + 639px), color-mix(in srgb, var(--color-text) 4%, transparent) calc(50% + 639px), color-mix(in srgb, var(--color-text) 4%, transparent) calc(50% + 640px), transparent calc(50% + 640px)),
+    linear-gradient(180deg, color-mix(in srgb, var(--color-text) 2%, transparent), transparent 32%);
 }
 
 .shell::after {
   background:
-    radial-gradient(circle at top left, rgba(213, 122, 69, 0.12), transparent 25%),
-    radial-gradient(circle at bottom right, rgba(120, 184, 174, 0.12), transparent 28%);
+    radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent 25%),
+    radial-gradient(circle at bottom right, color-mix(in srgb, var(--color-accent) 12%, transparent), transparent 28%);
   opacity: 0.9;
 }
 
