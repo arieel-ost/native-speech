@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui";
 import { LocaleSwitcher } from "@/components/ui/LocaleSwitcher";
+import { ThemeSwitcher } from "@/components/ui/ThemeSwitcher";
 import styles from "./Nav.module.css";
 
 export function Nav() {
@@ -24,6 +25,7 @@ export function Nav() {
           <Link href="/about" className={styles.link}>{t("about")}</Link>
         </div>
         <div className={styles.actions}>
+          <ThemeSwitcher />
           <LocaleSwitcher />
           <Link href="/onboarding">
             <Button variant="secondary" size="sm">{t("tryDemo")}</Button>
