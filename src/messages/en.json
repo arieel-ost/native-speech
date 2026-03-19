@@ -379,7 +379,8 @@
     "youSaid": "You said",
     "target": "Target",
     "sideBySide": "Side by side",
-    "overlay": "Overlay"
+    "overlay": "Overlay",
+    "stepOf": "Step {current} of {total}"
   },
   "ShadowingPlayer": {
     "listen": "Listen",
@@ -387,6 +388,7 @@
     "stop": "Stop",
     "listenRepeat": "Listen & Repeat",
     "shadow": "Shadow",
+    "shadowSubtitle": "speak along",
     "speed": "Speed:",
     "phaseListening": "Listening to reference...",
     "phaseRecording": "Recording — speak now!",

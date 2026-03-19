@@ -379,7 +379,8 @@
     "youSaid": "Вы сказали",
     "target": "Цель",
     "sideBySide": "Рядом",
-    "overlay": "Наложение"
+    "overlay": "Наложение",
+    "stepOf": "Шаг {current} из {total}"
   },
   "ShadowingPlayer": {
     "listen": "Слушать",
@@ -387,6 +388,7 @@
     "stop": "Стоп",
     "listenRepeat": "Слушай и повтори",
     "shadow": "Шэдоуинг",
+    "shadowSubtitle": "говорите вместе",
     "speed": "Скорость:",
     "phaseListening": "Слушаем эталон...",
     "phaseRecording": "Запись — говорите!",

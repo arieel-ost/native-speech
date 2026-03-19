@@ -2,7 +2,7 @@
   max-width: 640px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
 .breadcrumb {
@@ -44,46 +44,66 @@
   color: var(--color-primary-light);
 }
 
-.counter {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
+/* ── Divider between sound reference and drill ── */
+.divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 0;
 }
 
-.stepCardWide {
-  max-width: none;
-  width: fit-content;
-  min-width: 100%;
+/* ── ZONE 1: Sound Reference ── */
+.soundReference {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
 }
 
-.stepCard {
+.soundIdentity {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-}
-
-.stepContent {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-xs);
   flex: 1;
   min-width: 0;
 }
 
-@media (min-width: 720px) {
-  .stepCard {
-    flex-direction: row;
-    align-items: stretch;
-    gap: var(--space-lg);
-  }
+.soundPhoneme {
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--color-primary-light);
+  line-height: 1;
+}
 
-  .stepContent {
-    justify-content: center;
-  }
+.soundIpa {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--color-primary-light);
+  opacity: 0.7;
+}
 
-  .stepCardWide {
-    max-width: 800px;
-  }
+.soundName {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.instruction {
+  background: rgba(99, 102, 241, 0.06);
+  border-left: 3px solid var(--color-primary);
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* ── Drill content ── */
+.drillContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: center;
 }
 
 .stepType {
@@ -106,7 +126,7 @@
   font-weight: 300;
   line-height: 1.5;
   text-align: center;
-  padding: var(--space-md) 0;
+  padding: var(--space-sm) 0;
 }
 
 .ipa {
@@ -117,22 +137,14 @@
   opacity: 0.8;
 }
 
-.instruction {
-  background: rgba(99, 102, 241, 0.06);
-  border-left: 3px solid var(--color-primary);
-  padding: var(--space-sm) var(--space-md);
-  font-size: 0.85rem;
-  line-height: 1.6;
-  color: var(--color-text);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-}
-
+/* ── Spectrogram ── */
 .spectrogramSection {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
 }
 
+/* ── Feedback ── */
 .feedbackArea {
   min-height: 60px;
 }
@@ -205,53 +217,78 @@
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
-.nav {
+/* ── Pagination (unified navigation) ── */
+.pagination {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   gap: var(--space-md);
+  padding-top: var(--space-sm);
+}
+
+.navArrow {
+  min-width: unset;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: 1.2rem;
+  line-height: 1;
 }
 
 .progressDots {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: var(--space-xs);
 }
 
 .dot {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot::after {
+  content: "";
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--color-border);
   transition: all 0.2s ease;
-  cursor: pointer;
-  border: none;
-  padding: 0;
 }
 
-.dot:hover {
+.dot:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.dot:hover::after {
   background: var(--color-text-muted);
 }
 
-.dotActive {
+.dotActive::after {
   background: var(--color-primary);
-  width: 24px;
+  width: 20px;
   border-radius: var(--radius-full);
 }
 
-.dotCompleted {
+.dotCompleted::after {
   background: #22c55e;
 }
 
-.backLink {
+.stepLabel {
   display: block;
   text-align: center;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
-  font-size: 0.875rem;
-  margin-top: var(--space-sm);
-}
-
-.backLink:hover {
-  color: var(--color-text);
+  font-family: var(--font-mono);
 }
 
 .errorText {
@@ -285,4 +322,6 @@
 .audioPlayback {
   display: flex;
   justify-content: center;
+  padding-top: var(--space-sm);
 }
+

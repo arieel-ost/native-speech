@@ -379,7 +379,8 @@
     "youSaid": "Dijiste",
     "target": "Objetivo",
     "sideBySide": "Lado a lado",
-    "overlay": "Superponer"
+    "overlay": "Superponer",
+    "stepOf": "Paso {current} de {total}"
   },
   "ShadowingPlayer": {
     "listen": "Escuchar",
@@ -387,6 +388,7 @@
     "stop": "Parar",
     "listenRepeat": "Escuchar y repetir",
     "shadow": "Shadowing",
+    "shadowSubtitle": "habla a la vez",
     "speed": "Velocidad:",
     "phaseListening": "Escuchando la referencia...",
     "phaseRecording": "Grabando — ¡habla ahora!",

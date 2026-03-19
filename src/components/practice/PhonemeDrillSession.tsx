@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { Card, Button } from "@/components/ui";
+import { Button } from "@/components/ui";
 import { ShadowingPlayer } from "./ShadowingPlayer";
 import { SpectrogramDiff } from "./SpectrogramDiff";
 import { AudioPlayer } from "./AudioPlayer";
@@ -218,7 +218,7 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
 
   return (
     <div className={styles.session}>
-      <nav className={styles.breadcrumb}>
+      <nav className={styles.breadcrumb} aria-label="Breadcrumb">
         <Link href="/practice" className={styles.breadcrumbLink}>
           {t("practice")}
         </Link>
@@ -230,47 +230,39 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
           <span className={styles.phonemeSymbol}>{drill.phoneme}</span>{" "}
           {drill.name}
         </h1>
-        <span className={styles.counter}>
-          {currentStep + 1} / {drill.steps.length}
-        </span>
       </div>
 
-      {/* Progress dots */}
-      <div className={styles.progressDots}>
-        {drill.steps.map((_, i) => (
-          <button
-            key={i}
-            className={`${styles.dot} ${i === currentStep ? styles.dotActive : ""} ${completedSteps.has(i) ? styles.dotCompleted : ""}`}
-            onClick={() => goToStep(i)}
-            aria-label={`Step ${i + 1}`}
-          />
-        ))}
-      </div>
-
-      {/* Step content */}
-      <Card variant="elevated" className={styles.stepCardWide}>
-        <div className={styles.stepCard}>
-          <div className={styles.stepContent}>
-            <span className={styles.stepType}>
-              <span className={styles.stepTypeIcon}>
-                {STEP_TYPE_ICONS[step.type] ?? "📝"}
-              </span>
-              {t(`stepType_${step.type}`, { defaultValue: STEP_TYPE_LABELS[step.type] })}
-            </span>
-
-            <p className={styles.prompt}>{step.prompt}</p>
-            <p className={styles.ipa}>/{step.ipa}/</p>
-
-            <div className={styles.instruction}>
-              {step.instruction}
-            </div>
-          </div>
-
-          <ArticulationDiagram phoneme={drill.phoneme} />
+      {/* ── Sound Reference (persistent across steps) ── */}
+      <div className={styles.soundReference}>
+        <div className={styles.soundIdentity}>
+          <span className={styles.soundPhoneme}>{drill.phoneme}</span>
+          <span className={styles.soundIpa}>/{drill.phoneme}/</span>
+          <span className={styles.soundName}>{drill.name}</span>
         </div>
-      </Card>
+        <ArticulationDiagram phoneme={drill.phoneme} />
+      </div>
+      {step.instruction && (
+        <div className={styles.instruction}>
+          {step.instruction}
+        </div>
+      )}
 
-      {/* Shadowing controls */}
+      <hr className={styles.divider} />
+
+      {/* ── Drill (changes per step) ── */}
+      <div className={styles.drillContent}>
+        <span className={styles.stepType}>
+          <span className={styles.stepTypeIcon} aria-hidden="true">
+            {STEP_TYPE_ICONS[step.type] ?? "📝"}
+          </span>
+          {t(`stepType_${step.type}`, { defaultValue: STEP_TYPE_LABELS[step.type] })}
+        </span>
+
+        <p className={styles.prompt}>{step.prompt}</p>
+        <p className={styles.ipa}>/{step.ipa}/</p>
+      </div>
+
+      {/* ── Action + spectrogram ── */}
       <ShadowingPlayer
         text={step.prompt}
         lang={lang}
@@ -281,9 +273,9 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
         onStreamEnd={handleStreamEnd}
         onRefProgress={handleRefProgress}
         disabled={analyzing}
+        hasRecorded={!!userBuffer}
       />
 
-      {/* Spectrogram comparison */}
       <div className={styles.spectrogramSection}>
         <SpectrogramDiff
           referenceSpectrogramSrc={refSpectrogramSrc}
@@ -298,74 +290,81 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
         />
       </div>
 
-      {/* Audio playback */}
-      {audioUrl && (
-        <div className={styles.audioPlayback}>
-          <AudioPlayer src={audioUrl} />
-        </div>
-      )}
-
-      {/* Feedback area */}
-      <Card variant="outlined">
-        <div className={styles.feedbackArea}>
-          {error ? (
-            <p className={styles.errorText}>{error}</p>
-          ) : analyzing ? (
-            <div className={styles.analyzing}>
-              <div className={styles.spinner} />
-              <span>{t("analyzing")}</span>
+      {/* ── Feedback ── */}
+      <div className={styles.feedbackArea} aria-live="polite">
+        {error ? (
+          <p className={styles.errorText}>{error}</p>
+        ) : analyzing ? (
+          <div className={styles.analyzing}>
+            <div className={styles.spinner} />
+            <span>{t("analyzing")}</span>
+          </div>
+        ) : feedback ? (
+          <div className={styles.feedbackResult}>
+            <div className={styles.feedbackScore}>
+              <span className={styles.scoreValue}>{feedback.score}</span>
+              <span className={styles.scoreMax}>/ 10</span>
             </div>
-          ) : feedback ? (
-            <div className={styles.feedbackResult}>
-              <div className={styles.feedbackScore}>
-                <span className={styles.scoreValue}>{feedback.score}</span>
-                <span className={styles.scoreMax}>/ 10</span>
+            {feedback.produced && feedback.expected && feedback.produced !== feedback.expected && (
+              <div className={styles.phonemeComparison}>
+                <span className={styles.phonemeProduced}>
+                  {t("youSaid")}: <strong>/{feedback.produced}/</strong>
+                </span>
+                <span className={styles.phonemeArrow}>→</span>
+                <span className={styles.phonemeExpected}>
+                  {t("target")}: <strong>/{feedback.expected}/</strong>
+                </span>
               </div>
-              {feedback.produced && feedback.expected && feedback.produced !== feedback.expected && (
-                <div className={styles.phonemeComparison}>
-                  <span className={styles.phonemeProduced}>
-                    {t("youSaid")}: <strong>/{feedback.produced}/</strong>
-                  </span>
-                  <span className={styles.phonemeArrow}>→</span>
-                  <span className={styles.phonemeExpected}>
-                    {t("target")}: <strong>/{feedback.expected}/</strong>
-                  </span>
-                </div>
-              )}
-              <p className={styles.feedbackSummary}>{feedback.summary}</p>
-              {feedback.tip && (
-                <div className={styles.feedbackTip}>
-                  {feedback.tip}
-                </div>
-              )}
-            </div>
-          ) : (
-            <p className={styles.feedbackText}>{t("feedbackPlaceholder")}</p>
-          )}
-        </div>
-      </Card>
+            )}
+            <p className={styles.feedbackSummary}>{feedback.summary}</p>
+            {feedback.tip && (
+              <div className={styles.feedbackTip}>
+                {feedback.tip}
+              </div>
+            )}
+            {audioUrl && (
+              <div className={styles.audioPlayback}>
+                <AudioPlayer src={audioUrl} />
+              </div>
+            )}
+          </div>
+        ) : (
+          <p className={styles.feedbackText}>{t("feedbackPlaceholder")}</p>
+        )}
+      </div>
 
-      {/* Navigation */}
-      <div className={styles.nav}>
+      {/* ── Pagination (unified navigation) ── */}
+      <div className={styles.pagination}>
         <Button
           variant="secondary"
           onClick={() => goToStep(currentStep - 1)}
           disabled={currentStep === 0 || analyzing}
+          className={styles.navArrow}
         >
-          {t("previous")}
+          ‹
         </Button>
+        <div className={styles.progressDots}>
+          {drill.steps.map((_, i) => (
+            <button
+              key={i}
+              className={`${styles.dot} ${i === currentStep ? styles.dotActive : ""} ${completedSteps.has(i) ? styles.dotCompleted : ""}`}
+              onClick={() => goToStep(i)}
+              aria-label={`Step ${i + 1}`}
+            />
+          ))}
+        </div>
         <Button
           variant="secondary"
           onClick={() => goToStep(currentStep + 1)}
           disabled={currentStep === drill.steps.length - 1 || analyzing}
+          className={styles.navArrow}
         >
-          {t("next")}
+          ›
         </Button>
       </div>
-
-      <Link href="/practice" className={styles.backLink}>
-        {t("backToPractice")}
-      </Link>
+      <span className={styles.stepLabel}>
+        {t("stepOf", { current: currentStep + 1, total: drill.steps.length })}
+      </span>
     </div>
   );
 }

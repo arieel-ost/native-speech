@@ -39,52 +39,85 @@
   font-size: 1.1rem;
 }
 
+.btnLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.btnSubtitle {
+  font-size: 0.6rem;
+  font-weight: 400;
+  opacity: 0.6;
+  letter-spacing: 0.02em;
+}
+
+/* All buttons share the same idle outline style */
 .listenBtn {
+  border-color: var(--color-border);
+}
+
+.listenBtn:hover:not(:disabled) {
   border-color: var(--color-primary);
   color: var(--color-primary-light);
 }
 
 .listenBtn.playing {
+  border-color: var(--color-primary);
+  color: var(--color-primary-light);
   animation: listenPulse 1s ease infinite;
+}
+
+/* Gentle pulse hint on Listen when user hasn't recorded yet */
+.listenBtn.pulseHint {
+  border-color: var(--color-primary);
+  color: var(--color-primary-light);
+  animation: hintPulse 2s ease 3;
 }
 
 .recordBtn {
   border-color: var(--color-border);
 }
 
+.recordBtn:hover:not(:disabled) {
+  border-color: var(--color-error);
+}
+
 .recordBtn.recording {
   border-color: var(--color-error);
+  color: var(--color-error);
   animation: pulse 1.5s ease infinite;
 }
 
 .listenRepeatBtn {
+  border-color: var(--color-border);
+}
+
+.listenRepeatBtn:hover:not(:disabled) {
   border-color: #a78bfa;
   color: #a78bfa;
 }
 
-.listenRepeatBtn:hover:not(:disabled) {
-  border-color: #8b5cf6;
-  color: #8b5cf6;
-}
-
 .listenRepeatBtn.active {
+  border-color: #a78bfa;
+  color: #a78bfa;
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(99, 102, 241, 0.1));
   animation: shadowPulse 2s ease infinite;
 }
 
 .shadowBtn {
-  border-color: #f59e0b;
-  color: #f59e0b;
-  font-weight: 600;
+  border-color: var(--color-border);
 }
 
 .shadowBtn:hover:not(:disabled) {
-  border-color: #d97706;
-  color: #d97706;
+  border-color: #f59e0b;
+  color: #f59e0b;
 }
 
 .shadowBtn.active {
   border-color: #f59e0b;
+  color: #f59e0b;
   background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(234, 88, 12, 0.1));
   animation: shadowingPulse 1.5s ease infinite;
 }
@@ -128,6 +161,11 @@
 @keyframes shadowingPulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.3); }
   50% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+}
+
+@keyframes hintPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.3); }
+  50% { box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
 }
 
 /* Countdown overlay */

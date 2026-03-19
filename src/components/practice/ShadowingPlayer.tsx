@@ -30,6 +30,8 @@ interface ShadowingPlayerProps {
    */
   maxRecordDuration?: number | null;
   disabled?: boolean;
+  /** Whether the user has recorded at least once — controls Listen button hint pulse */
+  hasRecorded?: boolean;
 }
 
 const SPEEDS = [0.6, 0.8, 1.0] as const;
@@ -44,6 +46,7 @@ export function ShadowingPlayer({
   onRefProgress,
   maxRecordDuration,
   disabled = false,
+  hasRecorded = false,
 }: ShadowingPlayerProps) {
   const t = useTranslations("ShadowingPlayer");
   const [phase, setPhase] = useState<Phase>("idle");
@@ -345,23 +348,23 @@ export function ShadowingPlayer({
 
   return (
     <div className={styles.container}>
-      <div className={`${styles.phase} ${phaseClass}`}>
+      <div className={`${styles.phase} ${phaseClass}`} aria-live="assertive" role="status">
         {phaseText || "\u00A0"}
       </div>
 
       {countdown !== null && (
-        <div className={styles.countdownOverlay}>
+        <div className={styles.countdownOverlay} aria-live="assertive">
           <span key={countdown} className={styles.countdownNumber}>{countdown}</span>
         </div>
       )}
 
       <div className={styles.controls}>
         <button
-          className={`${styles.btn} ${styles.listenBtn} ${isPlaying ? styles.playing : ""}`}
+          className={`${styles.btn} ${styles.listenBtn} ${isPlaying ? styles.playing : ""} ${!isBusy && !hasRecorded ? styles.pulseHint : ""}`}
           onClick={handleListen}
           disabled={disabled || isBusy}
         >
-          <span className={styles.btnIcon}>{isPlaying ? "🔊" : "▶"}</span>
+          <span className={styles.btnIcon} aria-hidden="true">{isPlaying ? "🔊" : "▶"}</span>
           {t("listen")}
         </button>
 
@@ -370,7 +373,7 @@ export function ShadowingPlayer({
           onClick={handleRecord}
           disabled={disabled || isBusy}
         >
-          <span className={styles.btnIcon}>●</span>
+          <span className={styles.btnIcon} aria-hidden="true">●</span>
           {t("record")}
         </button>
 
@@ -379,7 +382,7 @@ export function ShadowingPlayer({
           onClick={handleListenRepeat}
           disabled={disabled || isBusy}
         >
-          <span className={styles.btnIcon}>🔄</span>
+          <span className={styles.btnIcon} aria-hidden="true">🔄</span>
           {t("listenRepeat")}
         </button>
 
@@ -388,8 +391,11 @@ export function ShadowingPlayer({
           onClick={handleShadow}
           disabled={disabled || isBusy}
         >
-          <span className={styles.btnIcon}>🎙️</span>
-          {t("shadow")}
+          <span className={styles.btnIcon} aria-hidden="true">🎙️</span>
+          <span className={styles.btnLabel}>
+            {t("shadow")}
+            <span className={styles.btnSubtitle}>{t("shadowSubtitle")}</span>
+          </span>
         </button>
       </div>
 
@@ -401,6 +407,7 @@ export function ShadowingPlayer({
             className={`${styles.speedBtn} ${speed === s ? styles.speedBtnActive : ""}`}
             onClick={() => setSpeed(s)}
             disabled={isBusy}
+            aria-pressed={speed === s}
           >
             {s}x
           </button>
