@@ -294,6 +294,15 @@ export function ShadowingPlayer({
         </div>
       )}
 
+      {/* Status Line - Above buttons */}
+      <div className={styles.statusLine}>
+        <div className={`${styles.statusIndicator} ${isRecording ? styles.statusRecording : isPlaying ? styles.statusPlaying : isShadowing ? styles.statusShadowing : ""}`} />
+        <span className={styles.statusText}>
+          {phase === "idle" && t("phaseReady")}
+          {phaseText}
+        </span>
+      </div>
+
       {/* Control Grid - Gemini Style */}
       <div className={styles.controls}>
         <button
@@ -362,36 +371,27 @@ export function ShadowingPlayer({
         </button>
       </div>
 
-      {/* Status + Speed + View Mode Combined */}
-      <div className={styles.statusSpeedBar}>
-        <div className={styles.statusSection}>
-          <div className={`${styles.statusIndicator} ${isRecording ? styles.statusRecording : isPlaying ? styles.statusPlaying : isShadowing ? styles.statusShadowing : ""}`} />
-          <span className={styles.statusText}>
-            {phase === "idle" && t("phaseReady")}
-            {phaseText}
-          </span>
-        </div>
-        <div className={styles.rightSection}>
-          <div className={styles.speedSection}>
-            <span className={styles.speedLabel}>{t("speed")}</span>
-            <div className={styles.speedControl}>
-              {SPEEDS.map((s) => (
-                <button
-                  key={s}
-                  className={`${styles.speedBtn} ${speed === s ? styles.speedBtnActive : ""}`}
-                  onClick={() => setSpeed(s)}
-                  disabled={isBusy}
-                  aria-pressed={speed === s}
-                >
-                  {s}x
-                </button>
-              ))}
-            </div>
+      {/* Speed + View Mode Row - Below buttons */}
+      <div className={styles.optionsBar}>
+        <div className={styles.speedSection}>
+          <span className={styles.speedLabel}>{t("speed")}</span>
+          <div className={styles.speedControl}>
+            {SPEEDS.map((s) => (
+              <button
+                key={s}
+                className={`${styles.speedBtn} ${speed === s ? styles.speedBtnActive : ""}`}
+                onClick={() => setSpeed(s)}
+                disabled={isBusy}
+                aria-pressed={speed === s}
+              >
+                {s}x
+              </button>
+            ))}
           </div>
-          {viewMode && onViewModeChange && (
-            <ViewModeToggle viewMode={viewMode} onChange={onViewModeChange} />
-          )}
         </div>
+        {viewMode && onViewModeChange && (
+          <ViewModeToggle viewMode={viewMode} onChange={onViewModeChange} />
+        )}
       </div>
     </div>
   );

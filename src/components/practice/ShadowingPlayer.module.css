@@ -12,26 +12,13 @@
   border: 1px solid var(--color-border);
 }
 
-/* Status + Speed + View Mode Combined Bar */
-.statusSpeedBar {
+/* Status Line - Above buttons */
+.statusLine {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-sm);
-  padding-top: var(--space-xs);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.statusSection {
-  display: flex;
-  align-items: center;
+  justify-content: center;
   gap: var(--space-xs);
-}
-
-.rightSection {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
 }
 
 .statusIndicator {
