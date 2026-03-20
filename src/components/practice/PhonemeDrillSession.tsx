@@ -4,7 +4,7 @@ import { useState, useCallback } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Button } from "@/components/ui";
 import { ShadowingPlayer } from "./ShadowingPlayer";
-import { SpectrogramDiff } from "./SpectrogramDiff";
+import { SpectrogramDiff, type ViewMode } from "./SpectrogramDiff";
 import { AudioPlayer } from "./AudioPlayer";
 import { Link } from "@/i18n/navigation";
 import { getLearnerId, addSession, getProfile } from "@/lib/learner-store";
@@ -99,6 +99,7 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
   const [error, setError] = useState<string | null>(null);
   const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());
   const [refProgress, setRefProgress] = useState<number | null>(null);
+  const [viewMode, setViewMode] = useState<ViewMode>("side-by-side");
 
   const step = drill.steps[currentStep];
   const lang = BCP47_MAP[drill.language];
@@ -201,26 +202,36 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
 
   return (
     <div className={styles.container}>
-      {/* Top Navigation Bar */}
+      {/* Top Navigation Bar with Step Dots */}
       <header className={styles.topBar}>
-        <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-          <Link href="/practice" className={styles.breadcrumbLink}>
-            {t("practice")}
-          </Link>
-          <span className={styles.breadcrumbSep}>/</span>
-          <span className={styles.breadcrumbCurrent}>{drill.phoneme} {drill.name}</span>
-        </nav>
-        <div className={styles.progress}>
-          <div className={styles.progressTrack}>
-            <div 
-              className={styles.progressFill} 
-              style={{ width: `${progressPercent}%` }}
+        <Button
+          variant="ghost"
+          onClick={() => goToStep(currentStep - 1)}
+          disabled={currentStep === 0 || analyzing}
+          className={styles.navArrowBtn}
+        >
+          ←
+        </Button>
+
+        <div className={styles.stepDots}>
+          {drill.steps.map((_, i) => (
+            <button
+              key={i}
+              className={`${styles.stepDot} ${i === currentStep ? styles.stepDotActive : ""} ${completedSteps.has(i) ? styles.stepDotCompleted : ""}`}
+              onClick={() => goToStep(i)}
+              aria-label={`Step ${i + 1}`}
             />
-          </div>
-          <span className={styles.progressText}>
-            {currentStep + 1} <span className={styles.progressTotal}>/ {drill.steps.length}</span>
-          </span>
+          ))}
         </div>
+
+        <Button
+          variant="ghost"
+          onClick={() => goToStep(currentStep + 1)}
+          disabled={currentStep === drill.steps.length - 1 || analyzing}
+          className={styles.navArrowBtn}
+        >
+          →
+        </Button>
       </header>
 
       {/* Main Content: Sidebar + Practice Area */}
@@ -276,6 +287,8 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
             onRefProgress={handleRefProgress}
             disabled={analyzing}
             hasRecorded={!!userBuffer}
+            viewMode={viewMode}
+            onViewModeChange={setViewMode}
           />
 
           {/* Spectrogram Comparison */}
@@ -286,10 +299,8 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
               refPlaybackProgress={refProgress}
               userBuffer={userBuffer}
               userStream={userStream}
-              referenceLabel={t("reference")}
-              userLabel={t("you")}
-              sideBySideLabel={t("sideBySide")}
-              overlayLabel={t("overlay")}
+              viewMode={viewMode}
+              onViewModeChange={setViewMode}
             />
           </div>
 
@@ -352,39 +363,6 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
         </main>
       </div>
 
-      {/* Bottom Navigation */}
-      <footer className={styles.bottomNav}>
-        <Button
-          variant="secondary"
-          onClick={() => goToStep(currentStep - 1)}
-          disabled={currentStep === 0 || analyzing}
-          className={styles.navButton}
-        >
-          <span className={styles.navArrow}>←</span>
-          <span className={styles.navLabel}>Previous</span>
-        </Button>
-        
-        <div className={styles.stepDots}>
-          {drill.steps.map((_, i) => (
-            <button
-              key={i}
-              className={`${styles.stepDot} ${i === currentStep ? styles.stepDotActive : ""} ${completedSteps.has(i) ? styles.stepDotCompleted : ""}`}
-              onClick={() => goToStep(i)}
-              aria-label={`Step ${i + 1}`}
-            />
-          ))}
-        </div>
-        
-        <Button
-          variant="secondary"
-          onClick={() => goToStep(currentStep + 1)}
-          disabled={currentStep === drill.steps.length - 1 || analyzing}
-          className={styles.navButton}
-        >
-          <span className={styles.navLabel}>Next</span>
-          <span className={styles.navArrow}>→</span>
-        </Button>
-      </footer>
     </div>
   );
 }

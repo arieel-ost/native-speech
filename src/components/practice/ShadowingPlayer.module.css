@@ -12,7 +12,7 @@
   border: 1px solid var(--color-border);
 }
 
-/* Status + Speed Combined Bar */
+/* Status + Speed + View Mode Combined Bar */
 .statusSpeedBar {
   display: flex;
   align-items: center;
@@ -26,6 +26,12 @@
   display: flex;
   align-items: center;
   gap: var(--space-xs);
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
 .statusIndicator {

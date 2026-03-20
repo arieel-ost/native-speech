@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import styles from "./ShadowingPlayer.module.css";
 
 type Phase = "idle" | "listening" | "recording" | "listen_repeat_listen" | "listen_repeat_record" | "countdown" | "shadowing";
+type ViewMode = "side-by-side" | "overlay";
 
 const AUTO_STOP_BUFFER = 0.5;
 
@@ -19,6 +20,8 @@ interface ShadowingPlayerProps {
   maxRecordDuration?: number | null;
   disabled?: boolean;
   hasRecorded?: boolean;
+  viewMode?: ViewMode;
+  onViewModeChange?: (mode: ViewMode) => void;
 }
 
 const SPEEDS = [0.6, 0.8, 1.0] as const;
@@ -34,6 +37,8 @@ export function ShadowingPlayer({
   maxRecordDuration,
   disabled = false,
   hasRecorded = false,
+  viewMode,
+  onViewModeChange,
 }: ShadowingPlayerProps) {
   const t = useTranslations("ShadowingPlayer");
   const [phase, setPhase] = useState<Phase>("idle");
@@ -357,7 +362,7 @@ export function ShadowingPlayer({
         </button>
       </div>
 
-      {/* Status + Speed Control Combined */}
+      {/* Status + Speed + View Mode Combined */}
       <div className={styles.statusSpeedBar}>
         <div className={styles.statusSection}>
           <div className={`${styles.statusIndicator} ${isRecording ? styles.statusRecording : isPlaying ? styles.statusPlaying : isShadowing ? styles.statusShadowing : ""}`} />
@@ -366,23 +371,58 @@ export function ShadowingPlayer({
             {phaseText}
           </span>
         </div>
-        <div className={styles.speedSection}>
-          <span className={styles.speedLabel}>{t("speed")}</span>
-          <div className={styles.speedControl}>
-            {SPEEDS.map((s) => (
-              <button
-                key={s}
-                className={`${styles.speedBtn} ${speed === s ? styles.speedBtnActive : ""}`}
-                onClick={() => setSpeed(s)}
-                disabled={isBusy}
-                aria-pressed={speed === s}
-              >
-                {s}x
-              </button>
-            ))}
+        <div className={styles.rightSection}>
+          <div className={styles.speedSection}>
+            <span className={styles.speedLabel}>{t("speed")}</span>
+            <div className={styles.speedControl}>
+              {SPEEDS.map((s) => (
+                <button
+                  key={s}
+                  className={`${styles.speedBtn} ${speed === s ? styles.speedBtnActive : ""}`}
+                  onClick={() => setSpeed(s)}
+                  disabled={isBusy}
+                  aria-pressed={speed === s}
+                >
+                  {s}x
+                </button>
+              ))}
+            </div>
           </div>
+          {viewMode && onViewModeChange && (
+            <ViewModeToggle viewMode={viewMode} onChange={onViewModeChange} />
+          )}
         </div>
       </div>
+    </div>
+  );
+}
+
+// View mode toggle component for spectrogram view
+export function ViewModeToggle({ 
+  viewMode, 
+  onChange 
+}: { 
+  viewMode: "side-by-side" | "overlay"; 
+  onChange: (mode: "side-by-side" | "overlay") => void;
+}) {
+  return (
+    <div className={styles.viewModeToggle}>
+      <button
+        className={`${styles.viewModeBtn} ${viewMode === "side-by-side" ? styles.viewModeActive : ""}`}
+        onClick={() => onChange("side-by-side")}
+        aria-pressed={viewMode === "side-by-side"}
+        title="Side by side"
+      >
+        ◫
+      </button>
+      <button
+        className={`${styles.viewModeBtn} ${viewMode === "overlay" ? styles.viewModeActive : ""}`}
+        onClick={() => onChange("overlay")}
+        aria-pressed={viewMode === "overlay"}
+        title="Overlay"
+      >
+        ⊕
+      </button>
     </div>
   );
 }

@@ -6,7 +6,7 @@ import { Spectrogram } from "./Spectrogram";
 import { useAudioBufferFromUrl } from "@/hooks/useAudioBufferFromUrl";
 import styles from "./SpectrogramDiff.module.css";
 
-type ViewMode = "side-by-side" | "overlay";
+export type ViewMode = "side-by-side" | "overlay";
 
 interface SpectrogramDiffProps {
   /** Pre-generated spectrogram image path (PNG fallback) */
@@ -19,10 +19,9 @@ interface SpectrogramDiffProps {
   userBuffer: AudioBuffer | null;
   /** Live stream for real-time user spectrogram during recording */
   userStream?: MediaStream | null;
-  referenceLabel?: string;
-  userLabel?: string;
-  sideBySideLabel?: string;
-  overlayLabel?: string;
+  /** External control for view mode */
+  viewMode?: ViewMode;
+  onViewModeChange?: (mode: ViewMode) => void;
 }
 
 export function SpectrogramDiff({
@@ -31,12 +30,13 @@ export function SpectrogramDiff({
   refPlaybackProgress,
   userBuffer,
   userStream,
-  referenceLabel = "Reference",
-  userLabel = "You",
-  sideBySideLabel = "Side by side",
-  overlayLabel = "Overlay",
+  viewMode: externalViewMode,
+  onViewModeChange,
 }: SpectrogramDiffProps) {
-  const [viewMode, setViewMode] = useState<ViewMode>("side-by-side");
+  const [internalViewMode, setInternalViewMode] = useState<ViewMode>("side-by-side");
+  const viewMode = externalViewMode ?? internalViewMode;
+  const setViewMode = onViewModeChange ?? setInternalViewMode;
+  
   const { buffer: refBuffer, loading: refLoading } =
     useAudioBufferFromUrl(referenceAudioSrc);
 
@@ -51,15 +51,15 @@ export function SpectrogramDiff({
     <Spectrogram
       audioBuffer={refBuffer}
       playbackProgress={refPlaybackProgress}
-      label={referenceLabel}
+      label="Reference"
       placeholder="Loading reference..."
     />
   ) : referenceSpectrogramSrc ? (
     <div className={styles.referencePanel}>
-      <span className={styles.panelLabel}>{referenceLabel}</span>
+      <span className={styles.panelLabel}>Reference</span>
       <Image
         src={referenceSpectrogramSrc}
-        alt={`${referenceLabel} spectrogram`}
+        alt="Reference spectrogram"
         width={400}
         height={200}
         className={styles.referenceImg}
@@ -84,7 +84,7 @@ export function SpectrogramDiff({
     <Spectrogram
       audioBuffer={userStream ? undefined : userBuffer}
       stream={userStream}
-      label={userLabel}
+      label="You"
       placeholder="Record to see your spectrogram"
       className={isOverlay ? styles.overlayUser : ""}
       maxDuration={sharedDuration}
@@ -93,24 +93,6 @@ export function SpectrogramDiff({
 
   return (
     <div className={styles.wrapper}>
-      {/* View mode toggle */}
-      <div className={styles.toggleBar}>
-        <button
-          className={`${styles.toggleBtn} ${!isOverlay ? styles.toggleActive : ""}`}
-          onClick={() => setViewMode("side-by-side")}
-          aria-pressed={!isOverlay}
-        >
-          {sideBySideLabel}
-        </button>
-        <button
-          className={`${styles.toggleBtn} ${isOverlay ? styles.toggleActive : ""}`}
-          onClick={() => setViewMode("overlay")}
-          aria-pressed={isOverlay}
-        >
-          {overlayLabel}
-        </button>
-      </div>
-
       {isOverlay ? (
         <div className={styles.overlayGrid}>
           {referenceContent}
@@ -122,17 +104,36 @@ export function SpectrogramDiff({
           {userContent}
         </div>
       )}
+    </div>
+  );
+}
 
-      <div className={styles.legend}>
-        <div className={styles.legendItem}>
-          <span className={`${styles.dot} ${styles.dotRef}`} />
-          <span>{referenceLabel}</span>
-        </div>
-        <div className={styles.legendItem}>
-          <span className={`${styles.dot} ${styles.dotUser}`} />
-          <span>{userLabel}</span>
-        </div>
-      </div>
+// Export toggle component for use in parent
+export function ViewModeToggle({ 
+  viewMode, 
+  onChange 
+}: { 
+  viewMode: ViewMode; 
+  onChange: (mode: ViewMode) => void;
+}) {
+  return (
+    <div className={styles.toggleCompact}>
+      <button
+        className={`${styles.toggleIcon} ${viewMode === "side-by-side" ? styles.toggleActive : ""}`}
+        onClick={() => onChange("side-by-side")}
+        aria-pressed={viewMode === "side-by-side"}
+        title="Side by side"
+      >
+        ◫
+      </button>
+      <button
+        className={`${styles.toggleIcon} ${viewMode === "overlay" ? styles.toggleActive : ""}`}
+        onClick={() => onChange("overlay")}
+        aria-pressed={viewMode === "overlay"}
+        title="Overlay"
+      >
+        ⊕
+      </button>
     </div>
   );
 }
