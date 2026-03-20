@@ -395,7 +395,8 @@
     "phaseShadowListen": "Внимательно слушайте...",
     "phaseShadowRepeat": "Теперь повторите!",
     "phaseShadowing": "Шэдоуинг — повторяйте одновременно!",
-    "phaseGetReady": "Приготовьтесь..."
+    "phaseGetReady": "Приготовьтесь...",
+    "phaseReady": "Готовы к практике"
   },
   "Difficulty": {
     "beginner": "начинающий",

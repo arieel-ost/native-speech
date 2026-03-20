@@ -256,10 +256,6 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
               <span className={styles.stepTypeLabel}>
                 {t(`stepType_${step.type}`, { defaultValue: step.type })}
               </span>
-              <span className={styles.stepDivider} />
-              <span className={styles.stepNumber}>
-                Step {currentStep + 1} of {drill.steps.length}
-              </span>
             </div>
             
             <div className={styles.promptSection}>

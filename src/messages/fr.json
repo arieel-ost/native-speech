@@ -395,7 +395,8 @@
     "phaseShadowListen": "Écoutez attentivement...",
     "phaseShadowRepeat": "Maintenant, répétez !",
     "phaseShadowing": "Shadowing — parlez en même temps !",
-    "phaseGetReady": "Préparez-vous..."
+    "phaseGetReady": "Préparez-vous...",
+    "phaseReady": "Prêt à pratiquer"
   },
   "Difficulty": {
     "beginner": "débutant",
