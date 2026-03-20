@@ -60,6 +60,13 @@
   color: var(--color-text-muted);
 }
 
+.optionsBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
 .speedSection {
   display: flex;
   align-items: center;

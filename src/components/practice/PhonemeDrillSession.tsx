@@ -226,8 +226,18 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
           </nav>
         </div>
 
-        {/* Right: Progress + Next */}
+        {/* Right: Step Nav + Progress */}
         <div className={styles.topBarRight}>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => goToStep(currentStep - 1)}
+            disabled={currentStep === 0 || analyzing}
+            className={styles.stepArrowBtn}
+          >
+            ←
+          </Button>
+          
           <div className={styles.progress}>
             <div className={styles.progressTrack}>
               <div 
@@ -239,14 +249,15 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
               {currentStep + 1} <span className={styles.progressTotal}>/ {drill.steps.length}</span>
             </span>
           </div>
+          
           <Button
-            variant="secondary"
+            variant="ghost"
             size="sm"
             onClick={() => goToStep(currentStep + 1)}
             disabled={currentStep === drill.steps.length - 1 || analyzing}
-            className={styles.nextBtn}
+            className={styles.stepArrowBtn}
           >
-            Next →
+            →
           </Button>
         </div>
       </header>
