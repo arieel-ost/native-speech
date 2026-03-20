@@ -12,11 +12,19 @@
   border: 1px solid var(--color-border);
 }
 
-/* Status Line */
-.statusLine {
+/* Status + Speed Combined Bar */
+.statusSpeedBar {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding-top: var(--space-xs);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.statusSection {
+  display: flex;
+  align-items: center;
   gap: var(--space-xs);
 }
 
@@ -57,8 +65,12 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
-  min-width: 100px;
-  text-align: center;
+}
+
+.speedSection {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
 /* Countdown */
@@ -198,16 +210,6 @@
   background: rgba(245, 158, 11, 0.1);
 }
 
-/* Speed Bar */
-.speedBar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  padding-top: var(--space-xs);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
 .speedLabel {
   font-size: 0.65rem;
   text-transform: uppercase;
@@ -263,8 +265,17 @@
     min-height: 56px;
   }
   
-  .speedBar {
-    flex-direction: row;
-    gap: var(--space-sm);
+  .statusSpeedBar {
+    flex-direction: column;
+    gap: var(--space-xs);
+    align-items: stretch;
+  }
+  
+  .statusSection {
+    justify-content: center;
+  }
+  
+  .speedSection {
+    justify-content: center;
   }
 }

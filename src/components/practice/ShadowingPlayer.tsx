@@ -282,15 +282,6 @@ export function ShadowingPlayer({
 
   return (
     <div className={styles.container}>
-      {/* Status Line */}
-      <div className={styles.statusLine}>
-        <div className={`${styles.statusIndicator} ${isRecording ? styles.statusRecording : isPlaying ? styles.statusPlaying : isShadowing ? styles.statusShadowing : ""}`} />
-        <span className={styles.statusText}>
-          {phase === "idle" && t("phaseReady")}
-          {phaseText}
-        </span>
-      </div>
-
       {/* Countdown Overlay */}
       {countdown !== null && (
         <div className={styles.countdownOverlay} aria-live="assertive">
@@ -366,21 +357,30 @@ export function ShadowingPlayer({
         </button>
       </div>
 
-      {/* Speed Control */}
-      <div className={styles.speedBar}>
-        <span className={styles.speedLabel}>{t("speed")}</span>
-        <div className={styles.speedControl}>
-          {SPEEDS.map((s) => (
-            <button
-              key={s}
-              className={`${styles.speedBtn} ${speed === s ? styles.speedBtnActive : ""}`}
-              onClick={() => setSpeed(s)}
-              disabled={isBusy}
-              aria-pressed={speed === s}
-            >
-              {s}x
-            </button>
-          ))}
+      {/* Status + Speed Control Combined */}
+      <div className={styles.statusSpeedBar}>
+        <div className={styles.statusSection}>
+          <div className={`${styles.statusIndicator} ${isRecording ? styles.statusRecording : isPlaying ? styles.statusPlaying : isShadowing ? styles.statusShadowing : ""}`} />
+          <span className={styles.statusText}>
+            {phase === "idle" && t("phaseReady")}
+            {phaseText}
+          </span>
+        </div>
+        <div className={styles.speedSection}>
+          <span className={styles.speedLabel}>{t("speed")}</span>
+          <div className={styles.speedControl}>
+            {SPEEDS.map((s) => (
+              <button
+                key={s}
+                className={`${styles.speedBtn} ${speed === s ? styles.speedBtnActive : ""}`}
+                onClick={() => setSpeed(s)}
+                disabled={isBusy}
+                aria-pressed={speed === s}
+              >
+                {s}x
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </div>
