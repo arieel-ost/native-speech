@@ -1,21 +1,42 @@
-.session {
-  max-width: 640px;
+/* ================================================================
+   PHONEME DRILL SESSION — Combined Design
+   Kimi's layout + Gemini's button influences
+   ================================================================ */
+
+/* Container & Layout Structure */
+.container {
   display: flex;
   flex-direction: column;
+  height: calc(100vh - 80px);
   gap: var(--space-md);
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Top Navigation Bar */
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
 }
 
 .breadcrumb {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-xs);
   font-size: 0.8rem;
   color: var(--color-text-muted);
 }
 
 .breadcrumbLink {
   color: var(--color-primary-light);
-  text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 .breadcrumbLink:hover {
@@ -23,292 +44,285 @@
 }
 
 .breadcrumbSep {
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
-.header {
+.breadcrumbCurrent {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Progress Indicator */
+.progress {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
-.title {
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-weight: 200;
+.progressTrack {
+  width: 120px;
+  height: 4px;
+  background: rgba(246, 239, 231, 0.1);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+.progressText {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.progressTotal {
+  color: var(--color-text-muted);
+}
+
+/* Main Content Area */
+.main {
+  display: flex;
+  gap: var(--space-md);
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Left Sidebar: Phoneme Identity */
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  overflow-y: auto;
+}
+
+.phonemeIdentity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-xs);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .phonemeSymbol {
   font-family: var(--font-mono);
-  font-weight: 400;
-  color: var(--color-primary-light);
-}
-
-/* ── Divider between sound reference and drill ── */
-.divider {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  margin: 0;
-}
-
-/* ── ZONE 1: Sound Reference ── */
-.soundReference {
-  display: flex;
-  align-items: center;
-  gap: var(--space-lg);
-}
-
-.soundIdentity {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  flex: 1;
-  min-width: 0;
-}
-
-.soundPhoneme {
-  font-family: var(--font-mono);
-  font-size: 2.5rem;
+  font-size: 5rem;
   font-weight: 300;
   color: var(--color-primary-light);
   line-height: 1;
+  text-shadow: 0 0 40px rgba(240, 176, 125, 0.15);
 }
 
-.soundIpa {
+.phonemeName {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
+
+.phonemeIpa {
   font-family: var(--font-mono);
-  font-size: 0.95rem;
-  color: var(--color-primary-light);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
   opacity: 0.7;
 }
 
-.soundName {
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+.diagramSection {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
 }
 
-.instruction {
-  background: rgba(99, 102, 241, 0.06);
-  border-left: 3px solid var(--color-primary);
-  padding: var(--space-sm) var(--space-md);
+/* Instruction in Sidebar */
+.instructionSidebar {
+  padding: var(--space-md);
+  background: rgba(99, 102, 241, 0.05);
+  border-radius: var(--radius-sm);
+  border-left: 2px solid var(--color-primary);
+}
+
+.instructionLabel {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary-light);
+  margin-bottom: var(--space-xs);
+}
+
+.instructionText {
   font-size: 0.85rem;
   line-height: 1.6;
   color: var(--color-text);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
-/* ── Drill content ── */
-.drillContent {
+/* Right: Practice Zone */
+.practiceZone {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-  align-items: center;
+  padding: var(--space-lg);
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  min-width: 0;
+  overflow-y: auto;
 }
 
-.stepType {
-  display: inline-flex;
+/* Drill Header */
+.drillHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.stepMeta {
+  display: flex;
   align-items: center;
   gap: var(--space-xs);
   font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
   color: var(--color-text-muted);
 }
 
 .stepTypeIcon {
-  font-size: 0.85rem;
+  font-size: 0.6rem;
+  color: var(--color-accent);
+}
+
+.stepTypeLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.stepDivider {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+  opacity: 0.4;
+}
+
+.stepNumber {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Prompt Section */
+.promptSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  align-items: center;
+  padding: var(--space-md) 0;
 }
 
 .prompt {
-  font-size: 1.6rem;
   font-family: var(--font-display);
+  font-size: 2.5rem;
   font-weight: 300;
-  line-height: 1.5;
+  color: var(--color-text);
   text-align: center;
-  padding: var(--space-sm) 0;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
-.ipa {
-  text-align: center;
+.promptIpa {
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--color-primary-light);
   opacity: 0.8;
 }
 
-/* ── Spectrogram ── */
-.spectrogramSection {
+/* Analysis Section */
+.analysisSection {
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-md) 0;
+  flex-shrink: 0;
+}
+
+/* Feedback Zone */
+.feedbackZone {
+  min-height: 120px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feedbackPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: var(--space-sm);
-}
-
-/* ── Feedback ── */
-.feedbackArea {
-  min-height: 60px;
-}
-
-.feedbackText {
   color: var(--color-text-muted);
-  font-size: 0.875rem;
   text-align: center;
+  padding: var(--space-lg);
 }
 
-.feedbackResult {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
+.placeholderIcon {
+  font-size: 1.5rem;
+  opacity: 0.5;
 }
 
-.feedbackScore {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-}
-
-.scoreValue {
-  font-size: 2rem;
-  font-weight: 200;
-  font-family: var(--font-display);
-  color: var(--color-primary-light);
-}
-
-.scoreMax {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-}
-
-.phonemeComparison {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
+.feedbackPlaceholder p {
   font-size: 0.9rem;
-  font-family: var(--font-mono);
-  padding: var(--space-xs) 0;
 }
 
-.phonemeProduced {
-  color: var(--color-error, #ef4444);
-}
-
-.phonemeExpected {
-  color: #22c55e;
-}
-
-.phonemeArrow {
-  color: var(--color-text-muted);
-}
-
-.feedbackSummary {
-  font-size: 0.875rem;
-  line-height: 1.6;
-  text-align: center;
-}
-
-.feedbackTip {
-  background: rgba(34, 197, 94, 0.06);
-  border-left: 3px solid #22c55e;
-  padding: var(--space-sm) var(--space-md);
-  font-size: 0.85rem;
-  line-height: 1.6;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-}
-
-/* ── Pagination (unified navigation) ── */
-.pagination {
+/* Feedback Error */
+.feedbackError {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-md);
-  padding-top: var(--space-sm);
-}
-
-.navArrow {
-  min-width: unset;
-  padding: var(--space-xs) var(--space-sm);
-  font-size: 1.2rem;
-  line-height: 1;
-}
-
-.progressDots {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-xs);
-}
-
-.dot {
-  position: relative;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: transparent;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  border: none;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dot::after {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-border);
-  transition: all 0.2s ease;
-}
-
-.dot:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-.dot:hover::after {
-  background: var(--color-text-muted);
-}
-
-.dotActive::after {
-  background: var(--color-primary);
-  width: 20px;
-  border-radius: var(--radius-full);
-}
-
-.dotCompleted::after {
-  background: #22c55e;
-}
-
-.stepLabel {
-  display: block;
-  text-align: center;
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
-}
-
-.errorText {
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: rgba(240, 120, 103, 0.08);
+  border-radius: var(--radius-sm);
+  border-left: 2px solid var(--color-error);
   color: var(--color-error);
-  font-size: 0.875rem;
-  text-align: center;
+  font-size: 0.9rem;
 }
 
-.analyzing {
+.feedbackIcon {
+  font-size: 1.1rem;
+}
+
+/* Feedback Analyzing */
+.feedbackAnalyzing {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
+  padding: var(--space-lg);
   color: var(--color-text-muted);
-  font-size: 0.875rem;
+  font-size: 0.9rem;
 }
 
-.spinner {
-  width: 16px;
-  height: 16px;
+.analyzingSpinner {
+  width: 18px;
+  height: 18px;
   border: 2px solid var(--color-border);
   border-top-color: var(--color-primary);
   border-radius: 50%;
@@ -319,9 +333,288 @@
   to { transform: rotate(360deg); }
 }
 
-.audioPlayback {
+/* Feedback Result */
+.feedbackResult {
   display: flex;
-  justify-content: center;
-  padding-top: var(--space-sm);
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: rgba(95, 191, 147, 0.05);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(95, 191, 147, 0.15);
 }
 
+.scoreSection {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.scoreRing {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(95, 191, 147, 0.1);
+  border-radius: var(--radius-full);
+}
+
+.scoreValue {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--color-success);
+}
+
+.scoreMax {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.scoreLabel {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Phoneme Diff */
+.phonemeDiff {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  width: fit-content;
+}
+
+.phonemeHeard {
+  color: var(--color-error);
+}
+
+.phonemeArrow {
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+.phonemeTarget {
+  color: var(--color-success);
+}
+
+.feedbackSummary {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+/* Feedback Tip */
+.feedbackTip {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: rgba(240, 176, 125, 0.08);
+  border-radius: var(--radius-sm);
+  border-left: 2px solid var(--color-primary);
+}
+
+.tipIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.feedbackTip p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Playback Section */
+.playbackSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-border);
+}
+
+.playbackLabel {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+/* Bottom Navigation */
+.bottomNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md);
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  min-width: 100px;
+  justify-content: center;
+}
+
+.navArrow {
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+.navLabel {
+  font-size: 0.85rem;
+}
+
+/* Step Dots */
+.stepDots {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.stepDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-border);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.stepDot:hover {
+  background: var(--color-text-muted);
+  transform: scale(1.1);
+}
+
+.stepDotActive {
+  background: var(--color-primary);
+  width: 24px;
+  border-radius: var(--radius-full);
+}
+
+.stepDotCompleted {
+  background: var(--color-success);
+}
+
+.stepDotCompleted::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.5rem;
+  color: var(--color-surface);
+  font-weight: 700;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    padding: var(--space-md);
+    gap: var(--space-md);
+  }
+  
+  .phonemeIdentity {
+    border-bottom: none;
+    border-right: 1px solid var(--color-border);
+    padding-bottom: 0;
+    padding-right: var(--space-md);
+    min-width: 120px;
+  }
+  
+  .phonemeSymbol {
+    font-size: 3rem;
+  }
+  
+  .diagramSection {
+    min-height: auto;
+    width: 100px;
+    flex-shrink: 0;
+  }
+  
+  .instructionSidebar {
+    flex: 1;
+  }
+  
+  .practiceZone {
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    height: auto;
+    min-height: calc(100vh - 80px);
+  }
+  
+  .topBar {
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: flex-start;
+  }
+  
+  .sidebar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .phonemeIdentity {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    padding-right: 0;
+    padding-bottom: var(--space-md);
+  }
+  
+  .diagramSection {
+    width: auto;
+    max-width: 150px;
+    margin: 0 auto;
+  }
+  
+  .prompt {
+    font-size: 1.75rem;
+  }
+  
+  .bottomNav {
+    gap: var(--space-sm);
+  }
+  
+  .navButton {
+    min-width: auto;
+    padding: var(--space-sm);
+  }
+  
+  .navLabel {
+    display: none;
+  }
+  
+  .stepDots {
+    gap: 6px;
+  }
+}

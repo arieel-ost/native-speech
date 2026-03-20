@@ -6,31 +6,18 @@ import styles from "./ShadowingPlayer.module.css";
 
 type Phase = "idle" | "listening" | "recording" | "listen_repeat_listen" | "listen_repeat_record" | "countdown" | "shadowing";
 
-/** Buffer added after reference duration before auto-stopping recording (seconds) */
 const AUTO_STOP_BUFFER = 0.5;
 
 interface ShadowingPlayerProps {
-  /** The text to speak via TTS */
   text: string;
-  /** BCP-47 language tag for TTS voice (e.g. "en-US", "de-DE") */
   lang: string;
-  /** Path to a pre-recorded phoneme audio file (e.g. /audio/phonemes/th_voiceless.mp3) */
   phonemeAudioSrc?: string | null;
-  /** Called when recording finishes — passes the audio blob and decoded AudioBuffer */
   onRecorded: (blob: Blob, buffer: AudioBuffer) => void;
-  /** Called when live recording stream starts */
   onStreamStart?: (stream: MediaStream) => void;
-  /** Called when live recording stream ends */
   onStreamEnd?: () => void;
-  /** Called with reference playback progress (0→1), null when not playing */
   onRefProgress?: (progress: number | null) => void;
-  /**
-   * Reference audio duration in seconds. When set, all recording modes
-   * auto-stop after this + 0.5s buffer so spectrograms align for overlay.
-   */
   maxRecordDuration?: number | null;
   disabled?: boolean;
-  /** Whether the user has recorded at least once — controls Listen button hint pulse */
   hasRecorded?: boolean;
 }
 
@@ -59,7 +46,6 @@ export function ShadowingPlayer({
   const autoStopTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const rafRef = useRef<number | null>(null);
 
-  // Cleanup on unmount
   useEffect(() => {
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
@@ -75,7 +61,6 @@ export function ShadowingPlayer({
     };
   }, []);
 
-  /** Stop tracking reference playback progress */
   const stopProgressTracking = useCallback(() => {
     if (rafRef.current) {
       cancelAnimationFrame(rafRef.current);
@@ -84,7 +69,6 @@ export function ShadowingPlayer({
     onRefProgress?.(null);
   }, [onRefProgress]);
 
-  /** Play reference audio — uses pre-recorded file if available, falls back to TTS */
   const playReference = useCallback(
     (playbackSpeed: number): Promise<void> => {
       if (phonemeAudioSrc) {
@@ -93,7 +77,6 @@ export function ShadowingPlayer({
           audio.playbackRate = playbackSpeed;
           audioElRef.current = audio;
 
-          // Track playback progress via rAF
           const trackProgress = () => {
             if (audio.duration && isFinite(audio.duration)) {
               onRefProgress?.(audio.currentTime / audio.duration);
@@ -118,7 +101,6 @@ export function ShadowingPlayer({
           });
         });
       }
-      // Fallback to browser TTS for words/phrases without a phoneme audio file
       return new Promise((resolve, reject) => {
         window.speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance(text);
@@ -141,10 +123,6 @@ export function ShadowingPlayer({
       audio: {
         noiseSuppression: true,
         autoGainControl: true,
-        // Disable echo cancellation when recording alongside reference playback
-        // (shadow mode). Even with headphones, the browser uses the OS audio
-        // output stream as a reference signal and suppresses correlated input —
-        // which is exactly the user's voice during shadowing.
         echoCancellation: !opts?.disableEchoCancellation,
       },
     });
@@ -166,19 +144,15 @@ export function ShadowingPlayer({
         onStreamEnd?.();
 
         const blob = new Blob(chunksRef.current, { type: mediaRecorder.mimeType });
-
-        // Decode to AudioBuffer for spectrogram
         const arrayBuf = await blob.arrayBuffer();
         const audioCtx = new AudioContext();
         let buffer: AudioBuffer;
         try {
           buffer = await audioCtx.decodeAudioData(arrayBuf);
         } catch {
-          // If decode fails, create empty buffer
           buffer = audioCtx.createBuffer(1, audioCtx.sampleRate, audioCtx.sampleRate);
         }
         await audioCtx.close();
-
         resolve({ blob, buffer });
       };
 
@@ -196,36 +170,30 @@ export function ShadowingPlayer({
     }
   }, []);
 
-  /** Start recording with auto-stop after refDuration + buffer */
   const startRecordingWithAutoStop = useCallback(async (opts?: { disableEchoCancellation?: boolean }): Promise<{ blob: Blob; buffer: AudioBuffer }> => {
     const recordPromise = startRecording(opts);
-
     if (maxRecordDuration != null && maxRecordDuration > 0) {
       autoStopTimerRef.current = setTimeout(
         () => stopRecording(),
         (maxRecordDuration + AUTO_STOP_BUFFER) * 1000,
       );
     }
-
     return recordPromise;
   }, [startRecording, stopRecording, maxRecordDuration]);
 
-  /** Listen to reference audio */
   const handleListen = useCallback(async () => {
     setPhase("listening");
     try {
       await playReference(speed);
     } catch {
-      // playback error — ignore
+      // ignore
     }
     setPhase("idle");
   }, [speed, playReference]);
 
-  /** Record user's pronunciation */
   const handleRecord = useCallback(async () => {
     if (phase !== "idle") return;
     setPhase("recording");
-
     let result: { blob: Blob; buffer: AudioBuffer };
     try {
       result = await startRecordingWithAutoStop();
@@ -233,16 +201,12 @@ export function ShadowingPlayer({
       setPhase("idle");
       return;
     }
-
     onRecorded(result.blob, result.buffer);
     setPhase("idle");
-  }, [phase, startRecordingWithAutoStop, stopRecording, onRecorded]);
+  }, [phase, startRecordingWithAutoStop, onRecorded]);
 
-  /** Listen & Repeat: listen first, then record */
   const handleListenRepeat = useCallback(async () => {
     if (phase !== "idle") return;
-
-    // Phase 1: Listen to reference
     setPhase("listen_repeat_listen");
     try {
       await playReference(speed);
@@ -250,13 +214,8 @@ export function ShadowingPlayer({
       setPhase("idle");
       return;
     }
-
-    // Short pause
     await new Promise((r) => setTimeout(r, 500));
-
-    // Phase 2: Record — same auto-stop as all other modes
     setPhase("listen_repeat_record");
-
     let result: { blob: Blob; buffer: AudioBuffer };
     try {
       result = await startRecordingWithAutoStop();
@@ -264,12 +223,10 @@ export function ShadowingPlayer({
       setPhase("idle");
       return;
     }
-
     onRecorded(result.blob, result.buffer);
     setPhase("idle");
   }, [phase, speed, playReference, startRecordingWithAutoStop, onRecorded]);
 
-  /** Play a short tick sound via Web Audio API */
   const playTick = useCallback((freq: number = 800) => {
     try {
       const ctx = new AudioContext();
@@ -283,15 +240,12 @@ export function ShadowingPlayer({
       osc.start();
       osc.stop(ctx.currentTime + 0.06);
     } catch {
-      // Web Audio not available — skip
+      // ignore
     }
   }, []);
 
-  /** Real shadowing: 3-2-1 countdown, then play reference and record simultaneously */
   const handleShadow = useCallback(async () => {
     if (phase !== "idle") return;
-
-    // Countdown phase: 3 → 2 → 1
     setPhase("countdown");
     for (const n of [3, 2, 1]) {
       setCountdown(n);
@@ -299,22 +253,16 @@ export function ShadowingPlayer({
       await new Promise((r) => setTimeout(r, 800));
     }
     setCountdown(null);
-
-    // Start recording and playback simultaneously — the reference audio's
-    // 1s leading silence gives the user visual prep time on the spectrogram.
     setPhase("shadowing");
-
     let result: { blob: Blob; buffer: AudioBuffer };
     try {
       const recordPromise = startRecordingWithAutoStop({ disableEchoCancellation: true });
-      // Play reference alongside recording — auto-stop handles the timing
       playReference(speed).catch(() => {});
       result = await recordPromise;
     } catch {
       setPhase("idle");
       return;
     }
-
     onRecorded(result.blob, result.buffer);
     setPhase("idle");
   }, [phase, speed, playTick, playReference, startRecordingWithAutoStop, onRecorded]);
@@ -325,47 +273,51 @@ export function ShadowingPlayer({
   const isShadowing = phase === "shadowing" || phase === "countdown";
 
   let phaseText = "";
-  let phaseClass = "";
-  if (phase === "listening") {
-    phaseText = t("phaseListening");
-    phaseClass = styles.phaseListening;
-  } else if (phase === "recording") {
-    phaseText = t("phaseRecording");
-    phaseClass = styles.phaseRecording;
-  } else if (phase === "listen_repeat_listen") {
-    phaseText = t("phaseShadowListen");
-    phaseClass = styles.phaseShadowing;
-  } else if (phase === "listen_repeat_record") {
-    phaseText = t("phaseShadowRepeat");
-    phaseClass = styles.phaseRecording;
-  } else if (phase === "countdown") {
-    phaseText = t("phaseGetReady");
-    phaseClass = styles.phaseShadowing;
-  } else if (phase === "shadowing") {
-    phaseText = t("phaseShadowing");
-    phaseClass = styles.phaseShadowing;
-  }
+  if (phase === "listening") phaseText = t("phaseListening");
+  else if (phase === "recording") phaseText = t("phaseRecording");
+  else if (phase === "listen_repeat_listen") phaseText = t("phaseShadowListen");
+  else if (phase === "listen_repeat_record") phaseText = t("phaseShadowRepeat");
+  else if (phase === "countdown") phaseText = t("phaseGetReady");
+  else if (phase === "shadowing") phaseText = t("phaseShadowing");
 
   return (
     <div className={styles.container}>
-      <div className={`${styles.phase} ${phaseClass}`} aria-live="assertive" role="status">
-        {phaseText || "\u00A0"}
+      {/* Status Line */}
+      <div className={styles.statusLine}>
+        <div className={`${styles.statusIndicator} ${isRecording ? styles.statusRecording : isPlaying ? styles.statusPlaying : isShadowing ? styles.statusShadowing : ""}`} />
+        <span className={styles.statusText}>
+          {phase === "idle" && t("phaseReady")}
+          {phaseText}
+        </span>
       </div>
 
+      {/* Countdown Overlay */}
       {countdown !== null && (
         <div className={styles.countdownOverlay} aria-live="assertive">
           <span key={countdown} className={styles.countdownNumber}>{countdown}</span>
         </div>
       )}
 
+      {/* Control Grid - Gemini Style */}
       <div className={styles.controls}>
         <button
-          className={`${styles.btn} ${styles.listenBtn} ${isPlaying ? styles.playing : ""} ${!isBusy && !hasRecorded ? styles.pulseHint : ""}`}
+          className={`${styles.btn} ${styles.listenBtn} ${isPlaying ? styles.playing : ""}`}
           onClick={handleListen}
           disabled={disabled || isBusy}
         >
-          <span className={styles.btnIcon} aria-hidden="true">{isPlaying ? "🔊" : "▶"}</span>
-          {t("listen")}
+          <div className={styles.btnIcon}>
+            {isPlaying ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="6" y="4" width="4" height="16" fill="currentColor"/>
+                <rect x="14" y="4" width="4" height="16" fill="currentColor"/>
+              </svg>
+            ) : (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 3l14 9-14 9V3z" fill="currentColor"/>
+              </svg>
+            )}
+          </div>
+          <span className={styles.btnLabel}>{t("listen")}</span>
         </button>
 
         <button
@@ -373,8 +325,12 @@ export function ShadowingPlayer({
           onClick={handleRecord}
           disabled={disabled || isBusy}
         >
-          <span className={styles.btnIcon} aria-hidden="true">●</span>
-          {t("record")}
+          <div className={styles.btnIcon}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="12" r="8"/>
+            </svg>
+          </div>
+          <span className={styles.btnLabel}>{t("record")}</span>
         </button>
 
         <button
@@ -382,8 +338,15 @@ export function ShadowingPlayer({
           onClick={handleListenRepeat}
           disabled={disabled || isBusy}
         >
-          <span className={styles.btnIcon} aria-hidden="true">🔄</span>
-          {t("listenRepeat")}
+          <div className={styles.btnIcon}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M17 1l4 4-4 4"/>
+              <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+              <path d="M7 23l-4-4 4-4"/>
+              <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+            </svg>
+          </div>
+          <span className={styles.btnLabel}>{t("listenRepeat")}</span>
         </button>
 
         <button
@@ -391,27 +354,34 @@ export function ShadowingPlayer({
           onClick={handleShadow}
           disabled={disabled || isBusy}
         >
-          <span className={styles.btnIcon} aria-hidden="true">🎙️</span>
-          <span className={styles.btnLabel}>
-            {t("shadow")}
-            <span className={styles.btnSubtitle}>{t("shadowSubtitle")}</span>
-          </span>
+          <div className={styles.btnIcon}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v1a7 7 0 0 1-14 0v-1"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+          </div>
+          <span className={styles.btnLabel}>{t("shadow")}</span>
         </button>
       </div>
 
-      <div className={styles.speedControl}>
-        <span>{t("speed")}</span>
-        {SPEEDS.map((s) => (
-          <button
-            key={s}
-            className={`${styles.speedBtn} ${speed === s ? styles.speedBtnActive : ""}`}
-            onClick={() => setSpeed(s)}
-            disabled={isBusy}
-            aria-pressed={speed === s}
-          >
-            {s}x
-          </button>
-        ))}
+      {/* Speed Control */}
+      <div className={styles.speedBar}>
+        <span className={styles.speedLabel}>{t("speed")}</span>
+        <div className={styles.speedControl}>
+          {SPEEDS.map((s) => (
+            <button
+              key={s}
+              className={`${styles.speedBtn} ${speed === s ? styles.speedBtnActive : ""}`}
+              onClick={() => setSpeed(s)}
+              disabled={isBusy}
+              aria-pressed={speed === s}
+            >
+              {s}x
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

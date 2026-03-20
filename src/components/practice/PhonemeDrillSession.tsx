@@ -19,17 +19,10 @@ const BCP47_MAP: Record<Language, string> = {
 };
 
 const STEP_TYPE_ICONS: Record<string, string> = {
-  isolated: "🔤",
+  isolated: "●",
   minimal_pair: "⇄",
-  word: "📝",
-  short_phrase: "💬",
-};
-
-const STEP_TYPE_LABELS: Record<string, string> = {
-  isolated: "Isolated Sound",
-  minimal_pair: "Minimal Pair",
-  word: "Word",
-  short_phrase: "Short Phrase",
+  word: "◆",
+  short_phrase: "◈",
 };
 
 interface PhonemeFeedback {
@@ -57,28 +50,18 @@ interface PhonemeAssetEntry {
 interface PhonemeAssets {
   audio: string;
   spectrogram: string;
-  /** Pre-calculated duration in seconds — always known, no async decode needed */
   duration: number | null;
 }
 
-/**
- * Normalize phoneme IDs that don't have exact matches in phoneme-map.json.
- * Handles length marks, slash-separated alternatives, and common aliases.
- */
 const PHONEME_ALIASES: Record<string, string> = {
-  "ɹ": "r",       // English R variant
-  "iː": "i",      // long E → short E (same base sound)
-  "ɪ/iː": "ɪ",   // short I / long E pair → use short I assets
-  "yː": "u",      // German ü → closest available
-  "øː": "ə",      // German ö → closest available
-  "ç/x": "x",     // German CH pair → velar fricative assets
+  "ɹ": "r",
+  "iː": "i",
+  "ɪ/iː": "ɪ",
+  "yː": "u",
+  "øː": "ə",
+  "ç/x": "x",
 };
 
-/**
- * Look up pre-recorded audio & spectrogram for a given IPA symbol.
- * Always prefers the shadow variant (1s lead + audio + 0.5s trail)
- * so spectrograms align across all modes for overlay comparison.
- */
 function getPhonemeAssets(
   ipa: string,
   stepType: string,
@@ -153,7 +136,6 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
         setFeedback(fb);
         setCompletedSteps((prev) => new Set(prev).add(currentStep));
 
-        // Save session
         try {
           if (getProfile()) {
             addSession({
@@ -204,7 +186,6 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
     setRefProgress(progress);
   }, []);
 
-
   const goToStep = (index: number) => {
     setCurrentStep(index);
     setFeedback(null);
@@ -216,155 +197,198 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
 
   if (!step) return <p>{t("noDrills")}</p>;
 
+  const progressPercent = ((currentStep + 1) / drill.steps.length) * 100;
+
   return (
-    <div className={styles.session}>
-      <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-        <Link href="/practice" className={styles.breadcrumbLink}>
-          {t("practice")}
-        </Link>
-        <span className={styles.breadcrumbSep}>›</span>
-        <span>{drill.phoneme} {drill.name}</span>
-      </nav>
-      <div className={styles.header}>
-        <h1 className={styles.title}>
-          <span className={styles.phonemeSymbol}>{drill.phoneme}</span>{" "}
-          {drill.name}
-        </h1>
-      </div>
-
-      {/* ── Sound Reference (persistent across steps) ── */}
-      <div className={styles.soundReference}>
-        <div className={styles.soundIdentity}>
-          <span className={styles.soundPhoneme}>{drill.phoneme}</span>
-          <span className={styles.soundIpa}>/{drill.phoneme}/</span>
-          <span className={styles.soundName}>{drill.name}</span>
-        </div>
-        <ArticulationDiagram phoneme={drill.phoneme} />
-      </div>
-      {step.instruction && (
-        <div className={styles.instruction}>
-          {step.instruction}
-        </div>
-      )}
-
-      <hr className={styles.divider} />
-
-      {/* ── Drill (changes per step) ── */}
-      <div className={styles.drillContent}>
-        <span className={styles.stepType}>
-          <span className={styles.stepTypeIcon} aria-hidden="true">
-            {STEP_TYPE_ICONS[step.type] ?? "📝"}
+    <div className={styles.container}>
+      {/* Top Navigation Bar */}
+      <header className={styles.topBar}>
+        <nav className={styles.breadcrumb} aria-label="Breadcrumb">
+          <Link href="/practice" className={styles.breadcrumbLink}>
+            {t("practice")}
+          </Link>
+          <span className={styles.breadcrumbSep}>/</span>
+          <span className={styles.breadcrumbCurrent}>{drill.phoneme} {drill.name}</span>
+        </nav>
+        <div className={styles.progress}>
+          <div className={styles.progressTrack}>
+            <div 
+              className={styles.progressFill} 
+              style={{ width: `${progressPercent}%` }}
+            />
+          </div>
+          <span className={styles.progressText}>
+            {currentStep + 1} <span className={styles.progressTotal}>/ {drill.steps.length}</span>
           </span>
-          {t(`stepType_${step.type}`, { defaultValue: STEP_TYPE_LABELS[step.type] })}
-        </span>
+        </div>
+      </header>
 
-        <p className={styles.prompt}>{step.prompt}</p>
-        <p className={styles.ipa}>/{step.ipa}/</p>
-      </div>
-
-      {/* ── Action + spectrogram ── */}
-      <ShadowingPlayer
-        text={step.prompt}
-        lang={lang}
-        phonemeAudioSrc={refAudioSrc}
-        maxRecordDuration={refDuration}
-        onRecorded={handleRecorded}
-        onStreamStart={handleStreamStart}
-        onStreamEnd={handleStreamEnd}
-        onRefProgress={handleRefProgress}
-        disabled={analyzing}
-        hasRecorded={!!userBuffer}
-      />
-
-      <div className={styles.spectrogramSection}>
-        <SpectrogramDiff
-          referenceSpectrogramSrc={refSpectrogramSrc}
-          referenceAudioSrc={refAudioSrc}
-          refPlaybackProgress={refProgress}
-          userBuffer={userBuffer}
-          userStream={userStream}
-          referenceLabel={t("reference")}
-          userLabel={t("you")}
-          sideBySideLabel={t("sideBySide")}
-          overlayLabel={t("overlay")}
-        />
-      </div>
-
-      {/* ── Feedback ── */}
-      <div className={styles.feedbackArea} aria-live="polite">
-        {error ? (
-          <p className={styles.errorText}>{error}</p>
-        ) : analyzing ? (
-          <div className={styles.analyzing}>
-            <div className={styles.spinner} />
-            <span>{t("analyzing")}</span>
+      {/* Main Content: Sidebar + Practice Area */}
+      <div className={styles.main}>
+        {/* Left Sidebar: Phoneme Identity */}
+        <aside className={styles.sidebar}>
+          <div className={styles.phonemeIdentity}>
+            <span className={styles.phonemeSymbol}>{drill.phoneme}</span>
+            <span className={styles.phonemeName}>{drill.name}</span>
+            <span className={styles.phonemeIpa}>/{drill.phoneme}/</span>
           </div>
-        ) : feedback ? (
-          <div className={styles.feedbackResult}>
-            <div className={styles.feedbackScore}>
-              <span className={styles.scoreValue}>{feedback.score}</span>
-              <span className={styles.scoreMax}>/ 10</span>
+          
+          <div className={styles.diagramSection}>
+            <ArticulationDiagram phoneme={drill.phoneme} />
+          </div>
+
+          {step.instruction && (
+            <div className={styles.instructionSidebar}>
+              <span className={styles.instructionLabel}>How to make this sound</span>
+              <p className={styles.instructionText}>{step.instruction}</p>
             </div>
-            {feedback.produced && feedback.expected && feedback.produced !== feedback.expected && (
-              <div className={styles.phonemeComparison}>
-                <span className={styles.phonemeProduced}>
-                  {t("youSaid")}: <strong>/{feedback.produced}/</strong>
-                </span>
-                <span className={styles.phonemeArrow}>→</span>
-                <span className={styles.phonemeExpected}>
-                  {t("target")}: <strong>/{feedback.expected}/</strong>
-                </span>
+          )}
+        </aside>
+
+        {/* Right: Practice Zone */}
+        <main className={styles.practiceZone}>
+          {/* Drill Content Header */}
+          <div className={styles.drillHeader}>
+            <div className={styles.stepMeta}>
+              <span className={styles.stepTypeIcon} aria-hidden="true">
+                {STEP_TYPE_ICONS[step.type]}
+              </span>
+              <span className={styles.stepTypeLabel}>
+                {t(`stepType_${step.type}`, { defaultValue: step.type })}
+              </span>
+              <span className={styles.stepDivider} />
+              <span className={styles.stepNumber}>
+                Step {currentStep + 1} of {drill.steps.length}
+              </span>
+            </div>
+            
+            <div className={styles.promptSection}>
+              <h1 className={styles.prompt}>{step.prompt}</h1>
+              <span className={styles.promptIpa}>/{step.ipa}/</span>
+            </div>
+          </div>
+
+          {/* Recording Controls */}
+          <ShadowingPlayer
+            text={step.prompt}
+            lang={lang}
+            phonemeAudioSrc={refAudioSrc}
+            maxRecordDuration={refDuration}
+            onRecorded={handleRecorded}
+            onStreamStart={handleStreamStart}
+            onStreamEnd={handleStreamEnd}
+            onRefProgress={handleRefProgress}
+            disabled={analyzing}
+            hasRecorded={!!userBuffer}
+          />
+
+          {/* Spectrogram Comparison */}
+          <div className={styles.analysisSection}>
+            <SpectrogramDiff
+              referenceSpectrogramSrc={refSpectrogramSrc}
+              referenceAudioSrc={refAudioSrc}
+              refPlaybackProgress={refProgress}
+              userBuffer={userBuffer}
+              userStream={userStream}
+              referenceLabel={t("reference")}
+              userLabel={t("you")}
+              sideBySideLabel={t("sideBySide")}
+              overlayLabel={t("overlay")}
+            />
+          </div>
+
+          {/* Feedback Zone */}
+          <div className={styles.feedbackZone} aria-live="polite">
+            {error ? (
+              <div className={styles.feedbackError}>
+                <span className={styles.feedbackIcon}>⚠</span>
+                <p>{error}</p>
               </div>
-            )}
-            <p className={styles.feedbackSummary}>{feedback.summary}</p>
-            {feedback.tip && (
-              <div className={styles.feedbackTip}>
-                {feedback.tip}
+            ) : analyzing ? (
+              <div className={styles.feedbackAnalyzing}>
+                <div className={styles.analyzingSpinner} />
+                <span>{t("analyzing")}</span>
               </div>
-            )}
-            {audioUrl && (
-              <div className={styles.audioPlayback}>
-                <AudioPlayer src={audioUrl} />
+            ) : feedback ? (
+              <div className={styles.feedbackResult}>
+                <div className={styles.scoreSection}>
+                  <div className={styles.scoreRing}>
+                    <span className={styles.scoreValue}>{feedback.score}</span>
+                    <span className={styles.scoreMax}>/10</span>
+                  </div>
+                  <div className={styles.scoreLabel}>
+                    {feedback.phonemeRating === "good" ? "Excellent" : 
+                     feedback.phonemeRating === "acceptable" ? "Good progress" : "Keep practicing"}
+                  </div>
+                </div>
+                
+                {feedback.produced && feedback.expected && feedback.produced !== feedback.expected && (
+                  <div className={styles.phonemeDiff}>
+                    <span className={styles.phonemeHeard}>Heard: /{feedback.produced}/</span>
+                    <span className={styles.phonemeArrow}>→</span>
+                    <span className={styles.phonemeTarget}>Target: /{feedback.expected}/</span>
+                  </div>
+                )}
+                
+                <p className={styles.feedbackSummary}>{feedback.summary}</p>
+                
+                {feedback.tip && (
+                  <div className={styles.feedbackTip}>
+                    <span className={styles.tipIcon}>💡</span>
+                    <p>{feedback.tip}</p>
+                  </div>
+                )}
+                
+                {audioUrl && (
+                  <div className={styles.playbackSection}>
+                    <span className={styles.playbackLabel}>Your recording</span>
+                    <AudioPlayer src={audioUrl} />
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className={styles.feedbackPlaceholder}>
+                <span className={styles.placeholderIcon}>🎙️</span>
+                <p>{t("feedbackPlaceholder")}</p>
               </div>
             )}
           </div>
-        ) : (
-          <p className={styles.feedbackText}>{t("feedbackPlaceholder")}</p>
-        )}
+        </main>
       </div>
 
-      {/* ── Pagination (unified navigation) ── */}
-      <div className={styles.pagination}>
+      {/* Bottom Navigation */}
+      <footer className={styles.bottomNav}>
         <Button
           variant="secondary"
           onClick={() => goToStep(currentStep - 1)}
           disabled={currentStep === 0 || analyzing}
-          className={styles.navArrow}
+          className={styles.navButton}
         >
-          ‹
+          <span className={styles.navArrow}>←</span>
+          <span className={styles.navLabel}>Previous</span>
         </Button>
-        <div className={styles.progressDots}>
+        
+        <div className={styles.stepDots}>
           {drill.steps.map((_, i) => (
             <button
               key={i}
-              className={`${styles.dot} ${i === currentStep ? styles.dotActive : ""} ${completedSteps.has(i) ? styles.dotCompleted : ""}`}
+              className={`${styles.stepDot} ${i === currentStep ? styles.stepDotActive : ""} ${completedSteps.has(i) ? styles.stepDotCompleted : ""}`}
               onClick={() => goToStep(i)}
               aria-label={`Step ${i + 1}`}
             />
           ))}
         </div>
+        
         <Button
           variant="secondary"
           onClick={() => goToStep(currentStep + 1)}
           disabled={currentStep === drill.steps.length - 1 || analyzing}
-          className={styles.navArrow}
+          className={styles.navButton}
         >
-          ›
+          <span className={styles.navLabel}>Next</span>
+          <span className={styles.navArrow}>→</span>
         </Button>
-      </div>
-      <span className={styles.stepLabel}>
-        {t("stepOf", { current: currentStep + 1, total: drill.steps.length })}
-      </span>
+      </footer>
     </div>
   );
 }
