@@ -244,6 +244,44 @@
   border-color: var(--color-primary);
 }
 
+/* View Mode Toggle - Segmented Button Style */
+.viewModeToggle {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 3px;
+  gap: 2px;
+}
+
+.viewModeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.viewModeBtn:hover {
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.viewModeActive {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-primary-light);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
 /* Responsive */
 @media (max-width: 640px) {
   .container {
