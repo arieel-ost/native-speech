@@ -202,36 +202,53 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
 
   return (
     <div className={styles.container}>
-      {/* Top Navigation Bar with Step Dots */}
+      {/* Top Navigation Bar */}
       <header className={styles.topBar}>
-        <Button
-          variant="ghost"
-          onClick={() => goToStep(currentStep - 1)}
-          disabled={currentStep === 0 || analyzing}
-          className={styles.navArrowBtn}
-        >
-          ←
-        </Button>
-
-        <div className={styles.stepDots}>
-          {drill.steps.map((_, i) => (
-            <button
-              key={i}
-              className={`${styles.stepDot} ${i === currentStep ? styles.stepDotActive : ""} ${completedSteps.has(i) ? styles.stepDotCompleted : ""}`}
-              onClick={() => goToStep(i)}
-              aria-label={`Step ${i + 1}`}
-            />
-          ))}
+        {/* Left: Back + Breadcrumb */}
+        <div className={styles.topBarLeft}>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => window.location.href = "/practice"}
+            className={styles.backBtn}
+            title="Back to practice"
+          >
+            ←
+          </Button>
+          <nav className={styles.breadcrumb}>
+            <Link href="/practice" className={styles.breadcrumbLink}>
+              Practice
+            </Link>
+            <span className={styles.breadcrumbSep}>/</span>
+            <span className={styles.breadcrumbCurrent}>
+              {drill.phoneme} {drill.name}
+            </span>
+          </nav>
         </div>
 
-        <Button
-          variant="ghost"
-          onClick={() => goToStep(currentStep + 1)}
-          disabled={currentStep === drill.steps.length - 1 || analyzing}
-          className={styles.navArrowBtn}
-        >
-          →
-        </Button>
+        {/* Right: Progress + Next */}
+        <div className={styles.topBarRight}>
+          <div className={styles.progress}>
+            <div className={styles.progressTrack}>
+              <div 
+                className={styles.progressFill} 
+                style={{ width: `${progressPercent}%` }}
+              />
+            </div>
+            <span className={styles.progressText}>
+              {currentStep + 1} <span className={styles.progressTotal}>/ {drill.steps.length}</span>
+            </span>
+          </div>
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={() => goToStep(currentStep + 1)}
+            disabled={currentStep === drill.steps.length - 1 || analyzing}
+            className={styles.nextBtn}
+          >
+            Next →
+          </Button>
+        </div>
       </header>
 
       {/* Main Content: Sidebar + Practice Area */}
