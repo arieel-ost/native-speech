@@ -8,10 +8,11 @@
   display: flex;
   flex-direction: column;
   height: calc(100vh - 80px);
-  gap: var(--space-md);
+  gap: var(--space-sm);
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
+  overflow: hidden;
 }
 
 /* Top Navigation Bar */
@@ -19,7 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-xs) var(--space-md);
   background: var(--color-surface-alt);
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
@@ -88,24 +89,26 @@
 /* Main Content Area */
 .main {
   display: flex;
-  gap: var(--space-md);
+  gap: var(--space-sm);
   flex: 1;
   min-height: 0;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 /* Left Sidebar: Phoneme Identity */
 .sidebar {
-  width: 260px;
+  width: 220px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-  padding: var(--space-lg);
+  gap: var(--space-sm);
+  padding: var(--space-md);
   background: var(--color-surface-alt);
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
-  overflow-y: auto;
+  height: fit-content;
+  position: sticky;
+  top: 0;
 }
 
 .phonemeIdentity {
@@ -113,23 +116,23 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: var(--space-xs);
-  padding-bottom: var(--space-md);
+  gap: 2px;
+  padding-bottom: var(--space-sm);
   border-bottom: 1px solid var(--color-border);
 }
 
 .phonemeSymbol {
   font-family: var(--font-mono);
-  font-size: 5rem;
+  font-size: 3.5rem;
   font-weight: 300;
   color: var(--color-primary-light);
   line-height: 1;
-  text-shadow: 0 0 40px rgba(240, 176, 125, 0.15);
+  text-shadow: 0 0 30px rgba(240, 176, 125, 0.15);
 }
 
 .phonemeName {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: 400;
   color: var(--color-text);
   letter-spacing: 0.02em;
@@ -137,22 +140,21 @@
 
 .phonemeIpa {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--color-text-muted);
   opacity: 0.7;
 }
 
 .diagramSection {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 200px;
+  min-height: 140px;
 }
 
 /* Instruction in Sidebar */
 .instructionSidebar {
-  padding: var(--space-md);
+  padding: var(--space-sm);
   background: rgba(99, 102, 241, 0.05);
   border-radius: var(--radius-sm);
   border-left: 2px solid var(--color-primary);
@@ -160,17 +162,17 @@
 
 .instructionLabel {
   display: block;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-primary-light);
-  margin-bottom: var(--space-xs);
+  margin-bottom: 2px;
 }
 
 .instructionText {
-  font-size: 0.85rem;
-  line-height: 1.6;
+  font-size: 0.8rem;
+  line-height: 1.5;
   color: var(--color-text);
 }
 
@@ -179,21 +181,21 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-  padding: var(--space-lg);
+  gap: var(--space-sm);
+  padding: var(--space-md);
   background: var(--color-surface-alt);
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
   min-width: 0;
-  overflow-y: auto;
+  height: fit-content;
 }
 
 /* Drill Header */
 .drillHeader {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-  padding-bottom: var(--space-md);
+  gap: var(--space-sm);
+  padding-bottom: var(--space-sm);
   border-bottom: 1px solid var(--color-border);
   flex-shrink: 0;
 }
@@ -234,14 +236,14 @@
 .promptSection {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: 2px;
   align-items: center;
-  padding: var(--space-md) 0;
+  padding: var(--space-sm) 0;
 }
 
 .prompt {
   font-family: var(--font-display);
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 300;
   color: var(--color-text);
   text-align: center;
@@ -251,7 +253,7 @@
 
 .promptIpa {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--color-primary-light);
   opacity: 0.8;
 }
@@ -260,13 +262,13 @@
 .analysisSection {
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
-  padding: var(--space-md) 0;
+  padding: var(--space-sm) 0;
   flex-shrink: 0;
 }
 
 /* Feedback Zone */
 .feedbackZone {
-  min-height: 120px;
+  min-height: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -277,19 +279,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
   color: var(--color-text-muted);
   text-align: center;
-  padding: var(--space-lg);
+  padding: var(--space-md);
 }
 
 .placeholderIcon {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   opacity: 0.5;
 }
 
 .feedbackPlaceholder p {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 /* Feedback Error */
@@ -297,12 +299,12 @@
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: var(--space-md);
+  padding: var(--space-sm);
   background: rgba(240, 120, 103, 0.08);
   border-radius: var(--radius-sm);
   border-left: 2px solid var(--color-error);
   color: var(--color-error);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .feedbackIcon {
@@ -315,9 +317,9 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  padding: var(--space-lg);
+  padding: var(--space-md);
   color: var(--color-text-muted);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .analyzingSpinner {
@@ -337,8 +339,8 @@
 .feedbackResult {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-  padding: var(--space-md);
+  gap: var(--space-sm);
+  padding: var(--space-sm);
   background: rgba(95, 191, 147, 0.05);
   border-radius: var(--radius-sm);
   border: 1px solid rgba(95, 191, 147, 0.15);
@@ -347,33 +349,33 @@
 .scoreSection {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 
 .scoreRing {
   display: flex;
   align-items: baseline;
   gap: 2px;
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-xs) var(--space-sm);
   background: rgba(95, 191, 147, 0.1);
   border-radius: var(--radius-full);
 }
 
 .scoreValue {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 300;
   color: var(--color-success);
 }
 
 .scoreMax {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
 }
 
 .scoreLabel {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--color-text);
   font-weight: 500;
 }
@@ -383,11 +385,11 @@
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-xs) var(--space-sm);
   background: rgba(0, 0, 0, 0.2);
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   width: fit-content;
 }
 
@@ -405,8 +407,8 @@
 }
 
 .feedbackSummary {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.5;
   color: var(--color-text);
 }
 
@@ -414,20 +416,20 @@
 .feedbackTip {
   display: flex;
   gap: var(--space-sm);
-  padding: var(--space-md);
+  padding: var(--space-sm);
   background: rgba(240, 176, 125, 0.08);
   border-radius: var(--radius-sm);
   border-left: 2px solid var(--color-primary);
 }
 
 .tipIcon {
-  font-size: 1rem;
+  font-size: 0.9rem;
   flex-shrink: 0;
 }
 
 .feedbackTip p {
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 0.85rem;
+  line-height: 1.4;
   color: var(--color-text);
   margin: 0;
 }
@@ -436,13 +438,13 @@
 .playbackSection {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
-  padding-top: var(--space-sm);
+  gap: 2px;
+  padding-top: var(--space-xs);
   border-top: 1px solid var(--color-border);
 }
 
 .playbackLabel {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -454,7 +456,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
   background: var(--color-surface-alt);
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
