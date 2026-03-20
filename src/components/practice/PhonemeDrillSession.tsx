@@ -196,6 +196,8 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
     setUserStream(null);
   };
 
+  const allStepsCompleted = completedSteps.size === drill.steps.length;
+
   if (!step) return <p>{t("noDrills")}</p>;
 
   const progressPercent = ((currentStep + 1) / drill.steps.length) * 100;
@@ -204,61 +206,62 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
     <div className={styles.container}>
       {/* Top Navigation Bar */}
       <header className={styles.topBar}>
-        {/* Left: Back + Breadcrumb */}
-        <div className={styles.topBarLeft}>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => window.location.href = "/practice"}
-            className={styles.backBtn}
-            title="Back to practice"
-          >
-            ←
-          </Button>
-          <nav className={styles.breadcrumb}>
-            <Link href="/practice" className={styles.breadcrumbLink}>
-              Practice
-            </Link>
-            <span className={styles.breadcrumbSep}>/</span>
-            <span className={styles.breadcrumbCurrent}>
-              {drill.phoneme} {drill.name}
-            </span>
-          </nav>
-        </div>
+        {/* Left: Breadcrumb only */}
+        <nav className={styles.breadcrumb}>
+          <Link href="/practice" className={styles.breadcrumbLink}>
+            Practice
+          </Link>
+          <span className={styles.breadcrumbSep}>/</span>
+          <span className={styles.breadcrumbCurrent}>
+            {drill.phoneme} {drill.name}
+          </span>
+        </nav>
 
-        {/* Right: Step Nav + Progress */}
+        {/* Right: Step Navigation + Next Page Button */}
         <div className={styles.topBarRight}>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => goToStep(currentStep - 1)}
-            disabled={currentStep === 0 || analyzing}
-            className={styles.stepArrowBtn}
-          >
-            ←
-          </Button>
-          
-          <div className={styles.progress}>
-            <div className={styles.progressTrack}>
-              <div 
-                className={styles.progressFill} 
-                style={{ width: `${progressPercent}%` }}
-              />
+          {/* Step Arrows + Progress */}
+          <div className={styles.stepNav}>
+            <button
+              onClick={() => goToStep(currentStep - 1)}
+              disabled={currentStep === 0 || analyzing}
+              className={styles.stepArrow}
+              aria-label="Previous step"
+            >
+              ←
+            </button>
+            
+            <div className={styles.progress}>
+              <div className={styles.progressTrack}>
+                <div 
+                  className={styles.progressFill} 
+                  style={{ width: `${progressPercent}%` }}
+                />
+              </div>
+              <span className={styles.progressText}>
+                {currentStep + 1} <span className={styles.progressTotal}>/ {drill.steps.length}</span>
+              </span>
             </div>
-            <span className={styles.progressText}>
-              {currentStep + 1} <span className={styles.progressTotal}>/ {drill.steps.length}</span>
-            </span>
+            
+            <button
+              onClick={() => goToStep(currentStep + 1)}
+              disabled={currentStep === drill.steps.length - 1 || analyzing}
+              className={styles.stepArrow}
+              aria-label="Next step"
+            >
+              →
+            </button>
           </div>
-          
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => goToStep(currentStep + 1)}
-            disabled={currentStep === drill.steps.length - 1 || analyzing}
-            className={styles.stepArrowBtn}
+
+          {/* Next Page Button - Well Visible */}
+          <Link
+            href="/practice"
+            className={`${styles.nextPageBtn} ${!allStepsCompleted ? styles.nextPageBtnDisabled : ""}`}
+            aria-disabled={!allStepsCompleted}
+            onClick={(e) => !allStepsCompleted && e.preventDefault()}
+            title={allStepsCompleted ? "Back to practice" : "Complete all steps to continue"}
           >
-            →
-          </Button>
+            Next →
+          </Link>
         </div>
       </header>
 

@@ -23,22 +23,22 @@
   padding: var(--space-sm) 0;
   flex-shrink: 0;
   border-bottom: 1px solid var(--color-border);
-  gap: var(--space-md);
-}
-
-.topBarLeft {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
 }
 
 .topBarRight {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-lg);
 }
 
-.backBtn {
+/* Step Navigation: arrows + progress */
+.stepNav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.stepArrow {
   width: 32px;
   height: 32px;
   padding: 0;
@@ -46,31 +46,54 @@
   align-items: center;
   justify-content: center;
   font-size: 1rem;
+  color: var(--color-text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-}
-
-.backBtn:hover:not(:disabled) {
-  opacity: 1;
-}
-
-.stepArrowBtn {
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  border-radius: var(--radius-md);
-  opacity: 0.6;
+  cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.stepArrowBtn:hover:not(:disabled) {
-  opacity: 1;
-  background: rgba(255, 255, 255, 0.05);
+.stepArrow:hover:not(:disabled) {
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.stepArrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Next Page Button - Well Visible */
+.nextPageBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--color-primary);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.nextPageBtn:hover:not(.nextPageBtnDisabled) {
+  background: var(--color-primary-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(213, 122, 69, 0.3);
+}
+
+.nextPageBtnDisabled {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .breadcrumb {
