@@ -136,7 +136,7 @@ const fs = require('fs');
   } catch (error) {
     console.error('Error:', error.message);
     console.log('\n⚠ Make sure the dev server is running:');
-    console.log('   npm run dev');
+    console.log('   bun dev');
     console.log('\nThen run this script again.');
   }
   

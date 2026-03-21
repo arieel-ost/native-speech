@@ -380,7 +380,15 @@
     "target": "Цель",
     "sideBySide": "Рядом",
     "overlay": "Наложение",
-    "stepOf": "Шаг {current} из {total}"
+    "stepOf": "Шаг {current} из {total}",
+    "howToMakeSound": "Как произносить этот звук",
+    "excellent": "Отлично",
+    "goodProgress": "Хороший прогресс",
+    "keepPracticing": "Продолжайте практиковаться",
+    "yourRecording": "Ваша запись",
+    "loadingReference": "Загрузка образца...",
+    "recordToSee": "Запишите, чтобы увидеть спектрограмму",
+    "referenceWillAppear": "Здесь появится образец"
   },
   "ShadowingPlayer": {
     "listen": "Слушать",
@@ -396,7 +404,9 @@
     "phaseShadowRepeat": "Теперь повторите!",
     "phaseShadowing": "Шэдоуинг — повторяйте одновременно!",
     "phaseGetReady": "Приготовьтесь...",
-    "phaseReady": "Готовы к практике"
+    "phaseReady": "Готовы к практике",
+    "sideBySide": "Рядом",
+    "overlay": "Наложение"
   },
   "Difficulty": {
     "beginner": "начинающий",

@@ -207,7 +207,7 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
         {/* Left: Breadcrumb only */}
         <nav className={styles.breadcrumb}>
           <Link href="/practice" className={styles.breadcrumbLink}>
-            Practice
+            {t("practice")}
           </Link>
           <span className={styles.breadcrumbSep}>/</span>
           <span className={styles.breadcrumbCurrent}>
@@ -247,7 +247,7 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
             className={styles.nextButton}
             aria-label="Next step"
           >
-            NEXT →
+            {t("next")} →
           </button>
         </div>
       </header>
@@ -268,7 +268,7 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
 
           {step.instruction && (
             <div className={styles.instructionSidebar}>
-              <span className={styles.instructionLabel}>How to make this sound</span>
+              <span className={styles.instructionLabel}>{t("howToMakeSound")}</span>
               <p className={styles.instructionText}>{step.instruction}</p>
             </div>
           )}
@@ -342,16 +342,16 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
                     <span className={styles.scoreMax}>/10</span>
                   </div>
                   <div className={styles.scoreLabel}>
-                    {feedback.phonemeRating === "good" ? "Excellent" : 
-                     feedback.phonemeRating === "acceptable" ? "Good progress" : "Keep practicing"}
+                    {feedback.phonemeRating === "good" ? t("excellent") :
+                     feedback.phonemeRating === "acceptable" ? t("goodProgress") : t("keepPracticing")}
                   </div>
                 </div>
                 
                 {feedback.produced && feedback.expected && feedback.produced !== feedback.expected && (
                   <div className={styles.phonemeDiff}>
-                    <span className={styles.phonemeHeard}>Heard: /{feedback.produced}/</span>
+                    <span className={styles.phonemeHeard}>{t("youSaid")}: /{feedback.produced}/</span>
                     <span className={styles.phonemeArrow}>→</span>
-                    <span className={styles.phonemeTarget}>Target: /{feedback.expected}/</span>
+                    <span className={styles.phonemeTarget}>{t("target")}: /{feedback.expected}/</span>
                   </div>
                 )}
                 
@@ -366,7 +366,7 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
                 
                 {audioUrl && (
                   <div className={styles.playbackSection}>
-                    <span className={styles.playbackLabel}>Your recording</span>
+                    <span className={styles.playbackLabel}>{t("yourRecording")}</span>
                     <AudioPlayer src={audioUrl} />
                   </div>
                 )}

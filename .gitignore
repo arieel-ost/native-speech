@@ -44,5 +44,14 @@ next-env.d.ts
 .vercel
 .worktrees/
 
+# lockfiles (project uses bun)
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# dev artifacts
+/tmp/
+/screenshots/
+
 # waitlist data
 /data/

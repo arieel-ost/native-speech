@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Spectrogram } from "./Spectrogram";
 import { useAudioBufferFromUrl } from "@/hooks/useAudioBufferFromUrl";
@@ -33,6 +34,7 @@ export function SpectrogramDiff({
   viewMode: externalViewMode,
   onViewModeChange,
 }: SpectrogramDiffProps) {
+  const t = useTranslations("PhonemeDrill");
   const [internalViewMode, setInternalViewMode] = useState<ViewMode>("side-by-side");
   const viewMode = externalViewMode ?? internalViewMode;
   const setViewMode = onViewModeChange ?? setInternalViewMode;
@@ -51,12 +53,12 @@ export function SpectrogramDiff({
     <Spectrogram
       audioBuffer={refBuffer}
       playbackProgress={refPlaybackProgress}
-      label="Reference"
-      placeholder="Loading reference..."
+      label={t("reference")}
+      placeholder={t("loadingReference")}
     />
   ) : referenceSpectrogramSrc ? (
     <div className={styles.referencePanel}>
-      <span className={styles.panelLabel}>Reference</span>
+      <span className={styles.panelLabel}>{t("reference")}</span>
       <Image
         src={referenceSpectrogramSrc}
         alt="Reference spectrogram"
@@ -76,7 +78,7 @@ export function SpectrogramDiff({
     </div>
   ) : (
     <div className={`${styles.referencePanel}`}>
-      <div className={styles.empty}>Reference will appear here</div>
+      <div className={styles.empty}>{t("referenceWillAppear")}</div>
     </div>
   );
 
@@ -84,8 +86,8 @@ export function SpectrogramDiff({
     <Spectrogram
       audioBuffer={userStream ? undefined : userBuffer}
       stream={userStream}
-      label="You"
-      placeholder="Record to see your spectrogram"
+      label={t("you")}
+      placeholder={t("recordToSee")}
       className={isOverlay ? styles.overlayUser : ""}
       maxDuration={sharedDuration}
     />
@@ -109,20 +111,21 @@ export function SpectrogramDiff({
 }
 
 // Export toggle component for use in parent
-export function ViewModeToggle({ 
-  viewMode, 
-  onChange 
-}: { 
-  viewMode: ViewMode; 
+export function ViewModeToggle({
+  viewMode,
+  onChange
+}: {
+  viewMode: ViewMode;
   onChange: (mode: ViewMode) => void;
 }) {
+  const t = useTranslations("PhonemeDrill");
   return (
     <div className={styles.toggleCompact}>
       <button
         className={`${styles.toggleIcon} ${viewMode === "side-by-side" ? styles.toggleActive : ""}`}
         onClick={() => onChange("side-by-side")}
         aria-pressed={viewMode === "side-by-side"}
-        title="Side by side"
+        title={t("sideBySide")}
       >
         ◫
       </button>
@@ -130,7 +133,7 @@ export function ViewModeToggle({
         className={`${styles.toggleIcon} ${viewMode === "overlay" ? styles.toggleActive : ""}`}
         onClick={() => onChange("overlay")}
         aria-pressed={viewMode === "overlay"}
-        title="Overlay"
+        title={t("overlay")}
       >
         ⊕
       </button>

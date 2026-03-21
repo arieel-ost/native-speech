@@ -34,7 +34,7 @@ const { chromium } = require('playwright');
   } catch (error) {
     console.error('Error:', error.message);
     console.log('\nMake sure the dev server is running on localhost:3002');
-    console.log('Run: npm run dev');
+    console.log('Run: bun dev');
   }
   
   await browser.close();

@@ -380,7 +380,15 @@
     "target": "Target",
     "sideBySide": "Side by side",
     "overlay": "Overlay",
-    "stepOf": "Step {current} of {total}"
+    "stepOf": "Step {current} of {total}",
+    "howToMakeSound": "How to make this sound",
+    "excellent": "Excellent",
+    "goodProgress": "Good progress",
+    "keepPracticing": "Keep practicing",
+    "yourRecording": "Your recording",
+    "loadingReference": "Loading reference...",
+    "recordToSee": "Record to see your spectrogram",
+    "referenceWillAppear": "Reference will appear here"
   },
   "ShadowingPlayer": {
     "listen": "Listen",
@@ -396,7 +404,9 @@
     "phaseShadowRepeat": "Now repeat!",
     "phaseShadowing": "Shadowing — speak along!",
     "phaseGetReady": "Get ready...",
-    "phaseReady": "Ready to practice"
+    "phaseReady": "Ready to practice",
+    "sideBySide": "Side by side",
+    "overlay": "Overlay"
   },
   "Difficulty": {
     "beginner": "beginner",

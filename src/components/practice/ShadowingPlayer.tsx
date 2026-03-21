@@ -398,20 +398,21 @@ export function ShadowingPlayer({
 }
 
 // View mode toggle component for spectrogram view
-export function ViewModeToggle({ 
-  viewMode, 
-  onChange 
-}: { 
-  viewMode: "side-by-side" | "overlay"; 
+export function ViewModeToggle({
+  viewMode,
+  onChange
+}: {
+  viewMode: "side-by-side" | "overlay";
   onChange: (mode: "side-by-side" | "overlay") => void;
 }) {
+  const t = useTranslations("ShadowingPlayer");
   return (
     <div className={styles.viewModeToggle}>
       <button
         className={`${styles.viewModeBtn} ${viewMode === "side-by-side" ? styles.viewModeActive : ""}`}
         onClick={() => onChange("side-by-side")}
         aria-pressed={viewMode === "side-by-side"}
-        title="Side by side"
+        title={t("sideBySide")}
       >
         ◫
       </button>
@@ -419,7 +420,7 @@ export function ViewModeToggle({
         className={`${styles.viewModeBtn} ${viewMode === "overlay" ? styles.viewModeActive : ""}`}
         onClick={() => onChange("overlay")}
         aria-pressed={viewMode === "overlay"}
-        title="Overlay"
+        title={t("overlay")}
       >
         ⊕
       </button>
