@@ -379,7 +379,16 @@
     "youSaid": "Dijiste",
     "target": "Objetivo",
     "sideBySide": "Lado a lado",
-    "overlay": "Superponer"
+    "overlay": "Superponer",
+    "stepOf": "Paso {current} de {total}",
+    "howToMakeSound": "Cómo hacer este sonido",
+    "excellent": "Excelente",
+    "goodProgress": "Buen progreso",
+    "keepPracticing": "Sigue practicando",
+    "yourRecording": "Tu grabación",
+    "loadingReference": "Cargando referencia...",
+    "recordToSee": "Graba para ver tu espectrograma",
+    "referenceWillAppear": "La referencia aparecerá aquí"
   },
   "ShadowingPlayer": {
     "listen": "Escuchar",
@@ -387,13 +396,17 @@
     "stop": "Parar",
     "listenRepeat": "Escuchar y repetir",
     "shadow": "Shadowing",
+    "shadowSubtitle": "habla a la vez",
     "speed": "Velocidad:",
     "phaseListening": "Escuchando la referencia...",
     "phaseRecording": "Grabando — ¡habla ahora!",
     "phaseShadowListen": "Escucha con atención...",
     "phaseShadowRepeat": "¡Ahora repite!",
     "phaseShadowing": "Shadowing — ¡habla al mismo tiempo!",
-    "phaseGetReady": "Prepárate..."
+    "phaseGetReady": "Prepárate...",
+    "phaseReady": "Listo para practicar",
+    "sideBySide": "Lado a lado",
+    "overlay": "Superponer"
   },
   "Difficulty": {
     "beginner": "principiante",

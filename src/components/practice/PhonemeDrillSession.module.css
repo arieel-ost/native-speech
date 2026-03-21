@@ -1,21 +1,106 @@
-.session {
-  max-width: 640px;
+/* ================================================================
+   PHONEME DRILL SESSION — Combined Design
+   Kimi's layout + Gemini's button influences
+   ================================================================ */
+
+/* Container & Layout Structure */
+.container {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  height: calc(100vh - 80px);
+  gap: var(--space-sm);
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Top Navigation Bar */
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) 0;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Step Navigation: arrows + progress */
+.stepNav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* Subtle Back Button - Icon only, minimal */
+.backButton {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.backButton:hover:not(:disabled) {
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.backButton:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+/* Prominent Next Button - Filled, bold */
+.nextButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--color-primary);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nextButton:hover:not(:disabled) {
+  background: var(--color-primary-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(213, 122, 69, 0.3);
+}
+
+.nextButton:disabled {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .breadcrumb {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-xs);
   font-size: 0.8rem;
   color: var(--color-text-muted);
 }
 
 .breadcrumbLink {
   color: var(--color-primary-light);
-  text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 .breadcrumbLink:hover {
@@ -23,255 +108,286 @@
 }
 
 .breadcrumbSep {
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
-.header {
+.breadcrumbCurrent {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Progress Indicator */
+.progress {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
-.title {
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-weight: 200;
+.progressTrack {
+  width: 120px;
+  height: 4px;
+  background: rgba(246, 239, 231, 0.1);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+.progressText {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.progressTotal {
+  color: var(--color-text-muted);
+}
+
+/* Main Content Area */
+.main {
+  display: flex;
+  gap: var(--space-sm);
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* Left Sidebar: Phoneme Identity */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  height: fit-content;
+  position: sticky;
+  top: 0;
+}
+
+.phonemeIdentity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .phonemeSymbol {
   font-family: var(--font-mono);
-  font-weight: 400;
+  font-size: 3.5rem;
+  font-weight: 300;
   color: var(--color-primary-light);
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(240, 176, 125, 0.15);
 }
 
-.counter {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
+.phonemeName {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
+
+.phonemeIpa {
   font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  opacity: 0.7;
 }
 
-.stepCardWide {
-  max-width: none;
-  width: fit-content;
-  min-width: 100%;
-}
-
-.stepCard {
+.diagramSection {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
 }
 
-.stepContent {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
+/* Instruction in Sidebar */
+.instructionSidebar {
+  padding: var(--space-sm);
+  background: rgba(99, 102, 241, 0.05);
+  border-radius: var(--radius-sm);
+  border-left: 2px solid var(--color-primary);
+}
+
+.instructionLabel {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary-light);
+  margin-bottom: 2px;
+}
+
+.instructionText {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+/* Right: Practice Zone */
+.practiceZone {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--color-surface-alt);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
   min-width: 0;
+  height: fit-content;
 }
 
-@media (min-width: 720px) {
-  .stepCard {
-    flex-direction: row;
-    align-items: stretch;
-    gap: var(--space-lg);
-  }
-
-  .stepContent {
-    justify-content: center;
-  }
-
-  .stepCardWide {
-    max-width: 800px;
-  }
+/* Drill Header */
+.drillHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
 }
 
-.stepType {
-  display: inline-flex;
+.stepMeta {
+  display: flex;
   align-items: center;
   gap: var(--space-xs);
   font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
   color: var(--color-text-muted);
 }
 
 .stepTypeIcon {
-  font-size: 0.85rem;
+  font-size: 0.6rem;
+  color: var(--color-accent);
+}
+
+.stepTypeLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.stepDivider {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+  opacity: 0.4;
+}
+
+.stepNumber {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Prompt Section */
+.promptSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  padding: var(--space-sm) 0;
 }
 
 .prompt {
-  font-size: 1.6rem;
   font-family: var(--font-display);
+  font-size: 2rem;
   font-weight: 300;
-  line-height: 1.5;
+  color: var(--color-text);
   text-align: center;
-  padding: var(--space-md) 0;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
-.ipa {
-  text-align: center;
+.promptIpa {
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--color-primary-light);
   opacity: 0.8;
 }
 
-.instruction {
-  background: rgba(99, 102, 241, 0.06);
-  border-left: 3px solid var(--color-primary);
-  padding: var(--space-sm) var(--space-md);
-  font-size: 0.85rem;
-  line-height: 1.6;
-  color: var(--color-text);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+/* Analysis Section */
+.analysisSection {
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-sm) 0;
+  flex-shrink: 0;
 }
 
-.spectrogramSection {
+/* Feedback Zone */
+.feedbackZone {
+  min-height: 80px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.feedbackArea {
-  min-height: 60px;
-}
-
-.feedbackText {
-  color: var(--color-text-muted);
-  font-size: 0.875rem;
-  text-align: center;
-}
-
-.feedbackResult {
+.feedbackPlaceholder {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.feedbackScore {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-}
-
-.scoreValue {
-  font-size: 2rem;
-  font-weight: 200;
-  font-family: var(--font-display);
-  color: var(--color-primary-light);
-}
-
-.scoreMax {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-}
-
-.phonemeComparison {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  font-size: 0.9rem;
-  font-family: var(--font-mono);
-  padding: var(--space-xs) 0;
-}
-
-.phonemeProduced {
-  color: var(--color-error, #ef4444);
-}
-
-.phonemeExpected {
-  color: #22c55e;
-}
-
-.phonemeArrow {
-  color: var(--color-text-muted);
-}
-
-.feedbackSummary {
-  font-size: 0.875rem;
-  line-height: 1.6;
-  text-align: center;
-}
-
-.feedbackTip {
-  background: rgba(34, 197, 94, 0.06);
-  border-left: 3px solid #22c55e;
-  padding: var(--space-sm) var(--space-md);
-  font-size: 0.85rem;
-  line-height: 1.6;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-}
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-md);
-}
-
-.progressDots {
-  display: flex;
-  justify-content: center;
   gap: var(--space-xs);
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-border);
-  transition: all 0.2s ease;
-  cursor: pointer;
-  border: none;
-  padding: 0;
-}
-
-.dot:hover {
-  background: var(--color-text-muted);
-}
-
-.dotActive {
-  background: var(--color-primary);
-  width: 24px;
-  border-radius: var(--radius-full);
-}
-
-.dotCompleted {
-  background: #22c55e;
-}
-
-.backLink {
-  display: block;
-  text-align: center;
   color: var(--color-text-muted);
-  font-size: 0.875rem;
-  margin-top: var(--space-sm);
-}
-
-.backLink:hover {
-  color: var(--color-text);
-}
-
-.errorText {
-  color: var(--color-error);
-  font-size: 0.875rem;
   text-align: center;
+  padding: var(--space-md);
 }
 
-.analyzing {
+.placeholderIcon {
+  font-size: 1.25rem;
+  opacity: 0.5;
+}
+
+.feedbackPlaceholder p {
+  font-size: 0.85rem;
+}
+
+/* Feedback Error */
+.feedbackError {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background: rgba(240, 120, 103, 0.08);
+  border-radius: var(--radius-sm);
+  border-left: 2px solid var(--color-error);
+  color: var(--color-error);
+  font-size: 0.85rem;
+}
+
+.feedbackIcon {
+  font-size: 1.1rem;
+}
+
+/* Feedback Analyzing */
+.feedbackAnalyzing {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
+  padding: var(--space-md);
   color: var(--color-text-muted);
-  font-size: 0.875rem;
+  font-size: 0.85rem;
 }
 
-.spinner {
-  width: 16px;
-  height: 16px;
+.analyzingSpinner {
+  width: 18px;
+  height: 18px;
   border: 2px solid var(--color-border);
   border-top-color: var(--color-primary);
   border-radius: 50%;
@@ -282,7 +398,243 @@
   to { transform: rotate(360deg); }
 }
 
-.audioPlayback {
+/* Feedback Result */
+.feedbackResult {
   display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background: rgba(95, 191, 147, 0.05);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(95, 191, 147, 0.15);
+}
+
+.scoreSection {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.scoreRing {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  padding: var(--space-xs) var(--space-sm);
+  background: rgba(95, 191, 147, 0.1);
+  border-radius: var(--radius-full);
+}
+
+.scoreValue {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--color-success);
+}
+
+.scoreMax {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.scoreLabel {
+  font-size: 0.8rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Phoneme Diff */
+.phonemeDiff {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) var(--space-sm);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  width: fit-content;
+}
+
+.phonemeHeard {
+  color: var(--color-error);
+}
+
+.phonemeArrow {
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+.phonemeTarget {
+  color: var(--color-success);
+}
+
+.feedbackSummary {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+/* Feedback Tip */
+.feedbackTip {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background: rgba(240, 176, 125, 0.08);
+  border-radius: var(--radius-sm);
+  border-left: 2px solid var(--color-primary);
+}
+
+.tipIcon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.feedbackTip p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Playback Section */
+.playbackSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: var(--space-xs);
+  border-top: 1px solid var(--color-border);
+}
+
+.playbackLabel {
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+/* Step Dots in Top Bar */
+.stepDots {
+  display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.stepDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-border);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.stepDot:hover {
+  background: var(--color-text-muted);
+  transform: scale(1.1);
+}
+
+.stepDotActive {
+  background: var(--color-primary);
+  width: 20px;
+  border-radius: var(--radius-full);
+}
+
+.stepDotCompleted {
+  background: var(--color-success);
+}
+
+.stepDotCompleted::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.4rem;
+  color: var(--color-surface);
+  font-weight: 700;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    padding: var(--space-md);
+    gap: var(--space-md);
+  }
+  
+  .phonemeIdentity {
+    border-bottom: none;
+    border-right: 1px solid var(--color-border);
+    padding-bottom: 0;
+    padding-right: var(--space-md);
+    min-width: 120px;
+  }
+  
+  .phonemeSymbol {
+    font-size: 3rem;
+  }
+  
+  .diagramSection {
+    min-height: auto;
+    width: 100px;
+    flex-shrink: 0;
+  }
+  
+  .instructionSidebar {
+    flex: 1;
+  }
+  
+  .practiceZone {
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    height: auto;
+    min-height: calc(100vh - 80px);
+  }
+  
+  .topBar {
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: flex-start;
+  }
+  
+  .sidebar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .phonemeIdentity {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    padding-right: 0;
+    padding-bottom: var(--space-md);
+  }
+  
+  .diagramSection {
+    width: auto;
+    max-width: 150px;
+    margin: 0 auto;
+  }
+  
+  .prompt {
+    font-size: 1.75rem;
+  }
 }

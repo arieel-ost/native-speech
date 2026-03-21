@@ -214,7 +214,7 @@ export function Spectrogram({
       {label && <span className={styles.label}>{label}</span>}
       {hasContent ? (
         <>
-          <canvas ref={canvasRef} className={styles.canvas} />
+          <canvas ref={canvasRef} className={styles.canvas} role="img" aria-label={label ? `${label} spectrogram visualization` : "Spectrogram visualization"} />
           {rendering && (
             <div className={styles.rendering}>Rendering...</div>
           )}

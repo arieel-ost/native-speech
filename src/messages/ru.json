@@ -379,7 +379,16 @@
     "youSaid": "Вы сказали",
     "target": "Цель",
     "sideBySide": "Рядом",
-    "overlay": "Наложение"
+    "overlay": "Наложение",
+    "stepOf": "Шаг {current} из {total}",
+    "howToMakeSound": "Как произносить этот звук",
+    "excellent": "Отлично",
+    "goodProgress": "Хороший прогресс",
+    "keepPracticing": "Продолжайте практиковаться",
+    "yourRecording": "Ваша запись",
+    "loadingReference": "Загрузка образца...",
+    "recordToSee": "Запишите, чтобы увидеть спектрограмму",
+    "referenceWillAppear": "Здесь появится образец"
   },
   "ShadowingPlayer": {
     "listen": "Слушать",
@@ -387,13 +396,17 @@
     "stop": "Стоп",
     "listenRepeat": "Слушай и повтори",
     "shadow": "Шэдоуинг",
+    "shadowSubtitle": "говорите вместе",
     "speed": "Скорость:",
     "phaseListening": "Слушаем эталон...",
     "phaseRecording": "Запись — говорите!",
     "phaseShadowListen": "Внимательно слушайте...",
     "phaseShadowRepeat": "Теперь повторите!",
     "phaseShadowing": "Шэдоуинг — повторяйте одновременно!",
-    "phaseGetReady": "Приготовьтесь..."
+    "phaseGetReady": "Приготовьтесь...",
+    "phaseReady": "Готовы к практике",
+    "sideBySide": "Рядом",
+    "overlay": "Наложение"
   },
   "Difficulty": {
     "beginner": "начинающий",
