@@ -2,7 +2,6 @@
 
 import { useState, useCallback } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { Button } from "@/components/ui";
 import { ShadowingPlayer } from "./ShadowingPlayer";
 import { SpectrogramDiff, type ViewMode } from "./SpectrogramDiff";
 import { AudioPlayer } from "./AudioPlayer";
@@ -97,7 +96,7 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
   const [feedback, setFeedback] = useState<PhonemeFeedback | null>(null);
   const [analyzing, setAnalyzing] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());
+
   const [refProgress, setRefProgress] = useState<number | null>(null);
   const [viewMode, setViewMode] = useState<ViewMode>("side-by-side");
 
@@ -135,7 +134,6 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
 
         const fb = data.feedback as PhonemeFeedback;
         setFeedback(fb);
-        setCompletedSteps((prev) => new Set(prev).add(currentStep));
 
         try {
           if (getProfile()) {
@@ -304,7 +302,6 @@ export function PhonemeDrillSession({ drill }: PhonemeDrillSessionProps) {
             onStreamEnd={handleStreamEnd}
             onRefProgress={handleRefProgress}
             disabled={analyzing}
-            hasRecorded={!!userBuffer}
             viewMode={viewMode}
             onViewModeChange={setViewMode}
           />

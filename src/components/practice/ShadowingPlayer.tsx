@@ -7,6 +7,8 @@ import styles from "./ShadowingPlayer.module.css";
 type Phase = "idle" | "listening" | "recording" | "listen_repeat_listen" | "listen_repeat_record" | "countdown" | "shadowing";
 type ViewMode = "side-by-side" | "overlay";
 
+/** Extra seconds added to reference duration before auto-stopping the recorder,
+ *  so the user's trailing syllable isn't clipped. */
 const AUTO_STOP_BUFFER = 0.5;
 
 interface ShadowingPlayerProps {
@@ -19,7 +21,6 @@ interface ShadowingPlayerProps {
   onRefProgress?: (progress: number | null) => void;
   maxRecordDuration?: number | null;
   disabled?: boolean;
-  hasRecorded?: boolean;
   viewMode?: ViewMode;
   onViewModeChange?: (mode: ViewMode) => void;
 }
@@ -36,7 +37,6 @@ export function ShadowingPlayer({
   onRefProgress,
   maxRecordDuration,
   disabled = false,
-  hasRecorded = false,
   viewMode,
   onViewModeChange,
 }: ShadowingPlayerProps) {
@@ -244,6 +244,7 @@ export function ShadowingPlayer({
       osc.connect(gain).connect(ctx.destination);
       osc.start();
       osc.stop(ctx.currentTime + 0.06);
+      osc.onended = () => ctx.close();
     } catch {
       // ignore
     }

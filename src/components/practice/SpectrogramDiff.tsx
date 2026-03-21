@@ -37,7 +37,6 @@ export function SpectrogramDiff({
   const t = useTranslations("PhonemeDrill");
   const [internalViewMode, setInternalViewMode] = useState<ViewMode>("side-by-side");
   const viewMode = externalViewMode ?? internalViewMode;
-  const setViewMode = onViewModeChange ?? setInternalViewMode;
   
   const { buffer: refBuffer, loading: refLoading } =
     useAudioBufferFromUrl(referenceAudioSrc);
@@ -110,33 +109,3 @@ export function SpectrogramDiff({
   );
 }
 
-// Export toggle component for use in parent
-export function ViewModeToggle({
-  viewMode,
-  onChange
-}: {
-  viewMode: ViewMode;
-  onChange: (mode: ViewMode) => void;
-}) {
-  const t = useTranslations("PhonemeDrill");
-  return (
-    <div className={styles.toggleCompact}>
-      <button
-        className={`${styles.toggleIcon} ${viewMode === "side-by-side" ? styles.toggleActive : ""}`}
-        onClick={() => onChange("side-by-side")}
-        aria-pressed={viewMode === "side-by-side"}
-        title={t("sideBySide")}
-      >
-        ◫
-      </button>
-      <button
-        className={`${styles.toggleIcon} ${viewMode === "overlay" ? styles.toggleActive : ""}`}
-        onClick={() => onChange("overlay")}
-        aria-pressed={viewMode === "overlay"}
-        title={t("overlay")}
-      >
-        ⊕
-      </button>
-    </div>
-  );
-}
