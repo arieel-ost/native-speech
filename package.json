@@ -11,7 +11,8 @@
     "test": "bun test",
     "test-prompt": "bun run scripts/test-prompt.ts",
     "batch-test": "bun run scripts/batch-test.ts",
-    "azure-test": "bun run scripts/azure-test.ts"
+    "azure-test": "bun run scripts/azure-test.ts",
+    "speechbrain-test": "bun run scripts/speechbrain-test.ts"
   },
   "dependencies": {
     "@composio/ao": "^0.1.0",
