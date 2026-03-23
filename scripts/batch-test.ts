@@ -189,7 +189,9 @@ async function main() {
         });
 
         const latencyMs = Date.now() - startTime;
-        const rawText = response.text ?? "{}";
+        let rawText = response.text ?? "{}";
+        // Strip markdown code fences if model ignores responseMimeType
+        rawText = rawText.replace(/^```(?:json)?\s*\n?/, "").replace(/\n?```\s*$/, "");
         const result = JSON.parse(rawText);
 
         const runResult: RunResult = { sample, model, success: true, latencyMs, result };
@@ -397,6 +399,11 @@ function generateMarkdownReport(samples: Sample[], models: string[], results: Ru
 
   lines.push(`| Avg score | ${models.map((m) => stats[m].avgScore || "—").join(" | ")} |`);
   lines.push(`| Avg latency | ${models.map((m) => stats[m].avgLatency ? `${stats[m].avgLatency}ms` : "—").join(" | ")} |`);
+  lines.push(`| Success rate | ${models.map((m) => {
+    const s = stats[m];
+    const n = successful(m);
+    return `${n}/${s.total} (${((n / s.total) * 100).toFixed(0)}%)`;
+  }).join(" | ")} |`);
   lines.push(`| Errors | ${models.map((m) => stats[m].errors).join(" | ")} |`);
 
   lines.push("");
