@@ -47,6 +47,5 @@ next-env.d.ts
 # waitlist data
 /data/
 .dmux/
-scripts/results/**/wav/
 scripts/.speechbrain-cache/
 wav2vec2_checkpoints/

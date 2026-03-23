@@ -4,7 +4,8 @@
       "Bash(do touch:*)",
       "Bash(vercel:*)",
       "Bash(bun:*)",
-      "Bash(ffmpeg:*)"
+      "Bash(ffmpeg:*)",
+      "Bash(python:*)"
     ]
   }
 }
