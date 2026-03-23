@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "model": "gemini-3.1-flash-lite-preview",
+    "sample": {
+      "file": "voice_08.mp3",
+      "accent": "american",
+      "gender": "male",
+      "label": "voice_08"
+    },
+    "latencyMs": 6521,
+    "timestamp": "2026-03-23T15:32:13.358Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "clear resonance",
+        "moderate pace"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Native American English (General American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "rhoticity maintained in all positions",
+        "proper flapping of alveolar stops (e.g., 'funny')",
+        "native sentence stress and intonation patterns"
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like",
+      "fluencyNotes": "Fluent, natural connected speech with appropriate linking and boundary pauses."
+    },
+    "strengths": [
+      "Precise articulation of American r-colored vowels",
+      "Natural usage of reduction and connected speech"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

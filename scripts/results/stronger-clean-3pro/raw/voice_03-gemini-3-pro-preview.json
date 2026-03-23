@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-3-pro-preview",
+    "sample": {
+      "file": "voice_03.mp3",
+      "accent": "french",
+      "gender": "male",
+      "label": "voice_03"
+    },
+    "latencyMs": 28939,
+    "timestamp": "2026-03-23T21:57:06.231Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "nasal resonance",
+        "modal phonation",
+        "narrow pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "French (Standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/θ/→[s] substitution",
+        "initial /h/ deletion",
+        "syllable-timed rhythm without vowel reduction"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/θ/",
+        "produced": "[s]",
+        "exampleWord": "think",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[z]",
+        "exampleWord": "weather",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/h/",
+        "produced": "deleted",
+        "exampleWord": "house",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/dʒ/",
+        "produced": "[ʒ]",
+        "exampleWord": "village",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "flat with rising terminal contours on non-final phrases",
+      "fluencyNotes": "Generally fluent but lacks native linking and assimilation; word boundaries remain distinctly separated"
+    },
+    "strengths": [
+      "Consistent pacing without unnatural mid-phrase hesitations",
+      "Clear articulation of vowels with strong projection"
+    ],
+    "overallScore": 7,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Dental fricatives (/θ/, /ð/)",
+        "reason": "Consistent substitution with alveolar fricatives (/s/, /z/) acts as a strong accent marker and impedes word-level recognition for minimal pairs"
+      },
+      {
+        "area": "Initial glottal fricative (/h/)",
+        "reason": "H-dropping significantly alters word meanings (e.g., house vs. ounce) and breaks intelligibility for native listeners"
+      },
+      {
+        "area": "Vowel reduction to schwa",
+        "reason": "Lack of reduction in unstressed syllables prevents the natural stress-timed rhythm of English, making the speech sound disjointed"
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful. So I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

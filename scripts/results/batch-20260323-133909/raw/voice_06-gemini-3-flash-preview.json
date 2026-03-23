@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_06.mp3",
+      "accent": "australian",
+      "gender": "male",
+      "label": "voice_06"
+    },
+    "latencyMs": 8661,
+    "timestamp": "2026-03-23T13:43:05.983Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "25-35",
+      "vocalTraits": [
+        "clear articulation",
+        "slight nasal resonance",
+        "resonant tone",
+        "natural pitch variance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "English (General American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "rhoticity in 'their' and 'together'",
+        "tapping of the intervocalic /t/ in 'together' as /ɾ/",
+        "natural vowel reduction in unstressed syllables",
+        "distinct /æ/ in 'matching'"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/d/",
+        "produced": "partially elided /d/ in cluster",
+        "exampleWord": "find",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/t/",
+        "produced": "natural alveolar flap [ɾ]",
+        "exampleWord": "together",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like",
+      "fluencyNotes": "High fluency with natural use of contractions like 'it's' and 'I'm'. Smooth linking between word boundaries (e.g., 'socks' release into silence)."
+    },
+    "strengths": [
+      "Perfect command of rhotic 'r' sounds",
+      "Excellent pitch modulation to convey humor and irony",
+      "Highly natural connected speech patterns"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Projected resonance",
+        "reason": "The speaker has a slight nasal quality; focusing on oral resonance could add more vocal depth."
+      },
+      {
+        "area": "Final consonant precision",
+        "reason": "Slight softening of final /d/ in 'find' is natural but could be sharpened for higher formal clarity."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

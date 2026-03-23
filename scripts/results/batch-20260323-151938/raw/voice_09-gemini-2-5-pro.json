@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_09.mp3",
+      "accent": "galician",
+      "gender": "female",
+      "label": "voice_09"
+    },
+    "latencyMs": 25212,
+    "timestamp": "2026-03-23T15:27:35.773Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "40-50",
+      "vocalTraits": [
+        "modal voice",
+        "relatively high pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish (Castilian)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "syllable-timed rhythm",
+        "/h/ deletion in word-initial position (e.g., 'have', 'how')",
+        "devoicing of final /z/ to /s/ (e.g., 'always', 'lives')"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/h/",
+        "produced": "deleted [∅] in word-initial position",
+        "exampleWord": "have",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/dʒ/",
+        "produced": "de-affricated towards [j]",
+        "exampleWord": "just",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "lowered and backed towards [a]",
+        "exampleWord": "matching",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "raised and tensed to [i]",
+        "exampleWord": "it's",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "devoiced to [s] in word-final position",
+        "exampleWord": "lives",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "slow",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Clear phrasing with pauses at clause boundaries. Lacks native-like connected speech features like vowel reduction and elision."
+    },
+    "strengths": [
+      "Consistent and clear consonant articulation",
+      "Good control of grammatical structures",
+      "Appropriate placement of primary lexical stress"
+    ],
+    "overallScore": 7.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Stress-timed rhythm",
+        "reason": "The current syllable-timed pattern is the most significant marker of the L1 accent. Introducing vowel reduction in unstressed syllables will most dramatically improve native-like prosody."
+      },
+      {
+        "area": "Production of initial /h/",
+        "reason": "Deletion of /h/ can affect high-frequency words (he, have, how), potentially impacting intelligibility in fast speech."
+      },
+      {
+        "area": "Distinction between tense/lax vowels (/i/-/ɪ/)",
+        "reason": "Mastering this contrast is crucial as it differentiates many common English word pairs (e.g., 'leave'/'live', 'seat'/'sit'), preventing potential confusion for the listener."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "model": "gemini-3.1-flash-lite-preview",
+    "sample": {
+      "file": "voice_06.mp3",
+      "accent": "australian",
+      "gender": "male",
+      "label": "voice_06"
+    },
+    "latencyMs": 3937,
+    "timestamp": "2026-03-23T15:31:59.813Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal phonation",
+        "neutral resonance",
+        "average pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "General American (Native)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "general American vowel rhoticity in 'ever', 'together', 'more'",
+        "standard word-final /s/ and /z/ realization",
+        "native phrase-level intonation patterns"
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like",
+      "fluencyNotes": "High fluency with natural use of sentence stress and word linking."
+    },
+    "strengths": [
+      "Native-like control of English rhythm and stress-timing",
+      "Precise articulation of rhotic vowels in post-vocalic environments",
+      "Natural sentence-level prosody and prosodic emphasis"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

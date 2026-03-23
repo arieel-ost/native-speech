@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_02.mp3",
+      "accent": "indian",
+      "gender": "male",
+      "label": "voice_02"
+    },
+    "latencyMs": 21169,
+    "timestamp": "2026-03-23T21:55:44.848Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "narrow pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Indian English (General Indian English)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Realization of dental fricative /θ/ as dental stop [t̪] (e.g., \"think\", \"through\")",
+        "Realization of dental fricative /ð/ as dental stop [d̪] (e.g., \"the\", \"together\", \"father\")",
+        "Labiodental approximation [ʋ] for labiovelar approximant /w/ (e.g., \"weather\", \"everywhere\")"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/θ/",
+        "produced": "/t̪/ instead of /θ/",
+        "exampleWord": "think",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/d̪/ instead of /ð/",
+        "exampleWord": "together",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/w/",
+        "produced": "/ʋ/ instead of /w/",
+        "exampleWord": "weather",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "alveolar approximant [ɹ] or a post-alveolar approximant [ɻ] instead of retroflex approximant [ɚ] in rhotic contexts",
+        "exampleWord": "river",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, with a tendency towards flatter pitch contours and less dynamic range compared to native English speakers.",
+      "fluencyNotes": "Generally fluent with appropriate pausing at syntactic boundaries. Words are often produced distinctly, with limited use of connected speech phenomena like reduction or assimilation."
+    },
+    "strengths": [
+      "Clear articulation of most voiceless and voiced stops (/p, b, t, d, k, g/).",
+      "Consistent and intelligible production of most English vowels, with minimal ambiguity.",
+      "Appropriate speech rate that aids comprehensibility."
+    ],
+    "overallScore": 6,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Mastering dental fricatives /θ/ and /ð/",
+        "reason": "The consistent substitution of /θ/ with [t̪] and /ð/ with [d̪] significantly marks the accent and can occasionally lead to misinterpretation, impacting intelligibility."
+      },
+      {
+        "area": "Refining the pronunciation of the /w/ sound",
+        "reason": "The use of the labiodental approximant [ʋ] for /w/ is a noticeable L1 interference pattern. Practicing the rounded, non-contact articulation of /w/ will enhance native-like pronunciation."
+      },
+      {
+        "area": "Developing native-like intonation and stress patterns",
+        "reason": "A more dynamic pitch range and strategic use of sentence stress will improve the naturalness of speech and enhance listener engagement, moving away from a syllable-timed rhythm."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful. So I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

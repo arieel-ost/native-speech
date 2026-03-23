@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_05.mp3",
+      "accent": "indian",
+      "gender": "male",
+      "label": "voice_05"
+    },
+    "latencyMs": 13258,
+    "timestamp": "2026-03-23T13:40:12.934Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-45",
+      "vocalTraits": [
+        "clear voice",
+        "moderate pitch",
+        "slight monotone tendency"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Indian English",
+      "confidence": "high",
+      "telltalePatterns": [
+        "alveolar unaspirated voiceless stops",
+        "raised and fronted /æ/ vowel",
+        "tendency towards syllable-timed rhythm",
+        "more open /ɒ/ vowel",
+        "dark /l/ in some contexts"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/t/",
+        "produced": "alveolar unaspirated stop [t̪] instead of alveolar aspirated stop [tʰ]",
+        "exampleWord": "together",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "raised and slightly fronted, closer to /ɛ/ or /e̞/",
+        "exampleWord": "matching",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/l/",
+        "produced": "dark L [ɫ] or slightly retroflexed lateral, particularly in final positions",
+        "exampleWord": "lives",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ɒ/",
+        "produced": "more open back vowel, potentially slightly lengthened /ɑː/ or a less rounded /ɔ/",
+        "exampleWord": "socks",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, tending towards flatter pitch contours with less dynamic variation than native English",
+      "fluencyNotes": "Generally fluent with no significant hesitations or filled pauses. Connected speech features are less pronounced, leading to clear articulation of individual words."
+    },
+    "strengths": [
+      "Clear articulation of most consonants",
+      "Good overall fluency and pacing",
+      "Generally distinguishable vowel sounds"
+    ],
+    "overallScore": 8,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Vowel sounds, specifically /æ/ and /ɒ/",
+        "reason": "Mastering the distinct qualities of these vowels will make speech sound more native and avoid potential misinterpretations, enhancing overall clarity for a wider audience."
+      },
+      {
+        "area": "English stress and rhythm (stress-timed rhythm)",
+        "reason": "Developing a more stress-timed rhythm and understanding primary/secondary stress in words and sentences will significantly improve naturalness and prosody, making speech sound less 'choppy' to native listeners."
+      },
+      {
+        "area": "Consonant aspiration for voiceless stops (/p/, /t/, /k/)",
+        "reason": "While intelligibility is not heavily impacted, consistent aspiration of these sounds in initial stressed positions will reduce a prominent accent marker and contribute to a more native-like pronunciation."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

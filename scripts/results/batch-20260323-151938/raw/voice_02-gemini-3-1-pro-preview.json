@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_02.mp3",
+      "accent": "german",
+      "gender": "female",
+      "label": "voice_02"
+    },
+    "latencyMs": 41823,
+    "timestamp": "2026-03-23T15:33:58.808Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voicing",
+        "narrow pitch range",
+        "slightly tense vocal tract"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German (Standard Standarddeutsch)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "labiodentalization of labiovelar approximants (/w/ → [v])",
+        "final obstruent devoicing (/z/ → [s], /v/ → [f])",
+        "fortition of voiced interdental fricatives (/ð/ → [d̪])"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[v]",
+        "exampleWord": "while",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "[s]",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪]",
+        "exampleWord": "together",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "flat contours with L1-transferred abrupt pitch drops at intonational phrase boundaries",
+      "fluencyNotes": "Connected speech is smooth, but lacks typical English vowel reduction (schwa) in unstressed syllables, resulting in a staccato rhythm."
+    },
+    "strengths": [
+      "Accurate placement of primary lexical stress on multisyllabic words ('together', 'matching')",
+      "Strong, clear articulation of final consonant clusters without epenthesis ('find', 'socks')"
+    ],
+    "overallScore": 7,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "/w/ vs /v/ distinction",
+        "reason": "Critical for intelligibility to avoid minimal pair confusion (e.g., 'while' realized as 'vile')."
+      },
+      {
+        "area": "Final consonant voicing",
+        "reason": "Prevents morphological confusion and maintains grammatical boundaries (e.g., plural 's' in 'lives' heavily devoiced)."
+      },
+      {
+        "area": "Vowel reduction in unstressed syllables",
+        "reason": "Encourages a more natural, stress-timed rhythm and reduces the perceived staccato effect of L1 transfer."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

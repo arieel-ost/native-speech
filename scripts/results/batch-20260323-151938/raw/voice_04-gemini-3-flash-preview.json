@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_04.mp3",
+      "accent": "french",
+      "gender": "female",
+      "label": "voice_04"
+    },
+    "latencyMs": 10604,
+    "timestamp": "2026-03-23T15:29:42.963Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "terminal vocal fry",
+        "bright resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "English (General American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Full rhoticity of post-vocalic /ɹ/ in 'together' [təˈɡɛðɚ]",
+        "Cot-caught merger evidenced by low back unrounded /ɑ/ in 'socks' [sɑks]",
+        "Native-level /tɹ/ affrication in 'trying' [ˈtʃɹaɪɪŋ]"
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like",
+      "fluencyNotes": "Seamless connected speech with standard elision of /t/ in 'just trying' [dʒʌs ˈtɹaɪɪŋ]."
+    },
+    "strengths": [
+      "Perfect lexical stress in multisyllabic words like 'together'",
+      "Natural aspiration of initial voiceless plosives in 'people'",
+      "Accurate production of the voiced dental fricative /ð/ in 'their'"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Vocal hygiene",
+        "reason": "Presence of terminal vocal fry on 'socks' is a stylistic marker but can lead to vocal fatigue with prolonged use."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

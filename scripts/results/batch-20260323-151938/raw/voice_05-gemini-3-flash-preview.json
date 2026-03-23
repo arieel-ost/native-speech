@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_05.mp3",
+      "accent": "indian",
+      "gender": "male",
+      "label": "voice_05"
+    },
+    "latencyMs": 21750,
+    "timestamp": "2026-03-23T15:30:05.725Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "slight terminal vocal fry",
+        "clear oral resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "English (General American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Full rhoticity in coda positions such as 'together' [təˈɡɛðɚ]",
+        "Standard /æ/ quality in 'matching' [ˈmætʃɪŋ]",
+        "Low-back unrounded vowel /ɑ/ in 'socks' [sɑks]"
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like",
+      "fluencyNotes": "Natural connected speech with standard linking and elision; no non-native hesitations observed."
+    },
+    "strengths": [
+      "Native-standard realization of voiced dental fricatives /ð/",
+      "Accurate production of rhotic vowels",
+      "Natural sentence-level stress and pitch contours"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "None",
+        "reason": "Speaker demonstrates native-level phonetic and prosodic competence in General American English."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together. Well, I'm just trying to find my matching socks."
+  }
+}

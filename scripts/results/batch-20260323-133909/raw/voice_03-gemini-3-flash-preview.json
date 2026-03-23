@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_03.mp3",
+      "accent": "german",
+      "gender": "male",
+      "label": "voice_03"
+    },
+    "latencyMs": 8429,
+    "timestamp": "2026-03-23T13:42:27.033Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "chest resonance",
+        "clear articulation",
+        "slight vocal fry on phrase endings",
+        "low-mid pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "English (General American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "rhotic /ɹ/ in 'together'",
+        "tapping of intervocalic /t/ in 'together'",
+        "standard /æ/ in 'matching'",
+        "vowel /ɑ/ in 'socks'",
+        "aspirated /p/ in 'people'"
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like",
+      "fluencyNotes": "Seamless connected speech with natural linking between words. No hesitation or non-native pausing."
+    },
+    "strengths": [
+      "Native-level intelligibility",
+      "Excellent control over vowel quantity and quality",
+      "Clear, natural sentence-level stress"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Vocal fry management",
+        "reason": "The speaker exhibits a slight vocal fry at the end of the word 'socks'. While common in modern General American, reducing it can improve vocal clarity for formal broadcasting."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

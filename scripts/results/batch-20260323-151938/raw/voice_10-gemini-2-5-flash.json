@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_10.mp3",
+      "accent": "american-texan",
+      "gender": "female",
+      "label": "voice_10"
+    },
+    "latencyMs": 11769,
+    "timestamp": "2026-03-23T15:22:23.578Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": []
+    },
+    "accent": {
+      "detectedLanguage": "Spanish (Castilian-influenced)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "interdental fricative /ð/ realized as dental stop [d̪]",
+        "rhotic /ɹ/ realized as an alveolar tap [ɾ]",
+        "vowel /æ/ realized as [ɛ]"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪] instead of /ð/",
+        "exampleWord": "their",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɛ] instead of /æ/",
+        "exampleWord": "matching",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ʌ/",
+        "produced": "[a] instead of /ʌ/",
+        "exampleWord": "funny",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "[ɾ] instead of /ɹ/",
+        "exampleWord": "trying",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Generally fluent with appropriate pausing. Syllable-timed rhythm creates a slightly staccato impression of individual words rather than smooth connected speech."
+    },
+    "strengths": [
+      "Clear production of voiceless fricatives (/f/, /s/).",
+      "Good control of aspiration for voiceless stops.",
+      "Appropriate pausing at phrase boundaries."
+    ],
+    "overallScore": 6,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "The substitution of /ð/ with a dental stop [d̪] (as heard in 'their') is a significant marker of L1 interference and can lead to miscommunication or require listener effort to parse. Mastering these sounds will greatly improve clarity."
+      },
+      {
+        "area": "Vowel distinctions (e.g., /æ/ vs /ɛ/, /ʌ/ vs /ɑ/)",
+        "reason": "The raising of /æ/ to [ɛ] (e.g., 'matching' as [mɛtʃɪŋ]) and lowering of /ʌ/ to [a] (e.g., 'funny' as [fani]) reduces crucial phonemic contrasts in English, potentially leading to confusion with other words. Drilling minimal pairs will help distinguish these."
+      },
+      {
+        "area": "English stress-timed rhythm",
+        "reason": "The current syllable-timed rhythm, common in Spanish, makes English sound less natural and can impede the listener's ability to identify key information conveyed by stress. Focusing on sentence stress and vowel reduction in unstressed syllables will improve overall flow and intelligibility."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

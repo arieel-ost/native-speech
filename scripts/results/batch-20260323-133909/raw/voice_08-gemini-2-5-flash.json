@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_08.mp3",
+      "accent": "american",
+      "gender": "male",
+      "label": "voice_08"
+    },
+    "latencyMs": 11262,
+    "timestamp": "2026-03-23T13:40:56.264Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "clear voice",
+        "slight breathiness",
+        "steady pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Central/Eastern European (possibly German or Slavic)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "voiced dental fricative /ð/ realized as alveolar plosive [d] (e.g., \"their\", \"together\")",
+        "vowels are somewhat tense and less reduced in unstressed syllables",
+        "slight stiffness in articulation"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "[d]",
+        "exampleWord": "their",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d]",
+        "exampleWord": "together",
+        "severity": "high"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed (leans towards syllable-timed)",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, with a somewhat restricted pitch range leading to a slightly flatter delivery",
+      "fluencyNotes": "Phrases are clearly segmented with deliberate pauses; connected speech is present but could be smoother. No significant hesitations."
+    },
+    "strengths": [
+      "Most consonants are clearly articulated.",
+      "Good overall pacing and rhythm, avoiding sounding rushed.",
+      "Vowels are generally distinct and understandable."
+    ],
+    "overallScore": 7,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Dental fricatives (/ð/ and /θ/)",
+        "reason": "The substitution of /ð/ with /d/ is a prominent feature that impacts clarity and naturalness. Mastering these sounds will significantly improve accent and intelligibility."
+      },
+      {
+        "area": "English sentence stress and rhythm",
+        "reason": "Practicing stress-timed rhythm and vowel reduction in unstressed syllables will make speech sound more natural and fluent, closer to native English speakers."
+      },
+      {
+        "area": "Intonation patterns",
+        "reason": "Developing a wider and more accurate range of English intonation will enhance expressiveness and help avoid a monotonous delivery, improving listener engagement."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together. While I'm just trying to find my matching socks."
+  }
+}

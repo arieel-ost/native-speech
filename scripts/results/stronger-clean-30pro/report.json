@@ -1,0 +1,120 @@
+{
+  "timestamp": "2026-03-23T21:55:01.102Z",
+  "models": [
+    "gemini-3.0-pro-preview"
+  ],
+  "sampleCount": 11,
+  "perModel": {
+    "gemini-3.0-pro-preview": {
+      "model": "gemini-3.0-pro-preview",
+      "total": 11,
+      "genderCorrect": 0,
+      "accentCorrect": 0,
+      "accentPartial": 0,
+      "avgScore": 0,
+      "avgLatency": 0,
+      "errors": 11
+    }
+  },
+  "results": [
+    {
+      "file": "voice_01.mp3",
+      "model": "gemini-3.0-pro-preview",
+      "success": false,
+      "latencyMs": 234,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "female",
+      "groundTruthAccent": "american-texan"
+    },
+    {
+      "file": "voice_02.mp3",
+      "model": "gemini-3.0-pro-preview",
+      "success": false,
+      "latencyMs": 142,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "indian"
+    },
+    {
+      "file": "voice_03.mp3",
+      "model": "gemini-3.0-pro-preview",
+      "success": false,
+      "latencyMs": 149,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "french"
+    },
+    {
+      "file": "voice_04.mp3",
+      "model": "gemini-3.0-pro-preview",
+      "success": false,
+      "latencyMs": 149,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "german"
+    },
+    {
+      "file": "voice_05.mp3",
+      "model": "gemini-3.0-pro-preview",
+      "success": false,
+      "latencyMs": 167,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "german"
+    },
+    {
+      "file": "voice_06.mp3",
+      "model": "gemini-3.0-pro-preview",
+      "success": false,
+      "latencyMs": 147,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "galician"
+    },
+    {
+      "file": "voice_07.mp3",
+      "model": "gemini-3.0-pro-preview",
+      "success": false,
+      "latencyMs": 157,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "british"
+    },
+    {
+      "file": "voice_08.mp3",
+      "model": "gemini-3.0-pro-preview",
+      "success": false,
+      "latencyMs": 143,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "italian"
+    },
+    {
+      "file": "voice_09.mp3",
+      "model": "gemini-3.0-pro-preview",
+      "success": false,
+      "latencyMs": 140,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "japanese"
+    },
+    {
+      "file": "voice_10.mp3",
+      "model": "gemini-3.0-pro-preview",
+      "success": false,
+      "latencyMs": 135,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "chinese"
+    },
+    {
+      "file": "voice_11.mp3",
+      "model": "gemini-3.0-pro-preview",
+      "success": false,
+      "latencyMs": 154,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "female",
+      "groundTruthAccent": "russian"
+    }
+  ]
+}

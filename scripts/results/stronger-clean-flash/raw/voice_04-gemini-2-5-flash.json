@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_04.mp3",
+      "accent": "german",
+      "gender": "male",
+      "label": "voice_04"
+    },
+    "latencyMs": 18822,
+    "timestamp": "2026-03-23T21:56:23.149Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "neutral resonance",
+        "mid-range pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Hindi",
+      "confidence": "high",
+      "telltalePatterns": [
+        "θ→s substitution (e.g., 'through', 'think')",
+        "ð→d substitution (e.g., 'the', 'weather')",
+        "vowel /æ/ often realized as [ɑː] or [a] (e.g., 'laughing', 'after')"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/θ/",
+        "produced": "/s/ instead of /θ/",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/ instead of /ð/",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "/ɑː/ or /a/ instead of /æ/",
+        "exampleWord": "laughing",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɑː/ (as in GA 'bottle')",
+        "produced": "/ɔ/ instead of /ɑː/",
+        "exampleWord": "bottle",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Generally fluent with appropriate pausing at phrase boundaries; vowel reduction is often absent, and connected speech features like linking are less prominent."
+    },
+    "strengths": [
+      "Clear articulation of most consonant sounds, including /p, b, t, d, k, g, f, v, s, z, ʃ, tʃ, dʒ, m, n, ŋ, l, r/",
+      "Consistent and clear voice quality (modal)",
+      "Generally accurate lexical stress placement"
+    ],
+    "overallScore": 7,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "The consistent substitution of /θ/ with [s] and /ð/ with [d] is a primary marker of L1 interference and can occasionally lead to miscommunication (e.g., 'thin' vs. 'sin', 'den' vs. 'then')."
+      },
+      {
+        "area": "Vowel /æ/ production",
+        "reason": "Realizing /æ/ as [ɑː] or [a] can impact clarity and distinguishability from other vowels like /ɑː/ (as in 'cart') or /ʌ/ (as in 'cut'), affecting word recognition."
+      },
+      {
+        "area": "Intonation and rhythm (stress-timing)",
+        "reason": "Developing more dynamic and native-like pitch contours, along with a stronger stress-timed rhythm, would significantly enhance the naturalness and comprehensibility of speech."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

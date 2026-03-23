@@ -1,0 +1,384 @@
+{
+  "timestamp": "2026-03-23T21:58:56.729Z",
+  "models": [
+    "gemini-2.5-pro",
+    "gemini-2.0-flash",
+    "gemini-2.5-flash"
+  ],
+  "sampleCount": 11,
+  "perModel": {
+    "gemini-2.5-pro": {
+      "model": "gemini-2.5-pro",
+      "total": 11,
+      "genderCorrect": 10,
+      "accentCorrect": 6,
+      "accentPartial": 1,
+      "avgScore": 6,
+      "avgLatency": 27823,
+      "errors": 0
+    },
+    "gemini-2.0-flash": {
+      "model": "gemini-2.0-flash",
+      "total": 11,
+      "genderCorrect": 0,
+      "accentCorrect": 0,
+      "accentPartial": 0,
+      "avgScore": 0,
+      "avgLatency": 0,
+      "errors": 11
+    },
+    "gemini-2.5-flash": {
+      "model": "gemini-2.5-flash",
+      "total": 11,
+      "genderCorrect": 10,
+      "accentCorrect": 2,
+      "accentPartial": 0,
+      "avgScore": 6.5,
+      "avgLatency": 19998,
+      "errors": 0
+    }
+  },
+  "results": [
+    {
+      "file": "voice_01.mp3",
+      "model": "gemini-2.5-pro",
+      "success": true,
+      "latencyMs": 24457,
+      "detectedGender": "female",
+      "detectedAccent": "Spanish (Latin American)",
+      "score": 6.5,
+      "groundTruthGender": "female",
+      "groundTruthAccent": "american-texan"
+    },
+    {
+      "file": "voice_02.mp3",
+      "model": "gemini-2.5-pro",
+      "success": true,
+      "latencyMs": 31796,
+      "detectedGender": "male",
+      "detectedAccent": "Hindi (Indian English)",
+      "score": 6,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "indian"
+    },
+    {
+      "file": "voice_03.mp3",
+      "model": "gemini-2.5-pro",
+      "success": true,
+      "latencyMs": 26143,
+      "detectedGender": "male",
+      "detectedAccent": "French (Standard European)",
+      "score": 5.5,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "french"
+    },
+    {
+      "file": "voice_04.mp3",
+      "model": "gemini-2.5-pro",
+      "success": true,
+      "latencyMs": 23176,
+      "detectedGender": "male",
+      "detectedAccent": "Spanish",
+      "score": 6.5,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "german"
+    },
+    {
+      "file": "voice_05.mp3",
+      "model": "gemini-2.5-pro",
+      "success": true,
+      "latencyMs": 30490,
+      "detectedGender": "male",
+      "detectedAccent": "German",
+      "score": 4.5,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "german"
+    },
+    {
+      "file": "voice_06.mp3",
+      "model": "gemini-2.5-pro",
+      "success": true,
+      "latencyMs": 30038,
+      "detectedGender": "male",
+      "detectedAccent": "Spanish",
+      "score": 6.5,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "galician"
+    },
+    {
+      "file": "voice_07.mp3",
+      "model": "gemini-2.5-pro",
+      "success": true,
+      "latencyMs": 30812,
+      "detectedGender": "male",
+      "detectedAccent": "Russian",
+      "score": 5.5,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "british"
+    },
+    {
+      "file": "voice_08.mp3",
+      "model": "gemini-2.5-pro",
+      "success": true,
+      "latencyMs": 23711,
+      "detectedGender": "male",
+      "detectedAccent": "Serbo-Croatian",
+      "score": 5.5,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "italian"
+    },
+    {
+      "file": "voice_09.mp3",
+      "model": "gemini-2.5-pro",
+      "success": true,
+      "latencyMs": 26639,
+      "detectedGender": "male",
+      "detectedAccent": "Russian",
+      "score": 5.5,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "japanese"
+    },
+    {
+      "file": "voice_10.mp3",
+      "model": "gemini-2.5-pro",
+      "success": true,
+      "latencyMs": 25885,
+      "detectedGender": "female",
+      "detectedAccent": "Mandarin Chinese",
+      "score": 6.5,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "chinese"
+    },
+    {
+      "file": "voice_11.mp3",
+      "model": "gemini-2.5-pro",
+      "success": true,
+      "latencyMs": 32902,
+      "detectedGender": "female",
+      "detectedAccent": "Russian",
+      "score": 7.5,
+      "groundTruthGender": "female",
+      "groundTruthAccent": "russian"
+    },
+    {
+      "file": "voice_01.mp3",
+      "model": "gemini-2.0-flash",
+      "success": false,
+      "latencyMs": 562,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "female",
+      "groundTruthAccent": "american-texan"
+    },
+    {
+      "file": "voice_02.mp3",
+      "model": "gemini-2.0-flash",
+      "success": false,
+      "latencyMs": 507,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "indian"
+    },
+    {
+      "file": "voice_03.mp3",
+      "model": "gemini-2.0-flash",
+      "success": false,
+      "latencyMs": 492,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "french"
+    },
+    {
+      "file": "voice_04.mp3",
+      "model": "gemini-2.0-flash",
+      "success": false,
+      "latencyMs": 518,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "german"
+    },
+    {
+      "file": "voice_05.mp3",
+      "model": "gemini-2.0-flash",
+      "success": false,
+      "latencyMs": 536,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "german"
+    },
+    {
+      "file": "voice_06.mp3",
+      "model": "gemini-2.0-flash",
+      "success": false,
+      "latencyMs": 491,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "galician"
+    },
+    {
+      "file": "voice_07.mp3",
+      "model": "gemini-2.0-flash",
+      "success": false,
+      "latencyMs": 547,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "british"
+    },
+    {
+      "file": "voice_08.mp3",
+      "model": "gemini-2.0-flash",
+      "success": false,
+      "latencyMs": 473,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "italian"
+    },
+    {
+      "file": "voice_09.mp3",
+      "model": "gemini-2.0-flash",
+      "success": false,
+      "latencyMs": 541,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "japanese"
+    },
+    {
+      "file": "voice_10.mp3",
+      "model": "gemini-2.0-flash",
+      "success": false,
+      "latencyMs": 525,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "male",
+      "groundTruthAccent": "chinese"
+    },
+    {
+      "file": "voice_11.mp3",
+      "model": "gemini-2.0-flash",
+      "success": false,
+      "latencyMs": 552,
+      "error": "404 MODEL_NOT_FOUND",
+      "groundTruthGender": "female",
+      "groundTruthAccent": "russian"
+    },
+    {
+      "file": "voice_01.mp3",
+      "model": "gemini-2.5-flash",
+      "success": true,
+      "latencyMs": 17141,
+      "detectedGender": "female",
+      "detectedAccent": "Korean",
+      "score": 7,
+      "groundTruthGender": "female",
+      "groundTruthAccent": "american-texan"
+    },
+    {
+      "file": "voice_02.mp3",
+      "model": "gemini-2.5-flash",
+      "success": true,
+      "latencyMs": 21169,
+      "detectedGender": "male",
+      "detectedAccent": "Indian English (General Indian English)",
+      "score": 6,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "indian"
+    },
+    {
+      "file": "voice_03.mp3",
+      "model": "gemini-2.5-flash",
+      "success": true,
+      "latencyMs": 17426,
+      "detectedGender": "male",
+      "detectedAccent": "French (General)",
+      "score": 7,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "french"
+    },
+    {
+      "file": "voice_04.mp3",
+      "model": "gemini-2.5-flash",
+      "success": true,
+      "latencyMs": 18822,
+      "detectedGender": "male",
+      "detectedAccent": "Hindi",
+      "score": 7,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "german"
+    },
+    {
+      "file": "voice_05.mp3",
+      "model": "gemini-2.5-flash",
+      "success": true,
+      "latencyMs": 19601,
+      "detectedGender": "male",
+      "detectedAccent": "Russian (Standard)",
+      "score": 6,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "german"
+    },
+    {
+      "file": "voice_06.mp3",
+      "model": "gemini-2.5-flash",
+      "success": true,
+      "latencyMs": 21727,
+      "detectedGender": "male",
+      "detectedAccent": "Russian (Moscow standard)",
+      "score": 7,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "galician"
+    },
+    {
+      "file": "voice_07.mp3",
+      "model": "gemini-2.5-flash",
+      "success": true,
+      "latencyMs": 18954,
+      "detectedGender": "male",
+      "detectedAccent": "German (General)",
+      "score": 6,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "british"
+    },
+    {
+      "file": "voice_08.mp3",
+      "model": "gemini-2.5-flash",
+      "success": true,
+      "latencyMs": 22035,
+      "detectedGender": "male",
+      "detectedAccent": "Russian",
+      "score": 6,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "italian"
+    },
+    {
+      "file": "voice_09.mp3",
+      "model": "gemini-2.5-flash",
+      "success": true,
+      "latencyMs": 15662,
+      "detectedGender": "male",
+      "detectedAccent": "French",
+      "score": 7,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "japanese"
+    },
+    {
+      "file": "voice_10.mp3",
+      "model": "gemini-2.5-flash",
+      "success": true,
+      "latencyMs": 27543,
+      "detectedGender": "female",
+      "detectedAccent": "Japanese",
+      "score": 6,
+      "groundTruthGender": "male",
+      "groundTruthAccent": "chinese"
+    },
+    {
+      "file": "voice_11.mp3",
+      "model": "gemini-2.5-flash",
+      "success": true,
+      "latencyMs": 19898,
+      "detectedGender": "female",
+      "detectedAccent": "Polish (Standard)",
+      "score": 6,
+      "groundTruthGender": "female",
+      "groundTruthAccent": "russian"
+    }
+  ]
+}

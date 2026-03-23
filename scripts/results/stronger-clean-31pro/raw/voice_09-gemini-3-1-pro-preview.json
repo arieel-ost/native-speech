@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_09.mp3",
+      "accent": "japanese",
+      "gender": "male",
+      "label": "voice_09"
+    },
+    "latencyMs": 27511,
+    "timestamp": "2026-03-23T22:06:25.783Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "slightly pressed phonation",
+        "narrow pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Final obstruent devoicing (e.g., /d/ → [t] in 'red', 'bread')",
+        "Labiodental substitution for labiovelar approximant (/w/ → [v] in 'water', 'weather')",
+        "Dental fricative substitution (/θ/ → [s] in 'think', 'through' and /ð/ → [z] in 'the', 'that')",
+        "Glottal stop insertion before word-initial vowels"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "/v/",
+        "exampleWord": "water",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "/s/",
+        "exampleWord": "through",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/z/",
+        "exampleWord": "the",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/d/ (word-final)",
+        "produced": "/t/",
+        "exampleWord": "red",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "flat pitch contours with steep terminal falls",
+      "fluencyNotes": "High grammatical fluency with minimal hesitation. Connected speech lacks native-like consonant-to-vowel linking due to hard glottal attacks on vowel-initial words."
+    },
+    "strengths": [
+      "Accurate realization of complex consonant clusters (e.g., 'children', 'spring')",
+      "Clear distinction between tense and lax vowels (/i:/ vs /ɪ/ in 'reach' vs 'village')",
+      "Strong projection and steady articulation rate"
+    ],
+    "overallScore": 7,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Labiovelar approximant /w/",
+        "reason": "Replacing /w/ with /v/ is highly salient and occasionally impacts lexical recognition, distinguishing words like 'weather' from 'veteran'."
+      },
+      {
+        "area": "Final consonant voicing",
+        "reason": "Devoicing word-final consonants (like 'red' to 'ret' or 'bread' to 'bret') alters word shapes and can lead to minimal pair confusion in context."
+      },
+      {
+        "area": "Consonant-to-vowel linking",
+        "reason": "Reducing glottal stops before vowel-initial words (e.g., 'pull_it_out' instead of 'pull [ʔ]it [ʔ]out') will vastly improve natural rhythm and flow."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green, and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river, and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

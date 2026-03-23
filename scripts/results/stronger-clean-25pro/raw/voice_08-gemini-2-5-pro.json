@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_08.mp3",
+      "accent": "italian",
+      "gender": "male",
+      "label": "voice_08"
+    },
+    "latencyMs": 31398,
+    "timestamp": "2026-03-23T21:53:09.030Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "40-50",
+      "vocalTraits": [
+        "low pitch",
+        "modal voice"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Serbian/Croatian (BCS)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Substitution of /w/ with /v/ (e.g., 'walk' as 'vok')",
+        "TH-stopping (/ð/ → /d/ in 'weather', /θ/ → /t/ in 'think')",
+        "Alveolar tap/trill realization of /ɹ/ (e.g., 'river')"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "produced as a voiced labiodental fricative /v/",
+        "exampleWord": "walk",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "produced as a voiced alveolar stop /d/",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "produced as a voiceless alveolar stop /t/",
+        "exampleWord": "think",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "produced as an alveolar tap [ɾ] or trill [r]",
+        "exampleWord": "river",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "raised and fronted towards /ɛ/ or /a/",
+        "exampleWord": "landed",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Absence of vowel reduction in unstressed syllables. Words are spoken distinctly with limited connected speech features (linking, elision)."
+    },
+    "strengths": [
+      "Consistent and deliberate pacing",
+      "Largely accurate grammatical structures",
+      "Clear production of sibilants /s/ and /z/"
+    ],
+    "overallScore": 5.5,
+    "level": "B1",
+    "recommendedFocus": [
+      {
+        "area": "Distinction between /w/ and /v/",
+        "reason": "This is a high-impact substitution that affects many common words and can easily lead to misunderstanding (e.g., 'west' vs. 'vest')."
+      },
+      {
+        "area": "Production of interdental fricatives /θ/ and /ð/",
+        "reason": "TH-stopping is a primary marker of the speaker's accent and frequently causes confusion between minimal pairs like 'three' and 'tree'."
+      },
+      {
+        "area": "Vowel reduction (schwa)",
+        "reason": "Introducing schwa in unstressed syllables is critical for transitioning from a syllable-timed rhythm to the natural stress-timed rhythm of English, which will significantly improve overall prosody."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful. So I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

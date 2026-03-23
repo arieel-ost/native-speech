@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_07.mp3",
+      "accent": "russian",
+      "gender": "male",
+      "label": "voice_07"
+    },
+    "latencyMs": 31211,
+    "timestamp": "2026-03-23T15:26:49.191Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "breathy",
+        "monotone",
+        "modal voice"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian (Standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/w/ → /v/ substitution (e.g., 'while' pronounced as 'vile')",
+        "Final obstruent devoicing (e.g., 'lives' pronounced as 'lifes')",
+        "Absence of vowel reduction in unstressed syllables (e.g., 'together' pronounced with a full /u/ vowel)"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "/v/",
+        "exampleWord": "while",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "/s/ in final position",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "apical tap or trill [r]",
+        "exampleWord": "trying",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "slow",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Speech is fluent without hesitations, but words are produced distinctly with limited connected speech features like linking."
+    },
+    "strengths": [
+      "Consistent and clear articulation of sibilants /s/ and /ʃ/.",
+      "Grammar and vocabulary are accurate and appropriate.",
+      "Maintains good pacing and clarity despite phonetic substitutions."
+    ],
+    "overallScore": 6.5,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "/w/ vs. /v/ distinction",
+        "reason": "This is a high-frequency phonemic contrast in English. Correcting it will prevent confusion between common word pairs like 'west' and 'vest' and significantly improve intelligibility."
+      },
+      {
+        "area": "Voicing of final consonants",
+        "reason": "Consistently devoicing sounds like /z/, /d/, and /g/ at the end of words is a major marker of the L1 accent. Mastering voicing will improve clarity on plurals, possessives, and past tense verbs."
+      },
+      {
+        "area": "English rhythm and vowel reduction",
+        "reason": "Shifting from a syllable-timed to a stress-timed rhythm by correctly placing sentence stress and reducing unstressed vowels to schwa (/ə/) will make speech sound much more natural and native-like."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

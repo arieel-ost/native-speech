@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_11.mp3",
+      "accent": "russian",
+      "gender": "female",
+      "label": "voice_11"
+    },
+    "latencyMs": 32902,
+    "timestamp": "2026-03-23T21:54:47.626Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "clear modal voice",
+        "expressive pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/θ/→[t̪] and /ð/→[d̪] substitutions (e.g., 'through', 'weather')",
+        "Tensing of lax vowel /ɪ/ to [iː] (e.g., 'little', 'singing')",
+        "Syllable-timed rhythm with limited vowel reduction in unstressed syllables"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/θ/",
+        "produced": "a voiceless dental stop /t̪/ instead of /θ/",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "a voiced dental stop /d̪/ instead of /ð/",
+        "exampleWord": "weather",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "tensed and lengthened towards /iː/",
+        "exampleWord": "little",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "raised to /ɛ/",
+        "exampleWord": "that",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Fluent speech with pauses at natural grammatical boundaries. Limited use of connected speech features like linking and elision."
+    },
+    "strengths": [
+      "Good control of grammar and complex sentence structures.",
+      "Clear articulation of most consonants, including initial /h/.",
+      "Expressive intonation that conveys meaning effectively despite non-native patterns."
+    ],
+    "overallScore": 7.5,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "These are high-frequency sounds and the current substitutions are a primary, consistent marker of the accent which can affect intelligibility (e.g., 'three' vs 'tree')."
+      },
+      {
+        "area": "Tense/lax vowel distinction (/iː/ vs /ɪ/)",
+        "reason": "Mastering this distinction is crucial for word-level accuracy in many common minimal pairs (e.g., 'leave' vs 'live', 'seat' vs 'sit')."
+      },
+      {
+        "area": "Stress-timed rhythm and vowel reduction",
+        "reason": "Adopting English stress patterns and reducing unstressed vowels will have the largest single impact on sounding more natural and native-like."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

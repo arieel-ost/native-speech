@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_06.mp3",
+      "accent": "australian",
+      "gender": "male",
+      "label": "voice_06"
+    },
+    "latencyMs": 10371,
+    "timestamp": "2026-03-23T15:30:17.108Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "25-35",
+      "vocalTraits": [
+        "modal voice",
+        "terminal vocal fry",
+        "neutral resonance",
+        "narrow pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish (Castilian)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "apico-alveolar retraction of /s/",
+        "intervocalic spirantization of /v/ to [β]",
+        "vowel shortening in 'lives' [liβs]"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/v/",
+        "produced": "[β] or [b] substitution",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "final devoicing to [s]",
+        "exampleWord": "always",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "vowel raising to [e]",
+        "exampleWord": "matching",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced pitch contours with compressed peaks",
+      "fluencyNotes": "Natural phrasing but lacks weak form reduction in function words like 'to' and 'have'"
+    },
+    "strengths": [
+      "Accurate production of the voiceless glottal fricative /h/ in 'how'",
+      "Strong word-final consonant clusters in 'socks' and 'just'",
+      "Effective use of sentence-level pauses for comedic timing"
+    ],
+    "overallScore": 7.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "/v/ vs /b/ distinction",
+        "reason": "Prevents confusion between words like 'lives' and 'libs' or 'robes' and 'roves'"
+      },
+      {
+        "area": "vowel length and quality for /æ/",
+        "reason": "Reduces the 'foreign' quality of the accent and improves distinction in minimal pairs like 'mat' and 'met'"
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

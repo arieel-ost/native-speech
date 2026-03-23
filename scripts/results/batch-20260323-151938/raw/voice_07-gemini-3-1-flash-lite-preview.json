@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "model": "gemini-3.1-flash-lite-preview",
+    "sample": {
+      "file": "voice_07.mp3",
+      "accent": "russian",
+      "gender": "male",
+      "label": "voice_07"
+    },
+    "latencyMs": 5019,
+    "timestamp": "2026-03-23T15:32:05.841Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "neutral resonance",
+        "measured pacing"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Eastern European (likely Slavic, possibly Polish)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "vowel reduction absent (full, distinct vowels in unstressed syllables)",
+        "apical placement of /t/ and /d/",
+        "final consonant devoicing"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/ or /z/ substitution",
+        "exampleWord": "the",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "/s/ substitution",
+        "exampleWord": "things",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/w/",
+        "produced": "/v/-like labiodental glide",
+        "exampleWord": "while",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, lacking typical English pitch-accent fluctuations",
+      "fluencyNotes": "generally fluent but exhibits non-native word-grouping patterns, producing rhythmic chunks that ignore native English stress-timed norms"
+    },
+    "strengths": [
+      "clear articulation of consonants",
+      "consistent word-level stress",
+      "good sentence-level phrasing despite syllable-timing"
+    ],
+    "overallScore": 8,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Vowel reduction",
+        "reason": "Reducing unstressed vowels to schwa is essential for achieving native-like stress-timed rhythm."
+      },
+      {
+        "area": "Linking and assimilation",
+        "reason": "Connecting final consonants to initial vowels will increase naturalness and intelligibility."
+      },
+      {
+        "area": "Fricative /ð/",
+        "reason": "The interdental /ð/ is frequently produced as a plosive /d/, which is the most prominent marker of the accent."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

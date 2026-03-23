@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_02.mp3",
+      "accent": "german",
+      "gender": "female",
+      "label": "voice_02"
+    },
+    "latencyMs": 15651,
+    "timestamp": "2026-03-23T15:20:08.556Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "40-50",
+      "vocalTraits": [
+        "clear articulation",
+        "steady pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "rhotic consonant realization: /r/ consistently realized as an alveolar tap [ɾ] or trill [r] (e.g., \"their\", \"trying\")",
+        "vowel quality shifts: /æ/ realized closer to [ɛ] (e.g., \"matching\"), /ɒ/ realized as a tense, rounded back vowel [ɔ] (e.g., \"socks\")",
+        "syllable-timed rhythm: evident across the entire utterance, leading to less vowel reduction in unstressed syllables and more even timing"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ɹ/",
+        "produced": "[ɾ]",
+        "exampleWord": "trying",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɛ]",
+        "exampleWord": "matching",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɒ/",
+        "produced": "[ɔ]",
+        "exampleWord": "socks",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Words are produced somewhat distinctly with less reduction and linking than typical native speech. Natural phrase-boundary pauses, no significant mid-phrase hesitations."
+    },
+    "strengths": [
+      "clear articulation of dental fricatives /θ/ and /ð/ (e.g., \"their\", \"together\")",
+      "consistent production of consonant clusters (e.g., \"just\", \"trying\")",
+      "smooth speech flow with appropriate pausing at phrase boundaries"
+    ],
+    "overallScore": 7,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "rhotic consonant /ɹ/",
+        "reason": "The alveolar tap [ɾ] is a strong accent marker that can occasionally cause ambiguity for listeners expecting the English retroflex approximant [ɹ]."
+      },
+      {
+        "area": "vowel quality distinctions (/æ/ vs /ɛ/, /ɒ/ vs /ɔ/)",
+        "reason": "Shifts in vowel production, particularly /æ/ towards [ɛ] and /ɒ/ towards [ɔ], can occasionally lead to misperception of words and contribute to the prominent accent."
+      },
+      {
+        "area": "English stress-timed rhythm and vowel reduction",
+        "reason": "Developing a more stress-timed rhythm and practicing vowel reduction in unstressed syllables will make speech sound more natural and native-like, improving overall fluency."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

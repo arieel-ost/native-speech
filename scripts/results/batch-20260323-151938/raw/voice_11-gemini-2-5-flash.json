@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_11.mp3",
+      "accent": "russian",
+      "gender": "male",
+      "label": "voice_11"
+    },
+    "latencyMs": 12697,
+    "timestamp": "2026-03-23T15:22:37.289Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "high pitch",
+        "modal voice"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "substitution of /θ/ and /ð/ with [s] and [z] (e.g., \"their\" as [sɛr], \"together\" as [təɡɛzər])",
+        "monophthongization of diphthong /aɪ/ to [iː] (e.g., \"lives\" as [liːfs], \"trying\" as [triːɪŋ])",
+        "substitution of /w/ with [v] (e.g., \"while\" as [vil])"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/z/ instead of /ð/",
+        "exampleWord": "together",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "/s/ instead of /θ/",
+        "exampleWord": "their",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/aɪ/",
+        "produced": "/iː/ instead of /aɪ/",
+        "exampleWord": "lives",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/w/",
+        "produced": "/v/ instead of /w/",
+        "exampleWord": "while",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "/iː/ instead of /ɪ/",
+        "exampleWord": "it's",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "/ɛ/ instead of /æ/",
+        "exampleWord": "matching",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "/f/ instead of /v/ (devoicing)",
+        "exampleWord": "lives",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, with less dynamic range than native English",
+      "fluencyNotes": "Words are produced with some isolation; limited linking and assimilation are present, with natural pausing at phrase boundaries."
+    },
+    "strengths": [
+      "Most plosive and fricative consonants (excluding /θ, ð, w/) are articulated clearly.",
+      "Lexical stress placement is generally accurate.",
+      "Speech rate is consistent and appropriate."
+    ],
+    "overallScore": 6,
+    "level": "B1",
+    "recommendedFocus": [
+      {
+        "area": "Dental fricatives (/θ/ and /ð/)",
+        "reason": "Consistent substitution with sibilants drastically impacts intelligibility and marks L1 influence, requiring significant listener effort for comprehension."
+      },
+      {
+        "area": "Diphthongs, particularly /aɪ/",
+        "reason": "Monophthongization of diphthongs like /aɪ/ to /iː/ changes the meaning of many common words (e.g., 'life' becoming 'leaf'), leading to potential miscommunication."
+      },
+      {
+        "area": "/w/ vs /v/ distinction",
+        "reason": "The substitution of /w/ with /v/ significantly alters word identity (e.g., 'while' becoming 'vile'), impacting intelligibility, especially given the high frequency of /w/ in English."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

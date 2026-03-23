@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_05.mp3",
+      "accent": "german",
+      "gender": "male",
+      "label": "voice_05"
+    },
+    "latencyMs": 37844,
+    "timestamp": "2026-03-23T22:04:25.052Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal phonation",
+        "neutral resonance",
+        "slight vocal fry phrase-finally"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German (Standard High German)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "w → v substitution",
+        "final obstruent devoicing",
+        "θ → s substitution",
+        "insertion of glottal stops before word-initial vowels"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "/v/",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "/s/",
+        "exampleWord": "through",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/z/",
+        "exampleWord": "the",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/d/",
+        "produced": "/t/",
+        "exampleWord": "red",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced flat pitch contours with sharp falling terminals",
+      "fluencyNotes": "Absence of connected speech; frequent glottal stops at word boundaries preventing linking"
+    },
+    "strengths": [
+      "Consistent speech rate without prominent hesitation",
+      "Accurate realization of complex consonant clusters",
+      "Clear and intelligible vowel quadrilateral spacing"
+    ],
+    "overallScore": 6,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Labio-velar approximant /w/",
+        "reason": "Prevents lexical confusion with /v/ and strongly marks the accent."
+      },
+      {
+        "area": "Connected speech and linking",
+        "reason": "Reducing glottal stops before vowel-initial words will shift the rhythm from syllable-timed to stress-timed English."
+      },
+      {
+        "area": "Final consonant voicing",
+        "reason": "Maintaining voicing on terminal consonants preserves critical morphological boundaries and prevents minimal pair confusion."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful. So I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring's my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

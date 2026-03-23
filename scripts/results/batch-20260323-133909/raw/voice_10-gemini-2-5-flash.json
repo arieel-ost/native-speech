@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_10.mp3",
+      "accent": "american-texan",
+      "gender": "female",
+      "label": "voice_10"
+    },
+    "latencyMs": 16570,
+    "timestamp": "2026-03-23T13:41:33.353Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "clear voice",
+        "slight vocal fry (at phrase end)",
+        "medium pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "East Asian Language (likely)",
+      "confidence": "medium",
+      "telltalePatterns": [
+        "voiced interdental fricative /ð/ substitution with alveolar stop /d/",
+        "tendency towards syllable-timed rhythm",
+        "slightly flat intonation patterns"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/ (e.g., 'their' -> 'der')",
+        "exampleWord": "their",
+        "severity": "high"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced (flatter pitch contour, less dynamic range)",
+      "fluencyNotes": "Generally fluent with appropriate pausing. Connected speech lacks some native-like reductions and linking."
+    },
+    "strengths": [
+      "Clear production of most consonant sounds (e.g., /s/, /m/, /tʃ/)",
+      "Generally accurate and distinct vowel sounds",
+      "Consistent and easy-to-follow speech rate"
+    ],
+    "overallScore": 7,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Voiced 'th' sound (/ð/)",
+        "reason": "Consistent substitution with /d/ significantly impacts intelligibility and marks speech as non-native. Mastering this will make a noticeable difference."
+      },
+      {
+        "area": "English intonation and sentence stress",
+        "reason": "A flatter intonation can make speech sound less natural and engaging. Developing more dynamic pitch patterns and appropriate word stress will improve naturalness and comprehension."
+      },
+      {
+        "area": "Connected speech (reductions and linking)",
+        "reason": "Incorporating more natural reductions (e.g., of function words) and smoother linking between words will improve fluency and make speech sound more native-like."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

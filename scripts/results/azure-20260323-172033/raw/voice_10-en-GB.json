@@ -1,0 +1,471 @@
+{
+  "sample": {
+    "file": "voice_10.mp3",
+    "accent": "american-texan",
+    "gender": "female",
+    "label": "voice_10"
+  },
+  "locale": "en-GB",
+  "result": {
+    "locale": "en-GB",
+    "accuracyScore": 99,
+    "fluencyScore": 83,
+    "completenessScore": 100,
+    "prosodyScore": null,
+    "pronunciationScore": 89.4,
+    "recognizedText": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks.",
+    "words": [
+      {
+        "word": "it's",
+        "accuracyScore": 96,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 96
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 96
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 96
+          }
+        ]
+      },
+      {
+        "word": "funny",
+        "accuracyScore": 99,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 82
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "how",
+        "accuracyScore": 99,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 99
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 99
+          }
+        ]
+      },
+      {
+        "word": "some",
+        "accuracyScore": 98,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 82
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "people",
+        "accuracyScore": 95,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 78
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 81
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "always",
+        "accuracyScore": 96,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 96
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 96
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 96
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 96
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 96
+          }
+        ]
+      },
+      {
+        "word": "seem",
+        "accuracyScore": 100,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "to",
+        "accuracyScore": 100,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "have",
+        "accuracyScore": 99,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 97
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "their",
+        "accuracyScore": 100,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "lives",
+        "accuracyScore": 100,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "together",
+        "accuracyScore": 100,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "while",
+        "accuracyScore": 100,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "i'm",
+        "accuracyScore": 100,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "just",
+        "accuracyScore": 99,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 99
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 99
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 99
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 99
+          }
+        ]
+      },
+      {
+        "word": "trying",
+        "accuracyScore": 100,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "to",
+        "accuracyScore": 100,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "find",
+        "accuracyScore": 99,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 99
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 99
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 99
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 99
+          }
+        ]
+      },
+      {
+        "word": "my",
+        "accuracyScore": 100,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "matching",
+        "accuracyScore": 99,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 93
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "socks",
+        "accuracyScore": 99,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 82
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_03.mp3",
+      "accent": "french",
+      "gender": "male",
+      "label": "voice_03"
+    },
+    "latencyMs": 26066,
+    "timestamp": "2026-03-23T22:03:15.783Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal phonation",
+        "slight nasal resonance",
+        "narrow pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "French (Parisian)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "h-dropping in word-initial positions",
+        "uvular fricative /ʁ/ substitution for English alveolar approximant /ɹ/",
+        "dental fricative substitution /θ/ -> /s/ and /ð/ -> /z/",
+        "lack of vowel reduction in unstressed syllables"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/h/",
+        "produced": "∅ (deleted)",
+        "exampleWord": "house",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "/s/ instead of /θ/",
+        "exampleWord": "think",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/z/ instead of /ð/",
+        "exampleWord": "weather",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "/ʁ/ instead of /ɹ/",
+        "exampleWord": "river",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-transferred rising pitch contours at the end of declarative statements",
+      "fluencyNotes": "Smooth connected speech but lacks appropriate weak forms and vowel reduction; utilizes glottal stops before vowel-initial words instead of smooth catenation."
+    },
+    "strengths": [
+      "Accurate realization of tense and lax vowel contrasts in words like 'green' and 'big'",
+      "Consistent and natural phrasing without disruptive mid-sentence hesitations"
+    ],
+    "overallScore": 7,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "Glottal fricative /h/ in word-initial position",
+        "reason": "H-dropping causes word boundary confusion and creates unintended minimal pairs (e.g., 'house' sounding like 'ounce' or 'high' sounding like 'eye')."
+      },
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "Substitutions with /s/ and /z/ mark the accent heavily and can occasionally cause confusion (e.g., 'think' vs 'sink')."
+      },
+      {
+        "area": "Vowel reduction /ə/ and lexical stress",
+        "reason": "Applying full vowel qualities to unstressed syllables makes the rhythm sound syllable-timed rather than stress-timed, reducing native-like prosody."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park, near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

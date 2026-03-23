@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "model": "gemini-3.1-flash-lite-preview",
+    "sample": {
+      "file": "voice_03.mp3",
+      "accent": "german",
+      "gender": "male",
+      "label": "voice_03"
+    },
+    "latencyMs": 3997,
+    "timestamp": "2026-03-23T15:31:45.678Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "neutral resonance",
+        "consistent pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "American English",
+      "confidence": "high",
+      "telltalePatterns": [
+        "General American rhoticity",
+        "flapping of intervocalic /t/ as [ɾ] in 'matching'",
+        "standard realization of /æ/ in 'matching'"
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like",
+      "fluencyNotes": "Natural usage of connected speech, including linking and weak forms."
+    },
+    "strengths": [
+      "Precise articulation of rhotic /r/",
+      "Natural sentence stress and rhythm",
+      "Fluid transitions between connected words"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

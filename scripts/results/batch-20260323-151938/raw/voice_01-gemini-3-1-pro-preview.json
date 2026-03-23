@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_01.mp3",
+      "accent": "german",
+      "gender": "female",
+      "label": "voice_01"
+    },
+    "latencyMs": 47286,
+    "timestamp": "2026-03-23T15:33:15.971Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "mild breathiness",
+        "moderate pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German (Standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "final obstruent devoicing",
+        "labiodental approximant substitution for labial-velar approximant",
+        "vowel raising of /æ/"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[ʋ] instead of /w/",
+        "exampleWord": "well",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɛ] instead of /æ/",
+        "exampleWord": "matching",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "[s] instead of /z/ (final devoicing)",
+        "exampleWord": "lives",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "normal",
+      "intonation": "Native-like but with slightly flattened pitch contours at clause boundaries",
+      "fluencyNotes": "Excellent connected speech, natural pausing, fluid linking across word boundaries without mid-phrase hesitations"
+    },
+    "strengths": [
+      "Clear and accurate articulation of complex consonant clusters",
+      "Excellent fluid linking between words (e.g., 'seem to have')",
+      "Native-like placement of primary lexical stress"
+    ],
+    "overallScore": 8,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "/w/ vs /v/ distinction",
+        "reason": "Prevents occasional labiodental substitutions that mark the accent as distinctly Germanic and can cause occasional lexical ambiguity"
+      },
+      {
+        "area": "Vowel quality of /æ/",
+        "reason": "Lowering the jaw for /æ/ ensures words like 'matching' sound fully native rather than shifted toward 'metching'"
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, well I'm just trying to find my matching socks."
+  }
+}

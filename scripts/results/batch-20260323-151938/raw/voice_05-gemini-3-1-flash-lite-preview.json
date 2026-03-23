@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "model": "gemini-3.1-flash-lite-preview",
+    "sample": {
+      "file": "voice_05.mp3",
+      "accent": "indian",
+      "gender": "male",
+      "label": "voice_05"
+    },
+    "latencyMs": 3909,
+    "timestamp": "2026-03-23T15:31:54.858Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "neutral resonance",
+        "even pitch inflection"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "British English (Southern/RP influence)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "non-rhoticity evidenced by 'together' and 'hard'",
+        "standard realization of the T-glottalization in conversational context",
+        "clear vowel quality in 'funny' and 'people'"
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like",
+      "fluencyNotes": "natural use of connected speech, including clear linking and rhythmicity"
+    },
+    "strengths": [
+      "natural connected speech patterns",
+      "correct realization of non-rhotic vowel reduction",
+      "accurate lexical stress patterns"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [],
+    "transcript": "It's funny how some people always seem to have their life together. Well, I'm just trying to find my matching socks."
+  }
+}

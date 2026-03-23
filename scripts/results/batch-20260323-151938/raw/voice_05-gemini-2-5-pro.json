@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_05.mp3",
+      "accent": "indian",
+      "gender": "male",
+      "label": "voice_05"
+    },
+    "latencyMs": 38505,
+    "timestamp": "2026-03-23T15:25:42.299Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "clear modal voice",
+        "mid-range pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Italian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/ð/ → [d̪] substitution (voiced dental stop)",
+        "syllable-timed rhythm without vowel reduction",
+        "alveolar tap /ɾ/ used for American /ɹ/"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/d̪/ (voiced dental stop)",
+        "exampleWord": "together",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "/ɾ/ (alveolar tap)",
+        "exampleWord": "trying",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/dʒ/",
+        "produced": "/tʃ/ (devoicing)",
+        "exampleWord": "just",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Fluent and well-paced with good connected speech, but lacks significant vowel reduction in unstressed syllables, contributing to the non-native rhythm."
+    },
+    "strengths": [
+      "Excellent grammatical structure and vocabulary choice",
+      "Fluent delivery with no unnatural hesitations",
+      "Clear articulation of sibilants (e.g., 'socks', 'lives', 'always')"
+    ],
+    "overallScore": 7.5,
+    "level": "C1",
+    "recommendedFocus": [
+      {
+        "area": "Voiced 'th' sound /ð/",
+        "reason": "This is a very high-frequency sound in English. Replacing the current /d/-like stop with a proper fricative will have the single largest impact on intelligibility and sounding more native-like."
+      },
+      {
+        "area": "Stress-timed rhythm & vowel reduction",
+        "reason": "English rhythm depends on weakening unstressed vowels (e.g., 'together' is tuh-GE-thur, not too-geh-ther). Mastering this will make speech flow more naturally and is a hallmark of advanced pronunciation."
+      },
+      {
+        "area": "American /ɹ/ consonant",
+        "reason": "The tapped /ɾ/ is a prominent feature of the accent. While usually understood, producing a retroflex American /ɹ/ would significantly reduce the foreign quality of the accent."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_07.mp3",
+      "accent": "russian",
+      "gender": "male",
+      "label": "voice_07"
+    },
+    "latencyMs": 10298,
+    "timestamp": "2026-03-23T13:43:17.304Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "low pitch",
+        "breathy",
+        "slight vocal fry",
+        "relaxed resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian or Slavic-influenced English",
+      "confidence": "medium",
+      "telltalePatterns": [
+        "final obstruent devoicing",
+        "syllable-timed rhythm",
+        "dental fricative /ð/ realized as /d/",
+        "monophthongization of diphthongs"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/z/",
+        "produced": "/s/ due to final devoicing",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/",
+        "exampleWord": "together",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "/i/ (too tense)",
+        "exampleWord": "it's",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "slow",
+      "intonation": "flat and L1-influenced",
+      "fluencyNotes": "Speech is deliberate with noticeable gaps between words; lacks natural linking (liaison) and elision typical of native speakers."
+    },
+    "strengths": [
+      "Clear articulation of voiceless affricates like /tʃ/ in 'matching'",
+      "Strong aspiration on initial voiceless stops",
+      "Excellent vocabulary and grammatical structure"
+    ],
+    "overallScore": 7.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Final Consonant Voicing",
+        "reason": "Maintaining vibration on sounds like /z/ and /v/ at the end of words prevents them from sounding like /s/ or /f/, which is vital for distinguishing words like 'lives'."
+      },
+      {
+        "area": "Connected Speech and Linking",
+        "reason": "Moving from a syllable-timed rhythm to a stress-timed rhythm will reduce the staccato effect and make the speech sound more fluid."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

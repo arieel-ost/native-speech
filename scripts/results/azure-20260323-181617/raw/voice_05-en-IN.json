@@ -1,0 +1,1839 @@
+{
+  "sample": {
+    "file": "voice_05.mp3",
+    "accent": "indian",
+    "gender": "male",
+    "label": "voice_05"
+  },
+  "locale": "en-IN",
+  "result": {
+    "locale": "en-IN",
+    "accuracyScore": 82,
+    "fluencyScore": 99,
+    "completenessScore": 100,
+    "prosodyScore": 77.8,
+    "pronunciationScore": 82.9,
+    "recognizedText": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks.",
+    "words": [
+      {
+        "word": "it's",
+        "accuracyScore": 98,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 49
+              },
+              {
+                "phoneme": "",
+                "score": 2
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 80,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 64
+              },
+              {
+                "phoneme": "",
+                "score": 48
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 93,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 43
+              },
+              {
+                "phoneme": "",
+                "score": 30
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 94
+          }
+        ]
+      },
+      {
+        "word": "funny",
+        "accuracyScore": 97,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 86,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 13
+              },
+              {
+                "phoneme": "",
+                "score": 2
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 55
+              },
+              {
+                "phoneme": "",
+                "score": 2
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 47
+              },
+              {
+                "phoneme": "",
+                "score": 10
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 58
+              },
+              {
+                "phoneme": "",
+                "score": 54
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 93
+          },
+          {
+            "syllable": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "how",
+        "accuracyScore": 100,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 6
+              },
+              {
+                "phoneme": "",
+                "score": 4
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 98
+              },
+              {
+                "phoneme": "",
+                "score": 92
+              },
+              {
+                "phoneme": "",
+                "score": 84
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 90
+              },
+              {
+                "phoneme": "",
+                "score": 74
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 100
+          },
+          {
+            "syllable": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "some",
+        "accuracyScore": 100,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 71
+              },
+              {
+                "phoneme": "",
+                "score": 52
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 6
+              },
+              {
+                "phoneme": "",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 7
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "people",
+        "accuracyScore": 100,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 54
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 25
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 9
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 46
+              },
+              {
+                "phoneme": "",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 6
+              },
+              {
+                "phoneme": "",
+                "score": 5
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 100
+          },
+          {
+            "syllable": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "always",
+        "accuracyScore": 55,
+        "errorType": "Mispronunciation",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 96
+              },
+              {
+                "phoneme": "",
+                "score": 26
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 69,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 63
+              },
+              {
+                "phoneme": "",
+                "score": 54
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 4
+              },
+              {
+                "phoneme": "",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 41
+              },
+              {
+                "phoneme": "",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 23,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 95
+              },
+              {
+                "phoneme": "",
+                "score": 26
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 91
+          },
+          {
+            "syllable": "",
+            "accuracyScore": 81
+          }
+        ]
+      },
+      {
+        "word": "seem",
+        "accuracyScore": 98,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 80,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 21
+              },
+              {
+                "phoneme": "",
+                "score": 4
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 9
+              },
+              {
+                "phoneme": "",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 6
+              },
+              {
+                "phoneme": "",
+                "score": 2
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 94
+          }
+        ]
+      },
+      {
+        "word": "to",
+        "accuracyScore": 100,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 34
+              },
+              {
+                "phoneme": "",
+                "score": 2
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 2
+              },
+              {
+                "phoneme": "",
+                "score": 1
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "have",
+        "accuracyScore": 98,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 6
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 93
+              },
+              {
+                "phoneme": "",
+                "score": 42
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 82,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 74
+              },
+              {
+                "phoneme": "",
+                "score": 22
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 91
+          }
+        ]
+      },
+      {
+        "word": "their",
+        "accuracyScore": 97,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 80,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 1
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 34
+              },
+              {
+                "phoneme": "",
+                "score": 23
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 6
+              },
+              {
+                "phoneme": "",
+                "score": 5
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 94
+          }
+        ]
+      },
+      {
+        "word": "lives",
+        "accuracyScore": 4,
+        "errorType": "Mispronunciation",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 40
+              },
+              {
+                "phoneme": "",
+                "score": 5
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 71
+              },
+              {
+                "phoneme": "",
+                "score": 63
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 2,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 94
+              },
+              {
+                "phoneme": "",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 43
+              },
+              {
+                "phoneme": "",
+                "score": 41
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 0,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 70
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 100
+          },
+          {
+            "syllable": "",
+            "accuracyScore": 41
+          }
+        ]
+      },
+      {
+        "word": "together",
+        "accuracyScore": 85,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 23
+              },
+              {
+                "phoneme": "",
+                "score": 5
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 3
+              },
+              {
+                "phoneme": "",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 26
+              },
+              {
+                "phoneme": "",
+                "score": 19
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 16
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 23
+              },
+              {
+                "phoneme": "",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 71,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 10
+              },
+              {
+                "phoneme": "",
+                "score": 5
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 100
+          },
+          {
+            "syllable": "",
+            "accuracyScore": 100
+          },
+          {
+            "syllable": "",
+            "accuracyScore": 86
+          }
+        ]
+      },
+      {
+        "word": "while",
+        "accuracyScore": 49,
+        "errorType": "Mispronunciation",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 8
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 46,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 91
+              },
+              {
+                "phoneme": "",
+                "score": 58
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 93
+              },
+              {
+                "phoneme": "",
+                "score": 81
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 0,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 42
+              },
+              {
+                "phoneme": "",
+                "score": 15
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 91
+          },
+          {
+            "syllable": "",
+            "accuracyScore": 50
+          }
+        ]
+      },
+      {
+        "word": "i'm",
+        "accuracyScore": 80,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 80,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 93
+              },
+              {
+                "phoneme": "",
+                "score": 51
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 80,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 93
+              },
+              {
+                "phoneme": "",
+                "score": 89
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 47,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 93
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 80
+          },
+          {
+            "syllable": "",
+            "accuracyScore": 64
+          }
+        ]
+      },
+      {
+        "word": "just",
+        "accuracyScore": 96,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 91,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 42
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 97,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 4
+              },
+              {
+                "phoneme": "",
+                "score": 2
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 77,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 11
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 91
+          }
+        ]
+      },
+      {
+        "word": "trying",
+        "accuracyScore": 28,
+        "errorType": "Mispronunciation",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 3
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 4
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 67,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 93
+              },
+              {
+                "phoneme": "",
+                "score": 12
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 78,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 97
+              },
+              {
+                "phoneme": "",
+                "score": 2
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 76,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 81
+              },
+              {
+                "phoneme": "",
+                "score": 56
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 26,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 82
+              },
+              {
+                "phoneme": "",
+                "score": 2
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 91
+          },
+          {
+            "syllable": "",
+            "accuracyScore": 60
+          }
+        ]
+      },
+      {
+        "word": "to",
+        "accuracyScore": 100,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 54
+              },
+              {
+                "phoneme": "",
+                "score": 24
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 79
+              },
+              {
+                "phoneme": "",
+                "score": 18
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 100
+          }
+        ]
+      },
+      {
+        "word": "find",
+        "accuracyScore": 43,
+        "errorType": "Mispronunciation",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 2
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 76
+              },
+              {
+                "phoneme": "",
+                "score": 5
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 97,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 56
+              },
+              {
+                "phoneme": "",
+                "score": 8
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 91
+              },
+              {
+                "phoneme": "",
+                "score": 1
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 0,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 87
+              },
+              {
+                "phoneme": "",
+                "score": 66
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 100
+          },
+          {
+            "syllable": "",
+            "accuracyScore": 66
+          }
+        ]
+      },
+      {
+        "word": "my",
+        "accuracyScore": 96,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 94,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 71
+              },
+              {
+                "phoneme": "",
+                "score": 2
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 80,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 91
+              },
+              {
+                "phoneme": "",
+                "score": 2
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 80,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 44
+              },
+              {
+                "phoneme": "",
+                "score": 12
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 87
+          },
+          {
+            "syllable": "",
+            "accuracyScore": 80
+          }
+        ]
+      },
+      {
+        "word": "matching",
+        "accuracyScore": 98,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 98,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 41
+              },
+              {
+                "phoneme": "",
+                "score": 0
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 98,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 57
+              },
+              {
+                "phoneme": "",
+                "score": 9
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 98,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 4
+              },
+              {
+                "phoneme": "",
+                "score": 2
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 98,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 80
+              },
+              {
+                "phoneme": "",
+                "score": 62
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 98,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 44
+              },
+              {
+                "phoneme": "",
+                "score": 27
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 98,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 6
+              },
+              {
+                "phoneme": "",
+                "score": 1
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 98
+          },
+          {
+            "syllable": "",
+            "accuracyScore": 98
+          }
+        ]
+      },
+      {
+        "word": "socks",
+        "accuracyScore": 98,
+        "errorType": "None",
+        "phonemes": [
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 96
+              },
+              {
+                "phoneme": "",
+                "score": 12
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 17
+              },
+              {
+                "phoneme": "",
+                "score": 13
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 100,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 34
+              },
+              {
+                "phoneme": "",
+                "score": 19
+              }
+            ]
+          },
+          {
+            "phoneme": "",
+            "accuracyScore": 82,
+            "nbestPhonemes": [
+              {
+                "phoneme": "",
+                "score": 100
+              },
+              {
+                "phoneme": "",
+                "score": 6
+              },
+              {
+                "phoneme": "",
+                "score": 4
+              }
+            ]
+          }
+        ],
+        "syllables": [
+          {
+            "syllable": "",
+            "accuracyScore": 92
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_11.mp3",
+      "accent": "russian",
+      "gender": "female",
+      "label": "voice_11"
+    },
+    "latencyMs": 31043,
+    "timestamp": "2026-03-23T22:07:38.457Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-40",
+      "vocalTraits": [
+        "modal voice",
+        "neutral resonance",
+        "moderate pitch",
+        "clear phonation"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Indian English (Hindi L1)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "retroflexion of alveolar plosives (/t/ → [ʈ], /d/ → [ɖ])",
+        "dentalization of fricatives (/ð/ → [d̪], /θ/ → [t̪])",
+        "non-rhoticity in coda position (/r/ elision)",
+        "vowel reduction absent in unstressed syllables"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/t/",
+        "produced": "[ʈ]",
+        "exampleWord": "time",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/d/",
+        "produced": "[ɖ]",
+        "exampleWord": "decided",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪]",
+        "exampleWord": "father",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[t̪]",
+        "exampleWord": "through",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced pitch contours with relatively flat, staccato stress patterns",
+      "fluencyNotes": "Fluent continuous speech, though lacks natural English linking and reduction, resulting in words being produced somewhat in isolation rather than as cohesive chunks."
+    },
+    "strengths": [
+      "Clear articulation of vowels with good distinction between long and short pairs",
+      "Consistent and accurate production of consonant clusters",
+      "High overall intelligibility with smooth pacing"
+    ],
+    "overallScore": 8,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Alveolar Plosives (/t/, /d/)",
+        "reason": "Softening the retroflex [ʈ] and [ɖ] to standard alveolar [t] and [d] will significantly reduce the L1 interference footprint and align closer to GenAm or RP."
+      },
+      {
+        "area": "Vowel Reduction and Schwa (/ə/)",
+        "reason": "Applying vowel reduction to unstressed syllables will help transition the rhythm from syllable-timed to stress-timed, improving natural flow."
+      },
+      {
+        "area": "Dental Fricatives (/θ/, /ð/)",
+        "reason": "Ensuring continuous airflow for 'th' sounds instead of producing them as dental stops will enhance phonetic accuracy."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

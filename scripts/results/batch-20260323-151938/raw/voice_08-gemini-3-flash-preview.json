@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_08.mp3",
+      "accent": "american",
+      "gender": "male",
+      "label": "voice_08"
+    },
+    "latencyMs": 15703,
+    "timestamp": "2026-03-23T15:30:48.647Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "vocal fry in terminal positions",
+        "neutral resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "English (General American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Post-vocalic rhoticity in 'together'",
+        "Alveolar flapping of /t/ in 'together'",
+        "Low-back unrounded vowel /ɑ/ in 'socks'"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/t/",
+        "produced": "[ɾ] (intervocalic flap)",
+        "exampleWord": "together",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/l/",
+        "produced": "[ɫ] (velarized alveolar lateral approximant)",
+        "exampleWord": "people",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/t/",
+        "produced": "[∅] (elision in consonant cluster)",
+        "exampleWord": "just",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-standard",
+      "fluencyNotes": "Natural use of connected speech including elision and standard contractions."
+    },
+    "strengths": [
+      "Native command of English phonotactics",
+      "Accurate use of weak forms and vowel reduction"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "None",
+        "reason": "Speaker is a native speaker of General American English; no remedial focus required."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

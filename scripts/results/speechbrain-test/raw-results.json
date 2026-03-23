@@ -1,0 +1,607 @@
+[
+  {
+    "file": "voice_01.mp3",
+    "langId": {
+      "predicted": "en: English",
+      "confidence": 92.8,
+      "top5": [
+        {
+          "language": "en: English",
+          "confidence": 92.8
+        },
+        {
+          "language": "cy: Welsh",
+          "confidence": 5.8
+        },
+        {
+          "language": "mi: Maori",
+          "confidence": 0.6
+        },
+        {
+          "language": "sco: Scots",
+          "confidence": 0.6
+        },
+        {
+          "language": "ko: Korean",
+          "confidence": 0.1
+        }
+      ]
+    },
+    "accentId": {
+      "predicted": "singapore",
+      "confidence": 77.3,
+      "top5": [
+        {
+          "accent": "singapore",
+          "confidence": 77.3
+        },
+        {
+          "accent": "us",
+          "confidence": 12.6
+        },
+        {
+          "accent": "bermuda",
+          "confidence": 6.5
+        },
+        {
+          "accent": "wales",
+          "confidence": 1.9
+        },
+        {
+          "accent": "england",
+          "confidence": 1.3
+        }
+      ]
+    }
+  },
+  {
+    "file": "voice_02.mp3",
+    "langId": {
+      "predicted": "en: English",
+      "confidence": 89.9,
+      "top5": [
+        {
+          "language": "en: English",
+          "confidence": 89.9
+        },
+        {
+          "language": "cy: Welsh",
+          "confidence": 6.4
+        },
+        {
+          "language": "mi: Maori",
+          "confidence": 2.7
+        },
+        {
+          "language": "haw: Hawaiian",
+          "confidence": 0.3
+        },
+        {
+          "language": "iw: Hebrew",
+          "confidence": 0.1
+        }
+      ]
+    },
+    "accentId": {
+      "predicted": "singapore",
+      "confidence": 59.7,
+      "top5": [
+        {
+          "accent": "singapore",
+          "confidence": 59.7
+        },
+        {
+          "accent": "us",
+          "confidence": 36.4
+        },
+        {
+          "accent": "bermuda",
+          "confidence": 1.4
+        },
+        {
+          "accent": "wales",
+          "confidence": 1.4
+        },
+        {
+          "accent": "england",
+          "confidence": 0.8
+        }
+      ]
+    }
+  },
+  {
+    "file": "voice_03.mp3",
+    "langId": {
+      "predicted": "en: English",
+      "confidence": 98.9,
+      "top5": [
+        {
+          "language": "en: English",
+          "confidence": 98.9
+        },
+        {
+          "language": "cy: Welsh",
+          "confidence": 0.9
+        },
+        {
+          "language": "mi: Maori",
+          "confidence": 0.1
+        },
+        {
+          "language": "sco: Scots",
+          "confidence": 0
+        },
+        {
+          "language": "fi: Finnish",
+          "confidence": 0
+        }
+      ]
+    },
+    "accentId": {
+      "predicted": "us",
+      "confidence": 100,
+      "top5": [
+        {
+          "accent": "us",
+          "confidence": 100
+        },
+        {
+          "accent": "england",
+          "confidence": 0
+        },
+        {
+          "accent": "southatlandtic",
+          "confidence": 0
+        },
+        {
+          "accent": "wales",
+          "confidence": 0
+        },
+        {
+          "accent": "australia",
+          "confidence": 0
+        }
+      ]
+    }
+  },
+  {
+    "file": "voice_04.mp3",
+    "langId": {
+      "predicted": "en: English",
+      "confidence": 89.1,
+      "top5": [
+        {
+          "language": "en: English",
+          "confidence": 89.1
+        },
+        {
+          "language": "sw: Swahili",
+          "confidence": 5
+        },
+        {
+          "language": "cy: Welsh",
+          "confidence": 4.4
+        },
+        {
+          "language": "ko: Korean",
+          "confidence": 0.3
+        },
+        {
+          "language": "ps: Pushto",
+          "confidence": 0.3
+        }
+      ]
+    },
+    "accentId": {
+      "predicted": "us",
+      "confidence": 100,
+      "top5": [
+        {
+          "accent": "us",
+          "confidence": 100
+        },
+        {
+          "accent": "canada",
+          "confidence": 0
+        },
+        {
+          "accent": "hongkong",
+          "confidence": 0
+        },
+        {
+          "accent": "ireland",
+          "confidence": 0
+        },
+        {
+          "accent": "england",
+          "confidence": 0
+        }
+      ]
+    }
+  },
+  {
+    "file": "voice_05.mp3",
+    "langId": {
+      "predicted": "en: English",
+      "confidence": 95.4,
+      "top5": [
+        {
+          "language": "en: English",
+          "confidence": 95.4
+        },
+        {
+          "language": "ko: Korean",
+          "confidence": 1.6
+        },
+        {
+          "language": "cy: Welsh",
+          "confidence": 0.9
+        },
+        {
+          "language": "jw: Javanese",
+          "confidence": 0.6
+        },
+        {
+          "language": "de: German",
+          "confidence": 0.3
+        }
+      ]
+    },
+    "accentId": {
+      "predicted": "southatlandtic",
+      "confidence": 54.5,
+      "top5": [
+        {
+          "accent": "southatlandtic",
+          "confidence": 54.5
+        },
+        {
+          "accent": "england",
+          "confidence": 38.4
+        },
+        {
+          "accent": "us",
+          "confidence": 4.6
+        },
+        {
+          "accent": "wales",
+          "confidence": 2.4
+        },
+        {
+          "accent": "indian",
+          "confidence": 0
+        }
+      ]
+    }
+  },
+  {
+    "file": "voice_06.mp3",
+    "langId": {
+      "predicted": "en: English",
+      "confidence": 100,
+      "top5": [
+        {
+          "language": "en: English",
+          "confidence": 100
+        },
+        {
+          "language": "cy: Welsh",
+          "confidence": 0
+        },
+        {
+          "language": "pt: Portuguese",
+          "confidence": 0
+        },
+        {
+          "language": "sco: Scots",
+          "confidence": 0
+        },
+        {
+          "language": "mi: Maori",
+          "confidence": 0
+        }
+      ]
+    },
+    "accentId": {
+      "predicted": "australia",
+      "confidence": 100,
+      "top5": [
+        {
+          "accent": "australia",
+          "confidence": 100
+        },
+        {
+          "accent": "wales",
+          "confidence": 0
+        },
+        {
+          "accent": "southatlandtic",
+          "confidence": 0
+        },
+        {
+          "accent": "us",
+          "confidence": 0
+        },
+        {
+          "accent": "newzealand",
+          "confidence": 0
+        }
+      ]
+    }
+  },
+  {
+    "file": "voice_07.mp3",
+    "langId": {
+      "predicted": "en: English",
+      "confidence": 80.6,
+      "top5": [
+        {
+          "language": "en: English",
+          "confidence": 80.6
+        },
+        {
+          "language": "sr: Serbian",
+          "confidence": 6
+        },
+        {
+          "language": "be: Belarusian",
+          "confidence": 3.9
+        },
+        {
+          "language": "cy: Welsh",
+          "confidence": 2.5
+        },
+        {
+          "language": "pl: Polish",
+          "confidence": 1.8
+        }
+      ]
+    },
+    "accentId": {
+      "predicted": "us",
+      "confidence": 100,
+      "top5": [
+        {
+          "accent": "us",
+          "confidence": 100
+        },
+        {
+          "accent": "indian",
+          "confidence": 0
+        },
+        {
+          "accent": "newzealand",
+          "confidence": 0
+        },
+        {
+          "accent": "southatlandtic",
+          "confidence": 0
+        },
+        {
+          "accent": "african",
+          "confidence": 0
+        }
+      ]
+    }
+  },
+  {
+    "file": "voice_08.mp3",
+    "langId": {
+      "predicted": "en: English",
+      "confidence": 100,
+      "top5": [
+        {
+          "language": "en: English",
+          "confidence": 100
+        },
+        {
+          "language": "sco: Scots",
+          "confidence": 0
+        },
+        {
+          "language": "pt: Portuguese",
+          "confidence": 0
+        },
+        {
+          "language": "fi: Finnish",
+          "confidence": 0
+        },
+        {
+          "language": "tl: Tagalog",
+          "confidence": 0
+        }
+      ]
+    },
+    "accentId": {
+      "predicted": "us",
+      "confidence": 79.7,
+      "top5": [
+        {
+          "accent": "us",
+          "confidence": 79.7
+        },
+        {
+          "accent": "southatlandtic",
+          "confidence": 19.6
+        },
+        {
+          "accent": "canada",
+          "confidence": 0.4
+        },
+        {
+          "accent": "wales",
+          "confidence": 0.2
+        },
+        {
+          "accent": "singapore",
+          "confidence": 0
+        }
+      ]
+    }
+  },
+  {
+    "file": "voice_09.mp3",
+    "langId": {
+      "predicted": "en: English",
+      "confidence": 93.3,
+      "top5": [
+        {
+          "language": "en: English",
+          "confidence": 93.3
+        },
+        {
+          "language": "cy: Welsh",
+          "confidence": 5.2
+        },
+        {
+          "language": "sco: Scots",
+          "confidence": 0.2
+        },
+        {
+          "language": "fi: Finnish",
+          "confidence": 0.2
+        },
+        {
+          "language": "ne: Nepali",
+          "confidence": 0.1
+        }
+      ]
+    },
+    "accentId": {
+      "predicted": "us",
+      "confidence": 99.9,
+      "top5": [
+        {
+          "accent": "us",
+          "confidence": 99.9
+        },
+        {
+          "accent": "ireland",
+          "confidence": 0.1
+        },
+        {
+          "accent": "england",
+          "confidence": 0
+        },
+        {
+          "accent": "singapore",
+          "confidence": 0
+        },
+        {
+          "accent": "canada",
+          "confidence": 0
+        }
+      ]
+    }
+  },
+  {
+    "file": "voice_10.mp3",
+    "langId": {
+      "predicted": "en: English",
+      "confidence": 96,
+      "top5": [
+        {
+          "language": "en: English",
+          "confidence": 96
+        },
+        {
+          "language": "sco: Scots",
+          "confidence": 3.1
+        },
+        {
+          "language": "haw: Hawaiian",
+          "confidence": 0.6
+        },
+        {
+          "language": "mi: Maori",
+          "confidence": 0.1
+        },
+        {
+          "language": "cy: Welsh",
+          "confidence": 0
+        }
+      ]
+    },
+    "accentId": {
+      "predicted": "canada",
+      "confidence": 98.8,
+      "top5": [
+        {
+          "accent": "canada",
+          "confidence": 98.8
+        },
+        {
+          "accent": "us",
+          "confidence": 1.2
+        },
+        {
+          "accent": "bermuda",
+          "confidence": 0
+        },
+        {
+          "accent": "philippines",
+          "confidence": 0
+        },
+        {
+          "accent": "southatlandtic",
+          "confidence": 0
+        }
+      ]
+    }
+  },
+  {
+    "file": "voice_11.mp3",
+    "langId": {
+      "predicted": "en: English",
+      "confidence": 74.5,
+      "top5": [
+        {
+          "language": "en: English",
+          "confidence": 74.5
+        },
+        {
+          "language": "hr: Croatian",
+          "confidence": 15
+        },
+        {
+          "language": "de: German",
+          "confidence": 2.6
+        },
+        {
+          "language": "sq: Albanian",
+          "confidence": 1.7
+        },
+        {
+          "language": "bs: Bosnian",
+          "confidence": 0.7
+        }
+      ]
+    },
+    "accentId": {
+      "predicted": "african",
+      "confidence": 56.5,
+      "top5": [
+        {
+          "accent": "african",
+          "confidence": 56.5
+        },
+        {
+          "accent": "malaysia",
+          "confidence": 25.1
+        },
+        {
+          "accent": "bermuda",
+          "confidence": 12.6
+        },
+        {
+          "accent": "england",
+          "confidence": 3.5
+        },
+        {
+          "accent": "us",
+          "confidence": 1
+        }
+      ]
+    }
+  }
+]

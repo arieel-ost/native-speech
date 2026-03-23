@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_11.mp3",
+      "accent": "russian",
+      "gender": "male",
+      "label": "voice_11"
+    },
+    "latencyMs": 74095,
+    "timestamp": "2026-03-23T13:54:38.559Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "slightly breathy",
+        "monotone",
+        "lower pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Eastern European / Slavic",
+      "confidence": "medium",
+      "telltalePatterns": [
+        "/w/ to /v/ substitution",
+        "vowel reduction absent",
+        "dental fricative substitution (/ð/ → /z/ or /d/)"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/z/ instead of /ð/",
+        "exampleWord": "together",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/w/",
+        "produced": "/v/ instead of /w/",
+        "exampleWord": "while",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "/ɛ/ instead of /æ/",
+        "exampleWord": "matching",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "flat, lacking natural English sentence stress",
+      "fluencyNotes": "Generally fluent, but lacks connected speech features like linking and assimilation across word boundaries."
+    },
+    "strengths": [
+      "Consonant clusters are articulated clearly",
+      "Good overall volume and steady pacing"
+    ],
+    "overallScore": 7.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Voiced dental fricative (/ð/)",
+        "reason": "Replacing /ð/ with /z/ is highly noticeable and distracts from intelligibility."
+      },
+      {
+        "area": "Labio-velar approximant (/w/)",
+        "reason": "Substituting /w/ with /v/ can change word meanings and breaks comprehension flow."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

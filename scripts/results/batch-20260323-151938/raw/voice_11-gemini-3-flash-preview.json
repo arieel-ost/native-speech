@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_11.mp3",
+      "accent": "russian",
+      "gender": "male",
+      "label": "voice_11"
+    },
+    "latencyMs": 15993,
+    "timestamp": "2026-03-23T15:31:30.951Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "nasal resonance",
+        "modal glottal state",
+        "terminal vocal fry"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "dentalization of alveolar stops and fricatives (/ð/ to [d̪])",
+        "vowel raising of open-front /æ/ towards mid-front [ɛ]",
+        "neutralization of the /ʌ/-/ə/ distinction"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪] (dental stop) instead of voiced dental fricative",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɛ] (raised vowel)",
+        "exampleWord": "matching",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ʌ/",
+        "produced": "[ə] (schwa-like reduction)",
+        "exampleWord": "funny",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced; slightly compressed pitch range with rising-falling contours on focused words",
+      "fluencyNotes": "High fluency with natural phrase-boundary pausing; consistent use of linking between 'have-their' and 'trying-to'."
+    },
+    "strengths": [
+      "Excellent production of the American rhotic /ɹ/ in coda positions",
+      "Clear distinction between high-front /i/ and /ɪ/ in 'people' and 'lives'",
+      "Advanced command of connected speech and elision in 'I'm just'"
+    ],
+    "overallScore": 8.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "/ð/ substitution",
+        "reason": "Correcting the dental stop to a fricative in high-frequency words like 'together' and 'their' significantly reduces perceived foreign accent."
+      },
+      {
+        "area": "/æ/ vowel lowering",
+        "reason": "Lowering the jaw for /æ/ in words like 'matching' prevents phonemic overlap with /ɛ/ (metching)."
+      },
+      {
+        "area": "Final obstruent voicing",
+        "reason": "Full voicing of /z/ in 'lives' and 'always' improves lexical clarity and prosodic flow."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

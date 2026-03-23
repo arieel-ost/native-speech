@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_03.mp3",
+      "accent": "german",
+      "gender": "male",
+      "label": "voice_03"
+    },
+    "latencyMs": 10948,
+    "timestamp": "2026-03-23T13:39:47.458Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-50",
+      "vocalTraits": [
+        "clear voice",
+        "moderate pitch",
+        "good projection"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Indian English",
+      "confidence": "high",
+      "telltalePatterns": [
+        "realization of /ð/ as a dental stop [d̪]",
+        "slight dentalization of sibilants",
+        "consistent rhoticity",
+        "tendency for more even syllable timing"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/d̪/ instead of /ð/",
+        "exampleWord": "their",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/d̪/ instead of /ð/",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/s/",
+        "produced": "slightly dentalized /s̪/",
+        "exampleWord": "socks",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "normal",
+      "intonation": "generally follows English patterns but occasionally flatter, L1-influenced",
+      "fluencyNotes": "Fluent speech with appropriate pausing; good use of connected speech. No significant hesitations."
+    },
+    "strengths": [
+      "clear articulation of most consonants",
+      "consistent and natural speech rate",
+      "good breath support and vocal projection"
+    ],
+    "overallScore": 8,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "voiced 'th' sound (/ð/)",
+        "reason": "Consistent substitution of /ð/ with a 'd' sound is a prominent accent marker and can occasionally cause momentary confusion for listeners."
+      },
+      {
+        "area": "intonation and pitch variability",
+        "reason": "Varying pitch more dynamically can make speech sound more engaging and native-like, especially at phrase endings, enhancing naturalness."
+      },
+      {
+        "area": "sibilant clarity (/s/, /z/)",
+        "reason": "Refining the focus and sharpness of sibilant sounds, especially /s/, can contribute to overall clarity and reduce L1 influence, though current impact on intelligibility is low."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

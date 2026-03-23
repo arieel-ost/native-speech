@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_03.mp3",
+      "accent": "german",
+      "gender": "male",
+      "label": "voice_03"
+    },
+    "latencyMs": 17106,
+    "timestamp": "2026-03-23T15:20:26.664Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "clear articulation",
+        "medium pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish (General Latin American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "realization of /ð/ as a dental stop [d̪] in \"their\", \"together\"",
+        "realization of /ɹ/ as an alveolar tap [ɾ] in \"trying\", \"their\"",
+        "monophthongization of the diphthong /aɪ/ to [aː] in \"lives\", \"find\""
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/d̪/ instead of /ð/",
+        "exampleWord": "their",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "/ɾ/ instead of /ɹ/",
+        "exampleWord": "trying",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/aɪ/",
+        "produced": "/aː/ instead of /aɪ/",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ʌ/",
+        "produced": "/a/ instead of /ʌ/",
+        "exampleWord": "funny",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "/ɛ/ instead of /æ/",
+        "exampleWord": "matching",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɑː/",
+        "produced": "/ɔ/ instead of /ɑː/",
+        "exampleWord": "socks",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced contours, slightly less dynamic than native-standard",
+      "fluencyNotes": "Natural pausing at phrase boundaries; words are generally produced distinctly with some linking present."
+    },
+    "strengths": [
+      "Consistent and clear articulation of voiceless alveolar sibilant /s/ and affricate /tʃ/",
+      "Accurate placement of primary lexical stress in most multi-syllabic words",
+      "Natural pausing at phrase boundaries, aiding overall comprehensibility"
+    ],
+    "overallScore": 7,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "Interdental fricatives (/θ/ and /ð/)",
+        "reason": "The substitution of dental stops for interdental fricatives is a prominent feature that frequently impacts clarity and deviates significantly from target English pronunciation."
+      },
+      {
+        "area": "Alveolar approximant /ɹ/",
+        "reason": "The consistent use of an alveolar tap /ɾ/ for the English /ɹ/ is a noticeable L1 transfer feature that affects naturalness and sometimes intelligibility, especially in rapid speech."
+      },
+      {
+        "area": "Vowel differentiation (/ʌ/ vs /ɑː/, /æ/ vs /ɛ/)",
+        "reason": "Improved differentiation and accurate production of key English vowels, particularly /ʌ/, /æ/, and /aɪ/, will enhance naturalness and reduce potential for listener misinterpretation."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

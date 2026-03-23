@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_01.mp3",
+      "accent": "american-texan",
+      "gender": "female",
+      "label": "voice_01"
+    },
+    "latencyMs": 17141,
+    "timestamp": "2026-03-23T21:55:22.652Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal glottal state",
+        "neutral resonance",
+        "slightly higher pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Korean",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Vowel raising and centralization of /æ/ → [ɐ] (e.g., \"having\", \"laughing\")",
+        "Fronted starting point of the /aʊ/ diphthong → [æʊ] (e.g., \"house\")",
+        "Tendency towards syllable-timed rhythm in English utterances"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɐ]",
+        "exampleWord": "having",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɑː/",
+        "produced": "[ɐː]",
+        "exampleWord": "park",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/aʊ/",
+        "produced": "[æʊ]",
+        "exampleWord": "house",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Generally fluent with natural phrase-boundary pauses. Words tend to be slightly more enunciated in isolation; connected speech features like elision and assimilation are less prominent."
+    },
+    "strengths": [
+      "Clear and consistent articulation of /θ/ and /ð/ sounds (e.g., \"weather\", \"through\", \"think\")",
+      "Accurate production of /r/ in most contexts (e.g., \"river\", \"red\", \"right\")",
+      "Good overall consonant clarity and intelligibility"
+    ],
+    "overallScore": 7,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "Vowel /æ/ production",
+        "reason": "The realization as [ɐ] or [ʌ] can occasionally cause confusion with other vowels like /ʌ/ or /ɑː/, impacting word recognition."
+      },
+      {
+        "area": "Prosody (rhythm and intonation)",
+        "reason": "Developing a more stress-timed rhythm and a wider, more natural pitch range will significantly enhance native-like fluency and expressiveness, making speech sound less flat or L1-influenced."
+      },
+      {
+        "area": "Diphthong /aʊ/ production",
+        "reason": "Practicing the more open and lower starting point for the /aʊ/ diphthong will improve vowel naturalness and reduce L1 transfer."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful. So I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

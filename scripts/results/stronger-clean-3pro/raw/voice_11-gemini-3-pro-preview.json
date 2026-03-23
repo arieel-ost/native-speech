@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "model": "gemini-3-pro-preview",
+    "sample": {
+      "file": "voice_11.mp3",
+      "accent": "russian",
+      "gender": "female",
+      "label": "voice_11"
+    },
+    "latencyMs": 48988,
+    "timestamp": "2026-03-23T22:01:20.720Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal phonation",
+        "neutral resonance",
+        "narrow pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish (Castilian)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Epenthetic /e/ insertion before s-clusters",
+        "Spirantization of intervocalic stops",
+        "Merger of lax and tense vowels (/ɪ/ and /i/)"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/v/",
+        "produced": "[b] (voiced bilabial plosive)",
+        "exampleWord": "village",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/st/ (initial)",
+        "produced": "[est] (prothetic /e/ addition)",
+        "exampleWord": "stopped",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "[i] (tense unrounded vowel)",
+        "exampleWord": "little",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "[s] (voiceless alveolar fricative)",
+        "exampleWord": "was",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "fast",
+      "intonation": "Diagnostic indicates narrow pitch range with L1-transferred flat contours, lacking English sentence stress",
+      "fluencyNotes": "Evidenced by smooth connected speech lacking native linking and assimilation; word boundaries are produced in isolation due to absent vowel reduction"
+    },
+    "strengths": [
+      "Consistent and clear articulation of consonant clusters without omission",
+      "Accurate placement of primary lexical stress in multisyllabic words like beautiful and decided"
+    ],
+    "overallScore": 7,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Vowel Reduction (Schwa)",
+        "reason": "Applying schwa to unstressed syllables will shift the rhythm from syllable-timed to stress-timed, vastly improving naturalness."
+      },
+      {
+        "area": "Voiceless vs Voiced Fricatives (/v/ vs /b/)",
+        "reason": "Differentiating these sounds prevents minimal pair confusion and improves lexical intelligibility."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

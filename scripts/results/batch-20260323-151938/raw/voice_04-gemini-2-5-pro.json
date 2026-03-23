@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_04.mp3",
+      "accent": "french",
+      "gender": "female",
+      "label": "voice_04"
+    },
+    "latencyMs": 27736,
+    "timestamp": "2026-03-23T15:25:02.770Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "slight breathiness",
+        "medium-high pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "French",
+      "confidence": "high",
+      "telltalePatterns": [
+        "syllable-timed rhythm",
+        "final consonant devoicing (e.g., 'lives' as /laɪfs/)",
+        "/ʌ/ vowel in 'funny' and 'just' is centralized and raised"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/z/",
+        "produced": "partially or fully devoiced to /s/",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ʌ/",
+        "produced": "centralized vowel, close to [ə] or the French [œ]",
+        "exampleWord": "just",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "raised and fronted vowel, closer to [ɛ]",
+        "exampleWord": "matching",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Fluent speech with clear phrasing, but lacks native-like connected speech features (linking, vowel reduction) due to syllable-timed rhythm."
+    },
+    "strengths": [
+      "Grammatical accuracy and vocabulary are high.",
+      "Clear articulation of s-clusters (e.g., 'just', 'socks').",
+      "Consistent production of /h/ in 'how' and 'have'."
+    ],
+    "overallScore": 7.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "English stress-timed rhythm",
+        "reason": "This is the most significant feature marking the speech as non-native. Focusing on sentence stress and vowel reduction in unstressed syllables will have the largest impact on sounding more native-like."
+      },
+      {
+        "area": "Voicing of final consonants (/z/ vs. /s/)",
+        "reason": "Correctly voicing final consonants is crucial for marking plurals (lives, socks) and verb forms, directly impacting grammatical clarity."
+      },
+      {
+        "area": "Vowel distinction: /ʌ/ (as in 'just')",
+        "reason": "This is a frequent vowel in English that does not exist in French. Mastering it will improve the clarity of many common words."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

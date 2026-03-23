@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_05.mp3",
+      "accent": "indian",
+      "gender": "male",
+      "label": "voice_05"
+    },
+    "latencyMs": 15006,
+    "timestamp": "2026-03-23T15:20:59.245Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "neutral resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Indian English (General North Indian)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "dentalization of /ð/ to [d̪] in \"their\" and \"together\"",
+        "vowel retraction/lowering of /æ/ to [ɑ] in \"matching\" and \"have\"",
+        "tendency towards syllable-timed rhythm"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪] (dental stop) instead of /ð/",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɑ] (low back unrounded vowel) instead of /æ/",
+        "exampleWord": "matching",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "[ʋ] (labiodental approximant) instead of /v/",
+        "exampleWord": "have",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "[i] (close front unrounded vowel) instead of /ɪ/",
+        "exampleWord": "people",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ʌ/",
+        "produced": "[ə] (mid-central unrounded vowel) instead of /ʌ/",
+        "exampleWord": "just",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, relatively flatter pitch contours compared to native English norms.",
+      "fluencyNotes": "Generally fluent with natural phrase-boundary pauses. Words are often produced somewhat distinctly rather than with strong connected speech features like assimilation or elision."
+    },
+    "strengths": [
+      "Clear articulation of most consonants including /s/, /m/, /n/, /l/.",
+      "Accurate placement of primary lexical stress in most words, such as 'together' and 'matching'.",
+      "Consistent and natural speech rate throughout the utterance."
+    ],
+    "overallScore": 6,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "Distinguishing /θ/ and /ð/ from /t/ and /d/",
+        "reason": "This phoneme substitution is a prominent accent marker and can occasionally lead to confusion between minimal pairs (e.g., 'den' vs 'then'), impacting intelligibility."
+      },
+      {
+        "area": "Differentiating /æ/ from /ɑ/",
+        "reason": "The vowel shift impacts clarity and vowel distinction (e.g., 'matching' sounds like 'marching'), contributing to the prominent accent."
+      },
+      {
+        "area": "Employing more dynamic English intonation patterns",
+        "reason": "Flatter intonation can sometimes be perceived as less engaging and subtly alter perceived meaning, though less critical for immediate intelligibility than segmental errors."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

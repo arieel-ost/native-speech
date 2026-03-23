@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_08.mp3",
+      "accent": "italian",
+      "gender": "male",
+      "label": "voice_08"
+    },
+    "latencyMs": 22035,
+    "timestamp": "2026-03-23T21:57:49.537Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": []
+    },
+    "accent": {
+      "detectedLanguage": "Russian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "w→v substitution",
+        "θ→t and ð→d substitution",
+        "alveolar tap/trill for English rhotic /ɹ/"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[v] (labiodental fricative)",
+        "exampleWord": "was",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d] (alveolar stop)",
+        "exampleWord": "the",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[t] (alveolar stop)",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "[ɾ] or [r] (alveolar tap/trill)",
+        "exampleWord": "river",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[a] or [ɛ] (slightly raised/fronted low front vowel)",
+        "exampleWord": "had",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ʌ/",
+        "produced": "[ɑ] (more open back unrounded vowel)",
+        "exampleWord": "fun",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Consistent pace with natural pauses at phrase boundaries. Words are largely produced discretely with less native-like linking and reduction."
+    },
+    "strengths": [
+      "Maintains voicing distinctions for most English consonants, such as /p/-/b/, /t/-/d/ (excluding /θ/-/ð/), /k/-/g/, /f/-/v/, /s/-/z/.",
+      "Utilizes a varied vocabulary and grammatically correct sentence structures, which supports clear communication of ideas.",
+      "Speaks at a consistent, natural pace without significant hesitations or rushed segments."
+    ],
+    "overallScore": 6,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "Acquisition of /w/ (labial-velar approximant)",
+        "reason": "The consistent substitution of /w/ with [v] frequently breaks word-level recognition for native English listeners, impacting intelligibility significantly."
+      },
+      {
+        "area": "Pronunciation of interdental fricatives /θ/ and /ð/",
+        "reason": "The substitution of /θ/ with [t] and /ð/ with [d] is a high-impact error that disrupts perception of common words and grammatical markers ('the'), making the accent very prominent."
+      },
+      {
+        "area": "Realization of the English rhotic /ɹ/",
+        "reason": "Replacing the tapped/trilled /ɾ/ with the English alveolar approximant /ɹ/ is a noticeable L1 transfer feature that affects the overall sound of the accent, though it rarely impedes intelligibility directly."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful. So I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

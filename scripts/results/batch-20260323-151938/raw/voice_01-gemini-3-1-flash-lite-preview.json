@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "model": "gemini-3.1-flash-lite-preview",
+    "sample": {
+      "file": "voice_01.mp3",
+      "accent": "german",
+      "gender": "female",
+      "label": "voice_01"
+    },
+    "latencyMs": 3851,
+    "timestamp": "2026-03-23T15:31:35.827Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "clear articulation",
+        "moderate vocal fry in closing syllables"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "British English (Received Pronunciation)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "non-rhoticity evidenced in 'her', 'together'",
+        "broad 'a' /ɑː/ in 'always'",
+        "clear glottalization/clarity in articulation"
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like, natural pitch variation across sentences",
+      "fluencyNotes": "High level of fluency, natural connected speech with appropriate linking between words."
+    },
+    "strengths": [
+      "Precise articulation of English consonants",
+      "Excellent mastery of English intonation and sentence stress patterns"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "none",
+        "reason": "Speaker exhibits native-level phonological control."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, well I'm just trying to find my matching socks."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_08.mp3",
+      "accent": "american",
+      "gender": "male",
+      "label": "voice_08"
+    },
+    "latencyMs": 61715,
+    "timestamp": "2026-03-23T13:51:55.108Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "slight vocal fry",
+        "monotone",
+        "chest resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish",
+      "confidence": "high",
+      "telltalePatterns": [
+        "vowel reduction absent",
+        "b/v substitution",
+        "final obstruent devoicing"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/v/",
+        "produced": "/b/ instead of /v/",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "/s/ instead of /z/",
+        "exampleWord": "always",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "/i/ instead of /ɪ/",
+        "exampleWord": "lives",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "flat pitch patterns, L1-influenced",
+      "fluencyNotes": "Good connected speech but lacks vowel reduction in unstressed syllables."
+    },
+    "strengths": [
+      "Very clear articulation of consonants",
+      "Natural and relaxed speech rate",
+      "Strong vocabulary usage"
+    ],
+    "overallScore": 8,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Voiced fricatives (/z/, /v/)",
+        "reason": "Improves native-like fluency and prevents minimal pair confusion."
+      },
+      {
+        "area": "Vowel reduction (schwa)",
+        "reason": "Will help transition from syllable-timed to stress-timed rhythm."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together. While I'm just trying to find my matching socks."
+  }
+}

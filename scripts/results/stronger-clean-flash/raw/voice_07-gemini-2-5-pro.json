@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_07.mp3",
+      "accent": "british",
+      "gender": "male",
+      "label": "voice_07"
+    },
+    "latencyMs": 30812,
+    "timestamp": "2026-03-23T21:52:54.428Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "40-50",
+      "vocalTraits": [
+        "low pitch",
+        "modal voice",
+        "deliberate articulation"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "w→v substitution (e.g., 'weather', 'walk')",
+        "θ/ð→t̪/d̪ substitution (e.g., 'through', 'the')",
+        "syllable-timed rhythm with an absence of vowel reduction"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "/v/ substitution",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "dental stop /t̪/",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/r/",
+        "produced": "alveolar tap or trill [ɾ] or [r]",
+        "exampleWord": "river",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/d/ (in word-final position)",
+        "produced": "devoiced to /t/",
+        "exampleWord": "red",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "slow",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Limited connected speech. Words are produced distinctly and separated by slight pauses, rather than being linked together."
+    },
+    "strengths": [
+      "Articulation is very clear and deliberate.",
+      "Grammar and vocabulary are advanced and used correctly.",
+      "Pacing is consistent, which aids listener comprehension despite the accent."
+    ],
+    "overallScore": 5.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "/w/ vs. /v/ distinction",
+        "reason": "This is a high-frequency substitution that can cause confusion between common words (e.g., 'west' vs. 'vest') and is a primary marker of the L1 accent."
+      },
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "Substituting these sounds with stops (/t/, /d/) is a high-impact error that can change word meanings (e.g., 'three' vs. 'tree') and impede intelligibility."
+      },
+      {
+        "area": "Stress-timed rhythm and vowel reduction",
+        "reason": "Shifting from a syllable-timed to a stress-timed pattern by reducing unstressed vowels will make speech sound significantly more natural and fluid to a native English listener."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

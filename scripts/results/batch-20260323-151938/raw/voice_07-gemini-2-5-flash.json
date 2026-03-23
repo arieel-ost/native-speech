@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_07.mp3",
+      "accent": "russian",
+      "gender": "male",
+      "label": "voice_07"
+    },
+    "latencyMs": 17261,
+    "timestamp": "2026-03-23T15:21:33.699Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "slightly high pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian (General Russian)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Final obstruent devoicing: /v/ → [f] in \"have\", /z/ → [s] in \"lives\"",
+        "Dental realization of /ð/ as [d̪]: in \"their\", \"together\"",
+        "Vowel shift: /æ/ → [ɛ] in \"matching\""
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/z/",
+        "produced": "/s/ instead of /z/",
+        "exampleWord": "lives",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/d̪/ instead of /ð/",
+        "exampleWord": "their",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "/f/ instead of /v/",
+        "exampleWord": "have",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "/ɛ/ instead of /æ/",
+        "exampleWord": "matching",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/aɪ/",
+        "produced": "reduced diphthongization or monophthongal /ɑɪ/",
+        "exampleWord": "lives",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/tʃ/",
+        "produced": "/tɕ/ or /ts/ instead of /tʃ/",
+        "exampleWord": "matching",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Natural phrase-boundary pauses, generally fluent with some word boundaries distinctly marked, indicating less smooth connected speech than a native speaker."
+    },
+    "strengths": [
+      "Consistent and clear vocal quality",
+      "Good overall fluency with natural pausing",
+      "Generally understandable despite L1 interference"
+    ],
+    "overallScore": 6,
+    "level": "B1",
+    "recommendedFocus": [
+      {
+        "area": "th-sounds (/θ/, /ð/)",
+        "reason": "The consistent substitution of /ð/ with a dental stop [d̪] significantly impacts intelligibility and strongly marks the accent."
+      },
+      {
+        "area": "Voicing of fricatives (/v/, /z/)",
+        "reason": "The devoicing of /v/ to [f] and /z/ to [s] creates ambiguity in word meaning and is a prominent L1 transfer feature."
+      },
+      {
+        "area": "Vowel /æ/",
+        "reason": "The raising and fronting of /æ/ to [ɛ] in words like 'matching' is a common and noticeable L1 transfer, affecting perception of vowel distinction."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

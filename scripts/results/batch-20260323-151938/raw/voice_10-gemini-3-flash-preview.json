@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_10.mp3",
+      "accent": "american-texan",
+      "gender": "female",
+      "label": "voice_10"
+    },
+    "latencyMs": 9868,
+    "timestamp": "2026-03-23T15:31:13.940Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "mild vocal fry",
+        "neutral resonance",
+        "deliberate articulation"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian",
+      "confidence": "medium",
+      "telltalePatterns": [
+        "final obstruent devoicing /v/ → [f]",
+        "vowel tensing /ɪ/ → [i]",
+        "dentalization of alveolar consonants /s/ and /t/"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/v/",
+        "produced": "/f/ instead of /v/",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "/i/ instead of /ɪ/",
+        "exampleWord": "it's",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/s/",
+        "produced": "dentalized [s̪]",
+        "exampleWord": "socks",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "slow",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Deliberate pausing between grammatical chunks; lacks connected speech features like linking /m/ to /a/ in 'I'm just'."
+    },
+    "strengths": [
+      "accurate production of /ð/ in 'their'",
+      "correct lexical stress on 'together'",
+      "clear distinction of /p/ in 'people'"
+    ],
+    "overallScore": 7.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "final consonant voicing",
+        "reason": "Reduces the tendency to devoice /v/ and /z/ at the ends of words which can lead to lexical confusion."
+      },
+      {
+        "area": "vowel laxing",
+        "reason": "Working on the /ɪ/ vs /i/ distinction will help common words like 'it's' sound more native-like."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_11.mp3",
+      "accent": "russian",
+      "gender": "male",
+      "label": "voice_11"
+    },
+    "latencyMs": 45716,
+    "timestamp": "2026-03-23T15:41:46.751Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "flat pitch range",
+        "slight phrase-final vocal fry"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian (Moscow standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "ð→z substitution",
+        "alveolar tap /ɾ/ for English /ɹ/",
+        "tense /i/ substitution for lax /ɪ/",
+        "tendency toward syllable-timed rhythm"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/z/",
+        "exampleWord": "together",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "/ɾ/ (alveolar tap)",
+        "exampleWord": "trying",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "/i/ (tense)",
+        "exampleWord": "lives",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "normal",
+      "intonation": "L1-transferred pitch contours characterized by flat intonation and abrupt falling terminals at phrase boundaries.",
+      "fluencyNotes": "Fluent continuous speech without hesitation, though lacking native-like connected speech phenomena (weak forms and vowel reduction are largely absent)."
+    },
+    "strengths": [
+      "Excellent grammatical phrasing and lexical retrieval causing no hesitation breaks.",
+      "Accurate production of the /w/ glide in 'while', avoiding the common /v/ substitution."
+    ],
+    "overallScore": 7,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Voiced dental fricative /ð/",
+        "reason": "Direct substitution with /z/ (e.g., 'together') is a strong diagnostic marker of L1 interference; correcting this highly impacts comprehensibility."
+      },
+      {
+        "area": "Lax vs. Tense Vowel Distinction (/ɪ/ vs /i/)",
+        "reason": "Using tense vowels universally causes minimal pair confusion (e.g., sounding like 'leaves' instead of 'lives')."
+      },
+      {
+        "area": "Alveolar approximant /ɹ/",
+        "reason": "Eliminating the alveolar tap /ɾ/ in clusters (e.g., 'trying') will significantly neutralize the speaker's accent."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

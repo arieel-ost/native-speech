@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_06.mp3",
+      "accent": "galician",
+      "gender": "male",
+      "label": "voice_06"
+    },
+    "latencyMs": 22432,
+    "timestamp": "2026-03-23T22:04:48.502Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "neutral resonance",
+        "stable pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Indian English (likely Hindi L1)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "retroflexion of alveolar plosives (/t, d/ → [ʈ, ɖ])",
+        "labiodental approximant substitution for /w/ and /v/ → [ʋ]",
+        "stopping or dentalization of interdental fricatives (/θ, ð/ → [t̪, d̪])",
+        "monophthongization of /eɪ/ → [eː] and /oʊ/ → [oː]"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[ʋ]",
+        "exampleWord": "weather, water",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[t̪]",
+        "exampleWord": "through, think",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/t/",
+        "produced": "[ʈ]",
+        "exampleWord": "trees, time",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪]",
+        "exampleWord": "the, together",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced sing-song pitch contours; rising pitch often placed on unstressed syllables",
+      "fluencyNotes": "Highly fluent with continuous phonation; notable absence of schwa reduction and weak forms in function words (e.g., 'to' realized as [tu] instead of [tə])"
+    },
+    "strengths": [
+      "Excellent grammatical control and fluid sentence construction",
+      "Strong, clear articulation with no mumbling",
+      "Confident and consistent speaking pace without filler words"
+    ],
+    "overallScore": 8,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Vowel reduction and weak forms",
+        "reason": "Incorporating the schwa /ə/ in unstressed syllables and function words will shift the rhythm from syllable-timed to stress-timed, significantly improving native-like flow."
+      },
+      {
+        "area": "Distinct articulation of /w/ vs /v/",
+        "reason": "Using a clear bilabial glide for /w/ and a labiodental fricative for /v/ instead of conflating them into [ʋ] prevents listener confusion."
+      },
+      {
+        "area": "Aspiration of voiceless plosives (/p, t, k/)",
+        "reason": "Adding aspiration to word-initial voiceless stops helps reduce the perceptual harshness associated with unaspirated and retroflex consonants in General American or RP."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green, and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

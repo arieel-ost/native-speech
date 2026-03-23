@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_06.mp3",
+      "accent": "australian",
+      "gender": "male",
+      "label": "voice_06"
+    },
+    "latencyMs": 15182,
+    "timestamp": "2026-03-23T15:21:15.438Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "clear articulation"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Australian English (General)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Non-rhoticity, evidenced by absence of /r/ in words like 'together' and 'find'.",
+        "Centering realization of the /aɪ/ diphthong, as heard in 'lives' and 'while'.",
+        "Open and fronted realization of the /æ/ vowel, as in 'matching'."
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like",
+      "fluencyNotes": "Natural phrase-boundary pauses, effective use of connected speech (linking, elision), no mid-phrase hesitations."
+    },
+    "strengths": [
+      "Native-like rhythm and intonation patterns.",
+      "Clear and accurate articulation of all consonant clusters.",
+      "Fluent and natural connected speech."
+    ],
+    "overallScore": 9,
+    "level": "C2",
+    "recommendedFocus": [],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_09.mp3",
+      "accent": "galician",
+      "gender": "female",
+      "label": "voice_09"
+    },
+    "latencyMs": 13360,
+    "timestamp": "2026-03-23T15:31:03.035Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "slight breathiness",
+        "high pitch",
+        "clear oral resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish (Latin American influence)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Dentalization of voiced dental fricative /ð/ to [d̪] in 'together'",
+        "Substitution of word-final /z/ with voiceless [s] in 'lives'",
+        "Syllable-timed rhythm transfer affecting vowel reduction in unstressed syllables"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪] instead of /ð/",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "[s] instead of /z/",
+        "exampleWord": "lives",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/aɪ/",
+        "produced": "shortened nucleus [aɪ̯] with reduced offglide",
+        "exampleWord": "find",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced with rising pitch on the phrase 'together'",
+      "fluencyNotes": "Fluent with natural phrase boundaries, though rhythmic pulses follow L1 patterns rather than English stress-timing."
+    },
+    "strengths": [
+      "Excellent articulation of the labiodental fricative /v/ in 'lives'",
+      "Accurate production of the voiceless palato-alveolar affricate /tʃ/ in 'matching'",
+      "High clarity and consistent speech rate"
+    ],
+    "overallScore": 7.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Voiced dental fricative /ð/",
+        "reason": "Correcting the [d] substitution in 'their' and 'together' is the highest-yield fix for reducing L1 interference."
+      },
+      {
+        "area": "Word-final voicing /z/",
+        "reason": "Maintaining voicing in final consonants like 'lives' prevents morphological confusion and improves prosodic flow."
+      },
+      {
+        "area": "Stress-timed rhythm",
+        "reason": "Reducing vowel length in unstressed syllables will help move away from the 'staccato' feel of syllable-timed transfer."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together. While I'm just trying to find my matching socks."
+  }
+}

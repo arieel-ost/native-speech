@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "model": "gemini-3.1-flash-lite-preview",
+    "sample": {
+      "file": "voice_04.mp3",
+      "accent": "french",
+      "gender": "female",
+      "label": "voice_04"
+    },
+    "latencyMs": 3221,
+    "timestamp": "2026-03-23T15:31:49.910Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "vocal fry",
+        "moderate pitch",
+        "monotone inflection"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "North American English",
+      "confidence": "high",
+      "telltalePatterns": [
+        "rhoticity (r-colored vowels in 'their', 'together')",
+        "flapping of intervocalic /t/ in 'getting' or 'better' (not present but implied by system)",
+        "vowel realization in 'funny' and 'people'"
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like",
+      "fluencyNotes": "The speaker exhibits natural connected speech and native prosodic phrasing."
+    },
+    "strengths": [
+      "Native-like rhythm and sentence stress",
+      "Accurate production of all English phonemes"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "N/A",
+        "reason": "Speaker is a native English speaker."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

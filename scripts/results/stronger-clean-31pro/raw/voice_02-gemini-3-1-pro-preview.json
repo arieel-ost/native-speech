@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_02.mp3",
+      "accent": "indian",
+      "gender": "male",
+      "label": "voice_02"
+    },
+    "latencyMs": 41459,
+    "timestamp": "2026-03-23T22:02:48.689Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal phonation",
+        "narrow pitch range",
+        "slightly nasal resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Hindi (Hindi Belt)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "retroflexion of alveolar stops /t/, /d/ → [ʈ], [ɖ]",
+        "dentalization of interdental fricatives /θ/, /ð/ → [t̪], [d̪]",
+        "vowel reduction absent"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[ʋ]",
+        "exampleWord": "water",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[t̪ʰ]",
+        "exampleWord": "think",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪]",
+        "exampleWord": "weather",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/t/",
+        "produced": "[ʈ]",
+        "exampleWord": "beautiful",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced flat pitch contours with rising terminals on declarative statements",
+      "fluencyNotes": "Smooth connected speech without hesitation, though lacking typical native elision and linking"
+    },
+    "strengths": [
+      "Clear and accurate vowel length distinctions",
+      "Strong projection and consistent phonation without mid-phrase hesitations"
+    ],
+    "overallScore": 7,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Labiovelar approximant /w/",
+        "reason": "Conflating /w/ with the labiodental approximant [ʋ] impacts lexical clarity."
+      },
+      {
+        "area": "Vowel reduction (schwa)",
+        "reason": "Applying full vowel quality to unstressed syllables impedes stress-timed rhythm recognition for native listeners."
+      },
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "Substituting dental stops affects phonemic contrast, though context usually resolves meaning."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

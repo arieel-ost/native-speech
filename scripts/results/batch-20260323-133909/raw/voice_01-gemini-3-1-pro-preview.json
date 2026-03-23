@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_01.mp3",
+      "accent": "german",
+      "gender": "female",
+      "label": "voice_01"
+    },
+    "latencyMs": 72522,
+    "timestamp": "2026-03-23T13:45:12.679Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "25-35",
+      "vocalTraits": [
+        "slight breathiness",
+        "mid-range pitch",
+        "forward oral resonance",
+        "minimal vocal fry"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish",
+      "confidence": "high",
+      "telltalePatterns": [
+        "vowel reduction absent in unstressed syllables",
+        "lenition of labiodental fricative /v/ to bilabial [β]",
+        "dentalization of alveolar stops /t/ and /d/"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/v/",
+        "produced": "[β] (voiced bilabial fricative)",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "[i] (close front unrounded)",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[a] (open front unrounded)",
+        "exampleWord": "matching",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "normal",
+      "intonation": "Slightly flat compared to native English speakers, lacking wide pitch variation on primarily stressed words.",
+      "fluencyNotes": "Very fluent with smooth transitions and minimal hesitation; good connected speech but lacks native-like elision."
+    },
+    "strengths": [
+      "Very clear consonant production overall",
+      "Excellent fluency and speech pacing without unnatural pauses",
+      "Strong grammatical control and confident delivery"
+    ],
+    "overallScore": 8,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Vowel reduction and schwa /ə/",
+        "reason": "Implementing proper vowel reduction will help shift the rhythm from syllable-timed to stress-timed, drastically improving naturalness."
+      },
+      {
+        "area": "Lax vs. Tense Vowels (/ɪ/ vs /i/)",
+        "reason": "Distinguishing between these vowels prevents minimal pair confusion (e.g. 'lives' sounding like 'leaves')."
+      },
+      {
+        "area": "Labiodental fricative /v/",
+        "reason": "Articulating /v/ with the top teeth and bottom lip will clear up the slight bilabial distortion."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, well I'm just trying to find my matching socks."
+  }
+}

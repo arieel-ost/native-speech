@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_08.mp3",
+      "accent": "italian",
+      "gender": "male",
+      "label": "voice_08"
+    },
+    "latencyMs": 23711,
+    "timestamp": "2026-03-23T21:53:19.154Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "40-50",
+      "vocalTraits": [
+        "low pitch",
+        "modal voice"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Serbo-Croatian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Trilled or tapped rhotic /r/, as in 'river' and 'trees'",
+        "/w/ → [v] substitution, as in 'walk' and 'weather'",
+        "Substitution of dental stops for fricatives (/θ/→[t̪], /ð/→[d̪]), as in 'through' and 'together'"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[v] (labiodental fricative instead of labio-velar approximant)",
+        "exampleWord": "walk",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[t̪] (voiceless dental stop)",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪] (voiced dental stop)",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "[r] (alveolar tap or trill)",
+        "exampleWord": "river",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɛ] (vowel is raised)",
+        "exampleWord": "laughing",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Speech lacks common features of connected speech like linking and elision, with words often pronounced distinctly. Pausing is appropriate and follows clause boundaries."
+    },
+    "strengths": [
+      "Consistent and clear articulation of sibilants /s/ and /ʃ/",
+      "Good command of grammar and vocabulary",
+      "Steady pacing and consistent volume"
+    ],
+    "overallScore": 5.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "/w/ vs. /v/ distinction",
+        "reason": "This substitution frequently causes confusion between common words (e.g., 'walk'/'Volk', 'west'/'vest') and is a high-impact error for intelligibility."
+      },
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "Replacing these sounds with 't' and 'd' is a very noticeable feature that can obscure the meaning of words like 'three' (sounds like 'tree') and 'they' (sounds like 'day')."
+      },
+      {
+        "area": "Stress-timed rhythm",
+        "reason": "Shifting from a syllable-timed to a stress-timed pattern by emphasizing content words and reducing function words will dramatically increase the naturalness and perceived fluency of speech."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful. So I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread, and a bottle of juice."
+  }
+}

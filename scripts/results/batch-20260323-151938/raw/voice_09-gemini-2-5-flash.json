@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_09.mp3",
+      "accent": "galician",
+      "gender": "female",
+      "label": "voice_09"
+    },
+    "latencyMs": 19107,
+    "timestamp": "2026-03-23T15:22:10.798Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "clear articulation"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "alveolar tap [ɾ] for English /ɹ/",
+        "vowel raising of /æ/ to [ɛ]",
+        "syllable-timed rhythmic patterns"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ɹ/",
+        "produced": "[ɾ] (alveolar tap)",
+        "exampleWord": "trying",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɛ] (front mid unrounded vowel)",
+        "exampleWord": "matching",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɑː/",
+        "produced": "[ɔ] (open-mid back rounded vowel)",
+        "exampleWord": "socks",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/aɪ/",
+        "produced": "[aɪ̯] (diphthong with slightly less open starting point)",
+        "exampleWord": "life",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Fluent with natural pauses at phrase boundaries; less evidence of natural linking or elision compared to native English."
+    },
+    "strengths": [
+      "Clear and consistent articulation of alveolar and labiodental fricatives (/s/, /z/, /f/, /v/).",
+      "Accurate production of dental fricatives /θ/ and /ð/, as observed in \"together\" and \"their\".",
+      "Generally correct lexical stress placement on multisyllabic words."
+    ],
+    "overallScore": 7,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "Alveolar approximant /ɹ/",
+        "reason": "Consistent substitution with an alveolar tap [ɾ] is a prominent feature of the accent, significantly marking the speaker as non-native. Improving this would enhance native-like sound."
+      },
+      {
+        "area": "Vowel quality of /æ/ and /ɑː/",
+        "reason": "The consistent raising of /æ/ to [ɛ] and backing/rounding of /ɑː/ to [ɔ] affects the clarity of key English vowels, potentially causing confusion in minimal pairs (e.g., 'bad' vs 'bed')."
+      },
+      {
+        "area": "Stress-timed rhythm and vowel reduction",
+        "reason": "The syllable-timed rhythm and less pronounced vowel reduction in unstressed syllables contribute to a non-native cadence, making the speech sound less natural and potentially harder to process for native listeners over longer durations."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

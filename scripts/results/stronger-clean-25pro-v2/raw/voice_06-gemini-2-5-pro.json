@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_06.mp3",
+      "accent": "galician",
+      "gender": "male",
+      "label": "voice_06"
+    },
+    "latencyMs": 26406,
+    "timestamp": "2026-03-23T22:59:26.909Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "40-50",
+      "vocalTraits": [
+        "modal voice",
+        "medium-low pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish (Castilian or Latin American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Stopping/dentalization of dental fricatives (/ð/ → [d̪] in 'the', 'weather', 'together')",
+        "Realization of English /ɹ/ as an alveolar tap [ɾ] (e.g., 'river', 'green', 'really')",
+        "Syllable-timed rhythm with limited vowel reduction (e.g., 'beautiful' pronounced with four distinct vowel sounds)"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "a dental stop [d̪] instead of a voiced dental fricative",
+        "exampleWord": "together",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "an alveolar tap [ɾ] instead of a postalveolar approximant",
+        "exampleWord": "river",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "raised to a tense vowel [i]",
+        "exampleWord": "little",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "a dental stop [t̪] instead of a voiceless dental fricative",
+        "exampleWord": "through",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Speech is segmented word-by-word with limited connected speech features (linking, elision). Pausing is generally appropriate but sometimes breaks natural phrases."
+    },
+    "strengths": [
+      "Consistent and clear articulation of plosives (p, t, k, b, d, g).",
+      "Good control of pace and volume, resulting in clear delivery.",
+      "Generally accurate production of final consonants (e.g., in 'park', 'stopped')."
+    ],
+    "overallScore": 6.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "Substituting these with stops /t/ and /d/ is the most prominent feature of the accent and significantly impacts native-like sound quality. It is a high-frequency sound pair in English."
+      },
+      {
+        "area": "American English /ɹ/",
+        "reason": "The alveolar tap [ɾ] is another major flag for an L1 Spanish accent. Mastering the approximant /ɹ/ would dramatically reduce foreign accent perception."
+      },
+      {
+        "area": "Vowel contrast /ɪ/ vs /iː/",
+        "reason": "Raising the lax vowel /ɪ/ to a tense /iː/ (as in 'little') can cause lexical confusion between common word pairs like 'live'/'leave' and 'sit'/'seat', directly impacting intelligibility."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

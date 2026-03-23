@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_11.mp3",
+      "accent": "russian",
+      "gender": "female",
+      "label": "voice_11"
+    },
+    "latencyMs": 19898,
+    "timestamp": "2026-03-23T21:58:55.699Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "good pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Polish (Standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Dental fricatives /θ/ and /ð/ realized as alveolar stops/fricatives (/s/ and /d/ respectively); evidenced by \"think\" [sɪŋk] and \"weather\" [wɛdə]",
+        "Consistent non-rhoticity (r-dropping/vocalization); evidenced by \"park\" [pɑk] and \"father\" [fɑdə]",
+        "Affrication of /t/ before /r/ in clusters; evidenced by \"trees\" [ʧɹiz]"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/θ/",
+        "produced": "/s/",
+        "exampleWord": "think",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "r-deletion/vocalization",
+        "exampleWord": "park",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/tɹ/",
+        "produced": "/ʧɹ/",
+        "exampleWord": "trees",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, somewhat flatter than native English patterns, especially at sentence endings",
+      "fluencyNotes": "Natural phrase-boundary pauses, no significant mid-phrase hesitations. Some evidence of connected speech (e.g., linking in 'stopped at')."
+    },
+    "strengths": [
+      "Clear articulation of most vowel sounds",
+      "Consistent and natural overall fluency with appropriate pacing",
+      "Good command of basic English sentence structure and vocabulary"
+    ],
+    "overallScore": 6,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "The substitution of /s/ for /θ/ (e.g., 'think') and /d/ for /ð/ (e.g., 'the', 'weather') is a primary marker of L1 interference and significantly impacts intelligibility and native-like perception."
+      },
+      {
+        "area": "Rhoticity (post-vocalic /ɹ/)",
+        "reason": "The consistent deletion or vocalization of /ɹ/ in coda positions (e.g., 'park', 'river') is a prominent accent feature. While not always critical for intelligibility, addressing it would align the speech more closely with General American English norms."
+      },
+      {
+        "area": "English stress-timed rhythm and intonation patterns",
+        "reason": "The speech exhibits a syllable-timed rhythm and L1-influenced intonation. Developing more native-like stress-timed rhythm and intonation contours would greatly enhance naturalness and comprehensibility."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "model": "gemini-3.1-flash-lite-preview",
+    "sample": {
+      "file": "voice_11.mp3",
+      "accent": "russian",
+      "gender": "male",
+      "label": "voice_11"
+    },
+    "latencyMs": 3879,
+    "timestamp": "2026-03-23T15:32:27.671Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "neutral resonance",
+        "even pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Turkish",
+      "confidence": "medium",
+      "telltalePatterns": [
+        "Vowel harmony tendencies interfering with English neutral schwa",
+        "Devoicing of final fricatives and plosives",
+        "Slight dentalization of alveolar consonants"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/",
+        "exampleWord": "the",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/s/ cluster initiation",
+        "produced": "epenthetic vowel insertion /ɪs/",
+        "exampleWord": "some",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Connected speech is generally smooth with natural phrasing, though minor hesitations occur during lexical selection."
+    },
+    "strengths": [
+      "Excellent control of English sentence-level stress patterns",
+      "Strong command of intonation contours to convey mood",
+      "Consistent and clear articulation of consonant clusters"
+    ],
+    "overallScore": 8,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Interdental fricatives /θ/ and /ð/",
+        "reason": "Replacement with /t/ or /d/ occurs inconsistently and impacts native-like accuracy."
+      },
+      {
+        "area": "Schwa realization in unstressed syllables",
+        "reason": "Ensuring reduced vowels are distinct from full vowels helps improve rhythm accuracy."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

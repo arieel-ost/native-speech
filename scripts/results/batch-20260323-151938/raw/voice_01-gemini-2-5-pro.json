@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_01.mp3",
+      "accent": "german",
+      "gender": "female",
+      "label": "voice_01"
+    },
+    "latencyMs": 30313,
+    "timestamp": "2026-03-23T15:23:08.614Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "mid-range pitch",
+        "slight vocal fry on phrase-final syllables"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/w/ → [v] substitution (e.g., 'while' as 'vile')",
+        "Syllable-timed rhythmic influence, giving near-equal stress to function words",
+        "Raising of the /æ/ vowel towards [ɛ] (e.g., 'matching')"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "produced as a labiodental fricative [v]",
+        "exampleWord": "while",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "raised and fronted towards [ɛ]",
+        "exampleWord": "matching",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "The speaker uses appropriate pausing between clauses, but the rhythmic pattern is more syllable-timed than stress-timed, reducing the natural flow of connected speech."
+    },
+    "strengths": [
+      "Clear and accurate production of the voiced dental fricative /ð/ in 'together'.",
+      "Final consonants are clearly articulated, not deleted (e.g., 'find', 'socks').",
+      "Lexical stress is placed correctly on polysyllabic words like 'together' and 'matching'."
+    ],
+    "overallScore": 6.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Distinction between /w/ and /v/",
+        "reason": "This is the most significant error impacting intelligibility, as it can cause lexical confusion between common word pairs (e.g., 'wine'/'vine', 'while'/'vile')."
+      },
+      {
+        "area": "Mastering the English /æ/ vowel",
+        "reason": "Correctly producing the low front vowel in words like 'matching' and 'have' will significantly reduce the foreign accent quality of the speech."
+      },
+      {
+        "area": "Stress-timed rhythm",
+        "reason": "Focusing on reducing unstressed syllables and linking words more smoothly will improve overall prosody and make the speech sound more fluent and natural."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

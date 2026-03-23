@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_04.mp3",
+      "accent": "french",
+      "gender": "female",
+      "label": "voice_04"
+    },
+    "latencyMs": 15556,
+    "timestamp": "2026-03-23T15:20:43.236Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "breathy",
+        "monotone tendency",
+        "mid-pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Alveolar tap/trill for English /ɹ/ (e.g., \"trying\")",
+        "Dental stopping of interdental fricative /ð/ (e.g., \"together\" pronounced with [d])",
+        "Syllable-timed rhythm with reduced vowel reduction"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/d̪/ (dental stop)",
+        "exampleWord": "together",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "[ɾ] (alveolar tap/trill)",
+        "exampleWord": "trying",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɛ] (raised and fronted vowel)",
+        "exampleWord": "have",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, tending towards flatter pitch contours",
+      "fluencyNotes": "Words are generally produced in isolation with limited connected speech features; natural phrase-boundary pauses."
+    },
+    "strengths": [
+      "Clear production of most voiceless fricatives and stops (e.g., /s/, /f/, /t/, /k/)",
+      "Accurate production of /h/ in word-initial positions (e.g., \"how\", \"have\")",
+      "Generally good articulation of individual syllables"
+    ],
+    "overallScore": 6,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "th-sounds (/θ/, /ð/)",
+        "reason": "The substitution of /ð/ with /d/ is a prominent L1 marker that can impact word recognition and overall intelligibility, particularly in high-frequency words."
+      },
+      {
+        "area": "English /ɹ/ (rhotic sound)",
+        "reason": "The consistent use of an alveolar tap/trill instead of the English retroflex or bunched /ɹ/ is a strong L1 marker and can occasionally lead to misperception by native listeners."
+      },
+      {
+        "area": "Vowel reduction and sentence stress",
+        "reason": "Adopting a more stress-timed rhythm with appropriate vowel reduction will significantly improve the naturalness of speech and enhance overall comprehensibility."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

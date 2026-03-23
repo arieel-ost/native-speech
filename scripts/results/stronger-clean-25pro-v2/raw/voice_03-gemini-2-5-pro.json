@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_03.mp3",
+      "accent": "french",
+      "gender": "male",
+      "label": "voice_03"
+    },
+    "latencyMs": 30251,
+    "timestamp": "2026-03-23T22:58:00.776Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "narrow pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "French",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Substitution of /w/ with /v/ (e.g., 'was', 'walk')",
+        "Realization of /ɹ/ as an alveolar tap or trill /r/ (e.g., 'river', 'trees')",
+        "Syllable-timed rhythm instead of stress-timed rhythm"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "/v/ instead of /w/",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/h/",
+        "produced": "Ø (deleted) at the beginning of words",
+        "exampleWord": "house",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/z/ instead of /ð/",
+        "exampleWord": "the",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "/r/ (alveolar tap/trill) instead of /ɹ/",
+        "exampleWord": "river",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "/i/ (tense vowel) instead of /ɪ/ (lax vowel)",
+        "exampleWord": "little",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "/s/ instead of /θ/",
+        "exampleWord": "through",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Lacks native-like connected speech (linking, elision). Words are pronounced clearly but somewhat separately. Pausing is appropriate at phrase boundaries."
+    },
+    "strengths": [
+      "Consistent and deliberate speech rate, which aids listener comprehension.",
+      "Good command of grammar and vocabulary.",
+      "Most consonant clusters are produced accurately (e.g., 'spring')."
+    ],
+    "overallScore": 6.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "/h/ articulation in word-initial position",
+        "reason": "Absence of /h/ causes common words like 'have', 'house', and 'her' to be misheard as 'av', 'ouse', and 'er', significantly impacting intelligibility."
+      },
+      {
+        "area": "Distinction between /w/ and /v/",
+        "reason": "This is a high-frequency contrast in English. Confusing these sounds can lead to misunderstanding of many common words (e.g., 'wine'/'vine', 'west'/'vest')."
+      },
+      {
+        "area": "Tense/lax vowel distinction (e.g., /i/ vs /ɪ/)",
+        "reason": "Failure to distinguish between vowels like the ones in 'seat' and 'sit' affects a large number of words and is a primary cause of a 'thick' accent and potential miscommunication."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_08.mp3",
+      "accent": "american",
+      "gender": "male",
+      "label": "voice_08"
+    },
+    "latencyMs": 19355,
+    "timestamp": "2026-03-23T15:27:09.564Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "50-60",
+      "vocalTraits": [
+        "low-mid pitch",
+        "modal voice",
+        "slight vocal fry on phrase endings"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "English (General American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Flapped /t/ in 'together', realized as [ɾ]",
+        "Fully rhotic (e.g., 'their')",
+        "Natural stress-timed rhythm and intonation patterns"
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like",
+      "fluencyNotes": "Speech is highly fluent with natural pausing at clause boundaries. Excellent use of connected speech (e.g., linking, flapping)."
+    },
+    "strengths": [
+      "Exceptional clarity and articulation.",
+      "Perfectly executed General American prosody and intonation.",
+      "Consistent and accurate production of all phonemes and their allophones."
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_09.mp3",
+      "accent": "galician",
+      "gender": "female",
+      "label": "voice_09"
+    },
+    "latencyMs": 18482,
+    "timestamp": "2026-03-23T13:41:15.762Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "clear vocal quality",
+        "consistent pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "East Slavic (likely Russian/Ukrainian)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "substitution of /ð/ with a dental stop /d̪/",
+        "lack of typical English vowel reduction in unstressed syllables",
+        "pronounced velarized /l/ in syllable-final positions",
+        "L1-influenced apical /r/ instead of bunched/retroflex /ɹ/"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/d̪/ (dental stop) instead of /ð/",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "L1-influenced apical /r/ instead of native English /ɹ/",
+        "exampleWord": "trying",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ə/",
+        "produced": "fuller, unreduced vowels in place of schwa in unstressed syllables",
+        "exampleWord": "together",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, with slightly less dynamic pitch variation compared to native English speakers",
+      "fluencyNotes": "Fluent with no noticeable hesitations or unusual pausing. Connected speech is present but not fully native-like in linking and assimilation."
+    },
+    "strengths": [
+      "clear articulation of most consonant and vowel sounds",
+      "good overall pace and rhythm",
+      "consistent volume and vocal clarity"
+    ],
+    "overallScore": 8,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Voiced 'th' sound (/ð/)",
+        "reason": "The consistent substitution of /ð/ with /d/ is a noticeable accent marker and can occasionally lead to misinterpretation, impacting overall clarity."
+      },
+      {
+        "area": "Vowel reduction in unstressed syllables and schwa /ə/",
+        "reason": "Mastering English vowel reduction is critical for achieving a more native-like rhythm and natural intonation, significantly improving overall naturalness."
+      },
+      {
+        "area": "American English /ɹ/ sound",
+        "reason": "The current /r/ production, while clear, is distinctly non-native and can slightly affect the perception of words containing this sound."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together. While I'm just trying to find my matching socks."
+  }
+}

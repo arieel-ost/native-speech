@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_10.mp3",
+      "accent": "chinese",
+      "gender": "male",
+      "label": "voice_10"
+    },
+    "latencyMs": 29873,
+    "timestamp": "2026-03-23T23:01:13.863Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "clear modal voice",
+        "medium pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Mandarin Chinese",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Syllable-timed rhythm, with absence of vowel reduction in unstressed syllables (e.g., 'beautiful')",
+        "Stopping of dental fricatives: /θ/ → /t/ (e.g., 'think') and /ð/ → /d/ (e.g., 'the', 'weather')",
+        "Tensing of lax front vowel /ɪ/ to /iː/ (e.g., 'little', 'village')"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/θ/",
+        "produced": "/t/ substitution",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "Tensed to /iː/",
+        "exampleWord": "little",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/ substitution",
+        "exampleWord": "weather",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "Weakened, sometimes approaching /f/ or /w/",
+        "exampleWord": "village",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Speech is fluid but lacks native-like connected speech (linking, elision). Words are often produced as distinct units. Pauses are appropriate at phrase boundaries."
+    },
+    "strengths": [
+      "Consistent and fluent delivery without significant hesitations.",
+      "Clear articulation of sibilants (/s/, /z/).",
+      "Good control of basic sentence structures and vocabulary."
+    ],
+    "overallScore": 6,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "English rhythm and sentence stress",
+        "reason": "Adopting a stress-timed rhythm by emphasizing content words and reducing vowels in function words will have the largest impact on sounding more natural and improving overall flow."
+      },
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "Correcting the /t/ and /d/ substitutions is crucial as these sounds appear in many high-frequency words ('the', 'that', 'think'), and the error is a primary marker of the L1 accent."
+      },
+      {
+        "area": "Vowel contrast: /ɪ/ vs /iː/ (kit vs. fleece)",
+        "reason": "Distinguishing between these vowels is critical for word-level intelligibility, preventing confusion in common minimal pairs like 'live'/'leave' and 'ship'/'sheep'."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

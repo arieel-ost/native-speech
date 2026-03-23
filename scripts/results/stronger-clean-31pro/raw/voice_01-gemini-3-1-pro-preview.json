@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_01.mp3",
+      "accent": "american-texan",
+      "gender": "female",
+      "label": "voice_01"
+    },
+    "latencyMs": 33292,
+    "timestamp": "2026-03-23T22:02:06.213Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "neutral resonance",
+        "slightly elevated pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish (Latin American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/v/ realized as [β] or [b]",
+        "epenthesis of /e/ before /s/ consonant clusters",
+        "lack of vowel reduction in unstressed syllables"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/θ/",
+        "produced": "[s]",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "[b]",
+        "exampleWord": "village",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "[i]",
+        "exampleWord": "little",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/sp/",
+        "produced": "[esp]",
+        "exampleWord": "spring",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪]",
+        "exampleWord": "weather",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced rising contours at phrase boundaries, narrower pitch range",
+      "fluencyNotes": "Generally fluent with occasional hesitation before complex consonant clusters; lack of connected speech features (linking/assimilation)."
+    },
+    "strengths": [
+      "Clear and accurate production of bilabial and velar stops",
+      "Consistent phrasing and natural breath groups"
+    ],
+    "overallScore": 6,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Dental fricatives (/θ/ and /ð/)",
+        "reason": "Often substituted with /s/ and /d/, which can cause minimal pair confusion and heavily marks the accent."
+      },
+      {
+        "area": "Initial /s/ consonant clusters",
+        "reason": "Adding an epenthetic /e/ (e.g., 'espring') disrupts English stress-timing and word boundaries."
+      },
+      {
+        "area": "Lax vowels (specifically /ɪ/)",
+        "reason": "Tensing /ɪ/ to /i/ affects intelligibility in frequently used words like 'little' and 'river'."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

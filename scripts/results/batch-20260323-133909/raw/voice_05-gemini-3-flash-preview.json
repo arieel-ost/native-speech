@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_05.mp3",
+      "accent": "indian",
+      "gender": "male",
+      "label": "voice_05"
+    },
+    "latencyMs": 11540,
+    "timestamp": "2026-03-23T13:42:56.306Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "25-35",
+      "vocalTraits": [
+        "chest resonance",
+        "slight vocal fry at phrase endings",
+        "clear articulation",
+        "moderate pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "English (Advanced L2 - Germanic/Dutch influence)",
+      "confidence": "medium",
+      "telltalePatterns": [
+        "slight over-aspiration of initial /p/ in people",
+        "tense vowel production in the word 'funny'",
+        "nearly native-like rhoticity on 'together'",
+        "subtle devoicing of final /z/ in 'always'"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/ substitution at the onset",
+        "exampleWord": "their",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "partially devoiced /v/ sounding closer to /f/",
+        "exampleWord": "lives",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ʌ/",
+        "produced": "slightly too far back/tense /ɑ/-like quality",
+        "exampleWord": "funny",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like with appropriate rising-falling contours",
+      "fluencyNotes": "Excellent connected speech; notable linking between 'have' and 'their'. No significant hesitations."
+    },
+    "strengths": [
+      "Sophisticated mastery of English word stress and sentence rhythm",
+      "Highly accurate production of the American /ɹ/ sound",
+      "Strong use of contractions and reduced forms like 'I'm' and 'it's'"
+    ],
+    "overallScore": 8.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Voiced dental fricative /ð/",
+        "reason": "Occasional dentalization (sounding like /d/) is the primary marker of a non-native accent in otherwise fluent speech."
+      },
+      {
+        "area": "Final consonant voicing",
+        "reason": "Ensuring the /v/ in 'lives' and /z/ in 'always' are fully voiced will improve the 'smoothness' of the accent."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together. While I'm just trying to find my matching socks."
+  }
+}

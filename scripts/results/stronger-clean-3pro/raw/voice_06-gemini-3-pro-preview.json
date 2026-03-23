@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "model": "gemini-3-pro-preview",
+    "sample": {
+      "file": "voice_06.mp3",
+      "accent": "galician",
+      "gender": "male",
+      "label": "voice_06"
+    },
+    "latencyMs": 27478,
+    "timestamp": "2026-03-23T21:58:23.526Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-50",
+      "vocalTraits": [
+        "modal voice",
+        "neutral resonance",
+        "clear articulation"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Indian English (likely Hindi L1)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "retroflexion of alveolar stops /t/ and /d/ → [ʈ] and [ɖ]",
+        "realization of labiovelar /w/ as labiodental approximant [ʋ]",
+        "monophthongization of GOAT /oʊ/ → [o:] and FACE /eɪ/ → [e:] vowels",
+        "absence of vowel reduction in unstressed syllables (syllable-timed rhythm)"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/t/",
+        "produced": "[ʈ] (retroflex stop)",
+        "exampleWord": "trees, beautiful, water",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/d/",
+        "produced": "[ɖ] (retroflex stop)",
+        "exampleWord": "decided, red",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/w/",
+        "produced": "[ʋ] (labiodental approximant)",
+        "exampleWord": "weather, walk, water",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[t̪ʰ] (aspirated dental stop)",
+        "exampleWord": "through, threw",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪] (dental stop)",
+        "exampleWord": "the, together, father",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "[ɾ] (alveolar tap)",
+        "exampleWord": "really, river, red",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced pitch contours characterized by rising pitch on stressed syllables followed by flat unaccented syllables, lacking native-like sentence-level pitch declination.",
+      "fluencyNotes": "Highly fluent reading with appropriate phrase-boundary pausing. However, lacks connected speech features typical of General American or RP, such as elision, assimilation, and weak forms."
+    },
+    "strengths": [
+      "Excellent overall intelligibility with confident, highly articulate speech.",
+      "Consistent and accurate placement of primary lexical stress.",
+      "Smooth fluency with no mid-phrase hesitations or grammatical disjointedness."
+    ],
+    "overallScore": 8,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Vowel reduction and weak forms",
+        "reason": "Adopting the schwa /ə/ in unstressed syllables will shift the rhythm from syllable-timed to stress-timed, significantly increasing native-like prosodic flow."
+      },
+      {
+        "area": "Alveolar placement for /t/ and /d/",
+        "reason": "Moving the tongue tip from the hard palate (retroflex [ʈ], [ɖ]) forward to the alveolar ridge will drastically reduce the structural accent footprint."
+      },
+      {
+        "area": "Bilabial rounding for /w/",
+        "reason": "Producing /w/ with lip rounding rather than labiodental contact clarifies minimal pairs (e.g., west/vest) and better aligns with target phonology."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green, and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

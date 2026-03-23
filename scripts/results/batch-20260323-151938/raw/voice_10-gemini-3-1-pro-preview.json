@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_10.mp3",
+      "accent": "american-texan",
+      "gender": "female",
+      "label": "voice_10"
+    },
+    "latencyMs": 58604,
+    "timestamp": "2026-03-23T15:41:00.009Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal phonation",
+        "slight breathiness",
+        "monotone pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German (Standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "final obstruent devoicing",
+        "th-stopping (/ð/ → [d])",
+        "absence of vowel reduction in unstressed syllables"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "[d] instead of /ð/",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "[f] instead of /v/",
+        "exampleWord": "lives",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/d/",
+        "produced": "[t] instead of /d/",
+        "exampleWord": "find",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced (flat pitch contours, lacking English target glides)",
+      "fluencyNotes": "Occasional hesitation before complex vowels, but good use of linking. Missing assimilation in 'find my'."
+    },
+    "strengths": [
+      "Accurate production of /s/ in initial and medial positions.",
+      "Strong articulation of the /tʃ/ affricate in 'matching'."
+    ],
+    "overallScore": 7,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Final obstruent voicing",
+        "reason": "Devoicing consonants at the ends of words (e.g., 'lives' as 'lifes') alters morphological meaning and adds a strong non-native marker."
+      },
+      {
+        "area": "Dental fricatives (/θ/, /ð/)",
+        "reason": "Substituting /d/ for /ð/ in words like 'together' degrades phonetic precision and immediately marks the speech as non-native."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

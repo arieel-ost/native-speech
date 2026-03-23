@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_11.mp3",
+      "accent": "russian",
+      "gender": "male",
+      "label": "voice_11"
+    },
+    "latencyMs": 11421,
+    "timestamp": "2026-03-23T13:41:45.797Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "low pitch",
+        "vocal fry (slight, especially phrase-final)"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian/Eastern European Slavic",
+      "confidence": "high",
+      "telltalePatterns": [
+        "w→v substitution (e.g., 'while' sounds like 'vile')",
+        "th→d substitution (e.g., 'their' sounds like 'der')",
+        "reduced vowel reduction in unstressed syllables",
+        "syllable-timed rhythm tendency",
+        "L1-influenced intonation patterns"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "/v/",
+        "exampleWord": "while",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/",
+        "exampleWord": "their",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ə/",
+        "produced": "fuller vowel sound (e.g., /ɛ/ or /ʌ/ in unstressed syllables)",
+        "exampleWord": "together",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, somewhat flat compared to native English with less dynamic pitch movement",
+      "fluencyNotes": "Occasional slight pauses between thought groups; connected speech is present but not consistently native-like."
+    },
+    "strengths": [
+      "Clear articulation of most consonant sounds",
+      "Good control of vowel quality in stressed syllables",
+      "Correct sentence structure and vocabulary usage"
+    ],
+    "overallScore": 7,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "w vs v distinction",
+        "reason": "This substitution is a prominent feature that can cause momentary confusion and immediately flags speech as non-native, impacting clarity."
+      },
+      {
+        "area": "th-sounds (/θ/ and /ð/)",
+        "reason": "Correct production of these common English sounds significantly improves intelligibility and reduces a strong accent marker."
+      },
+      {
+        "area": "English rhythm and intonation",
+        "reason": "Adopting a more stress-timed rhythm and native-like intonation patterns will make speech flow more naturally, improving overall comprehensibility and listening comfort."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

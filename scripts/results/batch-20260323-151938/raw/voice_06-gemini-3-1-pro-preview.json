@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_06.mp3",
+      "accent": "australian",
+      "gender": "male",
+      "label": "voice_06"
+    },
+    "latencyMs": 47676,
+    "timestamp": "2026-03-23T15:37:20.291Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "narrow pitch range",
+        "neutral resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German (Standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "labiodental approximant substitution for labiovelar glide",
+        "final obstruent devoicing",
+        "alveolar fricative substitution for interdental fricative"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[v]",
+        "exampleWord": "While",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[z]",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "[f]",
+        "exampleWord": "lives",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "flat pitch contours, lacking native-like declination",
+      "fluencyNotes": "Natural phrase-boundary pauses, but lacks connected speech linking, producing words in isolation"
+    },
+    "strengths": [
+      "Accurate vowel length distinction in 'seem' and 'lives'",
+      "Clear articulation of complex consonant clusters like 'str' in 'trying'"
+    ],
+    "overallScore": 7,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "/w/ and /v/ distinction",
+        "reason": "Causes frequent lexical confusion and breaks word-level recognition."
+      },
+      {
+        "area": "Connected speech and linking",
+        "reason": "Reduces choppiness and improves natural fluency across word boundaries."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together. While I'm just trying to find my matching socks."
+  }
+}

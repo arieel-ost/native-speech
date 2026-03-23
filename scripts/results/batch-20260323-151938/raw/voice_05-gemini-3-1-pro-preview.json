@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_05.mp3",
+      "accent": "indian",
+      "gender": "male",
+      "label": "voice_05"
+    },
+    "latencyMs": 63512,
+    "timestamp": "2026-03-23T15:36:31.601Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal phonation",
+        "neutral resonance",
+        "narrow pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German (Standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/w/→[v] substitution",
+        "final obstruent devoicing",
+        "absence of dark /l/"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[v]",
+        "exampleWord": "well",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[z]",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "[f]",
+        "exampleWord": "have",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "Generally native-like but with flat pitch contours at phrase ends, lacking typical English downdrift.",
+      "fluencyNotes": "Occasional glottal stops inserted before vowel-initial words, reducing natural linking and connected speech (e.g., before 'always' and 'I\\'m')."
+    },
+    "strengths": [
+      "Excellent articulation of complex consonant clusters (e.g., /tʃ/ in 'matching')",
+      "Clear and accurate vowel length distinctions in stressed syllables"
+    ],
+    "overallScore": 7,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Labio-velar approximant /w/",
+        "reason": "Substituting /w/ with /v/ is a strong L1 marker that can occasionally cause minimal pair confusion (e.g., well/vell)."
+      },
+      {
+        "area": "Connected speech and linking",
+        "reason": "Reducing hard glottal attacks on vowel-initial words will improve fluency and yield a more native-like rhythm."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their life together. Well I'm just trying to find my matching socks."
+  }
+}

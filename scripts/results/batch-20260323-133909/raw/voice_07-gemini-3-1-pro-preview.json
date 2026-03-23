@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_07.mp3",
+      "accent": "russian",
+      "gender": "male",
+      "label": "voice_07"
+    },
+    "latencyMs": 95474,
+    "timestamp": "2026-03-23T13:50:52.382Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "low pitch",
+        "chest resonance",
+        "slightly monotone",
+        "clear articulation"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "w/v substitution",
+        "final obstruent devoicing",
+        "dental fricative substitution",
+        "lack of vowel reduction in unstressed syllables"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "/v/ instead of /w/",
+        "exampleWord": "while",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/z/ instead of /ð/",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "/f/ instead of /v/ due to final devoicing",
+        "exampleWord": "lives",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "/ɛ/ instead of /æ/",
+        "exampleWord": "matching",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "flat, lacking characteristic English pitch glides",
+      "fluencyNotes": "Good continuous speech but over-articulates function words and lacks natural assimilation"
+    },
+    "strengths": [
+      "Clear consonant cluster articulation",
+      "Consistent speech rate with no hesitation",
+      "Strong vocal projection"
+    ],
+    "overallScore": 7.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "w and v distinction",
+        "reason": "Confusing these consonants can change word meanings and is a prominent accent marker"
+      },
+      {
+        "area": "Final consonant voicing",
+        "reason": "Devoicing final sounds like in 'lives' impacts morphological clarity for plurals and verb tense"
+      },
+      {
+        "area": "Vowel reduction and schwa",
+        "reason": "Reducing unstressed syllables will greatly improve the natural stress-timed rhythm of English"
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

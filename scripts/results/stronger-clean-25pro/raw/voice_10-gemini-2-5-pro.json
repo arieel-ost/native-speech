@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_10.mp3",
+      "accent": "chinese",
+      "gender": "male",
+      "label": "voice_10"
+    },
+    "latencyMs": 29526,
+    "timestamp": "2026-03-23T21:54:09.487Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "mid-range pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Cantonese Chinese",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Syllable-timed rhythm, lacking stress-timed vowel reduction",
+        "Substitution of dental stops for dental fricatives (/θ/→[t̪], /ð/→[d̪])",
+        "L1-influenced tonal intonation contours on English phrases"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/θ/",
+        "produced": "/t/ or /t̪/ (dental stop)",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/ or /d̪/ (dental stop)",
+        "exampleWord": "weather",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "often becomes /w/",
+        "exampleWord": "village",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɫ/ (dark L)",
+        "produced": "/l/ (clear L) in all positions",
+        "exampleWord": "ball",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Speech is somewhat staccato, with limited use of connected speech features like linking and elision. Words are often pronounced in isolation."
+    },
+    "strengths": [
+      "Grammar and vocabulary are strong and appropriate.",
+      "Pacing is consistent and deliberate, which aids comprehension.",
+      "Sibilant sounds like /s/ are produced clearly and consistently."
+    ],
+    "overallScore": 6,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "These high-frequency sounds are consistently replaced with /t/ and /d/, a primary marker of the accent that can cause confusion between minimal pairs (e.g., three/tree, then/den)."
+      },
+      {
+        "area": "Stress-timed rhythm",
+        "reason": "Shifting from syllable-timing to stress-timing by lengthening stressed vowels and reducing unstressed ones will dramatically increase the naturalness of the speech."
+      },
+      {
+        "area": "The /v/ consonant",
+        "reason": "The substitution of /v/ with /w/ can cause misunderstanding of common words like 'village' vs 'willage' or 'very' vs 'wary'."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walk along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "model": "gemini-3-pro-preview",
+    "sample": {
+      "file": "voice_02.mp3",
+      "accent": "indian",
+      "gender": "male",
+      "label": "voice_02"
+    },
+    "latencyMs": 29084,
+    "timestamp": "2026-03-23T21:56:36.268Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal phonation",
+        "neutral resonance",
+        "narrow pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Hindi (Hindi Belt)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "retroflexion of alveolar stops /t, d/ → [ʈ, ɖ]",
+        "merger of /v/ and /w/ into labiodental approximant [ʋ]",
+        "monophthongization of face /eɪ/ and goat /oʊ/ vowels",
+        "substitution of interdental fricatives /θ, ð/ with dental stops [t̪, d̪]"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[ʋ]",
+        "exampleWord": "weather",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[t̪ʰ]",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪]",
+        "exampleWord": "the",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/t/",
+        "produced": "[ʈ]",
+        "exampleWord": "trees",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced contour with frequent rising terminals on declarative phrases and lack of distinct primary sentence stress",
+      "fluencyNotes": "Maintains high fluency but lacks native-like connected speech features; word boundaries are overly preserved without appropriate assimilation or elision."
+    },
+    "strengths": [
+      "Consistent and clear articulation of vowels within L1 constraints",
+      "Maintains steady speech rate with natural phrase-boundary pausing",
+      "Good vocal projection and clarity of modal voice"
+    ],
+    "overallScore": 7,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Vowel reduction (Schwa)",
+        "reason": "Lack of reduced vowels in unstressed syllables contributes to a syllable-timed rhythm, reducing stress-timed naturalness and native-like rhythm."
+      },
+      {
+        "area": "Interdental fricatives /θ/ and /ð/",
+        "reason": "Substitution with dental stops /t̪/ and /d̪/ heavily marks the accent and occasionally impedes smooth lexical processing for native listeners."
+      },
+      {
+        "area": "Labiodental vs. Bilabial approximants (/v/ vs /w/)",
+        "reason": "The consistent use of [ʋ] for both phonemes can cause lexical ambiguity (e.g., 'weather' vs 'village')."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

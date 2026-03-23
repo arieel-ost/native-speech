@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "model": "gemini-3.1-flash-lite-preview",
+    "sample": {
+      "file": "voice_02.mp3",
+      "accent": "german",
+      "gender": "female",
+      "label": "voice_02"
+    },
+    "latencyMs": 3827,
+    "timestamp": "2026-03-23T15:31:40.665Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "clear articulation",
+        "moderate pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German (Standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "final obstruent devoicing of /z/ to /s/ in 'always' and 'lives'",
+        "realization of the definite article 'the' /ð/ as a dental fricative approaching /d/ or /s/ patterns",
+        "rhythm shows moderate syllable-timed tendencies despite English being stress-timed"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/z/",
+        "produced": "/s/",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/",
+        "exampleWord": "the",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed (leaning towards syllable-timed)",
+      "speechRate": "normal",
+      "intonation": "L1-influenced with slight monotone tendencies",
+      "fluencyNotes": "generally fluent with clear phrase boundaries"
+    },
+    "strengths": [
+      "precise vowel quality control",
+      "excellent command of English consonant clusters",
+      "consistent sentence-level intonation"
+    ],
+    "overallScore": 8,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "final consonant voicing",
+        "reason": "devoicing of /z/ to /s/ impacts the distinction between certain grammatical markers (e.g., lives vs. lice)"
+      },
+      {
+        "area": "dental fricative /ð/",
+        "reason": "improving the transition to voiced /ð/ reduces interference with native-like fluency"
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

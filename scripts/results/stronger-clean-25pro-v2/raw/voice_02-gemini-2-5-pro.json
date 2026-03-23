@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_02.mp3",
+      "accent": "indian",
+      "gender": "male",
+      "label": "voice_02"
+    },
+    "latencyMs": 19749,
+    "timestamp": "2026-03-23T22:57:29.511Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "medium pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Hindi",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/w/ produced as a labiodental approximant [ʋ] (e.g., 'walk', 'weather')",
+        "/θ/ and /ð/ realized as dental stops [t̪] and [d̪] (e.g., 'through', 'the')",
+        "Alveolar consonants /t/ and /d/ are retroflexed [ʈ], [ɖ] (e.g., 'decided', 'little')"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/v/",
+        "produced": "Often realized as /w/ or the labiodental approximant /ʋ/, merging it with the /w/ sound.",
+        "exampleWord": "very",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "Replaced with the unaspirated dental stop /t̪/.",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/w/",
+        "produced": "Realized as the labiodental approximant /ʋ/.",
+        "exampleWord": "walk",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "Realized as a retroflex approximant /ɻ/.",
+        "exampleWord": "river",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Speech is fluent but lacks significant vowel reduction in unstressed syllables and native-like connected speech features (linking, elision). Words tend to be pronounced more distinctly."
+    },
+    "strengths": [
+      "Good fluency and conversational pace.",
+      "Consistent and clear articulation of final consonants.",
+      "Largely accurate grammatical structures."
+    ],
+    "overallScore": 6.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Distinction between /v/ and /w/",
+        "reason": "This merger is a high-frequency issue that can cause lexical confusion between common words (e.g., 'vest' vs. 'west')."
+      },
+      {
+        "area": "Production of /θ/ and /ð/",
+        "reason": "Substituting these with /t̪/ and /d̪/ is a primary marker of the accent and can impact intelligibility (e.g., 'three' vs. 'tree')."
+      },
+      {
+        "area": "Sentence stress and vowel reduction",
+        "reason": "Shifting from a syllable-timed to a stress-timed rhythm by de-stressing function words would dramatically increase the naturalness of the speech."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

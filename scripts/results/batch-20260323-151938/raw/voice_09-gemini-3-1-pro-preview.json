@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_09.mp3",
+      "accent": "galician",
+      "gender": "female",
+      "label": "voice_09"
+    },
+    "latencyMs": 55049,
+    "timestamp": "2026-03-23T15:40:00.380Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "slightly fronted resonance",
+        "narrow pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish (Mexico)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "final obstruent devoicing",
+        "dentalization of alveolar stops",
+        "stopping of voiced dental fricatives",
+        "absence of vowel reduction"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "[d]",
+        "exampleWord": "their",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "[β]",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "[s]",
+        "exampleWord": "always",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ʌ/",
+        "produced": "[o]",
+        "exampleWord": "funny",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced flat pitch contour with rising terminal on declarative statement",
+      "fluencyNotes": "Lack of linking between words; noticeable micro-pauses between syntactic boundaries; no flapping of intervocalic alveolar stops."
+    },
+    "strengths": [
+      "Clear articulation of voiceless fricatives (/f/, /s/)",
+      "Good preservation of complex consonant clusters without epenthesis in 'socks'"
+    ],
+    "overallScore": 6,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Voiced dental fricative (/ð/)",
+        "reason": "Stopping /ð/ to /d/ causes morphological confusion and impacts functional word intelligibility."
+      },
+      {
+        "area": "Vowel reduction and word stress (schwa /ə/)",
+        "reason": "Over-articulating unstressed vowels disrupts English stress-timed rhythm and reduces native-like flow."
+      },
+      {
+        "area": "Final consonant voicing (/z/, /v/)",
+        "reason": "Devoicing final consonants creates minimal pair confusion (e.g., 'lives' sounding like 'life\\'s')."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together. While I'm just trying to find my matching socks."
+  }
+}

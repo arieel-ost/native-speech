@@ -1,0 +1,61 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_01.mp3",
+      "accent": "german",
+      "gender": "female",
+      "label": "voice_01"
+    },
+    "latencyMs": 25886,
+    "timestamp": "2026-03-23T15:29:01.754Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "25-35",
+      "vocalTraits": [
+        "modal voicing",
+        "neutral resonance",
+        "terminal vocal fry"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "English (General American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Rhoticity evidenced in 'together' [təˈɡɛðɚ]",
+        "Alveolar flapping in 'together' [ɾ]",
+        "Vowel reduction of function word 'to' [tə]"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/s/",
+        "produced": "[s̰] (creaky offset)",
+        "exampleWord": "socks",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-standard",
+      "fluencyNotes": "Diagnostic indicates natural phrase-boundary pauses and standard connected speech elision."
+    },
+    "strengths": [
+      "Perfect native-level stress and intonation",
+      "Clear use of weak forms in function words",
+      "Effective use of pauses for rhetorical effect"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Vocal resonance management",
+        "reason": "Speaker exhibits terminal vocal fry on the final word 'socks'; while a common dialectal trait, reducing it ensures maximum clarity in professional contexts."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together. Well, I'm just trying to find my matching socks."
+  }
+}

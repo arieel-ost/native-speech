@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "model": "gemini-3.1-flash-lite-preview",
+    "sample": {
+      "file": "voice_09.mp3",
+      "accent": "galician",
+      "gender": "female",
+      "label": "voice_09"
+    },
+    "latencyMs": 3630,
+    "timestamp": "2026-03-23T15:32:18.001Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "clear phonation",
+        "moderate pitch",
+        "stable cadence"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "American English (General American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "rhoticity in coda position (e.g., 'other')",
+        "flapping of intervocalic /t/ (e.g., 'funny')",
+        "retroflection of /r/"
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like, natural pitch variation and clause-ending falls",
+      "fluencyNotes": "High degree of fluency with natural phrase boundaries and connected speech processes such as linking and assimilation."
+    },
+    "strengths": [
+      "Precise consonant articulation in word-final positions",
+      "Natural use of sentence stress and rhythm",
+      "Correct production of complex vowel contrasts"
+    ],
+    "overallScore": 9.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "N/A",
+        "reason": "Speaker exhibits native-level phonology; no phonetic errors noted."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

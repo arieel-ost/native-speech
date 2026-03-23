@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_11.mp3",
+      "accent": "russian",
+      "gender": "female",
+      "label": "voice_11"
+    },
+    "latencyMs": 21162,
+    "timestamp": "2026-03-23T21:54:31.679Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "mid-range pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "lax /ɪ/ vowel tensed to /i/",
+        "/w/ produced as a labiodental approximant, approaching /v/",
+        "final obstruent devoicing"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ɪ/",
+        "produced": "/i/ (vowel is tensed)",
+        "exampleWord": "little",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/w/",
+        "produced": "/v/ or a labiodental approximant [ʋ]",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/d/",
+        "produced": "/t/ in word-final position",
+        "exampleWord": "red",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/z/",
+        "exampleWord": "the",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "/s/",
+        "exampleWord": "through",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "slow",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Speech is somewhat staccato, with limited use of connected speech (linking, elision). Words are often pronounced in isolation."
+    },
+    "strengths": [
+      "Grammar and vocabulary are very strong.",
+      "The /ɹ/ sound is consistently produced accurately.",
+      "Speech is paced clearly, which aids intelligibility."
+    ],
+    "overallScore": 6.5,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "Vowel distinction: /ɪ/ vs /i/",
+        "reason": "This is a high-frequency distinction that affects the meaning of many common words (e.g., 'live' vs 'leave', 'it' vs 'eat'). Correcting it will have the largest impact on intelligibility."
+      },
+      {
+        "area": "Consonant distinction: /w/ vs /v/",
+        "reason": "This is another critical distinction in English. The substitution significantly marks the speech as non-native and can cause confusion between words like 'west' and 'vest'."
+      },
+      {
+        "area": "Voicing of final consonants",
+        "reason": "Correctly voicing final consonants (like the /d/ in 'red' or /g/ in 'big') will improve naturalness and clarity, especially for past tense markers and plurals."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green, and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

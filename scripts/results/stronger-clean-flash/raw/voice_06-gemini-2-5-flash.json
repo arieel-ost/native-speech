@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_06.mp3",
+      "accent": "galician",
+      "gender": "male",
+      "label": "voice_06"
+    },
+    "latencyMs": 21727,
+    "timestamp": "2026-03-23T21:57:06.509Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "clear voice",
+        "modal phonation",
+        "moderate pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian (Moscow standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Interdental fricatives /θ, ð/ realized as dental stops [t̪, d̪] (e.g., \"through\", \"the weather\")",
+        "Lack of alveolar flapping [ɾ] for intervocalic /t/ (e.g., \"water\", \"bottle\")",
+        "Pronunciation of /ɹ/ as an alveolar tap or trill [ɾ] or [r] (e.g., \"really\", \"river\")"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪] (dental stop instead of interdental fricative)",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[t̪] (dental stop instead of interdental fricative)",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "[ɾ] or [r] (alveolar tap/trill instead of alveolar approximant)",
+        "exampleWord": "river",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[a] or [ɑ] (vowel lowering and centralization)",
+        "exampleWord": "having",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/t/ (intervocalic)",
+        "produced": "[t] (clear, released alveolar stop instead of flapped alveolar tap)",
+        "exampleWord": "water",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/tɹ/ cluster",
+        "produced": "[tʂɹ] or [tɕɹ] (palatalization/postalveolar articulation of initial /t/)",
+        "exampleWord": "trees",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, with less dynamic pitch variation compared to native English; tends to be flatter.",
+      "fluencyNotes": "Mostly fluent with appropriate pausing at syntactic boundaries. Connected speech features (linking, assimilation, elision) are less pronounced than in native English, leading to a more distinct word-by-word delivery."
+    },
+    "strengths": [
+      "Excellent overall fluency with natural phrasing and pacing",
+      "Clear articulation of most alveolar and palato-alveolar fricatives and affricates (e.g., /s, z, ʃ, tʃ, dʒ/)",
+      "Appropriate use of lexical stress on most multi-syllabic words"
+    ],
+    "overallScore": 7,
+    "level": "C1",
+    "recommendedFocus": [
+      {
+        "area": "Interdental fricatives /θ/ and /ð/",
+        "reason": "Consistent substitution with dental stops [t̪] and [d̪] is a high-frequency error that significantly contributes to the foreign accent and occasionally requires listener effort to process."
+      },
+      {
+        "area": "English /ɹ/ sound",
+        "reason": "The production as a tap or trill [ɾ]/[r] is highly distinctive and immediately marks the speaker as non-native. Improving this will bring the accent closer to target English phonology."
+      },
+      {
+        "area": "Vowel /æ/ production",
+        "reason": "The consistent raising and backing of /æ/ to [a] or [ɑ] can sometimes lead to confusion with other vowels and is a key marker of L1 interference."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

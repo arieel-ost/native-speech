@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_07.mp3",
+      "accent": "british",
+      "gender": "male",
+      "label": "voice_07"
+    },
+    "latencyMs": 33648,
+    "timestamp": "2026-03-23T22:05:23.171Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "40-50",
+      "vocalTraits": [
+        "modal phonation",
+        "narrow pitch range",
+        "hard glottal attacks"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German (Standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "final obstruent devoicing",
+        "w→v substitution",
+        "θ→s substitution"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "/v/ instead of /w/",
+        "exampleWord": "water",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "/s/ instead of /θ/",
+        "exampleWord": "think",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/z/ instead of /ð/",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/d/",
+        "produced": "/t/ (final devoicing)",
+        "exampleWord": "bread",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "slow",
+      "intonation": "flat pitch contours with steep final falls, typical of L1 German transfer",
+      "fluencyNotes": "Words often produced in isolation with hard glottal attacks on vowel-initial words; lack of connected speech linking."
+    },
+    "strengths": [
+      "Accurate vowel length distinctions in 'green' and 'house'",
+      "Clear articulation of complex consonant clusters like 'dr' in 'children'"
+    ],
+    "overallScore": 6,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "w/v distinction",
+        "reason": "Prevents confusion between words like 'west' and 'vest', greatly improving overall intelligibility."
+      },
+      {
+        "area": "Connected speech and linking",
+        "reason": "Reducing hard glottal attacks will improve natural flow and rhythm."
+      },
+      {
+        "area": "Final consonant voicing",
+        "reason": "Prevents morphological confusion."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful. So I decided to go for a walk through the park near my house. The trees were green, and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_04.mp3",
+      "accent": "french",
+      "gender": "female",
+      "label": "voice_04"
+    },
+    "latencyMs": 51508,
+    "timestamp": "2026-03-23T15:35:27.074Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "slightly breathy",
+        "medium pitch range",
+        "neutral resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish (Latin American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "tense/lax vowel merger",
+        "fricativization of /v/ → [β]",
+        "velarization of /h/ → [x]",
+        "absence of vowel reduction in weak syllables"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ɪ/",
+        "produced": "[i]",
+        "exampleWord": "lives",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "[β]",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/h/",
+        "produced": "[x]",
+        "exampleWord": "how",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/dʒ/",
+        "produced": "[j]",
+        "exampleWord": "just",
+        "severity": "high"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced flat pitch contours lacking clear primary sentence stress",
+      "fluencyNotes": "Smooth connected speech but lacks native-like elision and weak forms in function words"
+    },
+    "strengths": [
+      "Consistent and fluent speech rate without hesitant mid-phrase pausing",
+      "Clear and accurate articulation of voiceless plosives"
+    ],
+    "overallScore": 6,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Tense vs. lax vowel distinction (/i/ vs /ɪ/)",
+        "reason": "Directly impacts functional load and word-level recognition (e.g., lives vs. leaves)"
+      },
+      {
+        "area": "Affricate consonant /dʒ/",
+        "reason": "Improves intelligibility of high-frequency words like 'just' without gliding to /j/"
+      },
+      {
+        "area": "Vowel reduction and weak forms",
+        "reason": "Helps shift the rhythm from syllable-timed to stress-timed, improving naturalness"
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

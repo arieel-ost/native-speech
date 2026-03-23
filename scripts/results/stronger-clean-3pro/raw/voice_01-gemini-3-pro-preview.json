@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "model": "gemini-3-pro-preview",
+    "sample": {
+      "file": "voice_01.mp3",
+      "accent": "american-texan",
+      "gender": "female",
+      "label": "voice_01"
+    },
+    "latencyMs": 27225,
+    "timestamp": "2026-03-23T21:56:06.174Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "careful articulation",
+        "slightly breathy",
+        "narrow pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish (Latin American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "rhotic tapping/trilling (/ɹ/ → [ɾ])",
+        "lax vowel tenseness merger (/ɪ/ → [i], /ʊ/ → [u])",
+        "interdental stopping (/θ/ → [t̪], /ð/ → [d̪])",
+        "labiodental spirantization (/v/ → [β])",
+        "lack of vowel reduction in unstressed syllables"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ɹ/",
+        "produced": "[ɾ] (alveolar tap)",
+        "exampleWord": "river",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[t̪] (dental stop)",
+        "exampleWord": "threw",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪] (dental stop)",
+        "exampleWord": "father",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "[i] (tense front vowel)",
+        "exampleWord": "children",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "[β] (voiced bilabial fricative)",
+        "exampleWord": "river",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɜ˞/",
+        "produced": "[ɛɾ] (vowel + tap)",
+        "exampleWord": "birds",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "slow",
+      "intonation": "flat and mechanical, heavily influenced by L1 reading prosody",
+      "fluencyNotes": "Word-by-word articulation with isolated lexical items. Lack of connected speech features such as linking or elision. No vowel reduction (schwa) in unstressed positions."
+    },
+    "strengths": [
+      "Excellent clarity in producing English affricates (/tʃ/, /dʒ/)",
+      "Consistent voicing of final consonants, avoiding final obstruent devoicing common in other L1s",
+      "No inappropriate epenthetic vowels added before initial /s/ clusters in this sample"
+    ],
+    "overallScore": 6,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "English approximant /ɹ/",
+        "reason": "Replacing the English /ɹ/ with the Spanish alveolar tap [ɾ] heavily colors the accent and occasionally causes confusion with /t/ or /d/ flaps for native listeners."
+      },
+      {
+        "area": "Interdental fricatives (/θ/, /ð/)",
+        "reason": "Stopping these to [t̪] and [d̪] changes the meaning of words (e.g., 'threw' sounding like 'true') and is a primary marker of L1 interference."
+      },
+      {
+        "area": "Vowel reduction and stress-timing",
+        "reason": "Applying full vowel qualities to unstressed syllables (e.g., 'beautiful', 'children') creates a choppy, syllable-timed rhythm that requires extra effort from native listeners."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

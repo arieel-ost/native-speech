@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_01.mp3",
+      "accent": "american-texan",
+      "gender": "female",
+      "label": "voice_01"
+    },
+    "latencyMs": 26586,
+    "timestamp": "2026-03-23T21:49:59.086Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "neutral resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish",
+      "confidence": "high",
+      "telltalePatterns": [
+        "syllable-timed rhythm instead of stress-timed",
+        "/v/ → /b/ substitution (e.g., 'very' as 'berry')",
+        "/ɪ/ tensed to /i/ (e.g., 'little' as 'leetle')"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/v/",
+        "produced": "[b], a voiced bilabial stop, instead of a voiced labiodental fricative.",
+        "exampleWord": "very",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "[i], tensing the vowel.",
+        "exampleWord": "little",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/h/",
+        "produced": "Ø (deleted)",
+        "exampleWord": "house",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[t]",
+        "exampleWord": "through",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Words are produced distinctly with limited connected speech (linking, elision). Pauses occur at appropriate grammatical boundaries."
+    },
+    "strengths": [
+      "Consistent production of American /ɹ/ approximant (e.g., in 'river', 'were').",
+      "Clear articulation of most final consonants.",
+      "Speech is evenly paced and easy to follow."
+    ],
+    "overallScore": 6.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "/v/ vs /b/ distinction",
+        "reason": "This is a high-frequency distinction in English, and the substitution can lead to misunderstandings (e.g., 'very' vs. 'berry')."
+      },
+      {
+        "area": "/i/ vs /ɪ/ vowel contrast (e.g., 'leave' vs. 'live')",
+        "reason": "This vowel contrast carries a high functional load in English and mastering it significantly improves clarity."
+      },
+      {
+        "area": "Stress-timed rhythm",
+        "reason": "Shifting from a syllable-timed to a stress-timed pattern by emphasizing content words and reducing function words will make speech sound much more natural and fluent to native listeners."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

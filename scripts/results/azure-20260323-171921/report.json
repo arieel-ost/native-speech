@@ -1,0 +1,111 @@
+{
+  "timestamp": "2026-03-23T17:19:22.361Z",
+  "locales": [
+    "en-US",
+    "en-GB",
+    "en-AU",
+    "en-IN"
+  ],
+  "sampleCount": 11,
+  "results": [
+    {
+      "file": "voice_01.mp3",
+      "groundTruthAccent": "german",
+      "groundTruthGender": "female",
+      "bestLocale": "",
+      "bestScore": 0,
+      "error": "WAV_CONVERSION_FAILED",
+      "localeScores": {}
+    },
+    {
+      "file": "voice_02.mp3",
+      "groundTruthAccent": "german",
+      "groundTruthGender": "female",
+      "bestLocale": "",
+      "bestScore": 0,
+      "error": "WAV_CONVERSION_FAILED",
+      "localeScores": {}
+    },
+    {
+      "file": "voice_03.mp3",
+      "groundTruthAccent": "german",
+      "groundTruthGender": "male",
+      "bestLocale": "",
+      "bestScore": 0,
+      "error": "WAV_CONVERSION_FAILED",
+      "localeScores": {}
+    },
+    {
+      "file": "voice_04.mp3",
+      "groundTruthAccent": "french",
+      "groundTruthGender": "female",
+      "bestLocale": "",
+      "bestScore": 0,
+      "error": "WAV_CONVERSION_FAILED",
+      "localeScores": {}
+    },
+    {
+      "file": "voice_05.mp3",
+      "groundTruthAccent": "indian",
+      "groundTruthGender": "male",
+      "bestLocale": "",
+      "bestScore": 0,
+      "error": "WAV_CONVERSION_FAILED",
+      "localeScores": {}
+    },
+    {
+      "file": "voice_06.mp3",
+      "groundTruthAccent": "australian",
+      "groundTruthGender": "male",
+      "bestLocale": "",
+      "bestScore": 0,
+      "error": "WAV_CONVERSION_FAILED",
+      "localeScores": {}
+    },
+    {
+      "file": "voice_07.mp3",
+      "groundTruthAccent": "russian",
+      "groundTruthGender": "male",
+      "bestLocale": "",
+      "bestScore": 0,
+      "error": "WAV_CONVERSION_FAILED",
+      "localeScores": {}
+    },
+    {
+      "file": "voice_08.mp3",
+      "groundTruthAccent": "american",
+      "groundTruthGender": "male",
+      "bestLocale": "",
+      "bestScore": 0,
+      "error": "WAV_CONVERSION_FAILED",
+      "localeScores": {}
+    },
+    {
+      "file": "voice_09.mp3",
+      "groundTruthAccent": "galician",
+      "groundTruthGender": "female",
+      "bestLocale": "",
+      "bestScore": 0,
+      "error": "WAV_CONVERSION_FAILED",
+      "localeScores": {}
+    },
+    {
+      "file": "voice_10.mp3",
+      "groundTruthAccent": "american-texan",
+      "groundTruthGender": "female",
+      "bestLocale": "",
+      "bestScore": 0,
+      "error": "WAV_CONVERSION_FAILED",
+      "localeScores": {}
+    },
+    {
+      "file": "voice_11.mp3",
+      "groundTruthAccent": "russian",
+      "groundTruthGender": "male",
+      "bestLocale": "",
+      "bestScore": 0,
+      "error": "WAV_CONVERSION_FAILED",
+      "localeScores": {}
+    }
+  ]
+}

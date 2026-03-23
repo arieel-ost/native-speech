@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_01.mp3",
+      "accent": "german",
+      "gender": "female",
+      "label": "voice_01"
+    },
+    "latencyMs": 13123,
+    "timestamp": "2026-03-23T13:39:22.461Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "25-35",
+      "vocalTraits": [
+        "clear voice",
+        "moderate pitch",
+        "slight forward resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Indian English",
+      "confidence": "high",
+      "telltalePatterns": [
+        "realization of /ð/ as /d/",
+        "clear articulation of word-medial /t/ without a flap",
+        "vowel quality in words like 'funny' and 'some' (fronted /ʌ/)"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/ (voiced alveolar stop)",
+        "exampleWord": "their",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ʌ/",
+        "produced": "a more fronted and slightly raised vowel (e.g., closer to /a/ or /æ/)",
+        "exampleWord": "funny",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "normal",
+      "intonation": "generally follows English patterns but occasionally sounds flatter due to L1 influence, with less dramatic pitch variation",
+      "fluencyNotes": "fluent with appropriate pausing; connected speech features are present but less pronounced than in native speech"
+    },
+    "strengths": [
+      "clear articulation of most consonants",
+      "good overall speech rhythm and pacing",
+      "appropriate sentence stress in content words"
+    ],
+    "overallScore": 8,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "voiced dental fricative /ð/",
+        "reason": "consistent substitution of /d/ for /ð/ is a prominent accent marker; improving this will significantly enhance native-like pronunciation."
+      },
+      {
+        "area": "vowel reduction in unstressed syllables",
+        "reason": "practicing reduction will make speech sound more natural, improve flow, and better align with stress-timed rhythm."
+      },
+      {
+        "area": "intonation contour variation",
+        "reason": "incorporating more dynamic pitch changes will make speech sound more engaging and less 'flat', further reducing L1 influence."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

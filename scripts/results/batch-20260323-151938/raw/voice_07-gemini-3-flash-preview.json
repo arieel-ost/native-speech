@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_07.mp3",
+      "accent": "russian",
+      "gender": "male",
+      "label": "voice_07"
+    },
+    "latencyMs": 13810,
+    "timestamp": "2026-03-23T15:30:31.932Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "25-35",
+      "vocalTraits": [
+        "creaky voice",
+        "vocal fry",
+        "moderate nasal resonance",
+        "low pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Dentalization of /ð/ to [d̪] in 'together'",
+        "Vowel raising of /æ/ to [ɛ] in 'matching'",
+        "Rounding of open back vowel /ɑ/ to [ɒ] in 'socks'"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪] (voiced dental stop)",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɛ] (raised front vowel)",
+        "exampleWord": "matching",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ʌ/",
+        "produced": "[ɑ] (fronted/lowered vowel)",
+        "exampleWord": "funny",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced with narrow pitch range and terminal creak",
+      "fluencyNotes": "Natural phrasing with effective use of linking in 'some people always'; minor hesitations for emphasis."
+    },
+    "strengths": [
+      "Precise articulation of word-final /s/ and /z/ clusters",
+      "Effective linking and elision in connected speech",
+      "Good control of aspirated /p/ in 'people'"
+    ],
+    "overallScore": 7.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Voiced dental fricative /ð/",
+        "reason": "Replacing /ð/ with a dental stop is a primary marker of the L1 and significantly impacts the perceived accent."
+      },
+      {
+        "area": "Vowel distinction /æ/ vs /ɛ/",
+        "reason": "Raising /æ/ can lead to potential lexical ambiguity with /ɛ/ in minimal pairs."
+      },
+      {
+        "area": "Sentence-level pitch variety",
+        "reason": "Expanding the intonation range will reduce L1-transferred flatness and improve listener engagement."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

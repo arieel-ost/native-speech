@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_05.mp3",
+      "accent": "indian",
+      "gender": "male",
+      "label": "voice_05"
+    },
+    "latencyMs": 41839,
+    "timestamp": "2026-03-23T13:48:22.681Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "slightly nasal resonance",
+        "moderate pitch",
+        "monotone tendencies"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German",
+      "confidence": "high",
+      "telltalePatterns": [
+        "final obstruent devoicing",
+        "w→v substitution",
+        "dental fricative substitution (ð→z)"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "/v/ instead of /w/",
+        "exampleWord": "always, while",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/z/ instead of /ð/",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/v/ (word-final)",
+        "produced": "/f/ instead of /v/",
+        "exampleWord": "lives, have",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "normal",
+      "intonation": "Slightly flat; lacks native-like pitch glides on stressed syllables.",
+      "fluencyNotes": "Smooth overall pacing with minimal hesitation, but lacks consonant-to-vowel linking in connected speech."
+    },
+    "strengths": [
+      "Clear articulation of vowels",
+      "Excellent grammatical accuracy and vocabulary",
+      "Steady and confident speech rate without unnatural pauses"
+    ],
+    "overallScore": 8.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "/w/ vs /v/ distinction",
+        "reason": "Substituting /w/ with /v/ is a strong accent marker and can occasionally cause lexical confusion in English."
+      },
+      {
+        "area": "Voiced dental fricative /ð/",
+        "reason": "Replacing /ð/ with /z/ draws attention to the speaker's non-native status, even if it rarely impedes overall comprehension."
+      },
+      {
+        "area": "Final consonant voicing",
+        "reason": "Devoicing final consonants (e.g., 'lives' sounding like 'lifes') alters word boundaries and impacts the natural rhythm of English sentences."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_10.mp3",
+      "accent": "chinese",
+      "gender": "male",
+      "label": "voice_10"
+    },
+    "latencyMs": 27543,
+    "timestamp": "2026-03-23T21:58:34.776Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "neutral resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Japanese",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Substitution of labiodental fricative /v/ with labial-velar approximant [w], evidenced by \"very\" [wɛɹi] and \"village\" [wɪlɪdʒ].",
+        "Stopping of dental fricatives /θ/ and /ð/ to alveolar stops [t] and [d] respectively, evidenced by \"think\" [tɪŋk] and \"weather\" [wɛdə].",
+        "Monophthongization of diphthongs like /aɪ/ to [aː], evidenced by \"time\" [taːm] and \"decided\" [dɪsaːdɛt]."
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/v/",
+        "produced": "[w] (Labiodental fricative /v/ replaced by a labial-velar approximant [w])",
+        "exampleWord": "very",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[t] (Voiceless dental fricative /θ/ replaced by a voiceless alveolar stop [t])",
+        "exampleWord": "think",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d] (Voiced dental fricative /ð/ replaced by a voiced alveolar stop [d])",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/aɪ/",
+        "produced": "[aː] (Diphthong /aɪ/ realized as a monophthongal open central unrounded vowel [aː])",
+        "exampleWord": "time",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɛ] (Open front unrounded vowel /æ/ realized as a mid front unrounded vowel [ɛ])",
+        "exampleWord": "had",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/d/ (word-final)",
+        "produced": "[t] (Voiced alveolar stop /d/ devoiced to a voiceless alveolar stop [t] in word-final positions)",
+        "exampleWord": "decided",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ɜː/",
+        "produced": "[œ] or [ɛ] (Open-mid central rounded vowel /ɜː/ realized as an open-mid front rounded vowel [œ] or mid-front unrounded [ɛ])",
+        "exampleWord": "birds",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Natural phrase-boundary pauses are present. Words are generally produced distinctly with some linking, but less consistent assimilation and elision than native speech. No significant mid-phrase hesitations observed."
+    },
+    "strengths": [
+      "Clear articulation of most alveolar stops and fricatives, such as /t/, /d/, /s/, and /z/.",
+      "Consistent and appropriate speech rate, making the speech easy to follow.",
+      "Generally correct placement of lexical stress on multi-syllabic words."
+    ],
+    "overallScore": 6,
+    "level": "B1",
+    "recommendedFocus": [
+      {
+        "area": "Dental Fricatives (/θ/ and /ð/)",
+        "reason": "The consistent substitution of /θ/ with [t] and /ð/ with [d] significantly impacts the speaker's accent and can lead to misunderstandings, especially in minimal pairs (e.g., 'tin' vs 'thin', 'den' vs 'then'). Mastering these sounds is critical for improved intelligibility."
+      },
+      {
+        "area": "Labiodental Fricative /v/",
+        "reason": "The consistent substitution of /v/ with [w] is a prominent L1 transfer feature. Correct production of /v/ will enhance clarity and reduce potential confusion with words containing /w/ (e.g., 'vet' vs 'wet')."
+      },
+      {
+        "area": "English Vowel Contrasts (specifically /æ/ vs /ɛ/ and diphthong /aɪ/)",
+        "reason": "The raising of /æ/ to [ɛ] and the monophthongization of /aɪ/ to [aː] reduce clarity and distinguishability between certain vowel sounds, making speech sound less native-like and occasionally causing semantic ambiguity."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

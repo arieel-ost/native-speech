@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_03.mp3",
+      "accent": "german",
+      "gender": "male",
+      "label": "voice_03"
+    },
+    "latencyMs": 34732,
+    "timestamp": "2026-03-23T15:34:34.549Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "slight breathiness",
+        "narrow pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German (Standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "final obstruent devoicing",
+        "dental fricative alveolarization",
+        "vowel raising"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "[d] instead of /ð/",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɛ] instead of /æ/",
+        "exampleWord": "matching",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "[s] instead of /z/",
+        "exampleWord": "lives",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "normal",
+      "intonation": "Slightly flat with a narrow pitch range, lacking native-like glide contours.",
+      "fluencyNotes": "Good connected speech but lacks vowel reduction in unstressed grammatical words."
+    },
+    "strengths": [
+      "Clear articulation of complex consonant clusters without epenthesis in 'just trying'.",
+      "Accurate primary lexical stress placement across polysyllabic words."
+    ],
+    "overallScore": 7,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Interdental fricatives (/ð/, /θ/)",
+        "reason": "Prevents substitution with alveolar stops, which reduces accent prominence and prevents occasional misidentification."
+      },
+      {
+        "area": "Low-front vowel contrast (/æ/ vs /ɛ/)",
+        "reason": "Crucial for resolving minimal pairs to maintain clear semantic distinctions in fast speech."
+      },
+      {
+        "area": "Final consonant voicing",
+        "reason": "Ensures accurate realization of plural and possessive morphology (e.g., /z/ in 'lives' and 'always')."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

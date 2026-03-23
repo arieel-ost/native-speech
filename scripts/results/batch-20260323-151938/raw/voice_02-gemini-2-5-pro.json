@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_02.mp3",
+      "accent": "german",
+      "gender": "female",
+      "label": "voice_02"
+    },
+    "latencyMs": 43885,
+    "timestamp": "2026-03-23T15:23:53.513Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "40-50",
+      "vocalTraits": [
+        "modal voice",
+        "medium pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German",
+      "confidence": "high",
+      "telltalePatterns": [
+        "final obstruent devoicing (e.g., 'have' → /hæf/)",
+        "/w/ produced as /v/ (e.g., 'while')",
+        "syllable-timed rhythm"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[v]",
+        "exampleWord": "while",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "[f] in word-final position",
+        "exampleWord": "have",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "[s] in word-final position",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[z]",
+        "exampleWord": "their",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Words are clearly articulated but with less connected speech (linking, assimilation) than is typical for native speakers. Pausing is appropriate for phrasing."
+    },
+    "strengths": [
+      "Grammar and vocabulary are advanced and used correctly.",
+      "Good articulation of most vowels.",
+      "Consonant clusters (e.g., 'tr' in 'trying') are produced clearly."
+    ],
+    "overallScore": 6.5,
+    "level": "C1",
+    "recommendedFocus": [
+      {
+        "area": "Voicing of final consonants (/v/, /z/)",
+        "reason": "This is a high-frequency pattern that can cause confusion between words like 'have'/'half' and 'lives'/'lifes', significantly impacting intelligibility."
+      },
+      {
+        "area": "Distinction between /w/ and /v/",
+        "reason": "This substitution affects many common words and can lead to misunderstandings (e.g., 'while' vs 'vile')."
+      },
+      {
+        "area": "Production of dental fricatives (/ð/)",
+        "reason": "Correctly producing this sound is crucial for clarity in many essential grammatical words like 'the', 'their', and 'together'."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

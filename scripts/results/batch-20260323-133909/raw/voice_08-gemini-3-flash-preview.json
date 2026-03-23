@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_08.mp3",
+      "accent": "american",
+      "gender": "male",
+      "label": "voice_08"
+    },
+    "latencyMs": 12667,
+    "timestamp": "2026-03-23T13:43:30.982Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-35",
+      "vocalTraits": [
+        "clear resonance",
+        "moderate pitch",
+        "articulated",
+        "confident tone"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "English (General American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "rhoticity (strong post-vocalic /r/)",
+        "low back unrounded vowel in 'socks' /sɑːks/",
+        "standard flap /t/ in connected speech",
+        "native vowel reduction in unstressed syllables"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "None",
+        "produced": "N/A",
+        "exampleWord": "N/A",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like",
+      "fluencyNotes": "Excellent use of connected speech; natural elision and linking between words."
+    },
+    "strengths": [
+      "Perfect intelligibility",
+      "Natural conversational prosody and pacing",
+      "Precise vowel placement"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "None",
+        "reason": "The speaker demonstrates native-level proficiency in General American English with no discernible phonetic errors."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

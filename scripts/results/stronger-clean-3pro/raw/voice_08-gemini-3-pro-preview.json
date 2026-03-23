@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "model": "gemini-3-pro-preview",
+    "sample": {
+      "file": "voice_08.mp3",
+      "accent": "italian",
+      "gender": "male",
+      "label": "voice_08"
+    },
+    "latencyMs": 25301,
+    "timestamp": "2026-03-23T21:59:28.179Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-50",
+      "vocalTraits": [
+        "modal voice",
+        "slightly pressed phonation",
+        "staccato articulation",
+        "forward oral resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "w→v substitution (labiodentalization of labiovelar approximant)",
+        "ð→d and θ→t/s substitution (stopping of interdental fricatives)",
+        "ɹ→r substitution (alveolar trill instead of alveolar approximant)",
+        "Absence of vowel reduction in unstressed syllables"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "/v/",
+        "exampleWord": "weather, walk, water",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪]",
+        "exampleWord": "weather, father",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[t̪]",
+        "exampleWord": "think, through",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "[r]",
+        "exampleWord": "really, river",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced with flat mid-phrase contours and steep terminal falls",
+      "fluencyNotes": "Speech is largely produced word-by-word with limited connected speech features (linking, elision) and full pronunciation of typically weak forms."
+    },
+    "strengths": [
+      "Clear enunciation of all consonants and vowels, preventing major phonetic drops",
+      "Accurate placement of pauses at grammatical boundaries"
+    ],
+    "overallScore": 6.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "/w/ vs /v/ distinction",
+        "reason": "Consistent substitution of /v/ for /w/ is the most salient non-native feature and occasionally causes lexical ambiguity."
+      },
+      {
+        "area": "Vowel reduction (Schwa)",
+        "reason": "Applying vowel reduction to unstressed syllables will shift the rhythm from syllable-timed to stress-timed, significantly improving naturalness."
+      },
+      {
+        "area": "Interdental Fricatives (/θ/, /ð/)",
+        "reason": "Stopping these sounds to /t/ and /d/ impacts phonemic accuracy and contributes heavily to a staccato rhythm."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful. So I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice..."
+  }
+}

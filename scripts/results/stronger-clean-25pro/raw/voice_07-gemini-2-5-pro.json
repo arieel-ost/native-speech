@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_07.mp3",
+      "accent": "british",
+      "gender": "male",
+      "label": "voice_07"
+    },
+    "latencyMs": 20832,
+    "timestamp": "2026-03-23T21:52:36.614Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "50-60",
+      "vocalTraits": [
+        "low pitch",
+        "slightly breathy",
+        "resonant"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "English (General American, cultivated/broadcast style)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Full rhoticity in all positions (e.g., 'weather', 'park')",
+        "Precise, hyper-articulated vowel sounds",
+        "Deliberate, performative prosody and cadence"
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "slow",
+      "intonation": "native-like with a wide, expressive pitch range (performative style)",
+      "fluencyNotes": "Excellent fluency with deliberate, grammatical pausing. Strong use of connected speech."
+    },
+    "strengths": [
+      "Extremely clear and precise articulation.",
+      "Excellent command of prosody for expressive effect.",
+      "Consistent and standard production of all English phonemes."
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Stylistic variation",
+        "reason": "The current deliberate, narrative style is highly effective for its context but could be adapted to a faster, more casual cadence for informal conversation if desired."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful. So I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

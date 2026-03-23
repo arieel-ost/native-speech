@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_03.mp3",
+      "accent": "german",
+      "gender": "male",
+      "label": "voice_03"
+    },
+    "latencyMs": 62286,
+    "timestamp": "2026-03-23T13:46:40.633Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "clear resonance",
+        "modal voice",
+        "slightly narrowed pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German",
+      "confidence": "high",
+      "telltalePatterns": [
+        "final obstruent devoicing",
+        "w→v substitution",
+        "ð→z substitution",
+        "glottal stops before vowel-initial words"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "/v/",
+        "exampleWord": "while",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/z/",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "/f/",
+        "exampleWord": "lives",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "narrower pitch range than standard American or British English, falling intonation on statements is abrupt",
+      "fluencyNotes": "Generally fluent but uses glottal stops before words starting with vowels, reducing natural English linking."
+    },
+    "strengths": [
+      "Excellent articulation of complex consonant clusters",
+      "Accurate vowel length and tension distinction",
+      "Maintains a clear and steady stress-timed rhythm"
+    ],
+    "overallScore": 8.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "/w/ vs /v/ distinction",
+        "reason": "Substituting /v/ for /w/ is a strong marker of L1 interference and can occasionally cause lexical confusion."
+      },
+      {
+        "area": "Connected speech and linking",
+        "reason": "Reducing glottal stops and linking consonant-to-vowel across word boundaries will make the speech sound much more natural and native-like."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

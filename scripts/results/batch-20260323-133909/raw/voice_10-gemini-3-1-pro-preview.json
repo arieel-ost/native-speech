@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_10.mp3",
+      "accent": "american-texan",
+      "gender": "female",
+      "label": "voice_10"
+    },
+    "latencyMs": 24648,
+    "timestamp": "2026-03-23T13:53:23.451Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "mid-high pitch",
+        "clear resonance",
+        "slight breathiness"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish",
+      "confidence": "high",
+      "telltalePatterns": [
+        "v→b substitution",
+        "ð→d substitution",
+        "vowel tension conflation (iː/ɪ)",
+        "syllable-timed rhythm"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/v/",
+        "produced": "/b/ or /β/",
+        "exampleWord": "lives",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/",
+        "exampleWord": "their",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "/i/",
+        "exampleWord": "It's",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/dʒ/",
+        "produced": "/tʃ/",
+        "exampleWord": "just",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "Slightly flat with L1-influenced rising pitch at the end of phrase clauses, lacking typical English intonational fall.",
+      "fluencyNotes": "There is a noticeable pause before 'while' and 'matching', and a general absence of connected speech features like linking or vowel reduction in unstressed syllables."
+    },
+    "strengths": [
+      "Clear articulation of voiceless fricatives (/f/, /s/)",
+      "Accurate production of the /tʃ/ affricate in 'matching'",
+      "Good overall volume and projection"
+    ],
+    "overallScore": 7.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Voiced labiodental fricative (/v/)",
+        "reason": "Substituting /b/ for /v/ (e.g., in 'have' and 'lives') strongly marks the accent and can occasionally lead to lexical confusion."
+      },
+      {
+        "area": "Vowel reduction and the schwa (/ə/)",
+        "reason": "Over-articulating unstressed syllables creates a choppy, syllable-timed rhythm. Relaxing these vowels will help achieve a more natural English stress-timed rhythm."
+      },
+      {
+        "area": "Voiced dental fricative (/ð/)",
+        "reason": "Replacing /ð/ with /d/ in words like 'their' and 'together' affects intelligibility slightly and is a primary marker of non-native speech."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_05.mp3",
+      "accent": "german",
+      "gender": "male",
+      "label": "voice_05"
+    },
+    "latencyMs": 19601,
+    "timestamp": "2026-03-23T21:56:43.765Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "clear resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian (Standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "w→v substitution in 'was' [vɔz] and 'walk' [vɔk]",
+        "θ→t and ð→d substitution in 'through' [tru] and 'the' [də]",
+        "final obstruent devoicing in 'birds' [bɜrts]"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[v] (labiodental fricative) instead of /w/ (bilabial approximant)",
+        "exampleWord": "was, walk, water",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[t] (alveolar stop) instead of /θ/ (interdental fricative)",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d] (alveolar stop) instead of /ð/ (interdental fricative)",
+        "exampleWord": "the, weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "[i] (tense front vowel) instead of /ɪ/ (lax near-front vowel)",
+        "exampleWord": "in, little",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "[s] (voiceless alveolar fricative) instead of /z/ (voiced alveolar fricative) in word-final position",
+        "exampleWord": "birds",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Natural phrase-boundary pauses are present. Connected speech exhibits less reduction and assimilation compared to native English, contributing to the syllable-timed rhythm."
+    },
+    "strengths": [
+      "Consistent and clear articulation of most alveolar stops and fricatives (/t/, /d/, /s/, /z/ in non-final positions).",
+      "Accurate production of velar stops (/k/, /g/).",
+      "Good pacing and natural pausing at syntactic boundaries, aiding overall flow."
+    ],
+    "overallScore": 6,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "interdental fricatives (/θ/, /ð/)",
+        "reason": "The consistent substitution of /t/ for /θ/ and /d/ for /ð/ significantly impacts clarity and is a strong marker of L1 interference. Mastering these sounds will improve intelligibility in common words like 'the', 'through', 'weather', 'think'."
+      },
+      {
+        "area": "labial-velar approximant (/w/)",
+        "reason": "The substitution of /v/ for /w/ (e.g., 'was' as [vɔz]) can lead to confusion with minimal pairs (e.g., 'wine' vs. 'vine') and is a highly noticeable L1 interference pattern."
+      },
+      {
+        "area": "stress-timed rhythm and vowel reduction",
+        "reason": "The overall syllable-timed rhythm, typical of Russian, affects the natural flow and rhythm of English. Working on reducing unstressed vowels and varying syllable length will make speech sound more native-like and easier for listeners to process."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful. So, I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring's my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

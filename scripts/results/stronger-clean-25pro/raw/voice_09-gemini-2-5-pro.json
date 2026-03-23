@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_09.mp3",
+      "accent": "japanese",
+      "gender": "male",
+      "label": "voice_09"
+    },
+    "latencyMs": 28907,
+    "timestamp": "2026-03-23T21:53:38.948Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "high pitch",
+        "clear articulation"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Japanese",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Rhotic /ɹ/ realized as an alveolar tap [ɾ] in words like 'river' and 'green'.",
+        "Syllable-timed rhythm, giving each syllable near-equal duration, unlike English stress-timing.",
+        "Lax front vowel /ɪ/ is tensed to /i/, as heard in 'village' and 'think'."
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ɹ/",
+        "produced": "Alveolar tap [ɾ]",
+        "exampleWord": "river",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "Tensed vowel [i]",
+        "exampleWord": "village",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɫ/",
+        "produced": "Clear /l/ [l] in syllable-final position",
+        "exampleWord": "ball",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Fluent speech with appropriate pausing at clause boundaries, but lacks native-like connected speech features due to syllable-timed rhythm."
+    },
+    "strengths": [
+      "Consistent and accurate production of dental fricatives /θ/ and /ð/ in words like 'through' and 'weather'.",
+      "Clear consonant articulation overall, making words easy to parse.",
+      "Strong command of grammar and vocabulary."
+    ],
+    "overallScore": 7.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Stress-timed rhythm",
+        "reason": "This is the most significant prosodic difference. Adopting English stress-timing (stressing content words, reducing function words) will have the largest impact on sounding natural and native-like."
+      },
+      {
+        "area": "The English rhotic /ɹ/",
+        "reason": "The tapped 'r' is the most salient segmental marker of the L1 accent. Mastering the American /ɹ/ would dramatically reduce the accent's noticeability."
+      },
+      {
+        "area": "Vowel distinction: /ɪ/ vs. /i/",
+        "reason": "This vowel contrast carries a high functional load in English and can lead to misunderstandings (e.g., 'live' vs. 'leave'). Differentiating them is key to improving clarity."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

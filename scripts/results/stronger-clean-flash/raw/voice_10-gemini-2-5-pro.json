@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_10.mp3",
+      "accent": "chinese",
+      "gender": "male",
+      "label": "voice_10"
+    },
+    "latencyMs": 25885,
+    "timestamp": "2026-03-23T21:54:13.707Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "high pitch",
+        "modal voice"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Mandarin Chinese",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Syllable-timed rhythm (lack of vowel reduction in unstressed syllables)",
+        "θ→s substitution (e.g., 'through' pronounced closer to 'sroo')",
+        "Tapped /r/ [ɾ] instead of retroflex American /ɹ/"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/θ/",
+        "produced": "/s/ instead of /θ/",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "approximates /w/ instead of /v/",
+        "exampleWord": "very",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "A tapped [ɾ] instead of a retroflex /ɹ/",
+        "exampleWord": "river",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Words are pronounced clearly but in isolation, with a lack of connected speech features like linking and elision. Pausing is logical at clause boundaries."
+    },
+    "strengths": [
+      "Steady and clear pacing aids comprehension.",
+      "Grammatical structures are consistently accurate.",
+      "Good control of sibilant sounds /s/ and /z/."
+    ],
+    "overallScore": 6.5,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "Stress-timed rhythm",
+        "reason": "Learning to reduce unstressed vowels will make speech sound significantly more natural and native-like, representing the largest single improvement possible."
+      },
+      {
+        "area": "Dental fricative /θ/",
+        "reason": "Replacing /s/ for /θ/ (e.g., 'through' vs. 'sue') can cause lexical confusion and directly impacts intelligibility on key words."
+      },
+      {
+        "area": "Consonant /v/ vs /w/ distinction",
+        "reason": "This is a high-frequency distinction in English ('very'/'wary', 'vest'/'west') and mastering it will reduce listener effort."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

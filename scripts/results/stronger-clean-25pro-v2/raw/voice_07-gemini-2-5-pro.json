@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_07.mp3",
+      "accent": "british",
+      "gender": "male",
+      "label": "voice_07"
+    },
+    "latencyMs": 21128,
+    "timestamp": "2026-03-23T22:59:49.050Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "50-60",
+      "vocalTraits": [
+        "low pitch",
+        "resonant",
+        "slight breathy quality"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "English (General American, broadcast standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Consistent rhoticity (e.g., 'park', 'father')",
+        "Native-like vowel reduction in unstressed syllables",
+        "Clear distinction between all English phonemes, including /θ/ and /ð/"
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "slow",
+      "intonation": "native-like",
+      "fluencyNotes": "Excellent fluency with deliberate pacing. Pauses occur naturally at syntactic boundaries. Connected speech is present and clear."
+    },
+    "strengths": [
+      "Exceptional clarity and enunciation",
+      "Perfect production of all English consonants and vowels",
+      "Mastery of native English stress and intonation patterns"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "None",
+        "reason": "Speaker demonstrates native-level proficiency and could serve as a model for learners. No improvements are necessary."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

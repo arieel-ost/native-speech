@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_11.mp3",
+      "accent": "russian",
+      "gender": "male",
+      "label": "voice_11"
+    },
+    "latencyMs": 27807,
+    "timestamp": "2026-03-23T15:28:34.858Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "high pitch for male range",
+        "modal voice",
+        "slight breathiness"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Polish",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Final obstruent devoicing (e.g., 'lives' produced as /laɪfs/, 'always' as /ˈɔlweɪs/)",
+        "Realization of /ɹ/ as an alveolar tap [ɾ] (e.g., 'trying')",
+        "Raising of the /æ/ vowel to [ɛ] (e.g., 'have', 'matching')"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɛ], a higher and more fronted vowel, similar to the vowel in 'bed'",
+        "exampleWord": "matching",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "unvoiced [s] in word-final position",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/aɪ/",
+        "produced": "monophthongized to [a]",
+        "exampleWord": "find",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "alveolar tap [ɾ]",
+        "exampleWord": "trying",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Clear articulation of individual words with limited connected speech features like linking. Pausing is appropriate for syntactic boundaries."
+    },
+    "strengths": [
+      "Grammatically flawless sentence construction.",
+      "Speech rate is steady and easy to follow.",
+      "Clear distinction between /s/ and /ʃ/ sounds."
+    ],
+    "overallScore": 5.5,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "/æ/ vs /ɛ/ distinction",
+        "reason": "This is a high-frequency vowel in English, and its mispronunciation significantly impacts intelligibility, leading to potential confusion between common word pairs (e.g., man/men, sad/said)."
+      },
+      {
+        "area": "Voicing in final consonants",
+        "reason": "Devoicing final /z/ to /s/ is a very prominent feature of the accent that affects a large number of plurals, possessives, and verbs (e.g., lives, is, has)."
+      },
+      {
+        "area": "Mastery of American English /ɹ/",
+        "reason": "Replacing the American English approximant with a tap is a primary marker of a non-native accent. While intelligibility is less affected, correcting it would dramatically improve native-like sound quality."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

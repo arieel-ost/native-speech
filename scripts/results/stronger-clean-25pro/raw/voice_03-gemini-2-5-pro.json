@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_03.mp3",
+      "accent": "french",
+      "gender": "male",
+      "label": "voice_03"
+    },
+    "latencyMs": 24178,
+    "timestamp": "2026-03-23T21:50:46.324Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "mid-to-low pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "French (Standard Metropolitan)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "uvular realization of /ɹ/ as [ʁ]",
+        "consistent deletion of word-initial /h/",
+        "syllable-timed rhythm"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ɹ/",
+        "produced": "produced as a uvular fricative [ʁ]",
+        "exampleWord": "river",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/h/",
+        "produced": "deleted in word-initial position (e.g., /haʊs/ -> [aʊs])",
+        "exampleWord": "house",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "substituted with /z/",
+        "exampleWord": "weather",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "tensed to /i/",
+        "exampleWord": "little",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "substituted with /s/",
+        "exampleWord": "through",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Speech is delivered with clear word separation, lacking native-like connected speech (linking, elision). Pausing is generally appropriate at clause boundaries."
+    },
+    "strengths": [
+      "Consistent and clear articulation",
+      "Good control of grammatical structures",
+      "Stable speech rate and volume"
+    ],
+    "overallScore": 5.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "American /ɹ/ pronunciation",
+        "reason": "The uvular /r/ is the single most salient feature of the accent. Mastering the retroflex /ɹ/ would dramatically increase perceived nativeness."
+      },
+      {
+        "area": "/h/ insertion at word beginnings",
+        "reason": "Restoring the /h/ sound in words like 'house' and 'having' eliminates a common source of ambiguity and is a high-frequency phoneme in English."
+      },
+      {
+        "area": "Stress-timed rhythm and vowel reduction",
+        "reason": "Shifting from a syllable-timed to a stress-timed pattern by de-stressing function words and reducing unstressed vowels will significantly improve the natural flow and rhythm of speech."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

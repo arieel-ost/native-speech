@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_09.mp3",
+      "accent": "japanese",
+      "gender": "male",
+      "label": "voice_09"
+    },
+    "latencyMs": 26639,
+    "timestamp": "2026-03-23T21:53:46.801Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "neutral resonance",
+        "relatively high pitch for male range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "final obstruent devoicing (e.g., 'big' pronounced as 'bik')",
+        "/w/ → /v/ substitution (e.g., 'walk', 'weather')",
+        "tapped or trilled /r/ (e.g., 'river', 'trees')"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/g/",
+        "produced": "[k] in word-final position",
+        "exampleWord": "big",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/w/",
+        "produced": "[v]",
+        "exampleWord": "walk",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d]",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[s]",
+        "exampleWord": "through",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "tense [i]",
+        "exampleWord": "village",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "raised [ɛ]",
+        "exampleWord": "laughing",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Lacks native-like connected speech (linking, elision). Words are clearly segmented. Pausing is appropriate at clause boundaries."
+    },
+    "strengths": [
+      "Consistent and clear articulation",
+      "Grammatically correct sentence structures",
+      "Good control of sibilant sounds /s/ and /z/"
+    ],
+    "overallScore": 5.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Voicing of word-final consonants",
+        "reason": "This has the highest impact on intelligibility, as devoicing changes word identity (e.g., 'big' vs 'bik', 'had' vs 'hat')."
+      },
+      {
+        "area": "Distinction between /w/ and /v/",
+        "reason": "This substitution frequently causes confusion between common word pairs like 'wine'/'vine' and 'west'/'vest'."
+      },
+      {
+        "area": "Production of /ð/ (voiced 'th')",
+        "reason": "This sound is extremely common in English function words ('the', 'that', 'with'). Correcting it from [d] significantly reduces foreign accent and listener effort."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

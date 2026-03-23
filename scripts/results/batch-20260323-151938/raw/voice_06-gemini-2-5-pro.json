@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_06.mp3",
+      "accent": "australian",
+      "gender": "male",
+      "label": "voice_06"
+    },
+    "latencyMs": 33658,
+    "timestamp": "2026-03-23T15:26:16.982Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "clear articulation"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "English (Australian)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/aɪ/ diphthong realized with a low, back start point [ɑe] in 'lives' and 'find'",
+        "High Rising Terminal (HRT) intonation on the final declarative clause",
+        "Non-rhoticity evidenced by lack of post-vocalic /r/ in 'their'"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/aɪ/",
+        "produced": "Produced with a centralized/backed start point, approaching [ɑe]",
+        "exampleWord": "lives",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/eɪ/",
+        "produced": "Diphthong is raised and narrowed, approaching [æɪ]",
+        "exampleWord": "together",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ə/",
+        "produced": "Final unstressed schwa is lowered and backed, realized as [ɐ]",
+        "exampleWord": "together",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like (Australian English) with a characteristic High Rising Terminal on the final phrase",
+      "fluencyNotes": "Highly fluent with natural connected speech (linking, elision) and appropriate pausing. No hesitations observed."
+    },
+    "strengths": [
+      "Excellent articulatory precision and clarity",
+      "Native-like command of English rhythm and stress",
+      "Consistent and clear production of dialect-specific vowels"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "No corrective focus required",
+        "reason": "The speaker is a native speaker of Australian English. All phonological and prosodic features are consistent with this dialect and do not represent errors."
+      },
+      {
+        "area": "Dialectal Awareness (Informational)",
+        "reason": "For communication with speakers of other English dialects, be aware that features like the /aɪ/ vowel in 'lives' and rising intonation on statements are key markers of the Australian accent."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

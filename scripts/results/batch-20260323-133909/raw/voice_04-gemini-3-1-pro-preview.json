@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_04.mp3",
+      "accent": "french",
+      "gender": "female",
+      "label": "voice_04"
+    },
+    "latencyMs": 58167,
+    "timestamp": "2026-03-23T13:47:39.835Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "high pitch",
+        "slight breathiness",
+        "forward resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/z/ devoicing to /s/ in plurals",
+        "vowel reduction absent (syllable-timed)",
+        "dental /ð/ realized as alveolar /d/"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/v/",
+        "produced": "/b/ instead of /v/",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "/s/ instead of /z/",
+        "exampleWord": "always",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/ instead of /ð/",
+        "exampleWord": "together",
+        "severity": "high"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, lacking adequate pitch drops at sentence boundaries",
+      "fluencyNotes": "Smooth delivery but lacks native-like connected speech and vowel reduction, resulting in a somewhat staccato rhythm"
+    },
+    "strengths": [
+      "Clear articulation of voiceless stops",
+      "Good overall fluency and steady speech rate",
+      "Excellent clarity of the /tʃ/ affricate"
+    ],
+    "overallScore": 7.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Voiced fricatives (/v/ and /z/)",
+        "reason": "Helps distinguish plural/singular nouns and improves native-like smoothness"
+      },
+      {
+        "area": "Stress-timed rhythm and vowel reduction",
+        "reason": "Softening unstressed function words (like 'to have their') will make connected speech flow much more naturally"
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_05.mp3",
+      "accent": "german",
+      "gender": "male",
+      "label": "voice_05"
+    },
+    "latencyMs": 30490,
+    "timestamp": "2026-03-23T21:51:51.559Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "low pitch",
+        "narrow pitch range",
+        "monotone"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/w/ → [v] substitution (e.g., 'weather' pronounced as 'vether')",
+        "Final obstruent devoicing (e.g., 'red' pronounced as 'ret')",
+        "Dental fricative substitution /ð/ → [d] and /θ/ → [s] (e.g., 'through the' pronounced as 'sroo de')"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[v] (labiodental fricative) instead of /w/ (labio-velar approximant)",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d] or [t] instead of /ð/",
+        "exampleWord": "together",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[s] instead of /θ/",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/d/ (word-final)",
+        "produced": "[t] instead of /d/ due to final devoicing",
+        "exampleWord": "red",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "slow",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Speech is delivered with frequent pauses and a staccato quality, lacking smooth connected speech between words."
+    },
+    "strengths": [
+      "Consistent and clear production of sibilants /s/ and /z/ (e.g., 'was', 'trees').",
+      "Good control of the light /l/ sound in words like 'little' and 'ball'.",
+      "Vocabulary and grammatical structures are sufficient to convey a clear narrative."
+    ],
+    "overallScore": 4.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "/w/ vs /v/ distinction",
+        "reason": "This is a high-frequency phonemic contrast that significantly impacts word-level recognition (e.g., 'wine' vs 'vine'). Correcting it will immediately improve intelligibility."
+      },
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "These sounds are extremely common in English. The current substitutions (/s/, /d/, /t/) are a primary marker of the accent and can lead to misunderstandings (e.g., 'think' vs 'sink')."
+      },
+      {
+        "area": "Voicing of word-final consonants",
+        "reason": "Devoicing final consonants (e.g., 'red' sounding like 'ret') neutralizes many important contrasts in English and affects both lexical and grammatical understanding."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful. So I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring's my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

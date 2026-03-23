@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_02.mp3",
+      "accent": "german",
+      "gender": "female",
+      "label": "voice_02"
+    },
+    "latencyMs": 23634,
+    "timestamp": "2026-03-23T13:45:37.324Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "30-50",
+      "vocalTraits": [
+        "clear articulation",
+        "slight harshness in resonance",
+        "moderate pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German",
+      "confidence": "high",
+      "telltalePatterns": [
+        "devoicing of final consonants",
+        "vowel shortening",
+        "w/v substitution",
+        "rhoticity pattern"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/z/",
+        "exampleWord": "their",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/w/",
+        "produced": "/v/",
+        "exampleWord": "while",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/s/",
+        "produced": "/z/ in word-final position",
+        "exampleWord": "lives",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "slightly flat with a downward trajectory at clause boundaries",
+      "fluencyNotes": "Fluent with no major hesitations, but lacks some connected speech features like smooth linking."
+    },
+    "strengths": [
+      "Clear enunciation",
+      "Good overall pacing",
+      "Grammatically correct phrasing"
+    ],
+    "overallScore": 8,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "w/v distinction",
+        "reason": "Improves overall native-like quality and prevents confusion between minimal pairs."
+      },
+      {
+        "area": "th-sounds (/ð/ and /θ/)",
+        "reason": "A strong marker of non-native speech; replacing with /z/ or /s/ is a common error."
+      },
+      {
+        "area": "final consonant voicing",
+        "reason": "Ensures plurals and verb endings are pronounced correctly without devoicing."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_02.mp3",
+      "accent": "indian",
+      "gender": "male",
+      "label": "voice_02"
+    },
+    "latencyMs": 31796,
+    "timestamp": "2026-03-23T21:50:28.713Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "high pitch",
+        "modal voice"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Hindi (Indian English)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/v/ is substituted with /w/ (e.g. 'very' becomes 'wery')",
+        "Dental fricatives /θ/ and /ð/ are replaced with dental stops /t̪/ and /d̪/",
+        "Syllable-timed rhythm, lacking vowel reduction in unstressed syllables"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/v/",
+        "produced": "/w/ instead of /v/",
+        "exampleWord": "village",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "/t̪/ (dental stop) instead of /θ/",
+        "exampleWord": "through",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/d̪/ (dental stop) instead of /ð/",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "/ɾ/ (alveolar tap) instead of the General American approximant /ɹ/",
+        "exampleWord": "river",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Fluent delivery with consistent pacing, but lacks native-like connected speech (linking, elision). Words tend to be pronounced discretely."
+    },
+    "strengths": [
+      "Excellent command of English grammar and vocabulary",
+      "Fluent and confident speech delivery with few hesitations",
+      "Generally clear articulation, making the speaker understandable despite phonemic differences"
+    ],
+    "overallScore": 6,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Distinction between /v/ and /w/",
+        "reason": "This is a high-impact error that can cause lexical confusion (e.g., 'vest' vs. 'west') and significantly affects intelligibility."
+      },
+      {
+        "area": "Production of dental fricatives /θ/ and /ð/",
+        "reason": "Replacing these sounds with stops is a very prominent feature of the accent. Mastering them would dramatically increase perceived fluency and naturalness."
+      },
+      {
+        "area": "Stress-timed rhythm and vowel reduction",
+        "reason": "Shifting from a syllable-timed rhythm to a stress-timed one by weakening unstressed vowels is the single most important prosodic change to sound more native-like."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "model": "gemini-3-pro-preview",
+    "sample": {
+      "file": "voice_04.mp3",
+      "accent": "german",
+      "gender": "male",
+      "label": "voice_04"
+    },
+    "latencyMs": 22965,
+    "timestamp": "2026-03-23T21:57:30.202Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal phonation",
+        "narrow pitch range",
+        "slight pharyngealization",
+        "monotone"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian (Moscow standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "w→v substitution",
+        "final obstruent devoicing",
+        "dental fricative substitution (θ→s, ð→z)",
+        "apical trill/tap for English approximant /ɹ/"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[v]",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[z]",
+        "exampleWord": "the",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[s]",
+        "exampleWord": "through",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/d/ (final)",
+        "produced": "[t]",
+        "exampleWord": "red",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "[r] (alveolar tap)",
+        "exampleWord": "really",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "flat pitch contours with steep terminal falls",
+      "fluencyNotes": "Absence of connected speech processes like catenation (e.g., 'reach in' produced with a glottal stop [ri:tʃ ʔɪn] instead of smooth linking)."
+    },
+    "strengths": [
+      "Clear production of polysyllabic words with correct primary stress placement.",
+      "Accurate vowel length differentiation in 'green' versus 'it'."
+    ],
+    "overallScore": 6,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Labio-velar approximant /w/",
+        "reason": "Substitution with /v/ creates word-level confusion (e.g., 'weather' vs 'veather') and heavily marks the speaker's accent."
+      },
+      {
+        "area": "Final consonant voicing",
+        "reason": "Devoicing final consonants alters word meanings and creates minimal pair collisions (e.g., 'red' sounds like 'ret', 'birds' sounds like 'burts')."
+      },
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "Replacing with alveolar fricatives /s/ and /z/ distracts the listener and breaks expected target phonology."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

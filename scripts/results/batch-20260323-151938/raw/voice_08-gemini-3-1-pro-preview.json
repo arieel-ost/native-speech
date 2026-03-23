@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_08.mp3",
+      "accent": "american",
+      "gender": "male",
+      "label": "voice_08"
+    },
+    "latencyMs": 55773,
+    "timestamp": "2026-03-23T15:39:04.317Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "neutral resonance",
+        "slightly restricted pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German (Standard Hochdeutsch)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/w/ → [v] substitution",
+        "final obstruent devoicing",
+        "ð → z substitution"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[v] instead of /w/",
+        "exampleWord": "while",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[z] instead of /ð/",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "[f] instead of /v/ (final devoicing)",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɛ] instead of /æ/",
+        "exampleWord": "matching",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "normal",
+      "intonation": "flat with narrow pitch range, L1-influenced abrupt falling contours at phrase terminals",
+      "fluencyNotes": "Fluent execution without hesitations; however, lacks target vowel reduction /ə/ in unstressed syllables, resulting in over-articulated rhythm."
+    },
+    "strengths": [
+      "Precise articulation of voiceless plosives /p, t, k/ with appropriate aspiration",
+      "Accurate production of affricate /dʒ/ in 'just'"
+    ],
+    "overallScore": 7,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "w/v distinction",
+        "reason": "Phonemic collapse causes high functional load errors that alter word meaning (e.g., 'while' realized as 'vile')."
+      },
+      {
+        "area": "Final voiced obstruents",
+        "reason": "Terminal devoicing alters grammatical markers (plural/possessive /z/ realized as /s/ in 'lives' and 'socks')."
+      },
+      {
+        "area": "Voiced interdental fricative /ð/",
+        "reason": "Alveolar substitution (/z/ for /ð/ in 'together') is a highly salient non-native phonetic marker that draws listener attention."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

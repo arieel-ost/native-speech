@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_01.mp3",
+      "accent": "german",
+      "gender": "female",
+      "label": "voice_01"
+    },
+    "latencyMs": 19864,
+    "timestamp": "2026-03-23T13:42:05.665Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "breathy onset",
+        "light vocal fry",
+        "modal to creaky voice transition",
+        "clear resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "English (General American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Rhoticity (/ɹ/ preserved in 'together' and 'their')",
+        "Low-back vowel merger (/ɑ/ in 'socks')",
+        "Aspiration of voiceless stops (/p/ in 'people')",
+        "Flapping of intervocalic /t/ in 'together'"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ɑ/",
+        "produced": "[ɑ̰] (vocal fry/creaky voice)",
+        "exampleWord": "socks",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[ð] with slight dentalization",
+        "exampleWord": "their",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like",
+      "fluencyNotes": "Natural connected speech with appropriate linking between 'always' and 'seem'. Elision of /t/ in 'just' occurs naturally in 'just trying'."
+    },
+    "strengths": [
+      "Native-level command of word stress and sentential prosody",
+      "Clear and distinct consonant clusters",
+      "Natural use of weak forms and schwa in unstressed positions"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "vocal hygiene",
+        "reason": "The speaker exhibits significant breathiness and vocal fry, which can cause vocal fatigue over long periods of speaking."
+      },
+      {
+        "area": "articulatory precision",
+        "reason": "While highly intelligible, some terminal consonants are slightly swallowed due to the breathy phonation style."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together. Well, I'm just trying to find my matching socks."
+  }
+}

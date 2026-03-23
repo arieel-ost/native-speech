@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_08.mp3",
+      "accent": "american",
+      "gender": "male",
+      "label": "voice_08"
+    },
+    "latencyMs": 15979,
+    "timestamp": "2026-03-23T15:21:50.686Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "40-50",
+      "vocalTraits": [
+        "modal phonation",
+        "neutral resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian (General Russian)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Vowel substitution /ʌ/ → [ɑ] (e.g., \"just\")",
+        "Vowel substitution /æ/ → [ɑ] (e.g., \"matching\")",
+        "Syllable-timed rhythm, influencing overall prosody"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ʌ/",
+        "produced": "[ɑ] instead of /ʌ/",
+        "exampleWord": "funny",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɑ] instead of /æ/",
+        "exampleWord": "matching",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɔː/",
+        "produced": "[ɑ] instead of /ɔː/",
+        "exampleWord": "always",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, with slightly flatter contours than native English",
+      "fluencyNotes": "Fluent with natural phrase-boundary pauses. Connected speech shows some linking but words are generally clearly articulated."
+    },
+    "strengths": [
+      "Accurate production of dental fricatives /θ/ and /ð/.",
+      "Clear articulation of consonant clusters (e.g., 'tr' in 'trying', 'st' in 'just').",
+      "Consistent speech rate and smooth flow with no notable hesitations."
+    ],
+    "overallScore": 6,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "Vowel distinction: /ʌ/ vs. /ɑ/",
+        "reason": "This substitution impacts many high-frequency words and can affect naturalness, occasionally leading to ambiguity if context is insufficient."
+      },
+      {
+        "area": "Vowel distinction: /æ/ vs. /ɑ/",
+        "reason": "Correcting this phoneme will significantly improve the accuracy of a wide range of words and reduce L1-transfer perception."
+      },
+      {
+        "area": "Developing stress-timed rhythm",
+        "reason": "Shifting from syllable-timed to stress-timed rhythm will enhance the naturalness of spoken English and improve overall prosodic clarity."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together. While I'm just trying to find my matching socks."
+  }
+}

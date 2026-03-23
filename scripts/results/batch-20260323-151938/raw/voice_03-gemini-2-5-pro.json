@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_03.mp3",
+      "accent": "german",
+      "gender": "male",
+      "label": "voice_03"
+    },
+    "latencyMs": 39502,
+    "timestamp": "2026-03-23T15:24:34.024Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "clear articulation"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Italian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/ð/ → [d] substitution (e.g., 'together')",
+        "Syllable-timed rhythm with limited vowel reduction",
+        "/æ/ vowel raised to [ɛ] (e.g., 'matching')"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/ instead of /ð/",
+        "exampleWord": "together",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "/ɛ/ instead of /æ/",
+        "exampleWord": "matching",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/aɪ/",
+        "produced": "Shortened, tending towards a monophthong [a]",
+        "exampleWord": "lives",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Fluent delivery with limited use of native-like connected speech features (e.g., vowel reduction) due to syllable-timed rhythm."
+    },
+    "strengths": [
+      "Clear articulation of final consonants",
+      "Consistent s/z voicing distinction (e.g., 'always', 'socks')",
+      "Smooth and fluent delivery without hesitation"
+    ],
+    "overallScore": 7,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "Dental fricative /ð/",
+        "reason": "Substitution with /d/ is a high-frequency, high-impact error that significantly marks the accent and can cause confusion."
+      },
+      {
+        "area": "Stress-timed rhythm and vowel reduction",
+        "reason": "Shifting from a syllable-timed pattern by weakening unstressed vowels is the single biggest step towards sounding more native-like."
+      },
+      {
+        "area": "The /æ/ vowel (as in 'cat')",
+        "reason": "Distinguishing /æ/ from /ɛ/ is crucial for clarity in many common word pairs (e.g., 'man'/'men', 'bad'/'bed')."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

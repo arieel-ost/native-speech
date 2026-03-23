@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_04.mp3",
+      "accent": "french",
+      "gender": "female",
+      "label": "voice_04"
+    },
+    "latencyMs": 10194,
+    "timestamp": "2026-03-23T13:39:58.656Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "clear",
+        "slightly high pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish",
+      "confidence": "high",
+      "telltalePatterns": [
+        "voiced dental fricative /ð/ replaced by dental stop /d/",
+        "voiceless dental fricative /θ/ replaced by dental stop /d/",
+        "vowel /ʌ/ slightly fronted/rounded",
+        "vowel /ɑ/ sounds closer to /ɔ/"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/ instead of /ð/",
+        "exampleWord": "their",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "/d/ instead of /θ/",
+        "exampleWord": "together",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ʌ/",
+        "produced": "closer to /o/ or /ɔ/",
+        "exampleWord": "some",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɑ/",
+        "produced": "closer to /ɔ/",
+        "exampleWord": "socks",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, somewhat flat compared to native English with less dynamic pitch variation for emphasis or grammatical function.",
+      "fluencyNotes": "Generally fluent with clear articulation of words, but lacks strong connected speech features like linking and elision, leading to a somewhat disconnected feel."
+    },
+    "strengths": [
+      "Good clarity for most consonant sounds (e.g., /s/, /t/, /k/)",
+      "Generally clear vowel production in many contexts",
+      "Consistent and understandable pacing"
+    ],
+    "overallScore": 7,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "th-sounds (/ð/ and /θ/)",
+        "reason": "The substitution of /d/ for both /ð/ and /θ/ is the most noticeable feature affecting intelligibility and accent perception. Mastering these sounds will significantly reduce perceived foreign accent."
+      },
+      {
+        "area": "English vowel sounds (/ʌ/ vs /o/, /ɑ/ vs /ɔ/)",
+        "reason": "Minor shifts in vowel quality for sounds like /ʌ/ and /ɑ/ can make words sound slightly different or less natural to native listeners. Refining these will improve overall clarity and native-like quality."
+      },
+      {
+        "area": "Sentence stress and intonation",
+        "reason": "Adopting more native-like pitch contours and emphasizing key words will make speech sound more natural, engaging, and easier for listeners to follow the intended meaning and emotional tone."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

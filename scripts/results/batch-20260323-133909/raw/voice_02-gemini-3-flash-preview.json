@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_02.mp3",
+      "accent": "german",
+      "gender": "female",
+      "label": "voice_02"
+    },
+    "latencyMs": 10911,
+    "timestamp": "2026-03-23T13:42:17.589Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "25-35",
+      "vocalTraits": [
+        "breathy quality",
+        "vocal fry at phrase endings",
+        "resonant",
+        "clear articulation"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian/Slavic-influenced English",
+      "confidence": "high",
+      "telltalePatterns": [
+        "lack of aspiration on initial /p/",
+        "final obstruent devoicing",
+        "shortening of long tense vowels like /iː/",
+        "substitution of labiodental [ʋ] for labial-velar /w/"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/z/",
+        "produced": "/s/ (devoiced)",
+        "exampleWord": "lives",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/w/",
+        "produced": "[ʋ] (labiodental approximant)",
+        "exampleWord": "while",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/pʰ/",
+        "produced": "[p] (unaspirated)",
+        "exampleWord": "people",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/iː/",
+        "produced": "[i] (shortened vowel length)",
+        "exampleWord": "seem",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced (flatter pitch range compared to native English)",
+      "fluencyNotes": "Excellent fluency with natural-sounding pauses; good linking between 'find my' and 'matching socks'."
+    },
+    "strengths": [
+      "High level of word-level stress accuracy",
+      "Clear vowel production in open syllables",
+      "Natural phrasing and grouping of words"
+    ],
+    "overallScore": 8.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Aspiration of /p/, /t/, and /k/",
+        "reason": "Initial voiceless stops in English require a puff of air to sound native-like and distinct from their voiced counterparts."
+      },
+      {
+        "area": "Final consonant voicing",
+        "reason": "Maintaining vibration on voiced sounds like /z/ and /v/ at the end of words (e.g., 'lives') is critical for word distinction."
+      },
+      {
+        "area": "Rounding the /w/ sound",
+        "reason": "The /w/ sound requires lip rounding to avoid sounding like a /v/ or /f/ variant, which is a common marker of Slavic accents."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

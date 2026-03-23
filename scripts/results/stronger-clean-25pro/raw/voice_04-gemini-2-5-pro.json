@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_04.mp3",
+      "accent": "german",
+      "gender": "male",
+      "label": "voice_04"
+    },
+    "latencyMs": 23717,
+    "timestamp": "2026-03-23T21:51:11.065Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "40-50",
+      "vocalTraits": [
+        "modal voice",
+        "medium pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/w/ → [v] substitution (e.g., 'weather' produced as 'veather')",
+        "Uvular rhotic /ɹ/ realized as [ʁ] (e.g., 'river', 'green')",
+        "Final obstruent devoicing (e.g., 'birds' produced as /bɜːts/)"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[v] articulation, confusing it with the /v/ phoneme",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/d/",
+        "produced": "unvoiced [t] in word-final position",
+        "exampleWord": "red",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[s], substituting a dental fricative with an alveolar fricative",
+        "exampleWord": "through",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "uvular fricative [ʁ]",
+        "exampleWord": "river",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "slow",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Words are often produced in isolation with limited connected speech (linking, elision). Pausing is generally appropriate at clause boundaries."
+    },
+    "strengths": [
+      "Grammar and vocabulary are advanced and used accurately.",
+      "Lexical stress placement is generally correct on multisyllabic words like 'beautiful' and 'decided'.",
+      "Clear articulation of most consonant clusters, such as /spr/ in 'spring'."
+    ],
+    "overallScore": 6.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "/w/ vs. /v/ distinction",
+        "reason": "This is a high-frequency error that can cause confusion between common word pairs (e.g., 'wine'/'vine', 'west'/'vest') and is a primary marker of the accent."
+      },
+      {
+        "area": "Voicing of final consonants",
+        "reason": "Correctly voicing word-final /b/, /d/, /g/, and /z/ will significantly improve clarity and reduce the 'choppy' quality of the speech."
+      },
+      {
+        "area": "English rhythm and connected speech",
+        "reason": "Moving from a syllable-timed to a stress-timed pattern, including linking words together, will dramatically improve fluency and naturalness."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

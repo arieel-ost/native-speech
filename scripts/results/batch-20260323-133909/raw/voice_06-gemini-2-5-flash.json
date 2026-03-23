@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_06.mp3",
+      "accent": "australian",
+      "gender": "male",
+      "label": "voice_06"
+    },
+    "latencyMs": 15165,
+    "timestamp": "2026-03-23T13:40:29.129Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "clear voice",
+        "medium pitch",
+        "good resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Australian English",
+      "confidence": "high",
+      "telltalePatterns": [
+        "non-rhotic pronunciation (e.g., 'together' /təˈɡeðə/)",
+        "distinct Australian /aɪ/ diphthong in 'lives' and 'find'",
+        "Australian /æ/ vowel in 'matching'",
+        "Australian /ɒ/ vowel in 'socks'",
+        "fronted /iː/ vowel in 'people'"
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like, natural pitch contours and emphasis",
+      "fluencyNotes": "excellent fluency with smooth connected speech, no noticeable hesitations or unusual pausing"
+    },
+    "strengths": [
+      "clear and precise articulation",
+      "natural, native-like rhythm and intonation",
+      "excellent overall fluency and natural speech flow"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "No specific pronunciation training needed for general communication",
+        "reason": "The speaker exhibits native-like proficiency in Australian English with excellent intelligibility."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

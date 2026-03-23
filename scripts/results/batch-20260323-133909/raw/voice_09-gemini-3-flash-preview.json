@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_09.mp3",
+      "accent": "galician",
+      "gender": "female",
+      "label": "voice_09"
+    },
+    "latencyMs": 9795,
+    "timestamp": "2026-03-23T13:43:41.785Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "25-35",
+      "vocalTraits": [
+        "clear resonance",
+        "slight vocal fry on phrase endings",
+        "moderate pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish (Latin American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "light /l/ in post-vocalic positions",
+        "vowel shift in central open vowels",
+        "slight devoicing of final /z/ sounds",
+        "residual syllable-timed rhythm"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/z/",
+        "produced": "[s] instead of /z/",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɫ/",
+        "produced": "[l] (light l) instead of [ɫ] (dark l)",
+        "exampleWord": "always",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ʌ/",
+        "produced": "[a] instead of /ʌ/",
+        "exampleWord": "funny",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced with rising pitch on 'together'",
+      "fluencyNotes": "Very high fluency; lacks some native-like elision and vowel reduction in unstressed syllables."
+    },
+    "strengths": [
+      "Excellent consonant clarity",
+      "Strong command of the English /w/ phoneme",
+      "Natural-sounding vowel in 'matching'"
+    ],
+    "overallScore": 8.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Final consonant voicing",
+        "reason": "Maintaining the /z/ sound in 'lives' helps distinguish word meaning and grammatical markers."
+      },
+      {
+        "area": "Vowel reduction (Schwa)",
+        "reason": "Reducing vowels in unstressed syllables will move the rhythm from syllable-timed toward stress-timed."
+      },
+      {
+        "area": "Dark L production",
+        "reason": "Mastering the velarized L in words like 'always' and 'while' will remove a key accent marker."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together. While I'm just trying to find my matching socks."
+  }
+}

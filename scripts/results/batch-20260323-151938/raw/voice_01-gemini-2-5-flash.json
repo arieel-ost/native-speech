@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_01.mp3",
+      "accent": "german",
+      "gender": "female",
+      "label": "voice_01"
+    },
+    "latencyMs": 13145,
+    "timestamp": "2026-03-23T15:19:51.888Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "slightly higher pitch",
+        "clear articulation"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Hindi",
+      "confidence": "high",
+      "telltalePatterns": [
+        "dental fricative /ð/ realized as dental stop [d̪] in 'together'",
+        "dental fricative /ð/ realized as dental stop [d̪] in 'their'",
+        "vowel /æ/ slightly raised towards [ɛ] in 'matching'"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪] (dental stop) instead of /ð/",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[d̪] (dental stop) instead of /ð/",
+        "exampleWord": "their",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɛ̝] (raised front vowel) instead of /æ/",
+        "exampleWord": "matching",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Connected speech elements like linking and assimilation are present but not fully native-like; pauses generally occur at natural phrase boundaries."
+    },
+    "strengths": [
+      "Clear articulation of most consonant sounds (e.g., /f/, /s/, /m/, /p/, /t/, /k/)",
+      "Appropriate speech rate and natural phrasing",
+      "Generally good intelligibility"
+    ],
+    "overallScore": 7,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "th-sounds (/θ/ and /ð/)",
+        "reason": "The realization of dental fricatives as dental stops is a prominent marker of L1 interference and can occasionally lead to word-level confusion."
+      },
+      {
+        "area": "vowel quality for /æ/",
+        "reason": "Refining the pronunciation of the low front vowel /æ/ to prevent raising towards [ɛ] would enhance native-like vowel distinctions."
+      },
+      {
+        "area": "English stress-timed rhythm and intonation patterns for statements",
+        "reason": "Shifting from a syllable-timed rhythm towards a more stress-timed rhythm and adopting more native-like intonation contours would significantly improve overall naturalness and flow."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

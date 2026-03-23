@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_04.mp3",
+      "accent": "french",
+      "gender": "female",
+      "label": "voice_04"
+    },
+    "latencyMs": 15706,
+    "timestamp": "2026-03-23T13:42:43.752Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "clear articulation",
+        "bright resonance",
+        "audible vocal fry on phrase endings",
+        "modal voice"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "General American English",
+      "confidence": "high",
+      "telltalePatterns": [
+        "rhoticity in 'their' and 'together'",
+        "low back vowel /ɑ/ in 'socks'",
+        "standard /æ/ raising in 'matching'",
+        "flapped /t/ in 'together' (intervocalic)",
+        "dark /l/ in 'always' and 'while'"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/t/",
+        "produced": "elided /ø/",
+        "exampleWord": "just",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/ŋ/",
+        "produced": "/n/",
+        "exampleWord": "trying",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like; natural rising-falling contours",
+      "fluencyNotes": "Seamless transitions between words; effective use of weak forms and contractions (e.g., 'I'm')."
+    },
+    "strengths": [
+      "Native-level command of rhotic /r/ sounds",
+      "Highly intelligible and natural speech rhythm",
+      "Precise consonant clusters in 'socks' and 'matching'"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Enunciation of final stops",
+        "reason": "In casual speech, final consonants like the /t/ in 'just' are often dropped, which is common but can be polished for formal contexts."
+      },
+      {
+        "area": "Management of vocal fry",
+        "reason": "Reducing vocal fry at the end of sentences ('socks') can increase perceived vocal energy and authority."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

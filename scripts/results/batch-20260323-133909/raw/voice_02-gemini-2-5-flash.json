@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_02.mp3",
+      "accent": "german",
+      "gender": "female",
+      "label": "voice_02"
+    },
+    "latencyMs": 12016,
+    "timestamp": "2026-03-23T13:39:35.493Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "40-50",
+      "vocalTraits": [
+        "clear articulation",
+        "moderate pitch",
+        "good resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German",
+      "confidence": "high",
+      "telltalePatterns": [
+        "substitution of /v/ for /w/",
+        "substitution of /d/ for /ð/",
+        "devoicing of final voiced consonants (e.g., /z/ to /s/)",
+        "syllable-timed rhythm"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/ instead of /ð/",
+        "exampleWord": "their",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/w/",
+        "produced": "/v/ instead of /w/",
+        "exampleWord": "while",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "/s/ instead of /z/ (in final position)",
+        "exampleWord": "lives",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, somewhat choppy",
+      "fluencyNotes": "Fluent with clear articulation; connected speech sometimes exhibits L1 transfer patterns."
+    },
+    "strengths": [
+      "Clear articulation of most vowels",
+      "Consistent and steady speech rate",
+      "Good overall voice clarity"
+    ],
+    "overallScore": 7,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "w vs. v distinction",
+        "reason": "Consistently substituting /v/ for /w/ can cause confusion and is a prominent accent marker."
+      },
+      {
+        "area": "th-sounds (/θ/ and /ð/)",
+        "reason": "Substitution of /d/ for /ð/ affects clarity and intelligibility, especially in common function words."
+      },
+      {
+        "area": "English stress and intonation patterns",
+        "reason": "Improving native-like rhythm and intonation will significantly enhance naturalness and ease of listening for interlocutors."
+      },
+      {
+        "area": "voicing of final consonants",
+        "reason": "Devoicing final voiced consonants can alter word meaning or make words harder to distinguish."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

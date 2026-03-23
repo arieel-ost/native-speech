@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_09.mp3",
+      "accent": "japanese",
+      "gender": "male",
+      "label": "voice_09"
+    },
+    "latencyMs": 28038,
+    "timestamp": "2026-03-23T23:00:42.984Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "narrow pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/w/ → [v] substitution (e.g., 'weather', 'walk')",
+        "Dental fricatives /θ/ and /ð/ replaced with stops/fricatives [s] and [d] (e.g., 'through', 'the')",
+        "Syllable-timed rhythm with an absence of vowel reduction in unstressed syllables"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "/v/ instead of /w/",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/ instead of /ð/",
+        "exampleWord": "together",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "/s/ instead of /θ/",
+        "exampleWord": "through",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "Tapped or trilled /r/ instead of the American approximant /ɹ/",
+        "exampleWord": "river",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "slow",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Limited connected speech; words are pronounced distinctly with minimal linking or elision. Pausing is deliberate and follows clause boundaries."
+    },
+    "strengths": [
+      "Clear, deliberate pacing which aids listener comprehension.",
+      "Good grammatical structure and vocabulary usage.",
+      "Voiceless stops like /p/, /t/, /k/ are unaspirated but clear."
+    ],
+    "overallScore": 5.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "/w/ vs /v/ distinction",
+        "reason": "This is a high-frequency error that can cause lexical confusion (e.g., 'west' vs 'vest') and significantly impacts overall intelligibility."
+      },
+      {
+        "area": "Mastery of dental fricatives /θ/ and /ð/",
+        "reason": "These sounds are extremely common in English (especially /ð/ in words like 'the', 'this', 'that'). Replacing them with /s/ and /d/ is a primary marker of the accent and can cause confusion."
+      },
+      {
+        "area": "Stress-timed rhythm and vowel reduction",
+        "reason": "Learning to weaken unstressed vowels to a schwa (/ə/) will make the speaker's rhythm sound much more natural and native-like, moving away from the syllable-timed pattern."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

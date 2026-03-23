@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_04.mp3",
+      "accent": "german",
+      "gender": "male",
+      "label": "voice_04"
+    },
+    "latencyMs": 23176,
+    "timestamp": "2026-03-23T21:51:20.065Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "40-50",
+      "vocalTraits": [
+        "modal voice",
+        "medium-low pitch",
+        "deliberate articulation"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Substitution of dental fricatives /θ, ð/ with dental stops [t̪, d̪] (e.g., in 'think', 'weather')",
+        "Realization of English /ɹ/ as an alveolar tap [ɾ] (e.g., in 'river', 'green')",
+        "Tense realization of the KIT vowel /ɪ/ as [i], merging it with the FLEECE vowel (e.g., in 'little', 'river')"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/θ/",
+        "produced": "Dental stop [t̪] instead of /θ/",
+        "exampleWord": "think",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "Tense vowel [i] instead of /ɪ/",
+        "exampleWord": "little",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "Dental stop [d̪] instead of /ð/",
+        "exampleWord": "weather",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "Alveolar tap [ɾ] instead of /ɹ/",
+        "exampleWord": "river",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "slow",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Speech is marked by a lack of vowel reduction in unstressed syllables and limited connected speech features (linking, elision), giving it a staccato quality."
+    },
+    "strengths": [
+      "Consistent and correct use of grammatical structures.",
+      "Lexical stress on polysyllabic words is generally accurate (e.g., 'beautiful', 'decided').",
+      "Clear distinction between voiced and voiceless sibilants (/s/ vs /z/)."
+    ],
+    "overallScore": 6.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Distinction between /ɪ/ and /i/ (KIT vs. FLEECE vowels)",
+        "reason": "This is a high-frequency vowel contrast in English, and mastering it will resolve many word-level ambiguities (e.g., 'live' vs. 'leave', 'it' vs. 'eat')."
+      },
+      {
+        "area": "Production of dental fricatives /θ/ and /ð/",
+        "reason": "Replacing these common sounds with stops is a very salient feature of the accent. Correcting this significantly improves native-like phonology and avoids confusion between pairs like 'three' and 'tree'."
+      },
+      {
+        "area": "Vowel reduction in unstressed syllables",
+        "reason": "Introducing vowel reduction (especially using the schwa /ə/) will help shift the speech rhythm from syllable-timed to stress-timed, which is critical for sounding more natural and fluent in English."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

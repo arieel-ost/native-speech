@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "model": "gemini-3.1-flash-lite-preview",
+    "sample": {
+      "file": "voice_10.mp3",
+      "accent": "american-texan",
+      "gender": "female",
+      "label": "voice_10"
+    },
+    "latencyMs": 3763,
+    "timestamp": "2026-03-23T15:32:22.771Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "breathy",
+        "moderate vocal fry at phrase endings",
+        "mid-pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "American English (General American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "rhoticity in 'always' and 'others'",
+        "flapping of /t/ in 'trying' and 'matching'",
+        "general American vowel quality for /æ/"
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like",
+      "fluencyNotes": "natural prosodic phrasing with appropriate pausing at syntactic boundaries"
+    },
+    "strengths": [
+      "consistent rhoticity",
+      "natural intonation and pitch movement"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

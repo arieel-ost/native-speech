@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_09.mp3",
+      "accent": "galician",
+      "gender": "female",
+      "label": "voice_09"
+    },
+    "latencyMs": 61659,
+    "timestamp": "2026-03-23T13:52:57.781Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "slightly breathy",
+        "mid-range pitch",
+        "clear resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish",
+      "confidence": "medium",
+      "telltalePatterns": [
+        "vowel reduction absent",
+        "final obstruent devoicing",
+        "b/v under-differentiation"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/v/",
+        "produced": "[b]",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "[s]",
+        "exampleWord": "always",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/dʒ/",
+        "produced": "[tʃ]",
+        "exampleWord": "just",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, slightly flat at phrase endings",
+      "fluencyNotes": "Good flow without unnatural hesitations, but lacks native English linking and assimilation."
+    },
+    "strengths": [
+      "Very clear consonant articulation",
+      "Fluent and natural speech rate",
+      "Good overall projection"
+    ],
+    "overallScore": 8,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Voiced fricatives (/z/ and /v/)",
+        "reason": "Improves clarity and reduces non-native auditory markers."
+      },
+      {
+        "area": "Schwa and vowel reduction",
+        "reason": "Will help transition from syllable-timed to stress-timed rhythm, improving overall naturalness."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together. While I'm just trying to find my matching socks."
+  }
+}

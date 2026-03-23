@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_04.mp3",
+      "accent": "german",
+      "gender": "male",
+      "label": "voice_04"
+    },
+    "latencyMs": 26586,
+    "timestamp": "2026-03-23T22:58:28.375Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "40-50",
+      "vocalTraits": [
+        "low pitch",
+        "modal voice",
+        "clear articulation"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/w/ produced as a labiodental approximant [ʋ] (e.g., 'weather', 'walk')",
+        "Dental fricatives /θ/ and /ð/ replaced by dental stops [t̪] and [d̪] (e.g., 'through', 'weather', 'father')",
+        "Syllable-timed rhythm with limited vowel reduction in unstressed syllables (e.g., 'beautiful')"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/θ/",
+        "produced": "/t̪/ (dental stop) instead of /θ/",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/w/",
+        "produced": "/ʋ/ (labiodental approximant) instead of /w/",
+        "exampleWord": "weather",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "/i/ (tense high front vowel) instead of /ɪ/",
+        "exampleWord": "think",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "/r/ (alveolar trill or tap) instead of /ɹ/",
+        "exampleWord": "river",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Fluent speech flow but with limited use of connected speech phenomena like linking and elision. Words tend to be produced distinctly."
+    },
+    "strengths": [
+      "Excellent grammar and complex sentence structure.",
+      "Consistent and clear articulation, even when phonemes are non-native.",
+      "Good, steady speech rate that aids listener comprehension."
+    ],
+    "overallScore": 6.5,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "Dental Fricatives (/θ/ and /ð/)",
+        "reason": "Substituting these with stops ('t' and 'd') is the highest impact error, potentially causing confusion between common word pairs like 'three'/'tree' and 'then'/'den'."
+      },
+      {
+        "area": "Production of /w/ vs. /v/",
+        "reason": "Consistently replacing the English /w/ with a 'v'-like sound ([ʋ]) is a very frequent and noticeable feature of the accent. Mastering the bilabial /w/ would significantly improve native-like quality."
+      },
+      {
+        "area": "Lax vs. Tense Vowels (/ɪ/ vs. /i/)",
+        "reason": "Failing to distinguish between vowels in words like 'ship' and 'sheep' can lead to direct misunderstandings. The speaker consistently uses the tense /i/ vowel for both."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

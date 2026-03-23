@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_11.mp3",
+      "accent": "russian",
+      "gender": "male",
+      "label": "voice_11"
+    },
+    "latencyMs": 8600,
+    "timestamp": "2026-03-23T13:44:00.148Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "clear resonance",
+        "mild vocal fry",
+        "natural pitch variation",
+        "occasional breathiness"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "General American English",
+      "confidence": "high",
+      "telltalePatterns": [
+        "rhotic pronunciation of /ɹ/ in words like 'their' and 'together'",
+        "standard American /æ/ in 'matching'",
+        "alveolar flapping in 'together'",
+        "low-back merger consistency in 'socks'"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/t/",
+        "produced": "elided/dropped /t/ in word-final position",
+        "exampleWord": "just",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "partially devoiced /v/",
+        "exampleWord": "lives",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like",
+      "fluencyNotes": "Excellent use of connected speech and linking, specifically in 'while I'm'. Pausing is natural and supports the humorous tone."
+    },
+    "strengths": [
+      "Native-level command of sentence stress and rhythm",
+      "Accurate production of complex diphthongs and vowels",
+      "Clear, intelligible articulation with natural prosodic flow"
+    ],
+    "overallScore": 9.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Final consonant enunciation",
+        "reason": "Occasional elision of final stops like /t/ in casual speech can slightly reduce clarity in noisy environments."
+      },
+      {
+        "area": "Vocal projection",
+        "reason": "Managing breathiness could improve overall vocal presence and authority if needed in formal settings."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

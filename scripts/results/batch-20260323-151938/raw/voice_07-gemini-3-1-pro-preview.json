@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_07.mp3",
+      "accent": "russian",
+      "gender": "male",
+      "label": "voice_07"
+    },
+    "latencyMs": 46232,
+    "timestamp": "2026-03-23T15:38:07.531Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "slight pharyngeal resonance",
+        "narrow pitch range",
+        "flat affect"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian (Moscow standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "final obstruent devoicing (e.g., /v/ → [f], /d/ → [t])",
+        "labiovelar /w/ substituted with labiodental /v/",
+        "dental fricative /ð/ substituted with alveolar /z/",
+        "lack of schwa /ə/ in unstressed function words"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[v]",
+        "exampleWord": "while",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[z]",
+        "exampleWord": "their",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[ɛ]",
+        "exampleWord": "have",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/d/",
+        "produced": "[t]",
+        "exampleWord": "find",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/h/",
+        "produced": "[x]",
+        "exampleWord": "how",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "flat contour with typical L1-transferred abrupt sentence-final pitch drop",
+      "fluencyNotes": "Connected speech is minimal; lack of linking causes word boundaries to sound overly isolated. Hesitations are absent, but lack of vowel reduction (e.g., 'to' realized as [tu]) heavily disrupts native rhythm."
+    },
+    "strengths": [
+      "Accurate primary lexical stress placement on multisyllabic words ('together', 'matching')",
+      "Clear and unreduced articulation of complex consonant clusters",
+      "Fluid continuous speech without mid-phrase hesitation pauses"
+    ],
+    "overallScore": 6,
+    "level": "B2",
+    "recommendedFocus": [
+      {
+        "area": "w/v distinction",
+        "reason": "High functional load. Substituting /v/ for /w/ (e.g., 'while' realized as 'vile') breaks word-level recognition and forces listener to rely heavily on context."
+      },
+      {
+        "area": "Final obstruent voicing",
+        "reason": "Devoicing word-final consonants (e.g., 'have' to 'half', 'find' to 'fint', 'lives' to 'leafs') causes frequent morphological ambiguity."
+      },
+      {
+        "area": "Vowel reduction (schwa)",
+        "reason": "Over-articulating function words (like 'to') disrupts the stress-timed rhythm of General American English, making the speech sound disjointed and mechanical."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

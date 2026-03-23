@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_09.mp3",
+      "accent": "japanese",
+      "gender": "male",
+      "label": "voice_09"
+    },
+    "latencyMs": 15662,
+    "timestamp": "2026-03-23T21:58:06.218Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "clear articulation",
+        "neutral resonance"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "French",
+      "confidence": "high",
+      "telltalePatterns": [
+        "realization of /θ/ as [t] or [s] in \"through\", \"think\"",
+        "realization of /ð/ as [d] or [z] in \"the\", \"weather\"",
+        "tendency towards syllable-timed rhythm instead of stress-timed"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/θ/",
+        "produced": "/t/ instead of /θ/",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/ instead of /ð/",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/h/",
+        "produced": "omitted /h/ sound",
+        "exampleWord": "house",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "/a/ instead of /æ/",
+        "exampleWord": "having",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "uvular /ʁ/ instead of alveolar /ɹ/",
+        "exampleWord": "river",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, with less dynamic pitch variation for emphasis",
+      "fluencyNotes": "Mostly natural pausing at phrase boundaries; words tend to be produced with less connected speech (e.g., linking, elision) than typical native English."
+    },
+    "strengths": [
+      "Consistent and clear articulation of most consonant clusters.",
+      "Generally accurate distinction of English vowel lengths (e.g., 'walk' vs 'park').",
+      "Primary stress placement on multi-syllabic words is mostly correct."
+    ],
+    "overallScore": 7,
+    "level": "C1",
+    "recommendedFocus": [
+      {
+        "area": "th-sounds (/θ/ and /ð/)",
+        "reason": "The substitution of these sounds significantly impacts intelligibility and can lead to word confusion (e.g., 'through' vs 'true')."
+      },
+      {
+        "area": "English stress-timed rhythm and intonation patterns",
+        "reason": "Adopting a more stress-timed rhythm and varied intonation will make speech sound more natural and help convey meaning and emphasis more effectively."
+      },
+      {
+        "area": "Vowel /æ/",
+        "reason": "Accurate production of /æ/ (e.g., in 'having', 'laughing') is important for distinguishing common words and reducing L1 accent prominence."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green, and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river, and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

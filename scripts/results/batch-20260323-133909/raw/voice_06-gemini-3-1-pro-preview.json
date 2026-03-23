@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_06.mp3",
+      "accent": "australian",
+      "gender": "male",
+      "label": "voice_06"
+    },
+    "latencyMs": 52144,
+    "timestamp": "2026-03-23T13:49:15.859Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "mild nasality",
+        "mid-range pitch",
+        "slight vocal fry at phrase ends"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish",
+      "confidence": "high",
+      "telltalePatterns": [
+        "final obstruent devoicing",
+        "d/ð substitution",
+        "vowel tensing (/æ/ to /a/)"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "dental [d]",
+        "exampleWord": "together",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[a]",
+        "exampleWord": "matching",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "[s]",
+        "exampleWord": "always",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed tendencies",
+      "speechRate": "normal",
+      "intonation": "slightly flat, misses standard English sentence stress patterns",
+      "fluencyNotes": "Good lack of hesitation, but lacks natural consonant-to-vowel linking between words like 'have' and 'their'."
+    },
+    "strengths": [
+      "clear articulation of consonant clusters in words like 'trying'",
+      "good control of the /h/ phoneme without dropping it"
+    ],
+    "overallScore": 7.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Voiced dental fricative /ð/",
+        "reason": "Substitution with /d/ marks the accent heavily and can occasionally cause minimal pair confusion."
+      },
+      {
+        "area": "Sentence stress and rhythm",
+        "reason": "Shifting from syllable-timed to stress-timed rhythm by reducing unstressed vowels will improve overall native-like flow."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

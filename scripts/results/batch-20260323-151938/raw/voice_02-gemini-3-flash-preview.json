@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_02.mp3",
+      "accent": "german",
+      "gender": "female",
+      "label": "voice_02"
+    },
+    "latencyMs": 10568,
+    "timestamp": "2026-03-23T15:29:13.373Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "breathy",
+        "modal glottal state",
+        "neutral resonance",
+        "moderate pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Russian (Moscow Standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "final obstruent devoicing /z/ to [s] in 'lives'",
+        "substitution of labiodental fricative /v/ for labio-velar approximant /w/ in 'while'",
+        "absence of vowel reduction to schwa /ə/ in unstressed syllables in 'together'"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "/v/ instead of /w/",
+        "exampleWord": "while",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/z/",
+        "produced": "/s/ instead of /z/",
+        "exampleWord": "lives",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ʌ/",
+        "produced": "/a/ instead of /ʌ/",
+        "exampleWord": "funny",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "/z/ or /d/ substitution",
+        "exampleWord": "their",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "mixed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced pitch contours",
+      "fluencyNotes": "Fluent with natural phrase-boundary pauses, but shows heavy syllable-timing transfer from Russian."
+    },
+    "strengths": [
+      "Accurate production of the affricate /tʃ/ in 'matching'",
+      "Strong vocal projection and clear word boundaries",
+      "Consistent use of the velar nasal /ŋ/ in 'trying'"
+    ],
+    "overallScore": 6.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "final consonant voicing",
+        "reason": "Devoicing final /z/ to /s/ in 'lives' changes the grammatical or lexical identity of words."
+      },
+      {
+        "area": "w vs v distinction",
+        "reason": "Pronouncing 'while' as 'vile' creates phonetic confusion and is a high-frequency error for Slavic speakers."
+      },
+      {
+        "area": "schwa reduction",
+        "reason": "Full vowel quality in unstressed syllables like in 'together' contributes to a non-native rhythmic pattern."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

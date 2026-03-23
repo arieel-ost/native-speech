@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_10.mp3",
+      "accent": "american-texan",
+      "gender": "female",
+      "label": "voice_10"
+    },
+    "latencyMs": 7728,
+    "timestamp": "2026-03-23T13:43:50.534Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "18-25",
+      "vocalTraits": [
+        "clear resonance",
+        "slightly breathy",
+        "youthful tone",
+        "steady pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "General American English",
+      "confidence": "high",
+      "telltalePatterns": [
+        "rhoticity (/r/ sounds are fully pronounced)",
+        "natural vowel reduction in unstressed syllables",
+        "standard /æ/ in 'matching'",
+        "native use of 'to' as /tə/"
+      ]
+    },
+    "phonemeProblems": [],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-like",
+      "fluencyNotes": "Excellent use of connected speech and natural pausing between clauses."
+    },
+    "strengths": [
+      "Native-level articulation and clarity",
+      "Natural conversational rhythm",
+      "Clear production of rhotic /r/ and interdental /ð/"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Vocal projection",
+        "reason": "The breathiness, while natural, could be reduced for professional public speaking contexts to improve vocal presence."
+      },
+      {
+        "area": "Final consonant enunciation",
+        "reason": "In very casual speech, 'just' becomes 'jus', which is standard but can be sharpened for formal clarity."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}

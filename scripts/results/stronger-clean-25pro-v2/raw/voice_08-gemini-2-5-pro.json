@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_08.mp3",
+      "accent": "italian",
+      "gender": "male",
+      "label": "voice_08"
+    },
+    "latencyMs": 23880,
+    "timestamp": "2026-03-23T23:00:13.936Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "40-50",
+      "vocalTraits": [
+        "low pitch",
+        "modal voice"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Serbian/Croatian",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/w/ produced as /v/ (e.g., 'weather', 'walk')",
+        "Alveolar tap/trill [r] used for English /ɹ/ (e.g., 'river', 'green')",
+        "Syllable-timed rhythm, lack of vowel reduction"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[v] instead of /w/",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[t] instead of /θ/",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "Alveolar tap or trill [r]",
+        "exampleWord": "river",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "Tense [i] instead of lax /ɪ/",
+        "exampleWord": "little",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/d/ (word-final)",
+        "produced": "Devoiced to [t]",
+        "exampleWord": "red",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Words are pronounced clearly but in isolation, with limited connected speech (linking, elision). Pauses occur mainly at clause boundaries."
+    },
+    "strengths": [
+      "Consistent and even pacing",
+      "Good command of grammar and vocabulary",
+      "Clear articulation of sibilant sounds like /s/"
+    ],
+    "overallScore": 5.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Distinction between /w/ and /v/",
+        "reason": "This substitution is frequent and significantly impacts intelligibility, causing confusion between common word pairs like 'west' and 'vest'."
+      },
+      {
+        "area": "Production of 'th' sounds (/θ/)",
+        "reason": "Replacing 'th' with 't' is a primary marker of the accent and can lead to misunderstandings (e.g., 'through' vs. 'true')."
+      },
+      {
+        "area": "English stress-timed rhythm",
+        "reason": "Adopting stress-timing with vowel reduction in unstressed syllables will have the largest impact on sounding more natural and improving overall flow."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful. So I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_01.mp3",
+      "accent": "american-texan",
+      "gender": "female",
+      "label": "voice_01"
+    },
+    "latencyMs": 24457,
+    "timestamp": "2026-03-23T21:49:55.923Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "high-average pitch"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish (Latin American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Substitution of /θ, ð/ with /t, d/ (e.g., 'through' -> /tru/, 'weather' -> /'wɛdər/)",
+        "Realization of /ɹ/ as an alveolar tap [ɾ] (e.g., 'river', 'green')",
+        "Syllable-timed rhythm instead of stress-timed rhythm"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "[d] instead of /ð/",
+        "exampleWord": "weather",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "[i] instead of /ɪ/ (vowel tensing)",
+        "exampleWord": "village",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[t] instead of /θ/",
+        "exampleWord": "through",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɹ/",
+        "produced": "alveolar tap [ɾ]",
+        "exampleWord": "river",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Speech is fluent with appropriate pausing at clause boundaries, but lacks native-like connected speech features (e.g., linking, vowel reduction). Words tend to be pronounced distinctly."
+    },
+    "strengths": [
+      "Good control of grammatical structures.",
+      "Fluent delivery with minimal hesitation.",
+      "Consistent aspiration of initial voiceless stops (e.g., 'park')."
+    ],
+    "overallScore": 6.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "These are high-frequency sounds in English. Correcting the substitution with /t/ and /d/ will have the largest single impact on reducing the foreign accent and improving clarity."
+      },
+      {
+        "area": "Vowel contrast /ɪ/ vs. /i/ (e.g., ship vs. sheep)",
+        "reason": "This common vowel distinction is currently neutralized, which can lead to lexical confusion for listeners. Mastering this contrast is crucial for intelligibility."
+      },
+      {
+        "area": "Stress-timed rhythm and vowel reduction",
+        "reason": "Shifting from a syllable-timed to a stress-timed pattern by reducing unstressed vowels will dramatically improve the naturalness and flow of speech, making it easier for native listeners to process."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

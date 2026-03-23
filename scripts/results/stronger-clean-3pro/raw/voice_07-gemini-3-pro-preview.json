@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "model": "gemini-3-pro-preview",
+    "sample": {
+      "file": "voice_07.mp3",
+      "accent": "british",
+      "gender": "male",
+      "label": "voice_07"
+    },
+    "latencyMs": 37319,
+    "timestamp": "2026-03-23T21:59:01.848Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-50",
+      "vocalTraits": [
+        "modal voicing",
+        "neutral resonance",
+        "clear articulation"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "German (Standard)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "/w/ to [v] substitution in water and walk",
+        "dental fricative /θ/ to [s] substitution in think",
+        "final obstruent devoicing in bread and red"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/w/",
+        "produced": "[v]",
+        "exampleWord": "water",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[s]",
+        "exampleWord": "think",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[z]",
+        "exampleWord": "together",
+        "severity": "medium"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed with syllable-timed influences",
+      "speechRate": "normal",
+      "intonation": "L1-influenced flat contours with abrupt terminal falls",
+      "fluencyNotes": "Occasional lack of connected speech; heavy use of glottal stops before vowel-initial words"
+    },
+    "strengths": [
+      "Clear and distinct vowel production",
+      "Consistent and steady speech rate",
+      "Good projection and vocal clarity"
+    ],
+    "overallScore": 7.5,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "Labial-velar approximant /w/ and labiodental fricative /v/ distinction",
+        "reason": "Prevents lexical confusion (e.g., wet vs vet) and strongly marks the L1 influence on intelligibility"
+      },
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "Substituting with alveolar fricatives /s/ and /z/ noticeably impacts native-like quality"
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green, and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high, and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

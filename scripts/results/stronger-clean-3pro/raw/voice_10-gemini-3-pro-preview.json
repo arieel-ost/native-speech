@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "model": "gemini-3-pro-preview",
+    "sample": {
+      "file": "voice_10.mp3",
+      "accent": "chinese",
+      "gender": "male",
+      "label": "voice_10"
+    },
+    "latencyMs": 22041,
+    "timestamp": "2026-03-23T22:00:30.732Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal voice",
+        "slightly high pitch",
+        "neutral resonance",
+        "narrow pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Mandarin Chinese",
+      "confidence": "high",
+      "telltalePatterns": [
+        "syllable-timed rhythm",
+        "/v/→[w] substitution",
+        "absence of vowel reduction in unstressed syllables",
+        "dark /l/ vocalization"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/v/",
+        "produced": "[w]",
+        "exampleWord": "village",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "[s]",
+        "exampleWord": "through",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[z]",
+        "exampleWord": "weather",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɫ/",
+        "produced": "[ʊ]",
+        "exampleWord": "ball",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, flat contours with occasional inappropriate pitch rises on unstressed syllables",
+      "fluencyNotes": "Occasional mid-phrase hesitations; lack of connected speech (linking and assimilation absent); words frequently produced in isolation"
+    },
+    "strengths": [
+      "Clear articulation of tense vowels in stressed syllables",
+      "Accurate production of rhotic approximant /ɹ/ in initial positions",
+      "Good overall pacing without excessively long pauses"
+    ],
+    "overallScore": 6.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Labiodental fricative /v/",
+        "reason": "Substitution with /w/ (e.g., 'village' to 'willage') can lead to direct lexical confusion and significantly impacts intelligibility."
+      },
+      {
+        "area": "Connected speech and vowel reduction",
+        "reason": "Lack of schwa /ə/ in unstressed syllables forces a syllable-timed rhythm, requiring more cognitive effort from native listeners to identify word boundaries."
+      },
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "Substitutions with alveolar fricatives (/s/ and /z/) mark a strong L1 accent, though context usually preserves meaning."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "model": "gemini-3.1-pro-preview",
+    "sample": {
+      "file": "voice_10.mp3",
+      "accent": "chinese",
+      "gender": "male",
+      "label": "voice_10"
+    },
+    "latencyMs": 39614,
+    "timestamp": "2026-03-23T22:07:06.421Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "modal",
+        "high pitch",
+        "slightly breathy"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Mandarin Chinese",
+      "confidence": "high",
+      "telltalePatterns": [
+        "θ→s substitution",
+        "vowel reduction absent",
+        "final consonant devoicing"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/θ/",
+        "produced": "[s]",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/v/",
+        "produced": "[w]",
+        "exampleWord": "village",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "[z]",
+        "exampleWord": "weather",
+        "severity": "high"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "flat pitch contours, L1-influenced",
+      "fluencyNotes": "Hesitations before multisyllabic words; lack of C-V linking"
+    },
+    "strengths": [
+      "Accurate production of /r/ and /l/ contrast",
+      "Clear and distinct vowel qualities"
+    ],
+    "overallScore": 6,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Dental fricatives (/θ/, /ð/)",
+        "reason": "Frequently substitutes with alveolar fricatives, causing distraction."
+      },
+      {
+        "area": "Stress-timed rhythm and linking",
+        "reason": "Reduces the choppy, syllable-timed cadence to improve overall flow."
+      }
+    ],
+    "transcript": "Yesterday, the weather was really beautiful so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

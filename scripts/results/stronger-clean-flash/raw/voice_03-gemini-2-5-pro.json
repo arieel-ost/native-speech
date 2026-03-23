@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_03.mp3",
+      "accent": "french",
+      "gender": "male",
+      "label": "voice_03"
+    },
+    "latencyMs": 26143,
+    "timestamp": "2026-03-23T21:50:55.876Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "30-40",
+      "vocalTraits": [
+        "modal voice",
+        "neutral resonance",
+        "somewhat narrow pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "French (Standard European)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Uvular /r/ [ʁ] substitution for English /ɹ/ (e.g., 'river', 'green')",
+        "Substitution of dental fricatives /θ/, /ð/ with alveolar /s/, /z/ (e.g., 'the' as /zə/, 'through' as /sɹu/)",
+        "Syllable-timed rhythm instead of stress-timed rhythm"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ɹ/",
+        "produced": "Voiced uvular fricative [ʁ] instead of alveolar approximant /ɹ/",
+        "exampleWord": "river",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "/s/ instead of /θ/",
+        "exampleWord": "through",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/ð/",
+        "produced": "/z/ instead of /ð/",
+        "exampleWord": "weather",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/h/",
+        "produced": "Deletion of /h/ at the beginning of words",
+        "exampleWord": "house",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɪ/",
+        "produced": "Tensed to [i], as in 'fleece'",
+        "exampleWord": "little",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "slow",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Speech is somewhat staccato with limited use of connected speech features like linking. Pausing is appropriate at clause boundaries."
+    },
+    "strengths": [
+      "Clear articulation of plosive consonants (p, b, t, d, k, g).",
+      "Good control of vocabulary and grammatical structures.",
+      "Speech is deliberately paced, which aids in listener comprehension."
+    ],
+    "overallScore": 5.5,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "The English /ɹ/ sound",
+        "reason": "The uvular [ʁ] is the most salient non-native feature. Mastering the English /ɹ/ would have the largest single impact on reducing the foreign accent."
+      },
+      {
+        "area": "Dental fricatives /θ/ and /ð/",
+        "reason": "These sounds occur in many of the most common English words. Substituting them with /s/ and /z/ is a frequent, high-impact error that marks the speech as non-native."
+      },
+      {
+        "area": "Aspiration and /h/ insertion",
+        "reason": "H-dropping at the beginning of words (e.g., 'house' -> 'ouse') can cause misunderstanding between minimal pairs. It's a crucial phonemic contrast in English."
+      }
+    ],
+    "transcript": "Yesterday the weather was really beautiful, so I decided to go for a walk through the park near my house. The trees were green and the birds were singing everywhere. I think spring is my favorite time of the year. I walked along the river and watched some children playing with a big red ball. They were laughing and having so much fun together. One little girl threw the ball very high and it landed right in the water. Her father had to reach in and pull it out. After that, I stopped at a small village shop to buy some bread and a bottle of juice."
+  }
+}

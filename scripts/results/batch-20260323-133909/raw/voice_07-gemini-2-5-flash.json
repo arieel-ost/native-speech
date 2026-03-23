@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "model": "gemini-2.5-flash",
+    "sample": {
+      "file": "voice_07.mp3",
+      "accent": "russian",
+      "gender": "male",
+      "label": "voice_07"
+    },
+    "latencyMs": 13818,
+    "timestamp": "2026-03-23T13:40:43.993Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "25-35",
+      "vocalTraits": [
+        "somewhat monotone",
+        "slightly tense"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Slavic language (likely Russian or Polish)",
+      "confidence": "medium",
+      "telltalePatterns": [
+        "/θ/ and /ð/ realized as dental stops /t̪/ or /d̪/",
+        "lack of significant vowel reduction in unstressed syllables",
+        "monophthongization of some diphthongs",
+        "substitution of /v/ for /w/",
+        "syllable-timed rhythm"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/ð/",
+        "produced": "/d/",
+        "exampleWord": "their",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/θ/",
+        "produced": "/t/",
+        "exampleWord": "together",
+        "severity": "high"
+      },
+      {
+        "phoneme": "/w/",
+        "produced": "/v/",
+        "exampleWord": "while",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/aɪ/",
+        "produced": "monophthongal /aː/",
+        "exampleWord": "lives",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced, tending towards a flatter, less dynamic pitch range than native English",
+      "fluencyNotes": "Pausing is generally appropriate. Connected speech shows limited assimilation or elision typical of native English, contributing to the syllable-timed rhythm."
+    },
+    "strengths": [
+      "Generally clear articulation of many consonants (e.g., stops, fricatives like /s/, /ʃ/)",
+      "Consistent volume and speech rate",
+      "Good control of basic vowel sounds, even if some diphthongs are altered"
+    ],
+    "overallScore": 6,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Interdental fricatives (/θ/, /ð/)",
+        "reason": "Mispronunciation of 'th' sounds is very frequent and a primary marker of non-native speech, significantly impacting clarity."
+      },
+      {
+        "area": "Word and sentence stress",
+        "reason": "Improving stress-timing and emphasizing key words will make speech sound more natural and easier to follow for native listeners."
+      },
+      {
+        "area": "Distinguishing /w/ and /v/",
+        "reason": "Correct production of /w/ (e.g., in 'while') will prevent misunderstanding and reduce a common non-native marker."
+      },
+      {
+        "area": "English intonation patterns",
+        "reason": "Developing more varied and appropriate pitch contours will enhance naturalness and convey meaning more effectively."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

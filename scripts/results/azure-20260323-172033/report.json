@@ -1,0 +1,419 @@
+{
+  "timestamp": "2026-03-23T17:23:44.937Z",
+  "locales": [
+    "en-US",
+    "en-GB",
+    "en-AU",
+    "en-IN"
+  ],
+  "sampleCount": 11,
+  "results": [
+    {
+      "file": "voice_01.mp3",
+      "groundTruthAccent": "german",
+      "groundTruthGender": "female",
+      "bestLocale": "en-AU",
+      "bestScore": 94.6,
+      "localeScores": {
+        "en-US": {
+          "accuracy": 86,
+          "fluency": 87,
+          "completeness": 100,
+          "prosody": 90.9,
+          "pronunciation": 87.2
+        },
+        "en-GB": {
+          "accuracy": 99,
+          "fluency": 91,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 94.2
+        },
+        "en-AU": {
+          "accuracy": 100,
+          "fluency": 91,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 94.6
+        },
+        "en-IN": {
+          "accuracy": 83,
+          "fluency": 97,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 88.6
+        }
+      }
+    },
+    {
+      "file": "voice_02.mp3",
+      "groundTruthAccent": "german",
+      "groundTruthGender": "female",
+      "bestLocale": "en-IN",
+      "bestScore": 98.2,
+      "localeScores": {
+        "en-US": {
+          "accuracy": 90,
+          "fluency": 97,
+          "completeness": 100,
+          "prosody": 89.5,
+          "pronunciation": 91.1
+        },
+        "en-GB": {
+          "accuracy": 98,
+          "fluency": 94,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 95.6
+        },
+        "en-AU": {
+          "accuracy": 100,
+          "fluency": 94,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 96.4
+        },
+        "en-IN": {
+          "accuracy": 97,
+          "fluency": 100,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 98.2
+        }
+      }
+    },
+    {
+      "file": "voice_03.mp3",
+      "groundTruthAccent": "german",
+      "groundTruthGender": "male",
+      "bestLocale": "en-AU",
+      "bestScore": 100,
+      "localeScores": {
+        "en-US": {
+          "accuracy": 89,
+          "fluency": 100,
+          "completeness": 100,
+          "prosody": 90.7,
+          "pronunciation": 91.5
+        },
+        "en-GB": {
+          "accuracy": 99,
+          "fluency": 100,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 99.4
+        },
+        "en-AU": {
+          "accuracy": 100,
+          "fluency": 100,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 100
+        },
+        "en-IN": {
+          "accuracy": 93,
+          "fluency": 100,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 95.8
+        }
+      }
+    },
+    {
+      "file": "voice_04.mp3",
+      "groundTruthAccent": "french",
+      "groundTruthGender": "female",
+      "bestLocale": "en-AU",
+      "bestScore": 96.4,
+      "localeScores": {
+        "en-US": {
+          "accuracy": 96,
+          "fluency": 95,
+          "completeness": 100,
+          "prosody": 89.9,
+          "pronunciation": 92.1
+        },
+        "en-GB": {
+          "accuracy": 99,
+          "fluency": 94,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 96
+        },
+        "en-AU": {
+          "accuracy": 100,
+          "fluency": 94,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 96.4
+        },
+        "en-IN": {
+          "accuracy": 96,
+          "fluency": 97,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 96.4
+        }
+      }
+    },
+    {
+      "file": "voice_05.mp3",
+      "groundTruthAccent": "indian",
+      "groundTruthGender": "male",
+      "bestLocale": "en-GB",
+      "bestScore": 99,
+      "localeScores": {
+        "en-US": {
+          "accuracy": 86,
+          "fluency": 94,
+          "completeness": 100,
+          "prosody": 89.3,
+          "pronunciation": 88.3
+        },
+        "en-GB": {
+          "accuracy": 99,
+          "fluency": 99,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 99
+        },
+        "en-AU": {
+          "accuracy": 99,
+          "fluency": 99,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 99
+        },
+        "en-IN": {
+          "accuracy": 82,
+          "fluency": 99,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 88.8
+        }
+      }
+    },
+    {
+      "file": "voice_06.mp3",
+      "groundTruthAccent": "australian",
+      "groundTruthGender": "male",
+      "bestLocale": "en-AU",
+      "bestScore": 95.2,
+      "localeScores": {
+        "en-US": {
+          "accuracy": 90,
+          "fluency": 95,
+          "completeness": 100,
+          "prosody": 90.4,
+          "pronunciation": 91.1
+        },
+        "en-GB": {
+          "accuracy": 98,
+          "fluency": 92,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 94.4
+        },
+        "en-AU": {
+          "accuracy": 100,
+          "fluency": 92,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 95.2
+        },
+        "en-IN": {
+          "accuracy": 85,
+          "fluency": 95,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 89
+        }
+      }
+    },
+    {
+      "file": "voice_07.mp3",
+      "groundTruthAccent": "russian",
+      "groundTruthGender": "male",
+      "bestLocale": "en-GB",
+      "bestScore": 97.4,
+      "localeScores": {
+        "en-US": {
+          "accuracy": 97,
+          "fluency": 98,
+          "completeness": 100,
+          "prosody": 88.6,
+          "pronunciation": 92.2
+        },
+        "en-GB": {
+          "accuracy": 98,
+          "fluency": 97,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 97.4
+        },
+        "en-AU": {
+          "accuracy": 98,
+          "fluency": 97,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 97.4
+        },
+        "en-IN": {
+          "accuracy": 94,
+          "fluency": 96,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 94.8
+        }
+      }
+    },
+    {
+      "file": "voice_08.mp3",
+      "groundTruthAccent": "american",
+      "groundTruthGender": "male",
+      "bestLocale": "en-AU",
+      "bestScore": 95.8,
+      "localeScores": {
+        "en-US": {
+          "accuracy": 91,
+          "fluency": 95,
+          "completeness": 100,
+          "prosody": 90.4,
+          "pronunciation": 91.4
+        },
+        "en-GB": {
+          "accuracy": 94,
+          "fluency": 93,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 93.4
+        },
+        "en-AU": {
+          "accuracy": 100,
+          "fluency": 93,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 95.8
+        },
+        "en-IN": {
+          "accuracy": 95,
+          "fluency": 96,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 95.4
+        }
+      }
+    },
+    {
+      "file": "voice_09.mp3",
+      "groundTruthAccent": "galician",
+      "groundTruthGender": "female",
+      "bestLocale": "en-AU",
+      "bestScore": 94,
+      "localeScores": {
+        "en-US": {
+          "accuracy": 92,
+          "fluency": 92,
+          "completeness": 100,
+          "prosody": 89.9,
+          "pronunciation": 90.7
+        },
+        "en-GB": {
+          "accuracy": 98,
+          "fluency": 90,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 93.2
+        },
+        "en-AU": {
+          "accuracy": 100,
+          "fluency": 90,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 94
+        },
+        "en-IN": {
+          "accuracy": 89,
+          "fluency": 99,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 93
+        }
+      }
+    },
+    {
+      "file": "voice_10.mp3",
+      "groundTruthAccent": "american-texan",
+      "groundTruthGender": "female",
+      "bestLocale": "en-IN",
+      "bestScore": 92.2,
+      "localeScores": {
+        "en-US": {
+          "accuracy": 96,
+          "fluency": 87,
+          "completeness": 100,
+          "prosody": 90.4,
+          "pronunciation": 89.5
+        },
+        "en-GB": {
+          "accuracy": 99,
+          "fluency": 83,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 89.4
+        },
+        "en-AU": {
+          "accuracy": 100,
+          "fluency": 83,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 89.8
+        },
+        "en-IN": {
+          "accuracy": 94,
+          "fluency": 91,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 92.2
+        }
+      }
+    },
+    {
+      "file": "voice_11.mp3",
+      "groundTruthAccent": "russian",
+      "groundTruthGender": "male",
+      "bestLocale": "en-IN",
+      "bestScore": 94.2,
+      "localeScores": {
+        "en-US": {
+          "accuracy": 96,
+          "fluency": 94,
+          "completeness": 100,
+          "prosody": 87.4,
+          "pronunciation": 90.4
+        },
+        "en-GB": {
+          "accuracy": 96,
+          "fluency": 92,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 93.6
+        },
+        "en-AU": {
+          "accuracy": 97,
+          "fluency": 92,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 94
+        },
+        "en-IN": {
+          "accuracy": 91,
+          "fluency": 99,
+          "completeness": 100,
+          "prosody": null,
+          "pronunciation": 94.2
+        }
+      }
+    }
+  ]
+}

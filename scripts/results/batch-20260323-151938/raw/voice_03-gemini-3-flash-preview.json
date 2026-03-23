@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "model": "gemini-3-flash-preview",
+    "sample": {
+      "file": "voice_03.mp3",
+      "accent": "german",
+      "gender": "male",
+      "label": "voice_03"
+    },
+    "latencyMs": 16967,
+    "timestamp": "2026-03-23T15:29:31.348Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "male",
+      "estimatedAgeRange": "25-35",
+      "vocalTraits": [
+        "modal phonation",
+        "neutral resonance",
+        "clear articulation",
+        "moderate pitch range"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "English (General American)",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Consistent rhoticity in coda positions as evidenced in 'their' /ðɛɚ/ and 'together' /təˈɡɛðɚ/",
+        "Realization of the 'lot' vowel as a low back unrounded [sɑks] in the word 'socks'",
+        "Standard flapping of intervocalic alveolar stops in 'together' realized as [təˈɡɛðɚ]"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/t/",
+        "produced": "[ɾ] (intervocalic flapping)",
+        "exampleWord": "together",
+        "severity": "low"
+      },
+      {
+        "phoneme": "/æ/",
+        "produced": "[æ] (standard open front unrounded vowel)",
+        "exampleWord": "matching",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "stress-timed",
+      "speechRate": "normal",
+      "intonation": "native-standard",
+      "fluencyNotes": "Fluent connected speech with natural elision of the /t/ in 'just' before 'trying' and native-level linking between 'find' and 'my'."
+    },
+    "strengths": [
+      "Native-level command of English stress-timed rhythm",
+      "Perfect execution of rhotic and non-rhotic vowel distinctions",
+      "Natural use of contractions and reduction of function words like 'to' [tə]"
+    ],
+    "overallScore": 10,
+    "level": "advanced",
+    "recommendedFocus": [
+      {
+        "area": "No corrective action required",
+        "reason": "Diagnostic indicates the speaker is a native speaker of General American English with no phonetic interference."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together, while I'm just trying to find my matching socks."
+  }
+}

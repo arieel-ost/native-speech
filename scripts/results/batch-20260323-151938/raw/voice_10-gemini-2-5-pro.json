@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "model": "gemini-2.5-pro",
+    "sample": {
+      "file": "voice_10.mp3",
+      "accent": "american-texan",
+      "gender": "female",
+      "label": "voice_10"
+    },
+    "latencyMs": 29252,
+    "timestamp": "2026-03-23T15:28:06.041Z"
+  },
+  "result": {
+    "speaker": {
+      "estimatedGender": "female",
+      "estimatedAgeRange": "20-30",
+      "vocalTraits": [
+        "high pitch",
+        "modal voice",
+        "clear articulation"
+      ]
+    },
+    "accent": {
+      "detectedLanguage": "Spanish",
+      "confidence": "high",
+      "telltalePatterns": [
+        "Vowel raising of /æ/ to [ɛ]",
+        "Syllable-timed rhythm",
+        "Lack of vowel reduction in unstressed syllables (e.g., 'together')"
+      ]
+    },
+    "phonemeProblems": [
+      {
+        "phoneme": "/æ/",
+        "produced": "a raised vowel, closer to /ɛ/",
+        "exampleWord": "matching",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ʌ/",
+        "produced": "a more fronted and open vowel, closer to /a/",
+        "exampleWord": "funny",
+        "severity": "medium"
+      },
+      {
+        "phoneme": "/ɫ/ (dark L)",
+        "produced": "a clear /l/ in syllable-final position",
+        "exampleWord": "well",
+        "severity": "low"
+      }
+    ],
+    "prosody": {
+      "rhythmType": "syllable-timed",
+      "speechRate": "normal",
+      "intonation": "L1-influenced",
+      "fluencyNotes": "Speech is fluent with clear word boundaries but lacks native-like connected speech patterns like elision or assimilation."
+    },
+    "strengths": [
+      "Clear and consistent consonant articulation, especially sibilants in 'some' and 'socks'.",
+      "Voiced /h/ is consistently produced.",
+      "Good distinction between tense /i/ (seem) and lax /ɪ/ (it's)."
+    ],
+    "overallScore": 7,
+    "level": "intermediate",
+    "recommendedFocus": [
+      {
+        "area": "Vowel distinction: /æ/ vs. /ɛ/",
+        "reason": "This is a very frequent substitution that is a primary marker of the L1 accent. Mastering this contrast (e.g., 'bad' vs. 'bed') will significantly improve phonemic accuracy."
+      },
+      {
+        "area": "Stress-timed rhythm and sentence stress",
+        "reason": "Transitioning from a syllable-timed to a stress-timed pattern will make the speaker's prosody sound much more natural and native-like to English listeners."
+      },
+      {
+        "area": "Vowel reduction in unstressed syllables",
+        "reason": "Using the schwa /ə/ in unstressed syllables is a core feature of English rhythm. It will improve connected speech and overall fluency."
+      }
+    ],
+    "transcript": "It's funny how some people always seem to have their lives together while I'm just trying to find my matching socks."
+  }
+}
