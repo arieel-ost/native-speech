@@ -82,10 +82,13 @@ export async function buildPhonemePrompt({
 
 export async function buildProfilePrompt({
   locale,
+  variant,
 }: {
   locale: string;
+  variant?: string;
 }): Promise<string> {
-  const template = await getTemplate("profile");
+  const templateName = variant ? `profile${variant}` : "profile";
+  const template = await getTemplate(templateName);
   return interpolate(template, {
     language: localeToLanguage[locale] ?? "English",
   });

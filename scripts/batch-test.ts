@@ -23,6 +23,7 @@ const { values } = parseArgs({
     "samples-dir": { type: "string", default: "scripts/recordings/socks" },
     "output-dir": { type: "string" },
     delay: { type: "string", default: "1000" },
+    "prompt-variant": { type: "string", short: "p" },
     verbose: { type: "boolean", short: "v", default: false },
     help: { type: "boolean", short: "h", default: false },
   },
@@ -37,6 +38,7 @@ Options:
   --samples-dir    Path to samples directory (default: "scripts/recordings/socks")
   --output-dir     Output directory (default: "scripts/results/batch-<timestamp>")
   --delay          Delay between requests in ms (default: 1000)
+  -p, --prompt-variant  Prompt variant suffix (e.g., "2" loads profile2.md)
   --verbose, -v    Print per-request details
   --help, -h       Show this help
 `);
@@ -132,7 +134,9 @@ async function main() {
   await mkdir(rawDir, { recursive: true });
 
   // Build prompt once (same for all)
-  const prompt = await buildProfilePrompt({ locale: "en" });
+  const variant = values["prompt-variant"];
+  const prompt = await buildProfilePrompt({ locale: "en", variant });
+  if (variant) console.log(`Prompt variant: profile${variant}.md`);
 
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
   const allResults: RunResult[] = [];
