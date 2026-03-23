@@ -46,3 +46,5 @@ next-env.d.ts
 
 # waitlist data
 /data/
+.dmux/
+scripts/results/

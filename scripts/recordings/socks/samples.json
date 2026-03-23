@@ -1,0 +1,68 @@
+[
+  {
+    "file": "voice_01.mp3",
+    "accent": "german",
+    "gender": "female",
+    "label": "Ramona - German Customer Care Agent"
+  },
+  {
+    "file": "voice_02.mp3",
+    "accent": "german",
+    "gender": "female",
+    "label": "German Petra - Hard Accent"
+  },
+  {
+    "file": "voice_03.mp3",
+    "accent": "german",
+    "gender": "male",
+    "label": "Klaus - English with German Accent"
+  },
+  {
+    "file": "voice_04.mp3",
+    "accent": "french",
+    "gender": "female",
+    "label": "Lison - Soft French Accent"
+  },
+  {
+    "file": "voice_05.mp3",
+    "accent": "indian",
+    "gender": "male",
+    "label": "Jeet - Raw Unfiltered Accent"
+  },
+  {
+    "file": "voice_06.mp3",
+    "accent": "australian",
+    "gender": "male",
+    "label": "Jimbo - Thick Australian Accent"
+  },
+  {
+    "file": "voice_07.mp3",
+    "accent": "russian",
+    "gender": "male",
+    "label": "Alexey - Russian Accent Professional"
+  },
+  {
+    "file": "voice_08.mp3",
+    "accent": "american",
+    "gender": "male",
+    "label": "Tony - American Accent"
+  },
+  {
+    "file": "voice_09.mp3",
+    "accent": "galician",
+    "gender": "female",
+    "label": "Heidicheeks - Galician Accent"
+  },
+  {
+    "file": "voice_10.mp3",
+    "accent": "american-texan",
+    "gender": "female",
+    "label": "Jennifer - Texan American Accent"
+  },
+  {
+    "file": "voice_11.mp3",
+    "accent": "russian",
+    "gender": "male",
+    "label": "Arielle - Real Recording"
+  }
+]
