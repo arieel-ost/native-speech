@@ -3,7 +3,8 @@
     "allow": [
       "Bash(do touch:*)",
       "Bash(vercel:*)",
-      "Bash(bun:*)"
+      "Bash(bun:*)",
+      "Bash(ffmpeg:*)"
     ]
   }
 }
