@@ -16,7 +16,7 @@ export function Nav() {
       <div className={styles.bar}>
         <Link href="/" className={styles.logo}>
           <span className={styles.logoMark}>◉</span>
-          <span className={styles.logoText}>NativeSpeech</span>
+          <span className={styles.logoText}>liltra</span>
         </Link>
         <div className={styles.links}>
           <Link href="/#features" className={styles.link}>{t("features")}</Link>

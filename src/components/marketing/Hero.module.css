@@ -1,47 +1,122 @@
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
-  align-items: start;
+  align-items: center;
   gap: clamp(2rem, 6vw, 4rem);
   max-width: 1200px;
   margin: 0 auto;
-  padding: clamp(2.5rem, 8vw, 5.5rem) var(--space-xl) 0;
+  padding: clamp(3rem, 10vw, 7rem) var(--space-xl) 0;
 }
 
 .copy {
-  max-width: 36rem;
+  position: relative;
+  max-width: 38rem;
   padding-top: 1rem;
 }
 
+.copy::before {
+  content: "";
+  position: absolute;
+  inset: -3rem auto auto -2rem;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(120, 184, 174, 0.18), transparent 70%);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.copy > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Headline ── */
+
 .title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 8vw, 6.2rem);
+  font-size: clamp(3.6rem, 9vw, 6.8rem);
   font-weight: 500;
-  line-height: 0.94;
+  line-height: 0.9;
   letter-spacing: -0.06em;
+  text-wrap: balance;
+}
+
+.titleLead {
+  max-width: 7ch;
+  color: rgba(246, 239, 231, 0.95);
 }
 
 .accent {
+  display: inline;
+  width: fit-content;
+  padding-right: 0.12em;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 0 18px 36px rgba(213, 122, 69, 0.16);
 }
 
-.subtitle {
-  margin-top: 1.5rem;
-  font-size: 1.04rem;
-  color: rgba(246, 239, 231, 0.68);
-  line-height: 1.85;
-  max-width: 32rem;
+/* ── Definition line ── */
+
+.definition {
+  width: fit-content;
+  margin-top: 1.55rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(246, 239, 231, 0.1);
+  border-radius: calc(var(--radius-lg) - 4px);
+  background:
+    linear-gradient(180deg, rgba(246, 239, 231, 0.06), rgba(246, 239, 231, 0.02)),
+    rgba(22, 17, 13, 0.82);
+  box-shadow:
+    0 16px 34px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  color: rgba(246, 239, 231, 0.78);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  font-style: normal;
+  backdrop-filter: blur(16px);
 }
+
+/* ── Hook line ── */
+
+.hook {
+  margin-top: 1.3rem;
+  max-width: 26rem;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(120, 184, 174, 0.42);
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(246, 239, 231, 0.94);
+  letter-spacing: -0.01em;
+}
+
+/* ── Subtitle ── */
+
+.subtitle {
+  margin-top: 1.45rem;
+  max-width: 31rem;
+  font-size: 1.02rem;
+  color: rgba(246, 239, 231, 0.7);
+  line-height: 1.82;
+}
+
+/* ── CTA area ── */
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
-  margin-top: 2.2rem;
+  margin-top: 2.4rem;
 }
 
 .timeBadge {
@@ -209,30 +284,14 @@
   transition: width 0.6s ease;
 }
 
-/* Rating colors — asymmetric to feel real */
-.needs_work .phonemeFill {
-  background: #e8695a;
-}
+/* Rating colors */
+.needs_work .phonemeFill { background: #e8695a; }
+.acceptable .phonemeFill { background: #d5a040; }
+.good .phonemeFill { background: #5cb88a; }
 
-.acceptable .phonemeFill {
-  background: #d5a040;
-}
-
-.good .phonemeFill {
-  background: #5cb88a;
-}
-
-.needs_work .phonemeSymbol {
-  color: #e8695a;
-}
-
-.acceptable .phonemeSymbol {
-  color: #d5a040;
-}
-
-.good .phonemeSymbol {
-  color: #5cb88a;
-}
+.needs_work .phonemeSymbol { color: #e8695a; }
+.acceptable .phonemeSymbol { color: #d5a040; }
+.good .phonemeSymbol { color: #5cb88a; }
 
 .resultCaption {
   margin-top: 0.75rem;
@@ -246,6 +305,7 @@
 @media (max-width: 1024px) {
   .hero {
     grid-template-columns: 1fr;
+    align-items: start;
   }
 
   .copy {
@@ -267,6 +327,15 @@
 @media (max-width: 560px) {
   .title {
     font-size: clamp(2.7rem, 12vw, 3.4rem);
+  }
+
+  .definition {
+    width: 100%;
+  }
+
+  .hook {
+    padding-left: 0.85rem;
+    font-size: 1.08rem;
   }
 
   .actions {

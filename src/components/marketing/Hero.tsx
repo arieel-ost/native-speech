@@ -60,10 +60,11 @@ export function Hero() {
     <section className={styles.hero}>
       <div className={styles.copy}>
         <h1 className={styles.title}>
-          {t("headline")}
-          <br />
+          <span className={styles.titleLead}>{t("headline")}</span>
           <span className={styles.accent}>{t("accent")}</span>
         </h1>
+        <p className={styles.definition}>{t("definition")}</p>
+        <p className={styles.hook}>{t("hook")}</p>
         <p className={styles.subtitle}>{t("subtitle")}</p>
         <div className={styles.actions}>
           <Link href="/onboarding">

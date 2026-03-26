@@ -21,7 +21,7 @@ export function Sidebar() {
       <aside className={styles.sidebar}>
         <Link href="/" className={styles.logo}>
           <span className={styles.logoMark}>◉</span>
-          <span className={styles.logoText}>NativeSpeech</span>
+          <span className={styles.logoText}>liltra</span>
         </Link>
         <nav className={styles.nav}>
           {navItems.map((item) => (

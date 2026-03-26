@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "title": "NativeSpeechAI — Your AI-Powered Accent Coach",
+    "title": "liltra — Your AI-Powered Accent Coach",
     "description": "AI-powered pronunciation coaching that diagnoses why you mispronounce sounds and creates personalized drills to perfect your accent."
   },
   "Nav": {
@@ -13,9 +13,11 @@
     "toggleMenu": "Toggle menu"
   },
   "Hero": {
-    "headline": "Your accent has a pattern.",
-    "accent": "We decode it.",
-    "subtitle": "AI-powered coaching that diagnoses exactly why you mispronounce sounds based on your native language — then builds personalized drills to fix them.",
+    "headline": "Find your",
+    "accent": "lilt.",
+    "definition": "lilt /lɪlt/ — the melody of the voice",
+    "hook": "We don't just hear your words. We hear your voice.",
+    "subtitle": "Personalized AI coaching to check and improve your accent, pronunciation, rhythm, and melody.",
     "cta": "Check My Pronunciation",
     "badge": "TAKES 2 MINUTES",
     "resultLabel": "Sound accuracy",
@@ -44,7 +46,7 @@
     "legal": "Legal",
     "privacy": "Privacy",
     "terms": "Terms",
-    "copyright": "© 2026 NativeSpeechAI. All rights reserved."
+    "copyright": "© 2026 liltra. All rights reserved."
   },
   "PricingPreview": {
     "heading": "Simple Pricing",
@@ -99,7 +101,7 @@
     "enterpriseBtn": "Contact Sales"
   },
   "About": {
-    "title": "About NativeSpeechAI",
+    "title": "About liltra",
     "problemTitle": "The Problem",
     "problemText": "Pronunciation coaching is limited to expensive 1-on-1 sessions or generic apps that miss phonetic nuances. Learners receive vague feedback that fails to diagnose accents, regional dialects, or unclear articulation.",
     "approachTitle": "Our Approach",
@@ -153,7 +155,7 @@
   },
   "Dashboard": {
     "startPractice": "Start Practice",
-    "noProfileTitle": "Welcome to NativeSpeech",
+    "noProfileTitle": "Welcome to liltra",
     "noProfileDescription": "Take a quick accent assessment to get personalized practice recommendations.",
     "takeAssessment": "Take Your Assessment",
     "browseDrills": "Browse Drills"

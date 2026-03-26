@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "title": "NativeSpeechAI — Tu Coach de Acento con IA",
+    "title": "liltra — Tu Coach de Acento con IA",
     "description": "Coaching de pronunciación con IA que diagnostica por qué pronuncias mal ciertos sonidos y crea ejercicios personalizados para perfeccionar tu acento."
   },
   "Nav": {
@@ -13,9 +13,11 @@
     "toggleMenu": "Abrir menú"
   },
   "Hero": {
-    "headline": "Tu acento tiene un patrón.",
-    "accent": "Nosotros lo desciframos.",
-    "subtitle": "Coaching con IA que diagnostica exactamente por qué pronuncias mal ciertos sonidos según tu idioma nativo — y luego crea ejercicios personalizados para corregirlos.",
+    "headline": "Encuentra tu",
+    "accent": "lilt.",
+    "definition": "lilt /lɪlt/ — la melodía de la voz",
+    "hook": "No solo escuchamos tus palabras. Escuchamos tu voz.",
+    "subtitle": "Coaching de IA personalizado para verificar y mejorar tu acento, pronunciación, ritmo y melodía.",
     "cta": "Comprobar mi pronunciación",
     "badge": "SOLO 2 MINUTOS",
     "resultLabel": "Precisión de sonidos",
@@ -44,7 +46,7 @@
     "legal": "Legal",
     "privacy": "Privacidad",
     "terms": "Términos",
-    "copyright": "© 2026 NativeSpeechAI. Todos los derechos reservados."
+    "copyright": "© 2026 liltra. Todos los derechos reservados."
   },
   "PricingPreview": {
     "heading": "Precios Simples",
@@ -99,7 +101,7 @@
     "enterpriseBtn": "Contactar Ventas"
   },
   "About": {
-    "title": "Sobre NativeSpeechAI",
+    "title": "Sobre liltra",
     "problemTitle": "El Problema",
     "problemText": "El coaching de pronunciación se limita a sesiones individuales caras o apps genéricas que ignoran los matices fonéticos. Los estudiantes reciben retroalimentación vaga que no logra diagnosticar acentos, dialectos regionales ni articulación poco clara.",
     "approachTitle": "Nuestro Enfoque",
@@ -153,7 +155,7 @@
   },
   "Dashboard": {
     "startPractice": "Empezar Práctica",
-    "noProfileTitle": "Bienvenido a NativeSpeech",
+    "noProfileTitle": "Bienvenido a liltra",
     "noProfileDescription": "Realiza una evaluación rápida de acento para obtener recomendaciones personalizadas.",
     "takeAssessment": "Realizar evaluación",
     "browseDrills": "Explorar ejercicios"

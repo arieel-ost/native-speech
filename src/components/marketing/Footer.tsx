@@ -9,7 +9,7 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.brand}>
-          <span className={styles.logo}>◉ NativeSpeech</span>
+          <span className={styles.logo}>◉ liltra</span>
           <p className={styles.tagline}>{t("tagline")}</p>
         </div>
         <div className={styles.columns}>

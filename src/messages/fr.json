@@ -1,6 +1,6 @@
 {
   "Metadata": {
-    "title": "NativeSpeechAI — Votre coach d'accent propulsé par l'IA",
+    "title": "liltra — Votre coach d'accent propulsé par l'IA",
     "description": "Coaching de prononciation par IA qui diagnostique pourquoi vous prononcez mal certains sons et crée des exercices personnalisés pour perfectionner votre accent."
   },
   "Nav": {
@@ -13,9 +13,11 @@
     "toggleMenu": "Ouvrir le menu"
   },
   "Hero": {
-    "headline": "Votre accent a un schéma.",
-    "accent": "On le décode.",
-    "subtitle": "Un coaching par IA qui diagnostique précisément pourquoi vous prononcez mal certains sons en fonction de votre langue maternelle — puis crée des exercices personnalisés pour les corriger.",
+    "headline": "Trouvez votre",
+    "accent": "lilt.",
+    "definition": "lilt /lɪlt/ — la mélodie de la voix",
+    "hook": "Nous n'entendons pas seulement vos mots. Nous entendons votre voix.",
+    "subtitle": "Un coaching IA personnalisé pour vérifier et améliorer votre accent, votre prononciation, votre rythme et votre mélodie.",
     "cta": "Tester ma prononciation",
     "badge": "EN 2 MINUTES",
     "resultLabel": "Précision des sons",
@@ -44,7 +46,7 @@
     "legal": "Mentions légales",
     "privacy": "Confidentialité",
     "terms": "Conditions",
-    "copyright": "© 2026 NativeSpeechAI. Tous droits réservés."
+    "copyright": "© 2026 liltra. Tous droits réservés."
   },
   "PricingPreview": {
     "heading": "Tarifs simples",
@@ -99,7 +101,7 @@
     "enterpriseBtn": "Contacter les ventes"
   },
   "About": {
-    "title": "À propos de NativeSpeechAI",
+    "title": "À propos de liltra",
     "problemTitle": "Le problème",
     "problemText": "Le coaching en prononciation se limite à des sessions individuelles coûteuses ou à des applis génériques qui passent à côté des nuances phonétiques. Les apprenants reçoivent des retours vagues qui ne diagnostiquent ni les accents, ni les dialectes régionaux, ni les problèmes d'articulation.",
     "approachTitle": "Notre approche",
@@ -153,7 +155,7 @@
   },
   "Dashboard": {
     "startPractice": "Commencer la pratique",
-    "noProfileTitle": "Bienvenue sur NativeSpeech",
+    "noProfileTitle": "Bienvenue sur liltra",
     "noProfileDescription": "Faites une évaluation rapide de votre accent pour obtenir des recommandations personnalisées.",
     "takeAssessment": "Passer l'évaluation",
     "browseDrills": "Parcourir les exercices"
