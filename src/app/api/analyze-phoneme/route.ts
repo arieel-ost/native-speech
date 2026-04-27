@@ -107,7 +107,7 @@ Be encouraging but honest. If they got it right, celebrate that!
 IMPORTANT: Respond entirely in ${language}. All text fields must be in ${language}.`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-3.1-flash-lite-preview",
       contents: [
         {
           inlineData: {
@@ -120,6 +120,9 @@ IMPORTANT: Respond entirely in ${language}. All text fields must be in ${languag
       config: {
         responseMimeType: "application/json",
         responseSchema: phonemeFeedbackSchema,
+        thinkingConfig: {
+          thinkingBudget: 4096,
+        },
       },
     });
 

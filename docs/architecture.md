@@ -530,3 +530,18 @@ Each drill sentence (`DrillSession`) has:
 - `categoryId` — references the category
 - `prompt` — the sentence to read aloud
 - `targetPhonemes` — array of IPA symbols Gemini should focus on
+
+---
+
+## Research & Benchmarks
+
+Research scripts and findings live in `docs/research/` and `scripts/research-*.ts`.
+
+| Date | Topic | Report | Script |
+|------|-------|--------|--------|
+| 2026-04-26 | Speed vs Accuracy — model/schema/thinking benchmarks for phoneme analysis | [report](research/2026-04-26-speed-vs-accuracy.md) | `scripts/research-speed-vs-accuracy.ts` |
+
+Key findings from the speed-vs-accuracy benchmark:
+- **Best for `/api/analyze-phoneme`** (short drills): `gemini-3.1-flash-lite-preview` + light schema + 4k thinking → 2.0s avg, r=0.64
+- **Best for `/api/analyze`** (full feedback): `gemini-3-flash-preview` + full schema, no thinking → 4.7s avg, r=0.67
+- Current prod (`gemini-2.5-flash`) is slowest (9s) with lowest accuracy (r=0.37)

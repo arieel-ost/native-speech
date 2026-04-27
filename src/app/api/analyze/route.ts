@@ -268,7 +268,7 @@ All views must reflect the same underlying analysis — the simple view is an ac
 IMPORTANT: Respond entirely in ${language}. All text fields in your response — summaries, tips, descriptions, pattern names, exercise instructions — must be written in ${language}. Keep IPA symbols and phoneme notation as-is.`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-3-flash-preview",
       contents: [
         {
           inlineData: {

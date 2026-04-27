@@ -1,0 +1,1160 @@
+[
+  {
+    "file": "096220006.wav",
+    "text": "IT HAD HAPPENED TO HIM BEFORE",
+    "duration": 9.2,
+    "score_accuracy": 3,
+    "score_fluency": 4,
+    "score_prosodic": 4,
+    "score_total": 3,
+    "tier": "low",
+    "words": [
+      {
+        "text": "IT",
+        "accuracy": 4.4
+      },
+      {
+        "text": "HAD",
+        "accuracy": 10
+      },
+      {
+        "text": "HAPPENED",
+        "accuracy": 8
+      },
+      {
+        "text": "TO",
+        "accuracy": 9.2
+      },
+      {
+        "text": "HIM",
+        "accuracy": 4.4
+      },
+      {
+        "text": "BEFORE",
+        "accuracy": 9
+      }
+    ]
+  },
+  {
+    "file": "014220001.wav",
+    "text": "JIM WILL PAINT MY HOUSE GREEN",
+    "duration": 4.7,
+    "score_accuracy": 3,
+    "score_fluency": 8,
+    "score_prosodic": 8,
+    "score_total": 4,
+    "tier": "low",
+    "words": [
+      {
+        "text": "JIM",
+        "accuracy": 7
+      },
+      {
+        "text": "WILL",
+        "accuracy": 5.4
+      },
+      {
+        "text": "PAINT",
+        "accuracy": 4.4
+      },
+      {
+        "text": "MY",
+        "accuracy": 10
+      },
+      {
+        "text": "HOUSE",
+        "accuracy": 4.4
+      },
+      {
+        "text": "GREEN",
+        "accuracy": 10
+      }
+    ]
+  },
+  {
+    "file": "050170099.wav",
+    "text": "MY SONG MY SONG AND ALL THAT",
+    "duration": 3.9,
+    "score_accuracy": 3,
+    "score_fluency": 7,
+    "score_prosodic": 7,
+    "score_total": 3,
+    "tier": "low",
+    "words": [
+      {
+        "text": "MY",
+        "accuracy": 10
+      },
+      {
+        "text": "SONG",
+        "accuracy": 2.8
+      },
+      {
+        "text": "MY",
+        "accuracy": 10
+      },
+      {
+        "text": "SONG",
+        "accuracy": 2.8
+      },
+      {
+        "text": "AND",
+        "accuracy": 10
+      },
+      {
+        "text": "ALL",
+        "accuracy": 10
+      },
+      {
+        "text": "THAT",
+        "accuracy": 10
+      }
+    ]
+  },
+  {
+    "file": "096290004.wav",
+    "text": "SHE SMILED AT THE TIME",
+    "duration": 5.6,
+    "score_accuracy": 3,
+    "score_fluency": 5,
+    "score_prosodic": 5,
+    "score_total": 3,
+    "tier": "low",
+    "words": [
+      {
+        "text": "SHE",
+        "accuracy": 9.6
+      },
+      {
+        "text": "SMILED",
+        "accuracy": 5.6
+      },
+      {
+        "text": "AT",
+        "accuracy": 8.6
+      },
+      {
+        "text": "THE",
+        "accuracy": 10
+      },
+      {
+        "text": "TIME",
+        "accuracy": 3,
+        "mispronunciations": [
+          {
+            "canonical": "T AY0 M",
+            "produced": "T (AY0) M"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "014040097.wav",
+    "text": "WHAT A LOVELY SHINY UNDERGROUND",
+    "duration": 5,
+    "score_accuracy": 1,
+    "score_fluency": 4,
+    "score_prosodic": 4,
+    "score_total": 1,
+    "tier": "low",
+    "words": [
+      {
+        "text": "WHAT",
+        "accuracy": 9.6
+      },
+      {
+        "text": "A",
+        "accuracy": 10
+      },
+      {
+        "text": "LOVELY",
+        "accuracy": 10
+      },
+      {
+        "text": "SHINY",
+        "accuracy": 1.2
+      },
+      {
+        "text": "UNDERGROUND",
+        "accuracy": 0.6
+      }
+    ]
+  },
+  {
+    "file": "069020059.wav",
+    "text": "THEY DID NOT SEE THEM ANY MORE",
+    "duration": 3.9,
+    "score_accuracy": 3,
+    "score_fluency": 0,
+    "score_prosodic": 0,
+    "score_total": 0,
+    "tier": "low",
+    "words": [
+      {
+        "text": "THEY",
+        "accuracy": 0.6
+      },
+      {
+        "text": "DID",
+        "accuracy": 0.6
+      },
+      {
+        "text": "NOT",
+        "accuracy": 0.6
+      },
+      {
+        "text": "SEE",
+        "accuracy": 0.6
+      },
+      {
+        "text": "THEM",
+        "accuracy": 0.6
+      },
+      {
+        "text": "ANY",
+        "accuracy": 0.6
+      },
+      {
+        "text": "MORE",
+        "accuracy": 0.6
+      }
+    ]
+  },
+  {
+    "file": "069020163.wav",
+    "text": "SHE DID NOT CRY AT ALL",
+    "duration": 4.7,
+    "score_accuracy": 3,
+    "score_fluency": 6,
+    "score_prosodic": 6,
+    "score_total": 4,
+    "tier": "low",
+    "words": [
+      {
+        "text": "SHE",
+        "accuracy": 10
+      },
+      {
+        "text": "DID",
+        "accuracy": 6.6
+      },
+      {
+        "text": "NOT",
+        "accuracy": 10
+      },
+      {
+        "text": "CRY",
+        "accuracy": 2.4
+      },
+      {
+        "text": "AT",
+        "accuracy": 5.2
+      },
+      {
+        "text": "ALL",
+        "accuracy": 10
+      }
+    ]
+  },
+  {
+    "file": "096080017.wav",
+    "text": "SHE CLOSED HER EYES AND THOUGHT BACK",
+    "duration": 5.5,
+    "score_accuracy": 3,
+    "score_fluency": 4,
+    "score_prosodic": 4,
+    "score_total": 3,
+    "tier": "low",
+    "words": [
+      {
+        "text": "SHE",
+        "accuracy": 8.2
+      },
+      {
+        "text": "CLOSED",
+        "accuracy": 5
+      },
+      {
+        "text": "HER",
+        "accuracy": 4.4
+      },
+      {
+        "text": "EYES",
+        "accuracy": 2.2
+      },
+      {
+        "text": "AND",
+        "accuracy": 10
+      },
+      {
+        "text": "THOUGHT",
+        "accuracy": 2.6
+      },
+      {
+        "text": "BACK",
+        "accuracy": 3
+      }
+    ]
+  },
+  {
+    "file": "096120010.wav",
+    "text": "THEY HAD TO LET GO",
+    "duration": 2.9,
+    "score_accuracy": 3,
+    "score_fluency": 6,
+    "score_prosodic": 6,
+    "score_total": 3,
+    "tier": "low",
+    "words": [
+      {
+        "text": "THEY",
+        "accuracy": 9.6
+      },
+      {
+        "text": "HAD",
+        "accuracy": 3
+      },
+      {
+        "text": "TO",
+        "accuracy": 9.6
+      },
+      {
+        "text": "LET",
+        "accuracy": 10
+      },
+      {
+        "text": "GO",
+        "accuracy": 2
+      }
+    ]
+  },
+  {
+    "file": "096180019.wav",
+    "text": "BUT HERE IT IS THAT I MUST MAKE MY CONFESSION",
+    "duration": 7.5,
+    "score_accuracy": 3,
+    "score_fluency": 6,
+    "score_prosodic": 6,
+    "score_total": 3,
+    "tier": "low",
+    "words": [
+      {
+        "text": "BUT",
+        "accuracy": 10
+      },
+      {
+        "text": "HERE",
+        "accuracy": 3.4
+      },
+      {
+        "text": "IT",
+        "accuracy": 10
+      },
+      {
+        "text": "IS",
+        "accuracy": 8.6
+      },
+      {
+        "text": "THAT",
+        "accuracy": 8.6
+      },
+      {
+        "text": "I",
+        "accuracy": 10
+      },
+      {
+        "text": "MUST",
+        "accuracy": 9.2
+      },
+      {
+        "text": "MAKE",
+        "accuracy": 10
+      },
+      {
+        "text": "MY",
+        "accuracy": 10
+      },
+      {
+        "text": "CONFESSION",
+        "accuracy": 2.4
+      }
+    ]
+  },
+  {
+    "file": "000440082.wav",
+    "text": "LILLY LIKES BISCUIT",
+    "duration": 4,
+    "score_accuracy": 6,
+    "score_fluency": 7,
+    "score_prosodic": 7,
+    "score_total": 5,
+    "tier": "mid",
+    "words": [
+      {
+        "text": "LILLY",
+        "accuracy": 8
+      },
+      {
+        "text": "LIKES",
+        "accuracy": 8.8
+      },
+      {
+        "text": "BISCUIT",
+        "accuracy": 8.8,
+        "mispronunciations": [
+          {
+            "canonical": "B IH1 S K IH0 T",
+            "produced": "B IH1 S K IH0 (T)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "000920002.wav",
+    "text": "BILL LIKES YELLOW",
+    "duration": 3,
+    "score_accuracy": 4,
+    "score_fluency": 8,
+    "score_prosodic": 7,
+    "score_total": 4,
+    "tier": "mid",
+    "words": [
+      {
+        "text": "BILL",
+        "accuracy": 4.2
+      },
+      {
+        "text": "LIKES",
+        "accuracy": 10
+      },
+      {
+        "text": "YELLOW",
+        "accuracy": 10
+      }
+    ]
+  },
+  {
+    "file": "001120024.wav",
+    "text": "LISA LOVES AUSTRALIAN",
+    "duration": 3,
+    "score_accuracy": 5,
+    "score_fluency": 8,
+    "score_prosodic": 6,
+    "score_total": 4,
+    "tier": "mid",
+    "words": [
+      {
+        "text": "LISA",
+        "accuracy": 4.6
+      },
+      {
+        "text": "LOVES",
+        "accuracy": 2.8
+      },
+      {
+        "text": "AUSTRALIAN",
+        "accuracy": 6.8
+      }
+    ]
+  },
+  {
+    "file": "030750078.wav",
+    "text": "WELL THE PLACE LOOKS LIKE IT",
+    "duration": 4.5,
+    "score_accuracy": 6,
+    "score_fluency": 7,
+    "score_prosodic": 7,
+    "score_total": 5,
+    "tier": "mid",
+    "words": [
+      {
+        "text": "WELL",
+        "accuracy": 8.6
+      },
+      {
+        "text": "THE",
+        "accuracy": 7.4
+      },
+      {
+        "text": "PLACE",
+        "accuracy": 7
+      },
+      {
+        "text": "LOOKS",
+        "accuracy": 10
+      },
+      {
+        "text": "LIKE",
+        "accuracy": 10
+      },
+      {
+        "text": "IT",
+        "accuracy": 8.6
+      }
+    ]
+  },
+  {
+    "file": "096120015.wav",
+    "text": "HE SHOULD BE ABLE TO SEE IT FROM HERE",
+    "duration": 4.8,
+    "score_accuracy": 6,
+    "score_fluency": 7,
+    "score_prosodic": 7,
+    "score_total": 6,
+    "tier": "mid",
+    "words": [
+      {
+        "text": "HE",
+        "accuracy": 10
+      },
+      {
+        "text": "SHOULD",
+        "accuracy": 10
+      },
+      {
+        "text": "BE",
+        "accuracy": 9.6
+      },
+      {
+        "text": "ABLE",
+        "accuracy": 10
+      },
+      {
+        "text": "TO",
+        "accuracy": 8.6
+      },
+      {
+        "text": "SEE",
+        "accuracy": 3
+      },
+      {
+        "text": "IT",
+        "accuracy": 8.6
+      },
+      {
+        "text": "FROM",
+        "accuracy": 10
+      },
+      {
+        "text": "HERE",
+        "accuracy": 3.4
+      }
+    ]
+  },
+  {
+    "file": "014220115.wav",
+    "text": "THEN ALISA WALKED TO GARDEN",
+    "duration": 4.9,
+    "score_accuracy": 5,
+    "score_fluency": 5,
+    "score_prosodic": 4,
+    "score_total": 4,
+    "tier": "mid",
+    "words": [
+      {
+        "text": "THEN",
+        "accuracy": 10
+      },
+      {
+        "text": "ALISA",
+        "accuracy": 2.4
+      },
+      {
+        "text": "WALKED",
+        "accuracy": 2.4
+      },
+      {
+        "text": "TO",
+        "accuracy": 8.6
+      },
+      {
+        "text": "GARDEN",
+        "accuracy": 2
+      }
+    ]
+  },
+  {
+    "file": "030600168.wav",
+    "text": "AND WHY CAR FOR THOSE WHO DO NOT NOT YOUR",
+    "duration": 6.8,
+    "score_accuracy": 4,
+    "score_fluency": 5,
+    "score_prosodic": 4,
+    "score_total": 4,
+    "tier": "mid",
+    "words": [
+      {
+        "text": "AND",
+        "accuracy": 9.2
+      },
+      {
+        "text": "WHY",
+        "accuracy": 10
+      },
+      {
+        "text": "CAR",
+        "accuracy": 10
+      },
+      {
+        "text": "FOR",
+        "accuracy": 9.2
+      },
+      {
+        "text": "THOSE",
+        "accuracy": 4
+      },
+      {
+        "text": "WHO",
+        "accuracy": 10
+      },
+      {
+        "text": "DO",
+        "accuracy": 9.2
+      },
+      {
+        "text": "NOT",
+        "accuracy": 7.2
+      },
+      {
+        "text": "NOT",
+        "accuracy": 7.2
+      },
+      {
+        "text": "YOUR",
+        "accuracy": 10
+      }
+    ]
+  },
+  {
+    "file": "007360196.wav",
+    "text": "GIRL YOU ALL YOU ALREADY KNOW THE ANSWER TO THAT",
+    "duration": 5.8,
+    "score_accuracy": 6,
+    "score_fluency": 6,
+    "score_prosodic": 6,
+    "score_total": 6,
+    "tier": "mid",
+    "words": [
+      {
+        "text": "GIRL",
+        "accuracy": 7.8
+      },
+      {
+        "text": "YOU",
+        "accuracy": 10
+      },
+      {
+        "text": "ALL",
+        "accuracy": 9.6
+      },
+      {
+        "text": "YOU",
+        "accuracy": 9.6
+      },
+      {
+        "text": "ALREADY",
+        "accuracy": 10
+      },
+      {
+        "text": "KNOW",
+        "accuracy": 7.2
+      },
+      {
+        "text": "THE",
+        "accuracy": 10
+      },
+      {
+        "text": "ANSWER",
+        "accuracy": 10
+      },
+      {
+        "text": "TO",
+        "accuracy": 10
+      },
+      {
+        "text": "THAT",
+        "accuracy": 9.2
+      }
+    ]
+  },
+  {
+    "file": "003060017.wav",
+    "text": "SO MUCH FOR A UNITED FRONT",
+    "duration": 3.4,
+    "score_accuracy": 5,
+    "score_fluency": 7,
+    "score_prosodic": 6,
+    "score_total": 5,
+    "tier": "mid",
+    "words": [
+      {
+        "text": "SO",
+        "accuracy": 9.6
+      },
+      {
+        "text": "MUCH",
+        "accuracy": 9.2
+      },
+      {
+        "text": "FOR",
+        "accuracy": 10
+      },
+      {
+        "text": "A",
+        "accuracy": 10
+      },
+      {
+        "text": "UNITED",
+        "accuracy": 4.2
+      },
+      {
+        "text": "FRONT",
+        "accuracy": 3.8
+      }
+    ]
+  },
+  {
+    "file": "096310011.wav",
+    "text": "HE ALWAYS SAW IF SHE WANTED HIM NOT TO",
+    "duration": 6.6,
+    "score_accuracy": 5,
+    "score_fluency": 5,
+    "score_prosodic": 6,
+    "score_total": 5,
+    "tier": "mid",
+    "words": [
+      {
+        "text": "HE",
+        "accuracy": 9.6
+      },
+      {
+        "text": "ALWAYS",
+        "accuracy": 3.4,
+        "mispronunciations": [
+          {
+            "canonical": "AO1 L W EY0 Z",
+            "produced": "(AO1) (L) W EY0 Z"
+          }
+        ]
+      },
+      {
+        "text": "SAW",
+        "accuracy": 3
+      },
+      {
+        "text": "IF",
+        "accuracy": 10
+      },
+      {
+        "text": "SHE",
+        "accuracy": 6.8
+      },
+      {
+        "text": "WANTED",
+        "accuracy": 3.8
+      },
+      {
+        "text": "HIM",
+        "accuracy": 10
+      },
+      {
+        "text": "NOT",
+        "accuracy": 10
+      },
+      {
+        "text": "TO",
+        "accuracy": 9.6
+      }
+    ]
+  },
+  {
+    "file": "008110175.wav",
+    "text": "I WANT TO GO BAD",
+    "duration": 2.2,
+    "score_accuracy": 10,
+    "score_fluency": 10,
+    "score_prosodic": 9,
+    "score_total": 9,
+    "tier": "high",
+    "words": [
+      {
+        "text": "I",
+        "accuracy": 10
+      },
+      {
+        "text": "WANT",
+        "accuracy": 10
+      },
+      {
+        "text": "TO",
+        "accuracy": 10
+      },
+      {
+        "text": "GO",
+        "accuracy": 10
+      },
+      {
+        "text": "BAD",
+        "accuracy": 10
+      }
+    ]
+  },
+  {
+    "file": "011560192.wav",
+    "text": "IT'S GOING TO BE SUCH A CRAZY MOMENT",
+    "duration": 3.6,
+    "score_accuracy": 10,
+    "score_fluency": 10,
+    "score_prosodic": 10,
+    "score_total": 9,
+    "tier": "high",
+    "words": [
+      {
+        "text": "IT'S",
+        "accuracy": 10
+      },
+      {
+        "text": "GOING",
+        "accuracy": 10
+      },
+      {
+        "text": "TO",
+        "accuracy": 10
+      },
+      {
+        "text": "BE",
+        "accuracy": 10
+      },
+      {
+        "text": "SUCH",
+        "accuracy": 10
+      },
+      {
+        "text": "A",
+        "accuracy": 10
+      },
+      {
+        "text": "CRAZY",
+        "accuracy": 10
+      },
+      {
+        "text": "MOMENT",
+        "accuracy": 10
+      }
+    ]
+  },
+  {
+    "file": "008110307.wav",
+    "text": "THERE WAS A GENTLE KNOCK ON THE DOOR",
+    "duration": 3.3,
+    "score_accuracy": 9,
+    "score_fluency": 10,
+    "score_prosodic": 10,
+    "score_total": 9,
+    "tier": "high",
+    "words": [
+      {
+        "text": "THERE",
+        "accuracy": 9.6
+      },
+      {
+        "text": "WAS",
+        "accuracy": 10
+      },
+      {
+        "text": "A",
+        "accuracy": 10
+      },
+      {
+        "text": "GENTLE",
+        "accuracy": 8.6
+      },
+      {
+        "text": "KNOCK",
+        "accuracy": 10
+      },
+      {
+        "text": "ON",
+        "accuracy": 10
+      },
+      {
+        "text": "THE",
+        "accuracy": 10
+      },
+      {
+        "text": "DOOR",
+        "accuracy": 10
+      }
+    ]
+  },
+  {
+    "file": "096350016.wav",
+    "text": "I PUT THEM ON AND I SAW WHERE WE WERE",
+    "duration": 7.1,
+    "score_accuracy": 7,
+    "score_fluency": 6,
+    "score_prosodic": 6,
+    "score_total": 6,
+    "tier": "high",
+    "words": [
+      {
+        "text": "I",
+        "accuracy": 10
+      },
+      {
+        "text": "PUT",
+        "accuracy": 8.6
+      },
+      {
+        "text": "THEM",
+        "accuracy": 8.6
+      },
+      {
+        "text": "ON",
+        "accuracy": 10
+      },
+      {
+        "text": "AND",
+        "accuracy": 8.6
+      },
+      {
+        "text": "I",
+        "accuracy": 10
+      },
+      {
+        "text": "SAW",
+        "accuracy": 3
+      },
+      {
+        "text": "WHERE",
+        "accuracy": 8.6
+      },
+      {
+        "text": "WE",
+        "accuracy": 9.6
+      },
+      {
+        "text": "WERE",
+        "accuracy": 10
+      }
+    ]
+  },
+  {
+    "file": "085810040.wav",
+    "text": "I HAVE NEVER HAD TO HIDE FROM ANYBODY",
+    "duration": 4.5,
+    "score_accuracy": 8,
+    "score_fluency": 7,
+    "score_prosodic": 7,
+    "score_total": 7,
+    "tier": "high",
+    "words": [
+      {
+        "text": "I",
+        "accuracy": 10
+      },
+      {
+        "text": "HAVE",
+        "accuracy": 10
+      },
+      {
+        "text": "NEVER",
+        "accuracy": 10
+      },
+      {
+        "text": "HAD",
+        "accuracy": 10
+      },
+      {
+        "text": "TO",
+        "accuracy": 9.6
+      },
+      {
+        "text": "HIDE",
+        "accuracy": 5.8
+      },
+      {
+        "text": "FROM",
+        "accuracy": 8
+      },
+      {
+        "text": "ANYBODY",
+        "accuracy": 10
+      }
+    ]
+  },
+  {
+    "file": "010750026.wav",
+    "text": "LAYLA LOVES JAPAN",
+    "duration": 2.4,
+    "score_accuracy": 9,
+    "score_fluency": 9,
+    "score_prosodic": 9,
+    "score_total": 9,
+    "tier": "high",
+    "words": [
+      {
+        "text": "LAYLA",
+        "accuracy": 9
+      },
+      {
+        "text": "LOVES",
+        "accuracy": 10
+      },
+      {
+        "text": "JAPAN",
+        "accuracy": 10
+      }
+    ]
+  },
+  {
+    "file": "015020101.wav",
+    "text": "DAVID GOT ON THE TAX",
+    "duration": 3,
+    "score_accuracy": 8,
+    "score_fluency": 9,
+    "score_prosodic": 7,
+    "score_total": 8,
+    "tier": "high",
+    "words": [
+      {
+        "text": "DAVID",
+        "accuracy": 7.4
+      },
+      {
+        "text": "GOT",
+        "accuracy": 10
+      },
+      {
+        "text": "ON",
+        "accuracy": 10
+      },
+      {
+        "text": "THE",
+        "accuracy": 10
+      },
+      {
+        "text": "TAX",
+        "accuracy": 9.6
+      }
+    ]
+  },
+  {
+    "file": "000920149.wav",
+    "text": "JOHN LIKES THE BIG SEE TRAIN NOW",
+    "duration": 4.3,
+    "score_accuracy": 7,
+    "score_fluency": 7,
+    "score_prosodic": 7,
+    "score_total": 6,
+    "tier": "high",
+    "words": [
+      {
+        "text": "JOHN",
+        "accuracy": 9.6
+      },
+      {
+        "text": "LIKES",
+        "accuracy": 10
+      },
+      {
+        "text": "THE",
+        "accuracy": 10
+      },
+      {
+        "text": "BIG",
+        "accuracy": 10
+      },
+      {
+        "text": "SEE",
+        "accuracy": 9.6
+      },
+      {
+        "text": "TRAIN",
+        "accuracy": 8.2
+      },
+      {
+        "text": "NOW",
+        "accuracy": 8.8
+      }
+    ]
+  },
+  {
+    "file": "095530144.wav",
+    "text": "HE REACHED OVER AND TOUCHED HER HAND",
+    "duration": 4,
+    "score_accuracy": 9,
+    "score_fluency": 9,
+    "score_prosodic": 9,
+    "score_total": 9,
+    "tier": "high",
+    "words": [
+      {
+        "text": "HE",
+        "accuracy": 9.6
+      },
+      {
+        "text": "REACHED",
+        "accuracy": 10
+      },
+      {
+        "text": "OVER",
+        "accuracy": 10
+      },
+      {
+        "text": "AND",
+        "accuracy": 10
+      },
+      {
+        "text": "TOUCHED",
+        "accuracy": 10
+      },
+      {
+        "text": "HER",
+        "accuracy": 10
+      },
+      {
+        "text": "HAND",
+        "accuracy": 10
+      }
+    ]
+  },
+  {
+    "file": "000030012.wav",
+    "text": "MARK IS GOING TO SEE ELEPHANT",
+    "duration": 3.4,
+    "score_accuracy": 9,
+    "score_fluency": 9,
+    "score_prosodic": 9,
+    "score_total": 9,
+    "tier": "high",
+    "words": [
+      {
+        "text": "MARK",
+        "accuracy": 9.6
+      },
+      {
+        "text": "IS",
+        "accuracy": 9.6
+      },
+      {
+        "text": "GOING",
+        "accuracy": 10
+      },
+      {
+        "text": "TO",
+        "accuracy": 10
+      },
+      {
+        "text": "SEE",
+        "accuracy": 10
+      },
+      {
+        "text": "ELEPHANT",
+        "accuracy": 10
+      }
+    ]
+  }
+]

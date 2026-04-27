@@ -57,7 +57,7 @@ Both routes receive audio FormData, send to Gemini, return structured JSON:
 - **localStorage + SSR hydration:** Always defer localStorage reads to `useEffect` with `useState`. Direct reads in render cause hydration mismatches. See dashboard `page.tsx` and `DrillGrid.tsx` for pattern.
 - **Client components:** Any component reading localStorage must be `"use client"`
 - **Mock data:** `src/lib/mock-data.ts` contains drill content (categories, prompts, passages) — this is NOT mock user data, it's real content. Mock user/session data (`mockUser`, `mockRecentSessions`, etc.) should NOT be imported in production components.
-- **Gemini model:** Using `gemini-2.5-flash` — cheapest option with audio support. Don't upgrade to Pro without cost analysis.
+- **Gemini models:** `/api/analyze` uses `gemini-3-flash-preview` (full schema, no thinking). `/api/analyze-phoneme` uses `gemini-3.1-flash-lite-preview` (light schema, thinking_budget=4096). `/api/assess` still uses `gemini-2.5-flash`. See `docs/research/2026-04-26-speed-vs-accuracy.md` for benchmark data.
 - **Known-text word tracking:** Browser `SpeechRecognition` is best-effort only. It drives neutral prompt progress during recording, not pronunciation scoring.
 - **Browser support:** Live word tracking depends on `SpeechRecognition` / `webkitSpeechRecognition`. If unsupported, recording and Gemini analysis still work.
 - **Scope boundary:** Current word-highlighting feature is for known-text drills only. Free speech and Azure Pronunciation Assessment are deferred.
